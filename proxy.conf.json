@@ -1,0 +1,20 @@
+{
+    "/api": {
+        "target": "https://sail.artificialintelligencelead.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "changeOrigin": true
+    },
+    "/otros": {
+        "target": "https://other-remote-server",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/otros": ""
+        },
+        "changeOrigin": true
+    }
+}
