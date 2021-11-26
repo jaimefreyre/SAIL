@@ -1,4 +1,5 @@
 // create an express app
+const path = require('path');
 const express = require("express")
 const app = express()
 
@@ -9,9 +10,7 @@ function requireHTTPS(req, res, next) {
     }
     next();
 }
-const path = require('path');
 
-const app = express();
 
 app.use(express.static(__dirname + '/dist/Sail/assets'));
 app.get('/', function (req, res) {
