@@ -31,7 +31,7 @@ app.use('/directorio', serveIndex(__dirname + '/'));
 app.use(morgan('dev'));
 
 //Constante URL
-const API_SERVICE_URL = "https://sail.artificialintelligencelead.com/";
+const API_SERVICE_URL = "https://sail.artificialintelligencelead.com/api/auth/login/";
 
 // Proxy endpoints
 app.use('/loginexterno', createProxyMiddleware({
