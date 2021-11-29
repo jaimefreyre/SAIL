@@ -13,7 +13,7 @@ function requireHTTPS(req, res, next) {
 }
 
 app.use(express.static(__dirname + "/"))
-app.use('/directorio', serveIndex(__dirname + '/'));
+// app.use('/directorio', serveIndex(__dirname + '/'));     
 
 app.use(express.static(__dirname + '/dist/Sail/assets'));
 app.use(express.static(__dirname + '/dist/Sail/'));
