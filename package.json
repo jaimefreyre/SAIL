@@ -55,6 +55,7 @@
     "feather-icons": "4.28.0",
     "flatpickr": "4.6.9",
     "hammerjs": "2.0.8",
+    "http-proxy-middleware": "^2.0.1",
     "katex": "0.12.0",
     "lodash": "4.17.20",
     "ng-apexcharts": "1.5.8",

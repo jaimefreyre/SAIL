@@ -2,7 +2,8 @@
 const path = require('path');
 const express = require("express");
 var serveIndex = require('serve-index');
-var proxy = require('express-http-proxy');
+// var proxy = require('express-http-proxy');
+const proxy = require('http-proxy-middleware');
 
 const app = express()
 
@@ -15,12 +16,16 @@ function requireHTTPS(req, res, next) {
     next();
 }
 
-app.use('/proxy', proxy('www.google.com'));
+// app.use('/proxy', proxy('www.google.com'));
 // app.use('/loginexterno', proxy('https://sail.artificialintelligencelead.com/api/auth/login/'));
-app.use('/loginexterno', proxy('https://sail.artificialintelligencelead.com/'));
+// app.use('/loginexterno', proxy('https://sail.artificialintelligencelead.com/api/auth/login/'));
 
 app.use(express.static(__dirname + "/"))
 app.use('/directorio', serveIndex(__dirname + '/'));     
+
+// Add middleware for http proxying 
+const apiProxy = proxy('/api', { target: 'https://sail.artificialintelligencelead.com/' });
+app.use('/api', apiProxy);
 
 app.use(express.static(__dirname + '/dist/Sail/assets'));
 app.use(express.static(__dirname + '/dist/Sail/'));
