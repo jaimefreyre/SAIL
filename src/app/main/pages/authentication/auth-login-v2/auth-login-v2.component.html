@@ -28,11 +28,11 @@
         <ngb-alert [type]="'primary'" [dismissible]="false">
           <div class="alert-body font-small-2">
             <p>
-              <small class="mr-50"><span class="font-weight-bold">Admin:</span> admin@demo.com | admin</small>
+              <small class="mr-50"><span class="font-weight-bold">Admin:</span> sistema@info-auto.es | SAIL</small>
             </p>
-            <p>
+            <!-- <p>
               <small class="mr-50"><span class="font-weight-bold">Client:</span> client@demo.com | client</small>
-            </p>
+            </p> -->
           </div>
           <span
             class="feather icon-help-circle auth-help-icon font-medium-3"
@@ -55,7 +55,7 @@
               formControlName="email"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-              placeholder="admin@demo.com"
+              placeholder="sistema@info-auto.es"
               aria-describedby="login-email"
               autofocus=""
               tabindex="1"
@@ -76,7 +76,7 @@
                 formControlName="password"
                 class="form-control form-control-merge"
                 [ngClass]="{ 'is-invalid error': submitted && f.password.errors }"
-                placeholder="············"
+                placeholder="SAIL"
                 aria-describedby="login-password"
                 tabindex="2"
               />
