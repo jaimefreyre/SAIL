@@ -14,7 +14,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.DISABLED',
         icon: 'calendar',
         type: 'item',
-        url: '#'
+        url: './sail/calendario'
         // disabled: true
       },
       {
@@ -71,7 +71,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'home',
         type: 'item',
-        url: '#'
+        url: '/sail/home'
       },
       {
         id: 'METRICAS',
@@ -79,7 +79,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'trending-up',
         type: 'item',
-        url: '#'
+        url: '/sail/home/'
       },
       {
         id: 'configuracion-sail',
@@ -98,7 +98,7 @@ export const menu: CoreMenu[] = [
           },
           {
             id: 'centroderecursos',
-            title: 'centroderecursos',
+            title: 'Centro de Recursos',
             // translate: 'MENU.CRM.LEVELS.SECOND1.COLLAPSIBLE',
             icon: 'circle',
             type: 'collapsible',
