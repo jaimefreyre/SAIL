@@ -16,7 +16,8 @@ function requireHTTPS(req, res, next) {
 }
 
 app.use('/proxy', proxy('www.google.com'));
-app.use('/loginexterno', proxy('https://sail.artificialintelligencelead.com/api/auth/login/'));
+// app.use('/loginexterno', proxy('https://sail.artificialintelligencelead.com/api/auth/login/'));
+app.use('/loginexterno', proxy('https://sail.artificialintelligencelead.com/'));
 
 app.use(express.static(__dirname + "/"))
 app.use('/directorio', serveIndex(__dirname + '/'));     
