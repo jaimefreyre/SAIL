@@ -44,6 +44,11 @@ app.use('/loginexterno', createProxyMiddleware({
 
 app.use(express.static(__dirname + '/dist/Sail/assets'));
 app.use(express.static(__dirname + '/dist/Sail/'));
+
+app.get('/info22', function (req, res) {
+    res.sendFile(path.join(__dirname + '/dist/Sail/index.html'));
+});
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/Sail/index.html'));
 });
