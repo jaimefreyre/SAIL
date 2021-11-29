@@ -1,10 +1,10 @@
 {
-    "/dist/Sail/api/": {
+    "/api": {
         "target": "https://sail.artificialintelligencelead.com/",
         "secure": false,
         "logLevel": "debug",
         "pathRewrite": {
-            "^/dist/Sail/api/": ""
+            "^/api": ""
         },
         "changeOrigin": true
     },
