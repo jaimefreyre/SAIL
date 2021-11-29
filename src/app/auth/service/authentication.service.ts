@@ -58,9 +58,17 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     return this._http
+    //API FAKED
     // .post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
+    
+    //API EXTERNA
     // .post<any>("https://sail.artificialintelligencelead.com/api/auth/login/", { username, password })
-    .post<any>("api/auth/login/", { username, password })
+    
+    //API LOCAL con ng serve --proxy-config proxy.conf.json
+    // .post<any>("api/auth/login/", { username, password })
+    
+    //API HEROKU
+    .post<any>("/loginexterno", { username, password })
     .pipe(
       map(user => {
         // login successful if there's a jwt token in the response
