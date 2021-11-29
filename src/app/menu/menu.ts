@@ -83,14 +83,14 @@ export const menu: CoreMenu[] = [
       },
       {
         id: 'configuracion-sail',
-        title: 'configuracion sail',
+        title: 'ADMINISTRACION',
         // translate: 'MENU.CRM.LEVELS.COLLAPSIBLE',
         icon: 'menu',
         type: 'collapsible',
         children: [
           {
             id: 'configuraciones',
-            title: 'Configuraciones',
+            title: 'CONFIGURACIONES',
             // translate: 'MENU.CRM.LEVELS.SECOND',
             icon: 'sliders',
             type: 'item',
@@ -98,7 +98,7 @@ export const menu: CoreMenu[] = [
           },
           {
             id: 'centroderecursos',
-            title: 'Centro de Recursos',
+            title: 'RECURSOS',
             // translate: 'MENU.CRM.LEVELS.SECOND1.COLLAPSIBLE',
             icon: 'circle',
             type: 'collapsible',
@@ -132,7 +132,7 @@ export const menu: CoreMenu[] = [
       },
       {
         id: 'Atencion-al-Cliente',
-        title: 'Atencion al Cliente',
+        title: 'ATENCION',
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'file-text',
         type: 'item',
@@ -141,7 +141,7 @@ export const menu: CoreMenu[] = [
       },
       {
         id: 'Novedades',
-        title: 'Novedades',
+        title: 'NOVEDADES',
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'refresh-ccw',
         type: 'item',
@@ -150,7 +150,7 @@ export const menu: CoreMenu[] = [
       },
       {
         id: 'Tutorial',
-        title: 'Tutorial',
+        title: 'TUTORIALES',
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'coffee',
         type: 'item',
