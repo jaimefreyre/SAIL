@@ -32,11 +32,11 @@ import { BasicCustomContextMenuComponent } from './main/extensions/context-menu/
 import { SubMenuCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/sub-menu-custom-context-menu/sub-menu-custom-context-menu.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'dashboard',
-    loadChildren: () => import('./main/dashboard/dashboard.module').then(m => m.DashboardModule),
-    // canActivate: [AuthGuard]
-  },
+  // {
+  //   path: 'dashboard',
+  //   loadChildren: () => import('./main/dashboard/dashboard.module').then(m => m.DashboardModule),
+  //   // canActivate: [AuthGuard]
+  // },
   // {
   //   path: 'apps',
   //   loadChildren: () => import('./main/apps/apps.module').then(m => m.AppsModule),
@@ -78,7 +78,7 @@ const appRoutes: Routes = [
   // },
   {
     path: '',
-    redirectTo: '/sail/A',
+    redirectTo: '/sail/home',
     pathMatch: 'full'
   },
   {

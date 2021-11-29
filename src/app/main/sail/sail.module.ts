@@ -11,6 +11,7 @@ import { ContentHeaderModule } from 'app/layout/components/content-header/conten
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 // import { FaqModule } from 'app/main/pages/faq/faq.module';
 import { DashboardSailModule } from './dashboard_sail/dashboard.module';
+import { CalendarModule } from './calendario/calendar.module';
 // import { BlogModule } from './blog/blog.module';
 // import { ProfileModule } from './profile/profile.module';
 // import { PricingModule } from './pricing/pricing.module';
@@ -29,8 +30,8 @@ import { DashboardSailModule } from './dashboard_sail/dashboard.module';
     FormsModule,
     Ng2FlatpickrModule,
     // FaqModule,
-
-    DashboardSailModule
+    DashboardSailModule,
+    CalendarModule
     // AuthenticationModule,
     // MiscellaneousModule,
     // PricingModule,

@@ -27,7 +27,7 @@ import { EcommerceComponent } from 'app/main/sail/dashboard_sail/ecommerce/ecomm
 
 const routes = [
   {
-    path: 'A',
+    path: 'home',
     component: AnalyticsComponentSail,
     // canActivate: [AuthGuard],
     // data: { roles: [Role.Admin] },
@@ -37,7 +37,7 @@ const routes = [
     }
   },
   {
-    path: 'E',
+    path: 'metricas',
     component: EcommerceComponent,
     // canActivate: [AuthGuard],
     resolve: {
