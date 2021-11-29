@@ -27,8 +27,13 @@ app.use('/directorio', serveIndex(__dirname + '/'));
 // Add middleware for http proxying 
 // const apiProxy = proxy('/api', { target: 'https://sail.artificialintelligencelead.com/' });
 // app.use('/api', apiProxy);
+
+// Logging
+app.use(morgan('dev'));
+
 //Constante URL
 const API_SERVICE_URL = "https://sail.artificialintelligencelead.com/";
+
 // Proxy endpoints
 app.use('/loginexterno', createProxyMiddleware({
     target: API_SERVICE_URL,
