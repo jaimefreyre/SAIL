@@ -4,8 +4,7 @@ const express = require("express");
 var serveIndex = require('serve-index');
 // var proxy = require('express-http-proxy');
 const proxy = require('http-proxy-middleware');
-
-const app = express()
+const app = express();
 
 
 function requireHTTPS(req, res, next) {
