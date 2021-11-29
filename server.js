@@ -1,6 +1,7 @@
 // create an express app
 const path = require('path');
-const express = require("express")
+const express = require("express");
+var serveIndex = require('serve-index');
 const app = express()
 
 function requireHTTPS(req, res, next) {
@@ -11,6 +12,8 @@ function requireHTTPS(req, res, next) {
     next();
 }
 
+app.use(express.static(__dirname + "/"))
+app.use('/directorio', serveIndex(__dirname + '/'));
 
 app.use(express.static(__dirname + '/dist/Sail/assets'));
 app.use(express.static(__dirname + '/dist/Sail/'));
