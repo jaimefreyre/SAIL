@@ -79,7 +79,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'trending-up',
         type: 'item',
-        url: '/sail/home/'
+        url: '/sail/metricas'
       },
       {
         id: 'configuracion-sail',
