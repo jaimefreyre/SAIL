@@ -25,6 +25,36 @@ import { FramesdashComponent } from './framesdash/framesdash.component';
 // import { AuthenticationModule } from './authentication/authentication.module';
 // import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
+
+import { RouterModule, Routes } from '@angular/router';
+const routes: Routes = [
+  {
+    path: 'llamadas',
+    component: LlamadasComponent
+  },
+  {
+    path: 'contactos',
+    component: ContactosComponent
+  },
+  {
+    path: 'automatismos',
+    component: AutomatismosComponent
+  },
+  {
+    path: 'abm',
+    component: AbmComponent
+  },
+  {
+    path: 'nuevo',
+    component: NuevoLedComponent
+  },
+  {
+    path: 'framedash',
+    component: FramesdashComponent
+  },
+];
+
+
 @NgModule({
   declarations: [LlamadasComponent, ContactosComponent, AutomatismosComponent, AbmComponent, NuevoLedComponent, FramesdashComponent],
   imports: [
@@ -37,7 +67,8 @@ import { FramesdashComponent } from './framesdash/framesdash.component';
     Ng2FlatpickrModule,
     // FaqModule,
     DashboardSailModule,
-    CalendarModule
+    CalendarModule,
+    RouterModule.forChild(routes),
     // AuthenticationModule,
     // MiscellaneousModule,
     // PricingModule,

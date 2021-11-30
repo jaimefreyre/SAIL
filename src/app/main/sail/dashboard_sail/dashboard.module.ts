@@ -28,7 +28,7 @@ const routes = [
   {
     path: 'home',
     component: AnalyticsComponentSail,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     // data: { roles: [Role.Admin] },
     resolve: {
       css: DashboardServiceSail,
@@ -38,7 +38,7 @@ const routes = [
   {
     path: 'metricas',
     component: EcommerceComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     resolve: {
       css: DashboardServiceSail
     }
