@@ -31,7 +31,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'users',
         type: 'item',
-        url: '#'
+        url: '/sail/contactos'
       },
       {
         id: 'NUEVO_LED',
@@ -39,7 +39,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'plus-circle',
         type: 'item',
-        url: '#'
+        url: '/sail/nuevo'
       },
       {
         id: 'Automatismos',
@@ -47,7 +47,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'file-text',
         type: 'item',
-        url: '#'
+        url: '/sail/automatismos'
       },
       {
         id: 'IMP-EXP',
@@ -55,7 +55,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'life-buoy',
         type: 'item',
-        url: '#'
+        url: '/sail/abm'
       },
       {
         id: 'LLAMADAS',
@@ -63,7 +63,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'phone-call',
         type: 'item',
-        url: '#'
+        url: '/sail/llamadas'
       },
       {
         id: 'DASHBOARD',
@@ -127,6 +127,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'book-open',
         type: 'item',
+        url: '#',
         externalUrl: true,
         openInNewTab: true
       },
@@ -136,6 +137,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'file-text',
         type: 'item',
+        url: '#',
         externalUrl: true,
         openInNewTab: true
       },
@@ -145,6 +147,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'refresh-ccw',
         type: 'item',
+        url: '#',
         externalUrl: true,
         openInNewTab: true
       },
@@ -154,6 +157,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'coffee',
         type: 'item',
+        url: '#',
         externalUrl: true,
         openInNewTab: true
       },
@@ -163,6 +167,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.DOCUMENTATION',
         icon: 'file-text',
         type: 'item',
+        url: '#',
         externalUrl: true,
         openInNewTab: true
       }
