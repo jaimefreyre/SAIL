@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public coreConfig: any;
   public currentSkin: string;
+
+  public recibeLeads: boolean = false;
   public prevSkin: string;
 
   public currentUser: User;
@@ -156,6 +158,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       localStorage.setItem('prevSkin', this.currentSkin);
       this._coreConfigService.setConfig({ layout: { skin: 'dark' } }, { emitEvent: true });
     }
+  }
+
+  toggleHabilitado(){
+    this.recibeLeads = !this.recibeLeads;
   }
 
   /**
