@@ -20,7 +20,11 @@ import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.ser
 
 import { AnalyticsComponentSail } from 'app/main/sail/dashboard_sail/analytics/analytics.component';
 import { EcommerceComponent } from 'app/main/sail/dashboard_sail/ecommerce/ecommerce.component';
+
 import { CoreCardModule } from '@core/components/core-card/core-card.module';
+import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
+// import { CardActionsComponent } from 'app/main/ui/card/card-actions/card-actions.component';
+
 
 
 const routes = [
@@ -55,7 +59,8 @@ const routes = [
     CoreCommonModule,
     NgApexchartsModule,
     InvoiceModule,
-    CoreCardModule
+    CoreCardModule,
+    ContentHeaderModule
   ],
   providers: [DashboardServiceSail, InvoiceListService],
   exports: [EcommerceComponent]
