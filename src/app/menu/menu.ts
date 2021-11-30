@@ -23,7 +23,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'search',
         type: 'item',
-        url: '#'
+        url: '/sail/home'
       },
       {
         id: 'Contactos',

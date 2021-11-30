@@ -1,180 +1,68 @@
 
 <div class="row match-height">
-  <!-- User Timeline -->
-  <!-- <div class="col-lg-3 col-12">
-    <div class="card card-user-timeline">
-      <div class="card-header">
-        <div class="d-flex align-items-center">
-          <i data-feather="list" class="user-timeline-title-icon"></i>
-          <h4 class="card-title">User Timeline</h4>
-        </div>
-        <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
-      </div>
-      <div class="card-body">
-        <ul class="timeline ml-50 mb-0">
-          <li class="timeline-item">
-            <span class="timeline-point timeline-point-indicator"></span>
-            <div class="timeline-event">
-              <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                <h6>12 Invoices have been paid</h6>
-                <span class="timeline-event-time mr-1">12 min ago</span>
-              </div>
-              <p>Invoices have been paid to the company.</p>
-              <div class="media align-items-center">
-                <img class="mr-1" src="assets/images/icons/json.png" alt="data.json" height="23" />
-                <h6 class="media-body mb-0">data.json</h6>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <span class="timeline-point timeline-point-warning timeline-point-indicator"></span>
-            <div class="timeline-event">
-              <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                <h6>Client Meeting</h6>
-                <span class="timeline-event-time mr-1">45 min ago</span>
-              </div>
-              <p>Project meeting with john @10:15am</p>
-              <div class="media align-items-center">
-                <div class="avatar mr-50">
-                  <img src="assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="38" height="38" />
-                </div>
-                <div class="media-body">
-                  <h6 class="mb-0">John Doe (Client)</h6>
-                  <p class="mb-0">CEO of Infibeam</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <span class="timeline-point timeline-point-info timeline-point-indicator"></span>
-            <div class="timeline-event">
-              <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                <h6>Create a new project for client</h6>
-                <span class="timeline-event-time mr-1">2 day ago</span>
-              </div>
-              <p>Add files to new design folder</p>
-              <div class="avatar-group">
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Billy Hopkins"
-                  class="avatar pull-up"
-                >
-                  <img src="assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Amy Carson"
-                  class="avatar pull-up"
-                >
-                  <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" width="33" height="33" />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Brandon Miles"
-                  class="avatar pull-up"
-                >
-                  <img src="assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" width="33" height="33" />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Daisy Weber"
-                  class="avatar pull-up"
-                >
-                  <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="33" height="33" />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Jenny Looper"
-                  class="avatar pull-up"
-                >
-                  <img src="assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <span class="timeline-point timeline-point-danger timeline-point-indicator"></span>
-            <div class="timeline-event">
-              <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                <h6>Create a new project for client</h6>
-                <span class="timeline-event-time mr-1">5 day ago</span>
-              </div>
-              <p class="mb-0">Add files to new design folder</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
-  <!--/ User Timeline -->
-
+ 
   <div class="col-lg-12 col-md-12 col-xs-12"></div>
   
 
   <!-- Card Leads Informe-->
-  <div class="col-lg-4 col-md-6 col-12 cajadeleads">
-    <h4 class="title text-center">Nuevos</h4>
-    <core-card [actions]="['collapse', 'expand']" [title]="'leads'" >
+  <div class="col-lg-4 col-md-6 col-12">
+    <core-card [actions]="['collapse', 'expand']" [title]="'leads'">
       <h4 class="card-title">Lead Titulo</h4>
-      <div class="card-body forzar100">
-        <div class="row">
-          <div class="card card-app-design forzar100">
-            <div class="card-body">
-              <div class="badge badge-light-primary">
-                CALIFICACION LEAD
-              </div>
-              <h4 class="card-title">NOMBRE CLIENTE</h4>
-              <p class="card-text font-small-2 ">
-                TELEFONO:
-              </p>
-              <p class="card-text font-small-2 ">
-                CANAL:
-              </p>
-              <div class="design-group ">
-                <h6 class="section-label">Team</h6>
-                <div class="badge badge-light-warning mr-1">AGENTEASIGNADO</div>
-                <!-- <div class="badge badge-light-primary">Wireframe</div> -->
-              </div>
-              <div class="design-group pt-25">
-                <h6 class="section-label">Members</h6>
-                <div class="avatar">
-                  <img src="assets/images/portrait/small/avatar-s-9.jpg" width="34" height="34" alt="Avatar" />
-                </div>
-                <div class="avatar bg-light-danger">
-                  <div class="avatar-content">PI</div>
-                </div>
-                <div class="avatar">
-                  <img src="assets/images/portrait/small/avatar-s-14.jpg" width="34" height="34" alt="Avatar" />
-                </div>
-                <div class="avatar">
-                  <img src="assets/images/portrait/small/avatar-s-7.jpg" width="34" height="34" alt="Avatar" />
-                </div>
-                <div class="avatar bg-light-secondary">
-                  <div class="avatar-content">AL</div>
+      <div class="card-body cajadeleads">
+        <!-- <h6 class="my-2 text-muted">Body</h6>
+        <h6 class="my-2 text-muted">Titles, Text, and Links</h6> -->
+        <h6 class="my-2 text-muted">Informacion</h6>
+        
+        <div class="card mb-4">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="card">
+                <div class="card-header">Featured</div>
+                <div class="card-body">
+                  <h4 class="card-title">Special title treatment</h4>
+                  <p class="card-text">
+                    With supporting text below as a natural lead-in to additional content natural lead-in to additional
+                    content.
+                  </p>
+                  <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                 </div>
               </div>
-             
-            </div>
-          </div>
+            </li>
+            <li class="list-group-item">
+              <div class="card-body">
+                This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
+                cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <div class="card-subtitle text-muted mb-1">Card subtitle</div>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+                <a href="javascript:void(0)" class="card-link">Card link</a>
+                <a href="javascript:void(0)" class="card-link">Another link</a>
+              </div>
+            </li>
+          </ul>
         </div>
+      
       </div>
     </core-card>
   </div>
   <!--/ Card Leads Informe-->
   
+
+
+
+
+
   <!-- Card Leads Traicing-->
   <div class="col-lg-4 col-md-6 col-12 cajadeleads">
+    
     <h4 class="title text-center">Procesados</h4>
+    
     <core-card [actions]="['collapse', 'expand']" [title]="'leads'" >
       <h4 class="card-title">Lead Titulo</h4>
       <h6 class="card-title">Detalle</h6>
