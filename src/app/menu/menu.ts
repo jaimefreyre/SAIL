@@ -71,7 +71,7 @@ export const menu: CoreMenu[] = [
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'home',
         type: 'item',
-        url: '/sail/framesdash'
+        url: '/sail/framedash'
       },
       {
         id: 'METRICAS',
