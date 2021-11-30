@@ -12,6 +12,12 @@ import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 // import { FaqModule } from 'app/main/pages/faq/faq.module';
 import { DashboardSailModule } from './dashboard_sail/dashboard.module';
 import { CalendarModule } from './calendario/calendar.module';
+import { LlamadasComponent } from './llamadas/llamadas.component';
+import { ContactosComponent } from './contactos/contactos.component';
+import { AutomatismosComponent } from './automatismos/automatismos.component';
+import { AbmComponent } from './abm/abm.component';
+import { NuevoLedComponent } from './nuevo-led/nuevo-led.component';
+import { FramesdashComponent } from './framesdash/framesdash.component';
 // import { BlogModule } from './blog/blog.module';
 // import { ProfileModule } from './profile/profile.module';
 // import { PricingModule } from './pricing/pricing.module';
@@ -20,7 +26,7 @@ import { CalendarModule } from './calendario/calendar.module';
 // import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [LlamadasComponent, ContactosComponent, AutomatismosComponent, AbmComponent, NuevoLedComponent, FramesdashComponent],
   imports: [
     CommonModule,
     CoreCommonModule,
