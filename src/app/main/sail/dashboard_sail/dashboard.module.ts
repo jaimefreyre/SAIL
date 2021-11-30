@@ -20,8 +20,7 @@ import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.ser
 
 import { AnalyticsComponentSail } from 'app/main/sail/dashboard_sail/analytics/analytics.component';
 import { EcommerceComponent } from 'app/main/sail/dashboard_sail/ecommerce/ecommerce.component';
-
-
+import { CoreCardModule } from '@core/components/core-card/core-card.module';
 
 
 const routes = [
@@ -55,7 +54,8 @@ const routes = [
     PerfectScrollbarModule,
     CoreCommonModule,
     NgApexchartsModule,
-    InvoiceModule
+    InvoiceModule,
+    CoreCardModule
   ],
   providers: [DashboardServiceSail, InvoiceListService],
   exports: [EcommerceComponent]
