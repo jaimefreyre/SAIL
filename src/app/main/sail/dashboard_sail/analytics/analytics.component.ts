@@ -8,6 +8,7 @@ import { colors } from 'app/colors.const';
 import { User } from 'app/auth/models';
 import { UserService } from 'app/auth/service';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
+import { CoreCardModule } from '@core/components/core-card/core-card.module';
 
 @Component({
   selector: 'app-analytics',
@@ -50,12 +51,14 @@ export class AnalyticsComponentSail implements OnInit {
    * @param {UserService} _userService
    * @param {DashboardService} _dashboardService
    * @param {CoreConfigService} _coreConfigService
+   * @param {CoreCardModule} _cardModule
    *
    */
   constructor(
     private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
-    private _coreConfigService: CoreConfigService
+    private _coreConfigService: CoreConfigService, 
+    private _cardModule: CoreCardModule
   ) {
     // Subscribers Gained chart
     this.gainedChartoptions = {
