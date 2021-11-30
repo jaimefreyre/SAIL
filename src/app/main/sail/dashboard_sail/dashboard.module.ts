@@ -23,9 +23,6 @@ import { EcommerceComponent } from 'app/main/sail/dashboard_sail/ecommerce/ecomm
 
 import { CoreCardModule } from '@core/components/core-card/core-card.module';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
-// import { CardActionsComponent } from 'app/main/ui/card/card-actions/card-actions.component';
-
-
 
 const routes = [
   {
