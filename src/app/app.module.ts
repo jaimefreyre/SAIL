@@ -18,6 +18,9 @@ import { CoreCommonModule } from '@core/common.module';
 import { CoreSidebarModule, CoreThemeCustomizerModule } from '@core/components';
 import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 
+import { CoreCardModule } from '@core/components/core-card/core-card.module';
+
+
 import { coreConfig } from 'app/app-config';
 import { AuthGuard } from 'app/auth/helpers/auth.guards';
 import { fakeBackendProvider } from 'app/auth/helpers'; // used to create fake backend
@@ -116,6 +119,7 @@ const appRoutes: Routes = [
     CoreSidebarModule,
     CoreThemeCustomizerModule,
     CardSnippetModule,
+    CoreCardModule,
     LayoutModule,
     ContentHeaderModule
   ],
