@@ -22,10 +22,26 @@
             <div class="input-group">
               <div class="input-group-prepend">
                 
+                <button 
+                  type="button" 
+                  class="btn btn-outline-primary" 
+                  rippleEffect>
+                  Todos
+                </button>
                 <!-- Button trigger modal -->
+                
+                <button 
+                  type="button" 
+                  class="btn btn-outline-primary" 
+                  rippleEffect>
+                  Mios
+                </button>
+                <!-- Button trigger modal -->
+                
                 <button type="button" class="btn btn-outline-primary" (click)="modalOpenAD(modalAD)" rippleEffect>
                   Filtro
                 </button>
+                
                 <!-- Modal Filtro-->
                 <ng-template #modalAD let-modal>
                   <div class="modal-header">
@@ -55,7 +71,7 @@
                 <!-- / Modal Filtro-->
                 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-primary" (click)="modalOpenAD(modalAD)" rippleEffect>
+                <button type="button" class="btn btn-outline-primary"  rippleEffect>
                   Exportar
                 </button>
 
@@ -82,8 +98,25 @@
         <core-card [actions]="['collapse']">
           
           <h4 class="card-title">
-            <div class="badge badge-pill badge-light-success">
-              puntaje
+            <div>
+              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                <span [data-feather]="'star'"></span>
+              </button>
+              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                <span [data-feather]="'star'"></span>
+              </button>
+              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                <span [data-feather]="'star'"></span>
+              </button>
+              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                <span [data-feather]="'star'"></span>
+              </button>
+              <button type="button" class="btn btn-icon rounded-circle btn-outline-primary" rippleEffect>
+                <span [data-feather]="'star'"></span>
+              </button>
+              <span class="badge badge-pill badge-light-success">
+                Titulo de Lead
+              </span>
             </div>
           </h4>
           
@@ -98,6 +131,8 @@
                     <div class="badge badge-pill badge-light-warning">Warning</div>
                     <div class="badge badge-pill badge-light-info">Info</div>
                     <div class="badge badge-pill badge-light-dark">Dark</div>
+                    <br>
+                    <br>
                     <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
                 </div>
