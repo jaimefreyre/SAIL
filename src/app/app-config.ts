@@ -17,7 +17,7 @@ import { CoreConfig } from '@core/types';
 export const coreConfig: CoreConfig = {
   app: {
     appName     : 'SailCRM',                                        // App Name
-    appTitle    : 'SailCRM - 2021', // App Title
+    appTitle    : 'Infoauto', // App Title
     //SE MODIFICARON LOS DATOS DEL FRAMEWORK
     // appLogoImage: 'assets/images/logo/logo.svg',                  // App Logo
     appLogoImage: 'https://sail.artificialintelligencelead.com/favicon.ico',                  // App Logo
