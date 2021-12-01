@@ -191,6 +191,8 @@
   </div>
   <!--/ Card Leads Informe-->
 
+
+
   <!-- Card Leads Informe-->
   <div class="col-lg-4 col-md-6 col-12 contenedor">
 
@@ -199,35 +201,29 @@
       <div class="card-body cajadeleads">
         
         <core-card [actions]="['collapse']">
-          
-          <h4 class="card-title">
-            Titulo de Lead
-              <div>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
+          <div class="card-title d-flex justify-content-between align-items-center">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <h4 class="title">Titulo de Lead</h4>
               </div>
 
-              <span class="badge badge-pill badge-light-success">
-                CJ
-              </span>
-          </h4>
+              <div class="col-lg-6">
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+              </div>
+
+            </div>
+          </div>
           
           <div class="card-body">
             <ul class="list-group list-group-flush">
+              
               <li class="list-group-item">
+              
                 <div class="card">
                   <div class="card-header">
                     <div class="badge badge-pill badge-light-primary">Primary</div>
@@ -241,20 +237,51 @@
                     <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
                 </div>
+
                 <div class="card-body">
-                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
-                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                  <div class="row border-top text-center mx-0">
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  </div>
                 </div>
+              
               </li>
+             
               <li class="list-group-item">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </p>
-                  <a href="javascript:void(0)" class="card-link">Card link</a>
-                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                <div class="card-body p-0">
+                  
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
                 </div>
               </li>
             </ul>
@@ -265,6 +292,9 @@
     </core-card>
   </div>
   <!--/ Card Leads Informe-->
+
+
+
   <!-- Card Leads Informe-->
   <div class="col-lg-4 col-md-6 col-12 contenedor">
 
@@ -273,35 +303,29 @@
       <div class="card-body cajadeleads">
         
         <core-card [actions]="['collapse']">
-          
-          <h4 class="card-title">
-            Titulo de Lead
-              <div>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
+          <div class="card-title d-flex justify-content-between align-items-center">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <h4 class="title">Titulo de Lead</h4>
               </div>
 
-              <span class="badge badge-pill badge-light-success">
-                CJ
-              </span>
-          </h4>
+              <div class="col-lg-6">
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+              </div>
+
+            </div>
+          </div>
           
           <div class="card-body">
             <ul class="list-group list-group-flush">
+              
               <li class="list-group-item">
+              
                 <div class="card">
                   <div class="card-header">
                     <div class="badge badge-pill badge-light-primary">Primary</div>
@@ -315,20 +339,51 @@
                     <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
                 </div>
+
                 <div class="card-body">
-                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
-                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                  <div class="row border-top text-center mx-0">
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  </div>
                 </div>
+              
               </li>
+             
               <li class="list-group-item">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </p>
-                  <a href="javascript:void(0)" class="card-link">Card link</a>
-                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                <div class="card-body p-0">
+                  
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
                 </div>
               </li>
             </ul>
@@ -339,6 +394,9 @@
     </core-card>
   </div>
   <!--/ Card Leads Informe-->
+
+
+
   <!-- Card Leads Informe-->
   <div class="col-lg-4 col-md-6 col-12 contenedor">
 
@@ -347,35 +405,29 @@
       <div class="card-body cajadeleads">
         
         <core-card [actions]="['collapse']">
-          
-          <h4 class="card-title">
-            Titulo de Lead
-              <div>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
+          <div class="card-title d-flex justify-content-between align-items-center">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <h4 class="title">Titulo de Lead</h4>
               </div>
 
-              <span class="badge badge-pill badge-light-success">
-                CJ
-              </span>
-          </h4>
+              <div class="col-lg-6">
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+              </div>
+
+            </div>
+          </div>
           
           <div class="card-body">
             <ul class="list-group list-group-flush">
+              
               <li class="list-group-item">
+              
                 <div class="card">
                   <div class="card-header">
                     <div class="badge badge-pill badge-light-primary">Primary</div>
@@ -389,20 +441,51 @@
                     <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
                 </div>
+
                 <div class="card-body">
-                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
-                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                  <div class="row border-top text-center mx-0">
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  </div>
                 </div>
+              
               </li>
+             
               <li class="list-group-item">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </p>
-                  <a href="javascript:void(0)" class="card-link">Card link</a>
-                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                <div class="card-body p-0">
+                  
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
                 </div>
               </li>
             </ul>
@@ -413,6 +496,9 @@
     </core-card>
   </div>
   <!--/ Card Leads Informe-->
+
+
+
   <!-- Card Leads Informe-->
   <div class="col-lg-4 col-md-6 col-12 contenedor">
 
@@ -421,35 +507,29 @@
       <div class="card-body cajadeleads">
         
         <core-card [actions]="['collapse']">
-          
-          <h4 class="card-title">
-            Titulo de Lead
-              <div>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
+          <div class="card-title d-flex justify-content-between align-items-center">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <h4 class="title">Titulo de Lead</h4>
               </div>
 
-              <span class="badge badge-pill badge-light-success">
-                CJ
-              </span>
-          </h4>
+              <div class="col-lg-6">
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+              </div>
+
+            </div>
+          </div>
           
           <div class="card-body">
             <ul class="list-group list-group-flush">
+              
               <li class="list-group-item">
+              
                 <div class="card">
                   <div class="card-header">
                     <div class="badge badge-pill badge-light-primary">Primary</div>
@@ -463,20 +543,51 @@
                     <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
                 </div>
+
                 <div class="card-body">
-                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
-                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                  <div class="row border-top text-center mx-0">
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  </div>
                 </div>
+              
               </li>
+             
               <li class="list-group-item">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </p>
-                  <a href="javascript:void(0)" class="card-link">Card link</a>
-                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                <div class="card-body p-0">
+                  
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
                 </div>
               </li>
             </ul>
@@ -487,6 +598,9 @@
     </core-card>
   </div>
   <!--/ Card Leads Informe-->
+
+
+
   <!-- Card Leads Informe-->
   <div class="col-lg-4 col-md-6 col-12 contenedor">
 
@@ -495,35 +609,29 @@
       <div class="card-body cajadeleads">
         
         <core-card [actions]="['collapse']">
-          
-          <h4 class="card-title">
-            Titulo de Lead
-              <div>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
-                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
-                  <span [data-feather]="'star'"></span>
-                </button>
+          <div class="card-title d-flex justify-content-between align-items-center">
+            <div class="row">
+
+              <div class="col-lg-6">
+                <h4 class="title">Titulo de Lead</h4>
               </div>
 
-              <span class="badge badge-pill badge-light-success">
-                CJ
-              </span>
-          </h4>
+              <div class="col-lg-6">
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+              </div>
+
+            </div>
+          </div>
           
           <div class="card-body">
             <ul class="list-group list-group-flush">
+              
               <li class="list-group-item">
+              
                 <div class="card">
                   <div class="card-header">
                     <div class="badge badge-pill badge-light-primary">Primary</div>
@@ -537,20 +645,51 @@
                     <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
                 </div>
+
                 <div class="card-body">
-                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
-                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                  <div class="row border-top text-center mx-0">
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  </div>
                 </div>
+              
               </li>
+             
               <li class="list-group-item">
-                <div class="card-body">
-                  <h4 class="card-title">Card title</h4>
-                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </p>
-                  <a href="javascript:void(0)" class="card-link">Card link</a>
-                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                <div class="card-body p-0">
+                  
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
+                  <div class="row border-top text-center mx-0">
+                  
+                    <div class="col-6 border-right py-1">
+                      <p class="card-text text-muted mb-0">Completed</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                    </div>
+                    <div class="col-6 py-1">
+                      <p class="card-text text-muted mb-0">In Progress</p>
+                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                    </div>
+                  
+                  </div>
+                
                 </div>
               </li>
             </ul>
@@ -561,6 +700,7 @@
     </core-card>
   </div>
   <!--/ Card Leads Informe-->
+
 
 
 
