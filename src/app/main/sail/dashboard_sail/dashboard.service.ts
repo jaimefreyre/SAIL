@@ -56,7 +56,7 @@ export class DashboardServiceSail {
    */
   getApiDataUser(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get('api/user/current_user/').subscribe((response: any) => {
+      this._httpClient.get('/current_user_A1').subscribe((response: any) => {
         this.apiDataUser = response;
         this.onApiDataUserChanged.next(this.apiDataUser);
         resolve(this.apiDataUser);
