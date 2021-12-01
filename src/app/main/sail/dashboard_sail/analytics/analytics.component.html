@@ -12,21 +12,54 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Button on right" aria-describedby="button-addon2" />
               <div class="input-group-append" id="button-addon2">
-                <button class="btn btn-outline-primary" type="button" rippleEffect>Go</button>
+                <button class="btn btn-outline-primary" type="button" rippleEffect>
+                  <i data-feather="search"></i>
+                </button>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-12 mb-1">
             <div class="input-group">
               <div class="input-group-prepend">
-                <button class="btn btn-outline-primary" type="button" rippleEffect>
-                  <i data-feather="search"></i>
+                
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-primary" (click)="modalOpenAD(modalAD)" rippleEffect>
+                  Filtro
                 </button>
+                
+                <!-- Modal Filtro-->
+                <ng-template #modalAD let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel6">Disabled Animation</h4>
+                    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" tabindex="0" ngbAutofocus>
+                    <p>
+                      Chocolate bar jelly dragée cupcake chocolate bar I love donut liquorice. Powder I love marzipan
+                      donut candy canes jelly-o. Dragée liquorice apple pie candy biscuit danish lemon drops sugar plum.
+                    </p>
+                    <ngb-alert [type]="'success'" [dismissible]="false">
+                      <div class="alert-body">
+                        <span class="font-weight-bolder">Well done!</span> You successfully read this important alert
+                        message.
+                      </div>
+                    </ngb-alert>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
+                      Accept
+                    </button>
+                  </div>
+                </ng-template>
+                <!-- / Modal Filtro-->
+                
               </div>
-              <input type="text" class="form-control" placeholder="Button on both side" aria-label="Amount" />
+              <!-- <input type="text" class="form-control" placeholder="Button on both side" aria-label="Amount" />
               <div class="input-group-append">
                 <button class="btn btn-outline-primary" type="button" rippleEffect>Search !</button>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

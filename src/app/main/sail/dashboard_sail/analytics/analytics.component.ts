@@ -9,6 +9,7 @@ import { User } from 'app/auth/models';
 import { UserService } from 'app/auth/service';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
 // import { CoreCardModule } from '@core/components/core-card/core-card.module';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-analytics',
@@ -51,13 +52,15 @@ export class AnalyticsComponentSail implements OnInit {
    * @param {UserService} _userService
    * @param {DashboardService} _dashboardService
    * @param {CoreConfigService} _coreConfigService
-  //  * @param {CoreCardModule} _cardModule
+   * @param {CoreCardModule} _cardModule
+   * @param {NgbModal} modalService
    *
    */
   constructor(
     private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
-    private _coreConfigService: CoreConfigService 
+    private _coreConfigService: CoreConfigService,
+    private modalService: NgbModal
     // private _cardModule: CoreCardModule
   ) {
     // Subscribers Gained chart
@@ -286,6 +289,18 @@ export class AnalyticsComponentSail implements OnInit {
         show: false
       }
     };
+
+
+    
+  }
+
+  // modal Open Animation Disabled
+  modalOpenAD(modalAD) {
+    this.modalService.open(modalAD, {
+      centered: true,
+      windowClass: 'animation-disable',
+      animation: false
+    });
   }
 
   // Lifecycle Hooks
