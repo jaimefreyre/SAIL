@@ -30,6 +30,8 @@ export class AnalyticsComponentSail implements OnInit {
   public currentUser: any;
   public loading = false;
   public users: User[] = [];
+  public usersBase:any;
+  // public users: any;
   public gainedChartoptions;
   public orderChartoptions;
   public avgsessionChartoptions;
@@ -327,6 +329,11 @@ export class AnalyticsComponentSail implements OnInit {
         this.loading = false;
         this.users = users;
       });
+
+    // Get the dashboard service data
+    this._dashboardService.onApiDataUserChanged.subscribe(response => {
+      this.usersBase = response;
+    });
 
     // Get the dashboard service data
     this._dashboardService.onApiDataChanged.subscribe(response => {
