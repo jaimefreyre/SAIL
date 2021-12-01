@@ -21,14 +21,14 @@ export class LlamadasComponent implements OnInit {
   public landmarkVar;
   public addressVar;
 
-  // public selectBasic = [
-  //   { name: 'UK' },
-  //   { name: 'USA' },
-  //   { name: 'Spain' },
-  //   { name: 'France' },
-  //   { name: 'Italy' },
-  //   { name: 'Australia' }
-  // ];
+  public selectBasic = [
+    { name: 'UK' },
+    { name: 'USA' },
+    { name: 'Spain' },
+    { name: 'France' },
+    { name: 'Italy' },
+    { name: 'Australia' }
+  ];
 
   public selectMulti = [{ name: 'English' }, { name: 'French' }, { name: 'Spanish' }];
   public selectMultiSelected;
