@@ -61,6 +61,8 @@
       <!-- Search icon -->
       <a type="button" class="nav-link nav-link-style btn" (click)="toggleHabilitado()">
         <span [ngClass]="recibeLeads === true ? 'icon-user-x' : 'icon-user-plus'" class="ficon font-medium-5 feather"></span>
+        <span [ngClass]="recibeLeads === true ? 'mostrar' : 'ocultar'" class="btn btn-success">Disponible</span>
+        <span [ngClass]="recibeLeads === true ? 'ocultar' : 'mostrar'" class="btn btn-warning">No Disponible</span>
       </a>
     </li>
     <!-- /Navbar Disponibilidad -->

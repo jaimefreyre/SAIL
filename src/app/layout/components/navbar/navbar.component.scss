@@ -1,6 +1,14 @@
 @import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
 @import '@core/scss/base/components/include'; // Components includes
 
+.ocultar{
+  display: none !important;
+}
+
+.mostrar{
+  display: auto !important;
+}
+
 // To open dd on right
 .dropdown-menu-right {
   right: 0 !important;

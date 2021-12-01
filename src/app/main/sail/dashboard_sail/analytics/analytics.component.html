@@ -26,7 +26,6 @@
                 <button type="button" class="btn btn-outline-primary" (click)="modalOpenAD(modalAD)" rippleEffect>
                   Filtro
                 </button>
-                
                 <!-- Modal Filtro-->
                 <ng-template #modalAD let-modal>
                   <div class="modal-header">
@@ -55,6 +54,11 @@
                 </ng-template>
                 <!-- / Modal Filtro-->
                 
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-primary" (click)="modalOpenAD(modalAD)" rippleEffect>
+                  Exportar
+                </button>
+
               </div>
               <!-- <input type="text" class="form-control" placeholder="Button on both side" aria-label="Amount" />
               <div class="input-group-append">
