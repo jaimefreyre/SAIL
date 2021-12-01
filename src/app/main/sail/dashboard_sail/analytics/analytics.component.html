@@ -168,923 +168,372 @@
 
   <!-- Card Leads Informe-->
   <div class="col-lg-4 col-md-6 col-12 contenedor">
-<div class="list-wrapper ng-scope" ng-repeat="list in vm.board.lists" ng-show="list.show" aria-hidden="false">
-  <div class="list md-whiteframe-1dp layout-column" layout="column">
-    <div class="list-header layout-align-space-between-center layout-row" layout="row"
-      layout-align="space-between center">
-      <div class="list-header-name"><span class="ng-binding">Leads not attended</span></div>
-      <div class="p-20 ng-binding">
-        5625</div>
-    </div>
-    <div class="list-content layout-column" layout="column">
-      <div class="list-cards ms-scroll ps-container ps-theme-default ps-active-y" ms-scroll=""
-        data-ps-id="6231629a-c9d1-5a51-d752-a061ac6b3b13">
-        <!-- ngRepeat: lead in vm.leads[list.id].data --><a class="list-card md-whiteframe-2dp ng-scope md-sail-theme"
-          ng-repeat="lead in vm.leads[list.id].data" data-ui-sref="app.leads.get.edit({'lead':'24'})" target="_blank"
-          href="/leads/24/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                    <md-icon ng-if="Stars.score >3.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  JS </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
+
+    <core-card [actions]="['collapse']" >
+      <h4 class="card-title">Procesados</h4>
+      <div class="card-body cajadeleads">
+        
+        <core-card [actions]="['collapse']">
+          
+          <h4 class="card-title">
+            Titulo de Lead
               <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Dragomir
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3460xxxx</span></div><!-- end ngIf: lead.client_phone -->
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
               </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='phone' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-phone s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
+
+              <span class="badge badge-pill badge-light-success">
+                CJ
+              </span>
+          </h4>
+          
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="badge badge-pill badge-light-primary">Primary</div>
+                    <div class="badge badge-pill badge-light-secondary">Secondary</div>
+                    <div class="badge badge-pill badge-light-danger">Danger</div>
+                    <div class="badge badge-pill badge-light-warning">Warning</div>
+                    <div class="badge badge-pill badge-light-info">Info</div>
+                    <div class="badge badge-pill badge-light-dark">Dark</div>
+                    <br>
+                    <br>
+                    <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
                   </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
                 </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">AUDI A4 2.0 TDI 150cv S line edition 4p </span></div>
-            <!-- end ngRepeat: vehicle in lead.vehicles_names -->
+                <div class="card-body">
+                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
+                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                  </p>
+                  <a href="javascript:void(0)" class="card-link">Card link</a>
+                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                </div>
+              </li>
+            </ul>
           </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-              <div ng-repeat="lead_management in lead.lead_managements_data" class="ng-scope">
-                <div class="mt-5"><strong class="title ng-binding">
-                    Lead cerrado</strong></div>
-                <div class="tags layout-wrap layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="">
-                  <div class="tag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-calendar" class="s16 md-sail-theme md-font material-icons icon-calendar"
-                      aria-hidden="true"></md-icon>
-                    <div class="ml-10 tag-label ng-binding"><span translate=""><span
-                          class="ng-scope">Fecha:</span></span> 26/06/2020</div>
-                  </div>
-                  <div class="tag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-calendar" class="s16 md-sail-theme md-font material-icons icon-calendar"
-                      aria-hidden="true"></md-icon>
-                    <div class="ml-10 tag-label ng-binding"><span translate=""><span
-                          class="ng-scope">Hora:</span></span> 06:51</div>
-                  </div>
-                </div>
-              </div><!-- end ngRepeat: lead_management in lead.lead_managements_data -->
-              <div ng-repeat="lead_management in lead.lead_managements_data" class="ng-scope">
-                <div class="mt-5"><strong class="title ng-binding">
-                    Lead ha sido atendido</strong></div>
-                <div class="tags layout-wrap layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="">
-                  <div class="tag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-calendar" class="s16 md-sail-theme md-font material-icons icon-calendar"
-                      aria-hidden="true"></md-icon>
-                    <div class="ml-10 tag-label ng-binding"><span translate=""><span
-                          class="ng-scope">Fecha:</span></span> 21/10/2021</div>
-                  </div>
-                  <div class="tag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <md-icon md-font-icon="icon-calendar" class="s16 md-sail-theme md-font material-icons icon-calendar"
-                      aria-hidden="true"></md-icon>
-                    <div class="ml-10 tag-label ng-binding"><span translate=""><span
-                          class="ng-scope">Hora:</span></span> 09:26</div>
-                  </div>
-                </div>
-              </div><!-- end ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2208'})" target="_blank" href="/leads/2208/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Jennifer
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3462xxxx</span></div><!-- end ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">AUDI A1 Sportback 1.6 TDI 90cv Attraction 5p. </span>
-            </div><!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2209'})" target="_blank" href="/leads/2209/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <md-icon ng-if="Stars.score <=2.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">VICENTE
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">Audi A5 Sportback 2.0 Tdi 190 Quatt S Tro S Line 5p.
-                -15 </span></div><!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2229'})" target="_blank" href="/leads/2229/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <md-icon ng-if="Stars.score <=2.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Avelino
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">VOLKSWAGEN Touran 1.6 TDI 105cv DSG Business BMT 5p.
-              </span></div><!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2242'})" target="_blank" href="/leads/2242/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <md-icon ng-if="Stars.score <=2.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Ignac
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">SUZUKI Vitara 1.6 VVT GL 5p. </span></div>
-            <!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2243'})" target="_blank" href="/leads/2243/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Wali </span>
-                  <!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3464xxxx</span></div><!-- end ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">VOLVO V40 1.6 D2 Momentum </span></div>
-            <!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2247'})" target="_blank" href="/leads/2247/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">ANA </span>
-                  <!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3463xxxx</span></div><!-- end ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='chat' || lead.channel==='both'" layout="row" layout-align="start center"><i
-                        class="icon-comment s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_501XHTf.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_501XHTf.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">MINI Mini Cooper </span></div>
-            <!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2256'})" target="_blank" href="/leads/2256/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">benjamin
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3464xxxx</span></div><!-- end ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">BMW X6 xDrive35d 5p. </span></div>
-            <!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2257'})" target="_blank" href="/leads/2257/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Marcos
-                  </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3468xxxx</span></div><!-- end ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">Kia Sorento 2.0 Crdi Concept 4x2 5p. -14 </span>
-            </div><!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data --><a
-          class="list-card md-whiteframe-2dp ng-scope md-sail-theme" ng-repeat="lead in vm.leads[list.id].data"
-          data-ui-sref="app.leads.get.edit({'lead':'2259'})" target="_blank" href="/leads/2259/edit">
-          <div class="list-card-details mb-10">
-            <div class="list-card-labels layout-wrap layout-align-space-between-center layout-row" layout="row"
-              layout-align="space-between center" layout-wrap="">
-              <div class="mb-10">
-                <div class="tags layout-wrap ng-isolate-scope layout-align-start-center layout-row" layout="row"
-                  layout-align="start center" layout-wrap="" score="lead.score">
-                  <div class="ntag layout-align-start-center layout-row" layout="row" layout-align="start center">
-                    <!-- ngIf: Stars.score <=0.5 -->
-                    <!-- ngIf: Stars.score >0.5 -->
-                    <md-icon ng-if="Stars.score >0.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >0.5 -->
-                    <!-- ngIf: Stars.score <=1.5 -->
-                    <!-- ngIf: Stars.score >1.5 -->
-                    <md-icon ng-if="Stars.score >1.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >1.5 -->
-                    <!-- ngIf: Stars.score <=2.5 -->
-                    <!-- ngIf: Stars.score >2.5 -->
-                    <md-icon ng-if="Stars.score >2.5" md-font-icon="icon-star"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star"
-                      aria-label="icon-star" role="img"></md-icon><!-- end ngIf: Stars.score >2.5 -->
-                    <!-- ngIf: Stars.score <=3.5 -->
-                    <md-icon ng-if="Stars.score <=3.5" md-font-icon="icon-star-outline"
-                      class="s16 amber-fg ng-scope md-sail-theme md-font material-icons icon-star-outline"
-                      aria-label="icon-star-outline" role="img"></md-icon><!-- end ngIf: Stars.score <=3.5 -->
-                    <!-- ngIf: Stars.score >3.5 -->
-                  </div>
-                </div>
-              </div><!-- ngIf: list.id==='end' -->
-              <div class="user-asign">
-                <!-- ngIf: lead.user_data.first_name --><span ng-if="lead.user_data.first_name"
-                  class="ng-binding ng-scope">
-                  AB </span><!-- end ngIf: lead.user_data.first_name -->
-                <!-- ngIf: !lead.user_data.first_name -->
-              </div>
-            </div>
-            <div layout="row" layout-align="space-between start" class="layout-align-space-between-start layout-row">
-              <div>
-                <div><i class="icon-account s16"></i>
-                  <!-- ngIf: lead.client_name --><span ng-if="lead.client_name" class="ng-binding ng-scope">Haykel
-                    Araujo Duran </span><!-- end ngIf: lead.client_name -->
-                  <!-- ngIf: !lead.client_name -->
-                </div><!-- ngIf: lead.client_business_name -->
-                <!-- ngIf: lead.client_phone -->
-                <div ng-if="lead.client_phone" class="ng-scope"><i class="icon-phone s16"></i> <span class="ng-binding">
-                    +3465xxxx</span></div><!-- end ngIf: lead.client_phone -->
-              </div>
-              <div>
-                <div layout="row" layout-align="start center" class="layout-align-start-center layout-row">
-                  <div layout="row" layout-align="start center" ng-show="lead.channel"
-                    class="layout-align-start-center layout-row" aria-hidden="false"><span
-                      class="list-card-footer-item layout-align-start-center layout-row" layout="row"
-                      layout-align="start center" data-translate=""><span class="ng-scope">Channel:</span></span>
-                    <!-- ngIf: lead.channel==='email' || lead.channel==='both' --><span
-                      class="list-card-footer-item ng-scope layout-align-start-center layout-row"
-                      ng-if="lead.channel==='email' || lead.channel==='both'" layout="row"
-                      layout-align="start center"><i class="icon-email s18"></i> </span>
-                    <!-- end ngIf: lead.channel==='email' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='phone' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='chat' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='exposition' || lead.channel==='both' -->
-                    <!-- ngIf: lead.channel==='web_home' || lead.channel==='both' -->
-                  </div>
-                  <div class="origin-icon ml-10"><img
-                      ng-src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"
-                      src="https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png"></div>
-                </div>
-              </div>
-            </div>
-          </div><!-- ngIf: lead.last_lead_action.last_task.type -->
-          <div class="list-card-footer">
-            <!-- ngRepeat: vehicle in lead.vehicles_names -->
-            <div class="list-card-name pt-10 pb-10 ng-scope" ng-repeat="vehicle in lead.vehicles_names"><i
-                class="icon-car s16"></i> <span class="ng-binding">BMW X4 xDrive20d 5p. </span></div>
-            <!-- end ngRepeat: vehicle in lead.vehicles_names -->
-          </div>
-          <div class="list-card-footer">
-            <div class="pt-10 pb-10">
-              <div data-translate=""><span class="ng-scope">Lead managements:</span></div>
-              <!-- ngRepeat: lead_management in lead.lead_managements_data -->
-            </div>
-          </div>
-        </a><!-- end ngRepeat: lead in vm.leads[list.id].data -->
-        <div class="p-5 text-right pointer"><a ng-show="vm.leads[list.id].data.length<vm.leads[list.id].count"
-            ng-click="vm.showMore(list.id)" data-translate="" class="md-sail-theme" aria-hidden="false"><span
-              class="ng-scope">See more</span></a></div>
-        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
-          <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-        </div>
-        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 629px; right: 0px;">
-          <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 185px;"></div>
-        </div>
+        </core-card>
+
       </div>
-    </div>
+    </core-card>
   </div>
-</div>
+  <!--/ Card Leads Informe-->
+  <!-- Card Leads Informe-->
+  <div class="col-lg-4 col-md-6 col-12 contenedor">
+
+    <core-card [actions]="['collapse']" >
+      <h4 class="card-title">Procesados</h4>
+      <div class="card-body cajadeleads">
+        
+        <core-card [actions]="['collapse']">
+          
+          <h4 class="card-title">
+            Titulo de Lead
+              <div>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+              </div>
+
+              <span class="badge badge-pill badge-light-success">
+                CJ
+              </span>
+          </h4>
+          
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="badge badge-pill badge-light-primary">Primary</div>
+                    <div class="badge badge-pill badge-light-secondary">Secondary</div>
+                    <div class="badge badge-pill badge-light-danger">Danger</div>
+                    <div class="badge badge-pill badge-light-warning">Warning</div>
+                    <div class="badge badge-pill badge-light-info">Info</div>
+                    <div class="badge badge-pill badge-light-dark">Dark</div>
+                    <br>
+                    <br>
+                    <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
+                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                  </p>
+                  <a href="javascript:void(0)" class="card-link">Card link</a>
+                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </core-card>
+
+      </div>
+    </core-card>
+  </div>
+  <!--/ Card Leads Informe-->
+  <!-- Card Leads Informe-->
+  <div class="col-lg-4 col-md-6 col-12 contenedor">
+
+    <core-card [actions]="['collapse']" >
+      <h4 class="card-title">Procesados</h4>
+      <div class="card-body cajadeleads">
+        
+        <core-card [actions]="['collapse']">
+          
+          <h4 class="card-title">
+            Titulo de Lead
+              <div>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+              </div>
+
+              <span class="badge badge-pill badge-light-success">
+                CJ
+              </span>
+          </h4>
+          
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="badge badge-pill badge-light-primary">Primary</div>
+                    <div class="badge badge-pill badge-light-secondary">Secondary</div>
+                    <div class="badge badge-pill badge-light-danger">Danger</div>
+                    <div class="badge badge-pill badge-light-warning">Warning</div>
+                    <div class="badge badge-pill badge-light-info">Info</div>
+                    <div class="badge badge-pill badge-light-dark">Dark</div>
+                    <br>
+                    <br>
+                    <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
+                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                  </p>
+                  <a href="javascript:void(0)" class="card-link">Card link</a>
+                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </core-card>
+
+      </div>
+    </core-card>
+  </div>
+  <!--/ Card Leads Informe-->
+  <!-- Card Leads Informe-->
+  <div class="col-lg-4 col-md-6 col-12 contenedor">
+
+    <core-card [actions]="['collapse']" >
+      <h4 class="card-title">Procesados</h4>
+      <div class="card-body cajadeleads">
+        
+        <core-card [actions]="['collapse']">
+          
+          <h4 class="card-title">
+            Titulo de Lead
+              <div>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+              </div>
+
+              <span class="badge badge-pill badge-light-success">
+                CJ
+              </span>
+          </h4>
+          
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="badge badge-pill badge-light-primary">Primary</div>
+                    <div class="badge badge-pill badge-light-secondary">Secondary</div>
+                    <div class="badge badge-pill badge-light-danger">Danger</div>
+                    <div class="badge badge-pill badge-light-warning">Warning</div>
+                    <div class="badge badge-pill badge-light-info">Info</div>
+                    <div class="badge badge-pill badge-light-dark">Dark</div>
+                    <br>
+                    <br>
+                    <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
+                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                  </p>
+                  <a href="javascript:void(0)" class="card-link">Card link</a>
+                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </core-card>
+
+      </div>
+    </core-card>
+  </div>
+  <!--/ Card Leads Informe-->
+  <!-- Card Leads Informe-->
+  <div class="col-lg-4 col-md-6 col-12 contenedor">
+
+    <core-card [actions]="['collapse']" >
+      <h4 class="card-title">Procesados</h4>
+      <div class="card-body cajadeleads">
+        
+        <core-card [actions]="['collapse']">
+          
+          <h4 class="card-title">
+            Titulo de Lead
+              <div>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+              </div>
+
+              <span class="badge badge-pill badge-light-success">
+                CJ
+              </span>
+          </h4>
+          
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="badge badge-pill badge-light-primary">Primary</div>
+                    <div class="badge badge-pill badge-light-secondary">Secondary</div>
+                    <div class="badge badge-pill badge-light-danger">Danger</div>
+                    <div class="badge badge-pill badge-light-warning">Warning</div>
+                    <div class="badge badge-pill badge-light-info">Info</div>
+                    <div class="badge badge-pill badge-light-dark">Dark</div>
+                    <br>
+                    <br>
+                    <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  This is some text within a card body. Jelly lemon drops tiramisu chocolate cake cotton candy soufflé oat
+                  cake sweet roll. Sugar plum marzipan dragée topping cheesecake chocolate bar. Danish muffin icing donut.
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <div class="card-subtitle text-muted mb-1">Card subtitle</div>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                  </p>
+                  <a href="javascript:void(0)" class="card-link">Card link</a>
+                  <a href="javascript:void(0)" class="card-link">Another link</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </core-card>
+
+      </div>
+    </core-card>
   </div>
   <!--/ Card Leads Informe-->
 
