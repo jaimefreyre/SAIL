@@ -35,6 +35,8 @@ export class AnalyticsComponentSail implements OnInit {
   public avgsessionChartoptions;
   public supportChartoptions;
   public salesChartoptions;
+  public todosVar:boolean = false;
+  public miosVar:boolean = false;
 
   // Private
   private $primary = '#7367F0';

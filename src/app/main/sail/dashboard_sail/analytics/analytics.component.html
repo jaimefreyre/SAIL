@@ -24,7 +24,9 @@
                 
                 <button 
                   type="button" 
-                  class="btn btn-outline-primary" 
+                  class="btn" 
+                  style="padding: 5px;" 
+                  [ngClass]="todosVar ===true ? 'btn  btn-danger' : 'btn btn-outline-danger' "
                   rippleEffect>
                   Todos
                 </button>
@@ -32,7 +34,9 @@
                 
                 <button 
                   type="button" 
-                  class="btn btn-outline-primary" 
+                  class="btn" 
+                  style="padding: 5px;" 
+                  [ngClass]="miosVar ===true ? 'btn  btn-success' : 'btn btn-outline-success' "
                   rippleEffect>
                   Mios
                 </button>
@@ -97,26 +101,28 @@
         <core-card [actions]="['collapse']">
           
           <h4 class="card-title">
-            <div>
-              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                <span [data-feather]="'star'"></span>
-              </button>
-              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                <span [data-feather]="'star'"></span>
-              </button>
-              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                <span [data-feather]="'star'"></span>
-              </button>
-              <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
-                <span [data-feather]="'star'"></span>
-              </button>
-              <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
-                <span [data-feather]="'star'"></span>
-              </button>
+            Titulo de Lead
+              <div>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+                <button type="button" class="btn btn-icon rounded-circle btn-outline-warning" rippleEffect>
+                  <span [data-feather]="'star'"></span>
+                </button>
+              </div>
+
               <span class="badge badge-pill badge-light-success">
-                Titulo de Lead
+                CJ
               </span>
-            </div>
           </h4>
           
           <div class="card-body">
