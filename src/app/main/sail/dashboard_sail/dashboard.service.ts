@@ -37,6 +37,13 @@ export class DashboardServiceSail {
       }, reject);
     });
   }
+  r2(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
+    return new Promise<void>((resolve, reject) => {
+      Promise.all([this.getApiData()]).then(() => {
+        resolve();
+      }, reject);
+    });
+  }
 
   /**
    * Get Api Data
@@ -55,11 +62,11 @@ export class DashboardServiceSail {
    * Current User
    */
   getApiDataUser(): Promise<any[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((r2, reject) => {
       this._httpClient.get('/current_user_A1').subscribe((response: any) => {
         this.apiDataUser = response;
         this.onApiDataUserChanged.next(this.apiDataUser);
-        resolve(this.apiDataUser);
+        r2(this.apiDataUser);
       }, reject);
     });
   }
