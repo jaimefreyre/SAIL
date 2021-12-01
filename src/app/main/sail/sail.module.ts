@@ -26,6 +26,8 @@ import { FramesdashComponent } from './framesdash/framesdash.component';
 // import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
 
+
+
 import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
