@@ -21,31 +21,19 @@
                 </button>
             </div>
         </div>
-      <!-- Calificacion -->
-        <div class="col-md-4 col-12 col-xs-12">
-            <div class="form-group">
-                <label for="Califica-Cliente-column">
-                    <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
-                    <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
-                    <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
-                    <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
-                    <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
-                </label>
-            </div>
-        </div>
       <!-- Consecionario -->
         <div class="col-md-8 col-12 col-xs-12">
             <div class="form-group">
-                <label for="nombre-column">Consecionario</label>
-                <input type="text" id="nombre-column" class="form-control" placeholder="First Name"
-                    name="fname-column" />
+                <label for="consecionarias">Consecionario</label>
+                <input type="text" id="consecionarias" class="form-control" placeholder="Consecionaria"
+                    name="consecionarias" />
             </div>
         </div>
       <!-- Origen -->
         <div class="col-md-4 col-12 col-xs-12">
             <div class="form-group">
                 <label for="origen-column">Origen</label>
-                <select class="form-control form-control-lg mb-1" id="selectLarge">
+                <select class="form-control form-control-lg mb-1" id="origen-column">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -53,11 +41,11 @@
                 </select>
             </div>
         </div>
-      <!-- canal -->
+        <!-- canal -->
         <div class="col-md-4 col-12 col-xs-12">
             <div class="form-group">
                 <label for="canal-column">Canal</label>
-                <select class="form-control form-control-lg mb-1" id="selectLarge">
+                <select class="form-control form-control-lg mb-1" id="canal-column">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -65,21 +53,88 @@
                 </select>
             </div>
         </div>
-      <!--   -->
+        <!-- Nombre Usuario Logueado -->
         <div class="col-md-4 col-12 col-xs-12">
             <div class="form-group">
-                <label for="country-floating">Country</label>
-                <input type="text" id="country-floating" class="form-control" name="country-floating"
-                    placeholder="Country" />
+                <label for="usuario-logueado-floating">
+                    <i data-feather="user"></i>
+                </label>
+                <input type="text" id="usuario-logueado-floating" class="form-control" name="usuario-logueado-floating"
+                    placeholder="Usuario Logueado" />
             </div>
         </div>
+        <!-- Lead no atendido -->
         <div class="col-md-4 col-12 col-xs-12">
             <div class="form-group">
-                <label for="company-column">Company</label>
-                <input type="text" id="company-column" class="form-control" name="company-column"
-                    placeholder="Company" />
+                <label for="lead-no">Led no atendido</label>
+                <select class="form-control form-control-lg mb-1" id="lead-no">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
             </div>
         </div>
+
+        <!-- Calificacion -->
+        <div class="col-md-4 col-6 col-xs-6">
+            <div class="form-group">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked />
+                    <label class="custom-control-label" for="customRadio1">Checked</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
+                    <label class="custom-control-label" for="customRadio2">Unchecked</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calificacion -->
+        <div class="col-md-4 col-6 col-xs-6">
+            <div class="form-group">
+                <label for="Califica-Cliente-column">
+ 
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="star1" name="star1" class="custom-control-input" />
+                        <label class="custom-control-label" for="star1">
+                            <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                        </label>
+                    </div>
+                    
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="star2" name="star2" class="custom-control-input" />
+                        <label class="custom-control-label" for="star2">
+                            <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                        </label>
+                    </div>
+                    
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="star3" name="star3" class="custom-control-input" />
+                        <label class="custom-control-label" for="star3">
+                            <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
+                        </label>
+                    </div>
+                    
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="star4" name="star4" class="custom-control-input" />
+                        <label class="custom-control-label" for="star4">
+                            <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                        </label>
+                    </div>
+                    
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="star5" name="star5" class="custom-control-input" />
+                        <label class="custom-control-label" for="star5">
+                            <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
+                        </label>
+                    </div>
+                    
+                </label>
+            </div>
+        </div>
+
+        <!-- Email -->
         <div class="col-md-4 col-12 col-xs-12">
             <div class="form-group">
                 <label for="email-id-column">Email</label>
@@ -87,6 +142,8 @@
                     placeholder="Email" />
             </div>
         </div>
+        
+        <!-- Botones -->
         <div class="col-12">
             <button type="submit" rippleEffect class="btn btn-primary mr-1">Submit</button>
             <button type="reset" rippleEffect class="btn btn-outline-secondary">Reset</button>
