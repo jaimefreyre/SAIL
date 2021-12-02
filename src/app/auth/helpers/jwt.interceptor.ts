@@ -28,10 +28,10 @@ export class JwtInterceptor implements HttpInterceptor {
         setHeaders: {
           // Authorization: `Bearer ${currentUser.token}`
           Authorization: `Token ${currentUser.token}`,
-          Cookie: 'selectedTheme = sail; SL_GWPT_Show_Hide_tmp=1; SL_wptGlobTipTmp=0',
+          // Cookie: 'selectedTheme = sail; SL_GWPT_Show_Hide_tmp=1; SL_wptGlobTipTmp=0',
           // DNT: 1,
           Host: 'sail.artificialintelligencelead.com',
-          Referer: 'https://sail.artificialintelligencelead.com/leads/board'
+          // Referer: 'https://sail.artificialintelligencelead.com/leads/board'
         }
       });
     }
