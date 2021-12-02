@@ -79,20 +79,30 @@
             </div>
         </div>
 
+        <!-- Visita Expo -->
+        <div class="col-md-4 col-12 col-xs-12">
+            <button type="button" class="btn btn-outline-success" rippleEffect>
+                <span [data-feather]="'shopping-bag'" [class]="'mr-25'"></span>
+                Visita Expo
+            </button>
+        </div>
+        
         <!-- Tipo -->
         <div class="col-md-8 col-6 col-xs-6">
             <div class="form-group">
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="tipo1" name="tipo" class="custom-control-input" checked />
-                    <label class="custom-control-label" for="tipo1">Particular</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="tipo2" name="tipo" class="custom-control-input" />
-                    <label class="custom-control-label" for="tipo2">Autonomo</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="tipo3" name="tipo" class="custom-control-input" />
-                    <label class="custom-control-label" for="tipo2">Empresa</label>
+                <div class="btn-group btn-group-toggle">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tipo1" name="tipo" class="custom-control-input" checked />
+                        <label class="custom-control-label" for="tipo1">Particular</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tipo2" name="tipo" class="custom-control-input" />
+                        <label class="custom-control-label" for="tipo2">Autonomo</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tipo3" name="tipo" class="custom-control-input" />
+                        <label class="custom-control-label" for="tipo2">Empresa</label>
+                    </div>
                 </div>
             </div>
         </div>
