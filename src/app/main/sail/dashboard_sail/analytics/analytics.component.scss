@@ -23,10 +23,11 @@
 }
 
 .contenedor{
-      padding: 1em;
+    padding: 1em;
     padding-top: 2em;
-    // background-color: rgb(119 136 153 / 50%);
     border-radius: 2%;
+    overflow-y: overlay;
+    max-height: 650px;
 }
 
 // .card-header{

@@ -39,7 +39,7 @@ export class DashboardServiceSail {
   }
   r2(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
     return new Promise<void>((resolve, reject) => {
-      Promise.all([this.getApiData()]).then(() => {
+      Promise.all([this.getApiDataUser()]).then(() => {
         resolve();
       }, reject);
     });
