@@ -76,16 +76,20 @@
             </div>
         </div>
 
-        <!-- Calificacion -->
-        <div class="col-md-4 col-6 col-xs-6">
+        <!-- Tipo -->
+        <div class="col-md-8 col-6 col-xs-6">
             <div class="form-group">
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked />
-                    <label class="custom-control-label" for="customRadio1">Checked</label>
+                    <input type="radio" id="tipo1" name="tipo" class="custom-control-input" checked />
+                    <label class="custom-control-label" for="tipo1">Particular</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
-                    <label class="custom-control-label" for="customRadio2">Unchecked</label>
+                    <input type="radio" id="tipo2" name="tipo" class="custom-control-input" />
+                    <label class="custom-control-label" for="tipo2">Autonomo</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="tipo3" name="tipo" class="custom-control-input" />
+                    <label class="custom-control-label" for="tipo2">Empresa</label>
                 </div>
             </div>
         </div>
@@ -134,15 +138,110 @@
             </div>
         </div>
 
-        <!-- Email -->
-        <div class="col-md-4 col-12 col-xs-12">
+        <!-- nombre -->
+        <div class="col-lg-6 col-md-6 col-xs-12">
             <div class="form-group">
-                <label for="email-id-column">Email</label>
-                <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                    placeholder="Email" />
+                <label for="nombre-icon">Nombre</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                    </div>
+                    <input type="text" id="nombre-icon" class="form-control" name="nombre-icon"
+                        placeholder="Nombre" />
+                </div>
             </div>
         </div>
-        
+        <!-- Apellido -->
+        <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="apellido-icon">Apellido</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                    </div>
+                    <input type="text" id="apellido-icon" class="form-control" name="apellido-icon"
+                        placeholder="Apellido" />
+                </div>
+            </div>
+        </div>
+        <!-- Telefono -->
+        <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="contact-info-icon">Mobile</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                    </div>
+                    <input type="number" id="contact-info-icon" class="form-control" name="contact-icon" placeholder="Mobile" />
+                </div>
+            </div>
+        </div>
+        <!-- Email -->
+        <div class="col-lg-8 col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="email-id-icon">Email</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    </div>
+                    <input type="email" id="email-id-icon" class="form-control" name="email-id-icon"
+                        placeholder="Email" />
+                </div>
+            </div>
+        </div>
+          
+     
+        <!-- Codigo Postal -->
+        <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="CP-icon">Codigo Postal</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <span [data-feather]="'mail'"></span>
+                        </span>
+                    </div>
+                    <input type="number" id="CP-icon" class="form-control" name="CP-icon"
+                        placeholder="Codigo postal" />
+                </div>
+            </div>
+        </div>
+          
+     
+        <!-- Provincia -->
+        <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="Provincia-id-icon">Provincia</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    </div>
+                    <input type="Provincia" id="Provincia-id-icon" class="form-control" name="Provincia-id-icon"
+                        placeholder="Provincia" />
+                </div>
+            </div>
+        </div>
+     
+        <!-- Localidad -->
+        <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                <label for="Localidad-id-icon">Localidad</label>
+                <div class="input-group input-group-merge">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    </div>
+                    <input type="Localidad" id="Localidad-id-icon" class="form-control" name="Localidad-id-icon"
+                        placeholder="Localidad" />
+                </div>
+            </div>
+        </div>
+          
+     
+        <div class="col-12">
+            <button type="submit" rippleEffect class="btn btn-primary mr-1">Guardar</button>
+            <button type="reset" rippleEffect class="btn btn-outline-secondary">Cancelar</button>
+        </div>
+     
         <!-- Botones -->
         <div class="col-12">
             <button type="submit" rippleEffect class="btn btn-primary mr-1">Submit</button>
