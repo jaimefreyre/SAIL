@@ -8,7 +8,7 @@ export class User {
   firstName: string;
   lastName: string;
   avatar: string;
-  role: Role;
+  role?: Role;
   token?: string;
   is_staff?:boolean;
   is_superuser?:boolean;
