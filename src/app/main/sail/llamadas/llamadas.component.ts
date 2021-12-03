@@ -6,7 +6,7 @@ import { ColumnMode, DatatableComponent, SelectionType } from '@swimlane/ngx-dat
 
 import * as snippet from 'app/main/tables/datatables/datatables.snippetcode';
 
-import { DatatablesService } from 'app/main/tables/datatables/datatables.service';
+import { DatatablesServiceLlamadas } from './llamadas.service';
 
 
 @Component({
@@ -163,9 +163,9 @@ export class LlamadasComponent implements OnInit {
   /**
    * Constructor
    *
-   * @param {DatatablesService} _datatablesService
+   * @param {DatatablesServiceLlamadas} _datatablesServiceLlamadas
    */
-  constructor(private _datatablesService: DatatablesService) {
+  constructor(private _datatablesServiceLlamadas: DatatablesServiceLlamadas) {
     this._unsubscribeAll = new Subject();
   }
 
@@ -176,7 +176,7 @@ export class LlamadasComponent implements OnInit {
    * On init
    */
   ngOnInit() {
-    this._datatablesService.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+    this._datatablesServiceLlamadas.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
       this.rows = response;
       this.tempData = this.rows;
       this.kitchenSinkRows = this.rows;

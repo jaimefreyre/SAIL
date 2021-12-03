@@ -27,10 +27,9 @@ import { FramesdashComponent } from './framesdash/framesdash.component';
 
 import { CsvModule } from '@ctrl/ngx-csv';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { DatatablesComponent } from 'app/main/tables/datatables/datatables.component';
-import { DatatablesService } from 'app/main/tables/datatables/datatables.service';
+import { DatatablesServiceLlamadas } from './llamadas/llamadas.service';
 
-import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
+// import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 
 
 import { RouterModule, Routes } from '@angular/router';
@@ -78,7 +77,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CsvModule,
     NgxDatatableModule,
-    CardSnippetModule
+    // CardSnippetModule
     // AuthenticationModule,
     // MiscellaneousModule,
     // PricingModule,
@@ -87,6 +86,6 @@ const routes: Routes = [
     // KbModule,
     // AccountSettingsModule
   ],
-  providers: [DatatablesService]
+  providers: [DatatablesServiceLlamadas]
 })
 export class SailModule {}
