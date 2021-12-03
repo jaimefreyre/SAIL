@@ -30,7 +30,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DatatablesComponent } from 'app/main/tables/datatables/datatables.component';
 import { DatatablesService } from 'app/main/tables/datatables/datatables.service';
 
-
+import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 
 
 import { RouterModule, Routes } from '@angular/router';
@@ -77,7 +77,8 @@ const routes: Routes = [
     CalendarModule,
     RouterModule.forChild(routes),
     CsvModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    CardSnippetModule
     // AuthenticationModule,
     // MiscellaneousModule,
     // PricingModule,

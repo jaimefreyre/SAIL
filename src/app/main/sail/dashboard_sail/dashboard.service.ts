@@ -37,13 +37,13 @@ export class DashboardServiceSail {
       }, reject);
     });
   }
-  r2(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
-    return new Promise<void>((resolve, reject) => {
-      Promise.all([this.getApiDataUser()]).then(() => {
-        resolve();
-      }, reject);
-    });
-  }
+  // r2(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
+  //   return new Promise<void>((resolve, reject) => {
+  //     Promise.all([this.getApiDataUser()]).then(() => {
+  //       resolve();
+  //     }, reject);
+  //   });
+  // }
 
   /**
    * Get Api Data
