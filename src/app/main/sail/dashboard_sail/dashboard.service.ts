@@ -61,13 +61,13 @@ export class DashboardServiceSail {
   /**
    * Current User
    */
-  getApiDataUser(): Promise<any[]> {
-    return new Promise((r2, reject) => {
-      this._httpClient.get('/current_user_A1').subscribe((response: any) => {
-        this.apiDataUser = response;
-        this.onApiDataUserChanged.next(this.apiDataUser);
-        r2(this.apiDataUser);
-      }, reject);
-    });
-  }
+  // getApiDataUser(): Promise<any[]> {
+  //   return new Promise((r2, reject) => {
+  //     this._httpClient.get('/current_user_A1').subscribe((response: any) => {
+  //       this.apiDataUser = response;
+  //       this.onApiDataUserChanged.next(this.apiDataUser);
+  //       r2(this.apiDataUser);
+  //     }, reject);
+  //   });
+  // }
 }
