@@ -25,6 +25,11 @@ import { FramesdashComponent } from './framesdash/framesdash.component';
 // import { AuthenticationModule } from './authentication/authentication.module';
 // import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
+import { CsvModule } from '@ctrl/ngx-csv';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { DatatablesComponent } from 'app/main/tables/datatables/datatables.component';
+import { DatatablesService } from 'app/main/tables/datatables/datatables.service';
+
 
 
 
@@ -71,6 +76,8 @@ const routes: Routes = [
     DashboardSailModule,
     CalendarModule,
     RouterModule.forChild(routes),
+    CsvModule,
+    NgxDatatableModule
     // AuthenticationModule,
     // MiscellaneousModule,
     // PricingModule,
