@@ -87,7 +87,6 @@ const routes: Routes = [
     // KbModule,
     // AccountSettingsModule
   ],
-
-  providers: []
+  providers: [DatatablesService]
 })
 export class SailModule {}
