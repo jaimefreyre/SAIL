@@ -135,7 +135,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     function isAdmin() {
-      return isLoggedIn() && currentUser().role === Role.Admin;
+      return isLoggedIn() /*&& currentUser().role === Role.Admin;*/
     }
 
     function currentUser() {

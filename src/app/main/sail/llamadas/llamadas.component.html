@@ -48,7 +48,7 @@
             </div>
         </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Name" prop="full_name" [width]="280">
+    <ngx-datatable-column name="Consecionario" prop="full_name" [width]="280">
         <ng-template let-row="row" let-name="value" ngx-datatable-cell-template>
             <div class="d-flex align-items-center">
                 <div *ngIf="row.avatar.length > 0; else customAvatar">
@@ -57,12 +57,12 @@
                 </div>
                 <ng-template #customAvatar>
                     <div class="avatar mr-1 ml-0" [ngClass]="{
-              'bg-light-primary': row.status == '1',
-              'bg-light-success': row.status == '2',
-              'bg-light-danger': row.status == '3',
-              'bg-light-warning': row.status == '4',
-              'bg-light-info': row.status == '5'
-            }">
+                        'bg-light-primary': row.status == '1',
+                        'bg-light-success': row.status == '2',
+                        'bg-light-danger': row.status == '3',
+                        'bg-light-warning': row.status == '4',
+                        'bg-light-info': row.status == '5'
+                        }">
                         <div class="avatar-content">{{ name | initials }}</div>
                     </div>
                 </ng-template>
@@ -75,10 +75,10 @@
             </div>
         </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="Email" prop="email" [width]="250"></ngx-datatable-column>
+    <ngx-datatable-column name="Duracion" prop="email" [width]="250"></ngx-datatable-column>
     <ngx-datatable-column name="Date" prop="start_date" [width]="120"></ngx-datatable-column>
-    <ngx-datatable-column name="Salary" prop="salary" [width]="120"></ngx-datatable-column>
-    <ngx-datatable-column name="Status" prop="status" [width]="120">
+    <ngx-datatable-column name="Usuario" prop="salary" [width]="120"></ngx-datatable-column>
+    <ngx-datatable-column name="Ver - Alta" prop="status" [width]="120">
         <ng-template let-status="value" ngx-datatable-cell-template>
             <div class="badge badge-pill" [ngClass]="{
           'badge-light-primary': status == '1',
@@ -126,3 +126,661 @@
         </ng-template>
     </ngx-datatable-column>
 </ngx-datatable>
+
+
+
+    <!-- Contextual classes -->
+    <div class="row" id="table-contextual">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header"><h4 class="card-title">Contextual classes</h4></div>
+          <div class="card-body">
+            <p class="card-text">
+              Use contextual classes to color table rows or individual cells. Read full documnetation
+              <a href="https://getbootstrap.com/docs/4.3/content/tables/IDcontextual-classes" target="_blank">here.</a>
+            </p>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Client</th>
+                  <th>Users</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-default">
+                  <td>
+                    <img src="assets/images/icons/figma.svg" class="mr-75" height="20" width="20" alt="Figma" /><span
+                      class="font-weight-bold"
+                      >Figma Project</span
+                    >
+                  </td>
+                  <td>Ronnie Shane</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-primary mr-1">Active</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-active">
+                  <td>
+                    <img src="assets/images/icons/react.svg" class="mr-75" height="20" width="20" alt="React" /><span
+                      class="font-weight-bold"
+                      >React Project</span
+                    >
+                  </td>
+                  <td>Ronald Frest</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-success mr-1">Completed</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-primary">
+                  <td>
+                    <img
+                      src="assets/images/icons/angular.svg"
+                      class="mr-75"
+                      height="20"
+                      width="20"
+                      alt="Angular"
+                    /><span class="font-weight-bold">Angular Project</span>
+                  </td>
+                  <td>Peter Charls</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-primary mr-1">Active</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-secondary">
+                  <td>
+                    <img src="assets/images/icons/vuejs.svg" class="mr-75" height="20" width="20" alt="Vuejs" /><span
+                      class="font-weight-bold"
+                      >Vuejs Project</span
+                    >
+                  </td>
+                  <td>Jack Obes</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-secondary mr-1">Scheduled</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-success">
+                  <td>
+                    <img
+                      src="assets/images/icons/bootstrap.svg"
+                      class="mr-75"
+                      height="20"
+                      width="20"
+                      alt="Bootstrap"
+                    /><span class="font-weight-bold">Bootstrap Project</span>
+                  </td>
+                  <td>Jerry Milton</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-success mr-1">Pending</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-danger">
+                  <td>
+                    <img src="assets/images/icons/figma.svg" class="mr-75" height="20" width="20" alt="Figma" /><span
+                      class="font-weight-bold"
+                      >Figma Project</span
+                    >
+                  </td>
+                  <td>Janne Ale</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-danger mr-1">Active</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-warning">
+                  <td>
+                    <img src="assets/images/icons/react.svg" class="mr-75" height="20" width="20" alt="React" /><span
+                      class="font-weight-bold"
+                      >React Custom</span
+                    >
+                  </td>
+                  <td>Ted Richer</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-warning mr-1">Scheduled</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-info">
+                  <td>
+                    <img
+                      src="assets/images/icons/bootstrap.svg"
+                      class="mr-75"
+                      height="20"
+                      width="20"
+                      alt="Bootstrap"
+                    /><span class="font-weight-bold">Latest Bootstrap</span>
+                  </td>
+                  <td>Perry Parker</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-info mr-1">Pending</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-light">
+                  <td>
+                    <img
+                      src="assets/images/icons/angular.svg"
+                      class="mr-75"
+                      height="20"
+                      width="20"
+                      alt="Angular"
+                    /><span class="font-weight-bold">Angular UI</span>
+                  </td>
+                  <td>Ana Bell</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-primary mr-1">Completed</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="table-dark">
+                  <td>
+                    <img
+                      src="assets/images/icons/bootstrap.svg"
+                      class="mr-75"
+                      height="20"
+                      width="20"
+                      alt="Bootstrap"
+                    /><span class="font-weight-bold">Bootstrap UI</span>
+                  </td>
+                  <td>Jerry Milton</td>
+                  <td>
+                    <div class="avatar-group">
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Lilian Nenez"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                      <div
+                        data-toggle="tooltip"
+                        data-popup="tooltip-custom"
+                        placement="top"
+                        container="body"
+                        title=""
+                        class="avatar pull-up my-0"
+                        ngbTooltip="Alberto Glotzbach"
+                      >
+                        <img src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="badge badge-pill badge-light-dark mr-1">Completed</span></td>
+                  <td class="overflow-hidden">
+                    <div ngbDropdown container="body">
+                      <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                        <i data-feather="more-vertical"></i>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="edit-2" class="mr-50"></i><span>Edit</span></a
+                        ><a ngbDropdownItem href="javascript:void(0);"
+                          ><i data-feather="trash" class="mr-50"></i><span>Delete</span></a
+                        >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Contextual classes -->
