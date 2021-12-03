@@ -177,6 +177,7 @@ export class LlamadasComponent implements OnInit {
    */
   ngOnInit() {
     this._datatablesServiceLlamadas.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+      console.log(response)
       this.rows = response;
       this.tempData = this.rows;
       this.kitchenSinkRows = this.rows;
