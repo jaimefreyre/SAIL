@@ -104,15 +104,22 @@ export const menu: CoreMenu[] = [
             type: 'collapsible',
             children: [
               {
-                id: 'third-level',
-                title: 'Third Level',
+                id: 'consecionarios',
+                title: 'Consecionarias',
                 // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD',
                 type: 'item',
                 url: '#'
               },
               {
-                id: 'third-level1',
-                title: 'Third Level',
+                id: 'usuarios',
+                title: 'Usuarios',
+                // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
+                type: 'item',
+                url: '#'
+              },
+              {
+                id: 'origenes',
+                title: 'Origenes',
                 // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
                 type: 'item',
                 url: '#'
