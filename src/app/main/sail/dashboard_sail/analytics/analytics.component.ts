@@ -307,6 +307,23 @@ export class AnalyticsComponentSail implements OnInit {
     });
   }
 
+  datos_A1(){
+    this._dashboardService.getApiDataUserDirecto().subscribe(
+      result => {
+
+        if (result.code != 200) {
+          console.log(result);
+        } else {
+          console.log(result)
+        }
+
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
   /**
@@ -344,22 +361,5 @@ export class AnalyticsComponentSail implements OnInit {
     // });
 
 
-    this._dashboardService.getApiDataUserDirecto().subscribe(
-            result => {
-                 
-                if(result.code != 200){
-                    console.log(result);
-                }else{
-                    console.log(result)
-                }
- 
-            },
-            error => {
-                console.log(<any>error);
-            }
-        );
-
-
-
-  }
+   }
 }
