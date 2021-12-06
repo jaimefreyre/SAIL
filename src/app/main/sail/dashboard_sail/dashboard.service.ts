@@ -71,9 +71,9 @@ export class DashboardServiceSail {
     });
   }
 
-  getApiDataUserDirecto(): Observable<any> {
-    return this._httpClient.get('/current_user_A1');
-  }
+  // getApiDataUserDirecto(): Observable<any> {
+  //   return this._httpClient.get('/current_user_A1');
+  // }
 
   
 
