@@ -25,7 +25,8 @@ export class AnalyticsComponent implements OnInit {
 
   // Public
   public data: any;
-  public currentUser: any;
+  public currentUser: User;
+  public currentUserOnline: any;
   public loading = false;
   public users: User[] = [];
   public gainedChartoptions;
