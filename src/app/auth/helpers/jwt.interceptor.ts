@@ -23,7 +23,7 @@ export class JwtInterceptor implements HttpInterceptor {
     const isLoggedIn = currentUser && currentUser.token;
     // console.log('Se activa Interceptor JWT para ingrear Token: ' + currentUser.token);
     const isApiUrl = request.url.startsWith(environment.apiUrl);  
-    // if (isLoggedIn && isApiUrl) {
+    if (currentUser.token) {
       // console.log('paso Login');
       // console.log(currentUser.token);
       request = request.clone({
@@ -36,7 +36,7 @@ export class JwtInterceptor implements HttpInterceptor {
           // Referer: 'https://sail.artificialintelligencelead.com/leads/board'
         }
       });
-    // }
+    }
 
     return next.handle(request);
   }
