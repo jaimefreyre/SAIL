@@ -331,16 +331,35 @@ export class AnalyticsComponentSail implements OnInit {
       });
 
     // Get the dashboard service data
-    this._dashboardService.onApiDataUserChanged.subscribe(response => {
-      console.log('se activa el observable sobre current_user')
-      this.usersBase = response;
-      console.log(response)
-      console.log(this.usersBase)
-    });
+    // this._dashboardService.onApiDataUserChanged.subscribe(response => {
+    //   console.log('se activa el observable sobre current_user')
+    //   this.usersBase = response;
+    //   console.log(response)
+    //   console.log(this.usersBase)
+    // });
 
     // Get the dashboard service data
-    this._dashboardService.onApiDataChanged.subscribe(response => {
-      this.data = response;
-    });
+    // this._dashboardService.onApiDataChanged.subscribe(response => {
+    //   this.data = response;
+    // });
+
+
+    this._dashboardService.getApiDataUserDirecto().subscribe(
+            result => {
+                 
+                if(result.code != 200){
+                    console.log(result);
+                }else{
+                    console.log(result)
+                }
+ 
+            },
+            error => {
+                console.log(<any>error);
+            }
+        );
+
+
+
   }
 }
