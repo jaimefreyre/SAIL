@@ -356,9 +356,9 @@ export class AnalyticsComponentSail implements OnInit {
     // });
 
     // Get the dashboard service data
-    // this._dashboardService.onApiDataChanged.subscribe(response => {
-    //   this.data = response;
-    // });
+    this._dashboardService.onApiDataChanged.subscribe(response => {
+      this.data = response;
+    });
 
 
    }
