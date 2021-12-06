@@ -23,7 +23,8 @@ export class JwtInterceptor implements HttpInterceptor {
     const isLoggedIn = currentUser && currentUser.token;
     // console.log('Se activa Interceptor JWT para ingrear Token: ' + currentUser.token);
     const isApiUrl = request.url.startsWith(environment.apiUrl);  
-    if (currentUser.token) {
+    // if (isLoggedIn && isApiUrl) {
+    if (isLoggedIn) {
       // console.log('paso Login');
       // console.log(currentUser.token);
       request = request.clone({
