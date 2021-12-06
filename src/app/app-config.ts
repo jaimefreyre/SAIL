@@ -16,7 +16,7 @@ import { CoreConfig } from '@core/types';
 // prettier-ignore
 export const coreConfig: CoreConfig = {
   app: {
-    appName     : 'Sail',                                        // App Name
+    appName     : 'Infoauto',                                        // App Name
     appTitle    : 'Infoauto', // App Title
     //SE MODIFICARON LOS DATOS DEL FRAMEWORK
     // appLogoImage: 'assets/images/logo/logo.svg',                  // App Logo
