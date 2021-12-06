@@ -21,9 +21,10 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const currentUser = this._authenticationService.currentUserValue;
     const isLoggedIn = currentUser && currentUser.token;
-    // console.log('Interceptor JWT para ingrear Token: ' + currentUser.token);
+    console.log('Se activa Interceptor JWT para ingrear Token: ' + currentUser.token);
     const isApiUrl = request.url.startsWith(environment.apiUrl);  
     if (isLoggedIn && isApiUrl) {
+      console.log('paso Login');
       request = request.clone({
         setHeaders: {
           // Authorization: `Bearer ${currentUser.token}`
