@@ -313,6 +313,8 @@ export class AnalyticsComponentSail implements OnInit {
 
         if (result.code != 200) {
           console.log(result);
+          this.usersBase = result;
+          console.log(this.usersBase);
         } else {
           console.log(result)
         }
