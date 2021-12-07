@@ -334,8 +334,8 @@ export class AnalyticsComponentSail implements OnInit {
       result => {
 
         if (result.code != 200) {
-          // console.log(result);
-          objeto = result;
+          console.log(result);
+          objeto = result.results;
           console.log(objeto);
         } else {
           console.log(result)
