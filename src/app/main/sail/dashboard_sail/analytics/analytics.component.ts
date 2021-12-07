@@ -335,7 +335,7 @@ export class AnalyticsComponentSail implements OnInit {
 
         if (result.code != 200) {
           console.log(result);
-          objeto = result.results;
+          objeto = result;
           console.log(objeto);
         } else {
           console.log(result)
@@ -359,7 +359,7 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.leadsObservable);
+      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.leads);
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
