@@ -39,6 +39,8 @@ export class AnalyticsComponentSail implements OnInit {
   public salesChartoptions;
   public todosVar:boolean = false;
   public miosVar:boolean = false;
+  //Public Informacion Sail
+  public leads: any;
 
   // Private
   private $primary = '#7367F0';
@@ -312,7 +314,7 @@ export class AnalyticsComponentSail implements OnInit {
       result => {
 
         if (result.code != 200) {
-          console.log(result);
+          // console.log(result);
           this.usersBase = result;
           console.log(this.usersBase);
         } else {
@@ -326,14 +328,14 @@ export class AnalyticsComponentSail implements OnInit {
     );
   }
 
-  datos_API(url:string){
+  datos_API(url:string, objeto:any){
     this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
 
         if (result.code != 200) {
-          console.log(result);
-          this.usersBase = result;
-          console.log(this.usersBase);
+          // console.log(result);
+          objeto = result;
+          console.log(objeto);
         } else {
           console.log(result)
         }
@@ -356,7 +358,7 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.leads);
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
