@@ -52,12 +52,23 @@ app.use('/current_user_A1', createProxyMiddleware({
     },
 }));
 
+//Constante URL API
+// const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/";
+const API_BASE_SAIL = "https://sail.artificialintelligencelead.com/api/";
+// Proxy endpoints
+app.use('/API_BASE', createProxyMiddleware({
+    target: API_BASE_SAIL,
+    changeOrigin: true,
+    pathRewrite: {
+        [`^/API_BASE`]: '',
+    },
+}));
 //Constante URL Detalle de todos los Leads NO ATENDIDOS: status=new
 // const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/lead_col/?status=new&ordering=created&page=1&page_size=10&with_concession=true";
-const LOGIN_URL_API_3 = "https://sail.artificialintelligencelead.com/api/lead_col/?status=new&ordering=created&with_concession=true";
+const LEADS_NUEVOS = "https://sail.artificialintelligencelead.com/api/lead_col/?status=new&ordering=created&with_concession=true";
 // Proxy endpoints
 app.use('/leads_no_atendidos', createProxyMiddleware({
-    target: LOGIN_URL_API_3,
+    target: LEADS_NUEVOS,
     changeOrigin: true,
     pathRewrite: {
         [`^/leads_no_atendidos`]: '',
@@ -66,10 +77,10 @@ app.use('/leads_no_atendidos', createProxyMiddleware({
 
 //Constante URL Detalle de todos los Leads ATENDIDOS POR COMERCIAL: status=attended
 // const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true";
-const LOGIN_URL_API_4 = "https://sail.artificialintelligencelead.com/api/lead_col/?status=attended&ordering=created&with_concession=true";
+const LEADS_ATENDIDOS = "https://sail.artificialintelligencelead.com/api/lead_col/?status=attended&ordering=created&with_concession=true";
 // Proxy endpoints
 app.use('/leads_atendidos_comercial', createProxyMiddleware({
-    target: LOGIN_URL_API_4,
+    target: LEADS_ATENDIDOS,
     changeOrigin: true,
     pathRewrite: {
         [`^/leads_atendidos_comercial`]: '',
@@ -78,10 +89,10 @@ app.use('/leads_atendidos_comercial', createProxyMiddleware({
 
 //Constante URL Detalle de todos los Leads MANEJO COMERCIAL : status=commercial_management
 // const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/lead_col/?status=commercial_management&ordering=lead_task_date&page=1&page_size=10&with_concession=true";
-const LOGIN_URL_API_5 = "https://sail.artificialintelligencelead.com/api/lead_col/?status=commercial_management&ordering=lead_task_date&with_concession=true";
+const LEADS_USADO_COMERCIAL = "https://sail.artificialintelligencelead.com/api/lead_col/?status=commercial_management&ordering=lead_task_date&with_concession=true";
 // Proxy endpoints
 app.use('/leads_managment', createProxyMiddleware({
-    target: LOGIN_URL_API_5,
+    target: LEADS_USADO_COMERCIAL,
     changeOrigin: true,
     pathRewrite: {
         [`^/leads_managment`]: '',
@@ -90,22 +101,22 @@ app.use('/leads_managment', createProxyMiddleware({
 
 //Constante URL Detalle de todos los Leads MANEJO SEGUIMIENTO:  : status=tracing
 // const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true";
-const LOGIN_URL_API_6 = "https://sail.artificialintelligencelead.com/api/lead_col/?status=tracing&ordering=lead_task_date&with_concession=true";
+const LEAD_TRAICING = "https://sail.artificialintelligencelead.com/api/lead_col/?status=tracing&ordering=lead_task_date&with_concession=true";
 // Proxy endpoints
 app.use('/leads_traicing', createProxyMiddleware({
-    target: LOGIN_URL_API_6,
+    target: LEAD_TRAICING,
     changeOrigin: true,
     pathRewrite: {
         [`^/leads_traicing`]: '',
     },
 }));
 
-//Constante URL Detalle de todos los Leads TAREA PENDIENTES : status=tracing
+//Constante URL Detalle de todos los Leads TAREA PENDIENTES : status=tracing IGUAL AL ANTERIOR
 // const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true";
-const LOGIN_URL_API_7 = "https://sail.artificialintelligencelead.com/api/lead_col/?ordering=lead_task_date&status=tracing&with_concession=true";
+const LEADS_PENDIENTES = "https://sail.artificialintelligencelead.com/api/lead_col/?ordering=lead_task_date&status=tracing&with_concession=true";
 // Proxy endpoints
 app.use('/leads_pendientes', createProxyMiddleware({
-    target: LOGIN_URL_API_7,
+    target: LEADS_PENDIENTES,
     changeOrigin: true,
     pathRewrite: {
         [`^/leads_pendientes`]: '',
@@ -114,10 +125,10 @@ app.use('/leads_pendientes', createProxyMiddleware({
 
 //Constante URL Detalle de todos los Leads Cerrados : status=end
 // const LOGIN_URL_API = "https://sail.artificialintelligencelead.com/api/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true";
-const LOGIN_URL_API_8 = "https://sail.artificialintelligencelead.com/api/lead_col/?&status=end&with_concession=true";
+const LEADS_CERRADOS = "https://sail.artificialintelligencelead.com/api/lead_col/?&status=end&with_concession=true";
 // Proxy endpoints
 app.use('/leads_cerrados', createProxyMiddleware({
-    target: LOGIN_URL_API_8,
+    target: LEADS_CERRADOS,
     changeOrigin: true,
     pathRewrite: {
         [`^/leads_cerrados`]: '',

@@ -75,5 +75,9 @@ export class DashboardServiceSail {
     return this._httpClient.get('/current_user_A1');
   }
 
+  solicitaDatoBase(url:string): Observable<any>{
+    return this._httpClient.get(url);
+  }
+
 
 }

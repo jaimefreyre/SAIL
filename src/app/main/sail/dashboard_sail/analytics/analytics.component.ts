@@ -326,6 +326,25 @@ export class AnalyticsComponentSail implements OnInit {
     );
   }
 
+  datos_API(url:string){
+    this._dashboardService.solicitaDatoBase(url).subscribe(
+      result => {
+
+        if (result.code != 200) {
+          console.log(result);
+          this.usersBase = result;
+          console.log(this.usersBase);
+        } else {
+          console.log(result)
+        }
+
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
   /**
@@ -337,6 +356,7 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
+      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
