@@ -333,7 +333,9 @@ export class AnalyticsComponentSail implements OnInit {
     // get the currentUser details from localStorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
-
+    if (this.currentUser.token){
+      this.datos_A1();
+    }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
      * For example purpose
