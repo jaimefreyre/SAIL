@@ -70,4 +70,10 @@ export class DashboardServiceSail {
       }, reject);
     });
   }
+
+  getApiDataUserDirecto(): Observable<any>{
+    return this._httpClient.get('/current_user_A1');
+  }
+
+
 }
