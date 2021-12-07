@@ -102,11 +102,11 @@
       </div>
     </core-card>
 
-    <div class="collapse show contenedor" id="collapseExample">
+    <div class="collapse show contenedor" id="collapseExample"ngIf="leadsObservable.results">
       <core-card 
         [actions]="['collapse']" 
         data-toggle="collapse"
-        *ngFor="let item of leads.results; index as i;">
+        *ngFor="let item of leadsObservable.results; index as i | async;">
         <div class="card-title d-flex justify-content-between align-items-center">
           <div class="row">
       

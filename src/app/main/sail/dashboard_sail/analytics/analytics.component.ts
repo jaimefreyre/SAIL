@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
-
 import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { CoreConfigService } from '@core/services/config.service';
 
@@ -41,6 +41,7 @@ export class AnalyticsComponentSail implements OnInit {
   public miosVar:boolean = false;
   //Public Informacion Sail
   public leads: any;
+  public leadsObservable: Observable<any>;
 
   // Private
   private $primary = '#7367F0';
@@ -358,7 +359,7 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.leads);
+      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.leadsObservable);
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
