@@ -318,7 +318,7 @@ export class AnalyticsComponentSail implements OnInit {
   datos_A1(){
     this._dashboardService.getApiDataUserDirecto().subscribe(
       result => {
-
+        this.iniciaCerrado();
         if (result.code != 200) {
           // console.log(result);
           this.usersBase = result;
