@@ -42,6 +42,7 @@ export class AnalyticsComponentSail implements OnInit {
   public miosVar:boolean = false;
   //Public Informacion Sail
   public leads: any;
+  public leadsArray: [];
   public leadsObservable: Observable<any>;
 
   // Private
@@ -339,7 +340,8 @@ export class AnalyticsComponentSail implements OnInit {
     this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
-          console.log(result);
+          this.leadsArray = result;
+          console.log(this.leadsArray);
           return result
 
         } else {

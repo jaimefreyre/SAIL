@@ -109,17 +109,16 @@
 
     <div class="collapse contenedor" id="collapseExample">
       <!-- *ngFor="let item of leadsObservable; index as i;"> -->
-
+      <pre>{{leadsArray | json}}</pre>
       <hr>
       <core-card 
-        *ngFor="let item of leads; index as i;"
         [actions]="['collapse']" 
         data-toggle="collapse">
         <div class="card-title d-flex justify-content-between align-items-center">
           <div class="row">
       
             <div class="col-lg-6">
-              <h4 class="title">{{item | json}}</h4>
+              <h4 class="title"></h4>
             </div>
       
             <div class="col-lg-6">
