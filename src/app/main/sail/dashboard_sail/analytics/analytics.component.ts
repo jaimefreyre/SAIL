@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+// import { Component, OnInit, ViewEncapsulation, ViewChild, Renderer2  } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -63,11 +64,14 @@ export class AnalyticsComponentSail implements OnInit {
    * @param {NgbModal} modalService
    *
    */
+  // * @param {Renderer2} renderer
+  
   constructor(
     private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
     private _coreConfigService: CoreConfigService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    // private renderer: Renderer2
     // private _cardModule: CoreCardModule
   ) {
     // Subscribers Gained chart
@@ -310,6 +314,7 @@ export class AnalyticsComponentSail implements OnInit {
     });
   }
 
+  // datos Current User
   datos_A1(){
     this._dashboardService.getApiDataUserDirecto().subscribe(
       result => {
@@ -329,7 +334,7 @@ export class AnalyticsComponentSail implements OnInit {
     );
   }
 
-  // datos_API(url:string, objeto:any){
+  // datos_API(url:string){
   datos_API(url:string): any{
     this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
@@ -353,6 +358,13 @@ export class AnalyticsComponentSail implements OnInit {
    * On init
    */
   ngOnInit(): void {
+
+    let cajasLeads = document.getElementsByClassName('card-content collapse show');
+    let testDivs = Array.prototype.filter.call(cajasLeads, function (cajaLead) {
+      cajaLead.classList.toggle('show');
+      return cajaLead.nodeName === 'DIV';
+    });
+    console.log(testDivs);
 
     // get the currentUser details from localStorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
