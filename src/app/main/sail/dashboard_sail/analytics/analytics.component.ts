@@ -377,7 +377,7 @@ export class AnalyticsComponentSail implements OnInit {
     if (this.currentUser.token){
       this.datos_A1();
       this.leads = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
-      this.iniciaCerrado();
+      // this.iniciaCerrado();
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
