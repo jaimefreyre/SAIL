@@ -353,6 +353,7 @@ export class AnalyticsComponentSail implements OnInit {
    * On init
    */
   ngOnInit(): void {
+
     // get the currentUser details from localStorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
