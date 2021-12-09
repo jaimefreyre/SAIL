@@ -12,6 +12,110 @@ import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.ser
 // import { CoreCardModule } from '@core/components/core-card/core-card.module';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+
+interface ListaLeads {
+  count: Number;
+  next: String;
+  result: [Leads];
+};
+
+interface Leads {
+  id: Number;
+  score: Number;
+  vehicles_names: [];
+  client_name: any;
+  client_surname?: any;
+  client_phone: any;
+  channel: any;
+  origin: any;
+  result: String;
+  user_data: any;
+
+}
+  //   id": 24,
+// "score": "4",
+//   "vehicles_names": [
+//     "AUDI A4 2.0 TDI 150cv S line edition 4p"
+//   ],
+//     "client_name": "Dragomir",
+//       "client_surname": null,
+//         "client_business_name": null,
+//           "client_phone": "+34603332809",
+//             "channel": "phone",
+//               "origin": "https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png",
+//                 "result": "negative",
+//                   "result_reason": null,
+//                     "user": 20,
+//                       "user_data": {
+//                           "id": 20,
+//                             "first_name": "JOAQUÍN",
+//                               "last_name": "SOSA",
+//                                 "phone": "",
+//                                   "username": "info.madrid@hrmotor.com",
+//                                     "email": "info.madrid@hrmotor.com",
+//                                       "is_online": false,
+//                                         "lost_calls": false,
+//                                           "emails_received": false
+//                         },
+//                   "last_lead_action": null,
+//                     "actions_number": 0,
+//                       "last_task": {
+//                     "type": null,
+//                       "subtype": "",
+//                         "description": "",
+//                           "media": null,
+//                             "planified_realization_date": null,
+//                               "planified_tracking_date": null,
+//                                 "realization_date": null,
+//                                   "realization_date_check": false,
+//                                     "tracking_date_check": false,
+//                                       "appraisal": {
+//                       "lead": null,
+//                         "brand": "",
+//                           "model": "",
+//                             "version": "",
+//                               "km": "",
+//                                 "status": "",
+//                                   "features": "",
+//                                     "circulation_date": null,
+//                                       "evaluation_vo_price": null,
+//                                         "total_vehicles": null,
+//                                           "total_comercial_vehicles": null,
+//                                             "total_tourism_vehicles": null,
+//                                               "fleet_notes": "",
+//                                                 "license_plate": "",
+//                                                   "buy_date": null,
+//                                                     "registration_date": null,
+//                                                       "last_mechanic_date": null,
+//                                                         "cv": null,
+//                                                           "is_finance": false
+//                     },
+//                     "author": null,
+//                       "is_traking_task": false
+//                   },
+//                   "lead_managements_data": [
+//                     {
+//                       "id": 10708,
+//                       "message": "Lead cerrado",
+//                       "status": "end",
+//                       "event": "lead_end",
+//                       "user_data": {
+//                         "id": 20,
+//                         "first_name": "JOAQUÍN",
+//                         "last_name": "SOSA",
+//                         "phone": "",
+//                         "username": "info.madrid@hrmotor.com",
+//                         "email": "info.madrid@hrmotor.com",
+//                         "is_online": false,
+//                         "lost_calls": false,
+//                         "emails_received": false
+//                       },
+//                       "created": "2020-06-26T11:51:15.723104+02:00"
+//                     },
+//             };  
+
+
+
 @Component({
   selector: 'app-analytics',
   templateUrl: './analytics.component.html',
@@ -25,6 +129,8 @@ export class AnalyticsComponentSail implements OnInit {
   @ViewChild('avgSessionChartRef') avgSessionChartRef: any;
   @ViewChild('supportChartRef') supportChartRef: any;
   @ViewChild('salesChartRef') salesChartRef: any;
+
+  
 
   // Public
   public data: any;
@@ -42,7 +148,7 @@ export class AnalyticsComponentSail implements OnInit {
   public miosVar:boolean = false;
   //Public Informacion Sail
   public leads: any;
-  public leadsArray: [];
+  public leadsArray: ListaLeads;
   public leadsObservable: Observable<any>;
 
   // Private
