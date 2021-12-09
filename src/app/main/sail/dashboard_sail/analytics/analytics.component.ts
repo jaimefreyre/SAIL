@@ -352,6 +352,16 @@ export class AnalyticsComponentSail implements OnInit {
     );
   }
 
+  //Muestra el contenido del LEad resumido al iniciar el componente
+  iniciaCerrado(){
+    let cajasLeads = document.getElementsByClassName('card-content collapse show');
+    let testDivs = Array.prototype.filter.call(cajasLeads, function (cajaLead) {
+      cajaLead.classList.remove('show');
+      return cajaLead.nodeName === 'DIV';
+    });
+    console.log(testDivs);
+  }
+
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
   /**
@@ -359,19 +369,13 @@ export class AnalyticsComponentSail implements OnInit {
    */
   ngOnInit(): void {
 
-    let cajasLeads = document.getElementsByClassName('card-content collapse show');
-    let testDivs = Array.prototype.filter.call(cajasLeads, function (cajaLead) {
-      cajaLead.classList.toggle('show');
-      return cajaLead.nodeName === 'DIV';
-    });
-    console.log(testDivs);
-
     // get the currentUser details from localStorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
       this.leads = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+      this.iniciaCerrado();
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
