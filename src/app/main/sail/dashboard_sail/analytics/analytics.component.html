@@ -106,7 +106,8 @@
     <core-card [actions]="['collapse']" >
       <h4 class="card-title" 
               data-target="#collapseExample" 
-              data-toggle="collapse">
+              data-toggle="collapse"
+              *ngIf="leadsArray.count">
                 Procesados - {{leadsArray.count}}
       </h4>
       <div class="card-body cajadeleads">
