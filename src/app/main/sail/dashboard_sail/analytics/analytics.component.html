@@ -104,6 +104,7 @@
 
     <div class="collapse show contenedor" id="collapseExample">
       <!-- *ngFor="let item of leadsObservable; index as i;"> -->
+      {{leads | json}}
       <hr>
       <core-card 
         *ngFor="let item of leads; index as i;"
