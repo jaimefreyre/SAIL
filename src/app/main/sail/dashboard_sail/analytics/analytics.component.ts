@@ -138,6 +138,7 @@ export class AnalyticsComponentSail implements OnInit {
   public loading = false;
   public users: User[] = [];
   public usersBase:any;
+  public usersBase$:Observable<any>;
   // public users: any;
   public gainedChartoptions;
   public orderChartoptions;
@@ -499,12 +500,12 @@ export class AnalyticsComponentSail implements OnInit {
       });
 
     // Get the dashboard service data
-    // this._dashboardService.onApiDataUserChanged.subscribe(response => {
-    //   console.log('se activa el observable sobre current_user')
-    //   this.usersBase = response;
-    //   console.log(response)
-    //   console.log(this.usersBase)
-    // });
+    this._dashboardService.onApiDataUserChanged.subscribe(response => {
+      console.log('se activa el observable sobre current_user')
+      this.usersBase$ = response;
+      console.log(response)
+      console.log(this.usersBase$)
+    });
 
     // Get the dashboard service data
     this._dashboardService.onApiDataChanged.subscribe(response => {
