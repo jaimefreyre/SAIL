@@ -92,21 +92,23 @@
       </div>
   </div>
   
-  <!-- <div class="col-lg-12 hide">
+  <div class="col-lg-12">
       <h2 class="title">Informacion:</h2>
       <pre class="json_lectura">
-        {{leadsArray | json}}
+        {{ newLeadsArray | json}}
       </pre>
       <hr>
-  </div> -->
-  <div class="col-lg-12 hide">
+  </div>
+  <div class="col-lg-12" *ngIf="newLeadsArray">
       <h2 class="title">Informacion:</h2>
       <pre class="json_lectura">
-        {{ usersBase$ | json}}
+        {{ newLeadsArray | json}}
       </pre>
-      <li *ngFor="let pizza of usersBase$ | async; index as i">
-        {{ i + 1 }}. {{ pizza}}
-      </li>
+      <ul>
+        <li *ngFor="let pizza of newLeadsArray | async; index as i">
+          {{ i + 1 }}. {{ pizza}}
+        </li>
+      </ul>  
       <hr>
   </div>
 
@@ -117,7 +119,7 @@
       <h4 class="card-title" 
         data-target="#collapseExample" 
         data-toggle="collapse"
-        *ngIf="newLeadsArray.count">
+        *ngIf="newLeadsArray">
           Procesados - {{newLeadsArray.count}}
       </h4>
       <div class="card-body cajadeleads">
