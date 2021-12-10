@@ -148,8 +148,8 @@ export class AnalyticsComponentSail implements OnInit {
   public miosVar:boolean = false;
   //Public Informacion Sail
   public leads: any;
-  public leadsArray: ListaLeads;
-  public leadsObservable: Observable<any>;
+  // public leadsObservable: Observable<any>;
+  public newLeadsArray: ListaLeads;
 
   // Private
   private $primary = '#7367F0';
@@ -442,12 +442,12 @@ export class AnalyticsComponentSail implements OnInit {
   }
 
   // datos_API(url:string){
-  datos_API(url:string): any{
+  datos_API(url:string, recolector:any): any{
     this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
-          this.leadsArray = result;
-          console.log(this.leadsArray);
+          recolector = result;
+          console.log(recolector);
           return result
 
         } else {
@@ -482,7 +482,7 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.leads = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.newLeadsArray);
       // this.iniciaCerrado();
     }
     /**
