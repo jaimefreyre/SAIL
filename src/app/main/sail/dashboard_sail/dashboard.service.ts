@@ -3,9 +3,6 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { BehaviorSubject, Observable } from 'rxjs';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/catch';
-// import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class DashboardServiceSail {
@@ -27,13 +24,41 @@ export class DashboardServiceSail {
   }
 
 
-  public getApiDataUserDirecto(): Observable<any>{
+  getApiDataUserDirecto(): Observable<any>{
     return this._httpClient.get('/current_user_A1');
   }
 
-  public solicitaDatoBase(url:string): Observable<any>{
+  solicitaDatoBase(url:string): Observable<any>{
     return this._httpClient.get(url);
   }
 
+  /**
+   * Resolver
+   *
+   * @param {ActivatedRouteSnapshot} route
+   * @param {RouterStateSnapshot} state
+   * @returns {Observable<any> | Promise<any> | any}
+   */
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
+    return new Promise<void>((resolve, reject) => {
+      Promise.all([this.getApiData()]).then(() => {
+        resolve();
+      }, reject);
+    });
+  }
+
+  /**
+   * Get Api Data
+   */
+  getApiData(): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      this._httpClient.get('api/dashboard-data').subscribe((response: any) => {
+        this.apiData = response;
+        this.onApiDataChanged.next(this.apiData);
+        resolve(this.apiData);
+      }, reject);
+    });
+  }
 
 }
+
