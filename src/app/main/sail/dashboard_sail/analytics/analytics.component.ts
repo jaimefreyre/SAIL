@@ -242,7 +242,6 @@ export class AnalyticsComponentSail implements OnInit {
       result => {
         this.iniciaCerrado();
         if (result.code != 200) {
-          // console.log(result);
           this.usersBase = result;
           console.log(this.usersBase);
         } else {
@@ -254,6 +253,7 @@ export class AnalyticsComponentSail implements OnInit {
         console.log(<any>error);
       }
     );
+    return this.usersBase;
   }
 
   // datos_API(url:string){
@@ -263,8 +263,6 @@ export class AnalyticsComponentSail implements OnInit {
         if (result.code != 200) {
           recolector = result;
           console.log(recolector);
-          return result
-
         } else {
           console.log(result)
         }
@@ -273,6 +271,7 @@ export class AnalyticsComponentSail implements OnInit {
         console.log(<any>error);
       }
     );
+    return recolector
   }
 
   //Muestra el contenido del LEad resumido al iniciar el componente
