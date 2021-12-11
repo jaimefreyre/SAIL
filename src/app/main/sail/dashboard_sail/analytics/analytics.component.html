@@ -118,8 +118,8 @@
     <core-card [actions]="['collapse']" >
       <h4 class="card-title" 
         data-target="#collapseExample" 
-        data-toggle="collapse"
-        *ngIf="newLeadsArray">
+        data-toggle="collapse">
+        <!-- *ngIf="newLeadsArray"> -->
           Procesados - {{newLeadsArray.count}}
       </h4>
       <div class="card-body cajadeleads">
@@ -151,9 +151,11 @@
             </div>
           </div>
         
+          <!-- Parte Comprimida -->
           <div class="card-body">
             <ul class="list-group list-group-flush">
-        
+              
+              <!-- Notificaciones -->
               <li class="list-group-item">
         
                 <div class="card">
@@ -185,6 +187,7 @@
         
               </li>
         
+              <!-- Informaciones Finales -->
               <li class="list-group-item">
                 <div class="card-body p-0">
         
@@ -192,11 +195,13 @@
         
                     <div class="col-6 border-right py-1">
                       <p class="card-text text-muted mb-0">Completed</p>
-                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3> -->
+                      <h3 class="font-weight-bolder mb-0">10</h3>
                     </div>
                     <div class="col-6 py-1">
                       <p class="card-text text-muted mb-0">In Progress</p>
-                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3> -->
+                      <h3 class="font-weight-bolder mb-0">10</h3>
                     </div>
         
                   </div>
@@ -205,11 +210,13 @@
         
                     <div class="col-6 border-right py-1">
                       <p class="card-text text-muted mb-0">Completed</p>
-                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3>
+                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3> -->
+                      <h3 class="font-weight-bolder mb-0">10</h3>
                     </div>
                     <div class="col-6 py-1">
                       <p class="card-text text-muted mb-0">In Progress</p>
-                      <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3>
+                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3> -->
+                      <h3 class="font-weight-bolder mb-0">10</h3>
                     </div>
         
                   </div>
@@ -218,6 +225,8 @@
               </li>
             </ul>
           </div>
+
+
         </core-card>
       </div>
     </core-card>

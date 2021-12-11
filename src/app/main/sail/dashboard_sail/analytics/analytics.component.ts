@@ -140,8 +140,10 @@ export class AnalyticsComponentSail implements OnInit {
   public miosVar:boolean = false;
   //Public Informacion Sail
   public leads: any;
+  public resultado: any;
   // public leadsObservable: Observable<any>;
   public newLeadsArray: ListaLeads;
+
 
   // Private
   private $primary = '#7367F0';
@@ -209,6 +211,17 @@ export class AnalyticsComponentSail implements OnInit {
 
     
   }
+
+
+/**
+ *  FUNCIONES SUELTAS
+ *  Necesarias para los componentes de Busqueda
+ * La tabla de componentes rastrea los datos del api con distintas consultas producidas
+ * En la funcion de la linea 251
+ * Que suscribe datos de la base
+ * en un array recolector
+ * Y los muestra en una variable devuelta
+ */
 
   // modal Open Animation Disabled
   modalOpenAD(modalAD) {
@@ -280,36 +293,25 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.newLeadsArray);
+      this.resultado = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.newLeadsArray);
+      // Se recoge dato en otra Variable
+      console.log(this.resultado)
       // this.iniciaCerrado();
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
      * For example purpose
      */
-    this.loading = true;
-    this._userService
-      .getAll()
-      .pipe(first())
-      .subscribe(users => {
-        this.loading = false;
-        this.users = users;
-      });
-
-    // Get the dashboard service data
-    this._dashboardService.onApiDataUserChanged.subscribe(response => {
-      console.log('se activa el observable sobre current_user')
-      this.usersBase$ = response;
-      console.log(response)
-      console.log(this.usersBase$)
-    });
-    
-    // Get the dashboard service data
-    this._dashboardService.onApiDataChanged.subscribe(response => {
-      this.data = response; 
-      console.log(response)
-    });
-
+    // this.loading = true;
+    // this._userService
+    //   .getAll()
+    //   .pipe(first())
+    //   .subscribe(users => {
+    //     this.loading = false;
+    //     this.users = users;
+    //     console.log(this.users)
+    //   });
+ 
 
    }
 }
