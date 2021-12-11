@@ -282,7 +282,7 @@ export class AnalyticsComponentSail implements OnInit {
 
   //Muestra el contenido del LEad resumido al iniciar el componente
   iniciaCerrado(){
-    let cajasLeads = document.getElementsByClassName('card-content collapse show');
+    let cajasLeads = document.getElementsByClassName('show');
     let testDivs = Array.prototype.filter.call(cajasLeads, function (cajaLead) {
       cajaLead.classList.remove('show');
       return cajaLead.nodeName === 'DIV';
@@ -305,7 +305,7 @@ export class AnalyticsComponentSail implements OnInit {
       this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
       
       this.apiSailSubscription_lead_traicing = this._dashboardService
-        .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=new&ordering=created&page=1&page_size=10&with_concession=true')
+        .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true')
         .subscribe(
             (next:any)=>(
               console.log(next)
