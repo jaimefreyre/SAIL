@@ -27,17 +27,19 @@
                   class="btn" 
                   style="padding: 5px;" 
                   [ngClass]="todosVar ===true ? 'btn  btn-danger' : 'btn btn-outline-danger' "
-                  (click)="iniciaCerrado()"
+                  (click)="pedirTodos()"
                   rippleEffect>
                   Todos
                 </button>
+                <!-- (click)="iniciaCerrado()" -->
                 <!-- Button trigger modal -->
                 
                 <button 
                   type="button" 
                   class="btn" 
                   style="padding: 5px;" 
-                  [ngClass]="miosVar ===true ? 'btn  btn-success' : 'btn btn-outline-success' "
+                  [ngClass]="todosVar ===false ? 'btn  btn-success' : 'btn btn-outline-success' "
+                  (click)="pedirSoloUsuario()"
                   rippleEffect>
                   Mios
                 </button>
@@ -410,11 +412,11 @@
                     </div>
                     <div class="col-6 border-right py-1">
                       <p class="card-text text-muted mb-0">Fecha</p>
-                      <h3 class="font-weight-bolder mb-0">{{contac_.message}}</h3>
+                      <h3 class="font-weight-bolder mb-0">{{contac_.created }}</h3>
                     </div>
                     <div class="col-6 py-1">
                       <p class="card-text text-muted mb-0">Hora</p>
-                      <h3 class="font-weight-bolder mb-0">{{contac_.message}}</h3>
+                      <h3 class="font-weight-bolder mb-0">{{contac_.created}}</h3>
                     </div>
                   </div>
                 </div>
