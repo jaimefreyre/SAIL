@@ -162,7 +162,7 @@ export class AnalyticsComponentSail implements OnInit {
 
   public gainedChartoptions;
   
-  public todosVar:boolean = false;
+  public todosVar:boolean = true;
   public miosVar:boolean = false;
   //Public Informacion Sail
   // public leadsObservable: Observable<any>;
