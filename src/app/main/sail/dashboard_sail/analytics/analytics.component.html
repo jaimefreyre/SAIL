@@ -143,9 +143,10 @@
               <div class="col-lg-6">
                 <i 
                   *ngFor="let numero of [0,1,2,3,4]" 
+                  class="font-medium-2 cursor-pointer"
                   data-feather="star" 
                   [ngClass]="numero > lead.score ? 'estrellita' : 'no_estrellita' "
-                  class="font-medium-2 cursor-pointer">
+                  >
                   lead.score
                 </i>
               </div>
