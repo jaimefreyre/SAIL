@@ -138,17 +138,21 @@
         
               <div class="col-lg-12">
                 <h6 class="title">{{lead.client_name}}</h6>
+                <h6 class="title">{{lead.client_phone}}</h6>
+                <h6 class="title">{{lead.channel}}</h6>
+                <h6 class="title">{{lead.origin}}</h6>
               </div>
         
               <div class="col-lg-6">
+                <span *ngFor="let numero of [0,1,2,3,4]" >
                 <i 
-                  *ngFor="let numero of [0,1,2,3,4]" 
                   class="font-medium-2 cursor-pointer"
                   data-feather="star" 
                   [ngClass]="numero > lead.score ? 'estrellita' : 'no_estrellita' "
                   >
                   lead.score
                 </i>
+                </span>
               </div>
         
             </div>
@@ -163,69 +167,32 @@
         
                 <div class="card">
                   <div class="card-header">
-                    <div class="badge badge-pill badge-light-primary">Primary</div>
-                    <div class="badge badge-pill badge-light-secondary">Secondary</div>
-                    <div class="badge badge-pill badge-light-danger">Danger</div>
-                    <div class="badge badge-pill badge-light-warning">Warning</div>
-                    <div class="badge badge-pill badge-light-info">Info</div>
-                    <div class="badge badge-pill badge-light-dark">Dark</div>
-                    <br>
-                    <br>
-                    <a href="javascript:void(0)" rippleEffect class="btn btn-outline-primary">Go somewhere</a>
+
+                    <h4 class="title">
+                      {{lead.vehicles_names}}
+                    </h4>
+
                   </div>
                 </div>
         
-                <div class="card-body">
+                <div class="card-body" **ngFor="let contac_ of lead.lead_managements_data">
                   <div class="row border-top text-center mx-0">
+                    <div class="col-12 border-right py-1">
+                      <h3 class="font-weight-bolder mb-0">{{contac_.message}}</h3>
+                    </div>
                     <div class="col-6 border-right py-1">
-                      <p class="card-text text-muted mb-0">Completed</p>
-                      <h3 class="font-weight-bolder mb-0">25</h3>
+                      <p class="card-text text-muted mb-0">Fecha</p>
+                      <h3 class="font-weight-bolder mb-0">{{contac_.message}}</h3>
                     </div>
                     <div class="col-6 py-1">
-                      <p class="card-text text-muted mb-0">In Progress</p>
-                      <h3 class="font-weight-bolder mb-0">25</h3>
+                      <p class="card-text text-muted mb-0">Hora</p>
+                      <h3 class="font-weight-bolder mb-0">{{contac_.message}}</h3>
                     </div>
                   </div>
                 </div>
         
               </li>
         
-              <!-- Informaciones Finales -->
-              <li class="list-group-item">
-                <div class="card-body p-0">
-        
-                  <div class="row border-top text-center mx-0">
-        
-                    <div class="col-6 border-right py-1">
-                      <p class="card-text text-muted mb-0">Completed</p>
-                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3> -->
-                      <h3 class="font-weight-bolder mb-0">10</h3>
-                    </div>
-                    <div class="col-6 py-1">
-                      <p class="card-text text-muted mb-0">In Progress</p>
-                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3> -->
-                      <h3 class="font-weight-bolder mb-0">10</h3>
-                    </div>
-        
-                  </div>
-        
-                  <div class="row border-top text-center mx-0">
-        
-                    <div class="col-6 border-right py-1">
-                      <p class="card-text text-muted mb-0">Completed</p>
-                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.completed }}</h3> -->
-                      <h3 class="font-weight-bolder mb-0">10</h3>
-                    </div>
-                    <div class="col-6 py-1">
-                      <p class="card-text text-muted mb-0">In Progress</p>
-                      <!-- <h3 class="font-weight-bolder mb-0">{{ data.goalOverview.analyticsData.inProgress }}</h3> -->
-                      <h3 class="font-weight-bolder mb-0">10</h3>
-                    </div>
-        
-                  </div>
-        
-                </div>
-              </li>
             </ul>
           </div>
 

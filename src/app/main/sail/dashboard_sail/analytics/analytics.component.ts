@@ -31,9 +31,30 @@ interface Leads {
   origin: any;
   result: String;
   user_data: any;
-
+  lead_managements_data: [manejo]
 }
-  //   id": 24,
+
+interface manejo{
+  id: Number,
+  message: String,
+  status: String,
+  event: String,
+  user_data: userData,
+  created: Date 
+}
+
+interface userData{
+  id: 20,
+  first_name: String,
+  last_name: String,
+  phone: Number,
+  username: String,
+  email: String,
+  is_online: Boolean,
+  lost_calls: Boolean,
+  emails_received: Boolean
+}
+//   id": 24,
 // "score": "4",
 //   "vehicles_names": [
 //     "AUDI A4 2.0 TDI 150cv S line edition 4p"
