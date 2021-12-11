@@ -1,7 +1,11 @@
 // import { Component, OnInit, ViewEncapsulation, ViewChild, Renderer2  } from '@angular/core';
 import { Component, OnInit, OnDestroy, ViewEncapsulation, ViewChild} from '@angular/core';
 import { first } from 'rxjs/operators';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
+import { ajax } from "rxjs/ajax";
+
+  
+
 
 import { CoreConfigService } from '@core/services/config.service';
 
@@ -135,18 +139,23 @@ export class AnalyticsComponentSail implements OnInit {
   public usersBase:any;
   public usersBase$:Observable<any>;
   // public users: any;
+
   public gainedChartoptions;
+  
   public todosVar:boolean = false;
   public miosVar:boolean = false;
   //Public Informacion Sail
-  public leads: any;
-  public resultado: any;
   // public leadsObservable: Observable<any>;
-  public newLeadsArray: ListaLeads;
 
+  
   //Subscripciones
+  public newLeadsArray: ListaLeads;
   apiSailSubscription_current_user: Subscription;
   apiSailSubscription_nuevo_led: Subscription;
+  
+  //Observable Ajax
+  public datosApi$ = ajax.getJSON("/API_BASE/lead_col/?status=new&ordering=created&page=1&page_size=10&with_concession=true");
+  apiSailSubscription_datosApi$: Subscription;
 
 
   // Private
@@ -255,15 +264,14 @@ export class AnalyticsComponentSail implements OnInit {
     );
     return this.usersBase;
   }
-
   // datos_API(url:string){
   datos_API(url:string): any{
     this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
           this.newLeadsArray = result;
-          console.log('Estoy en el suscriptor actuando');
-          console.log(this.newLeadsArray);
+          // this.resultado$ = of( result);
+          
         } else {
           console.log(result)
         }
@@ -272,7 +280,6 @@ export class AnalyticsComponentSail implements OnInit {
         console.log(<any>error);
       }
     );
-    return this.newLeadsArray
   }
 
   //Muestra el contenido del LEad resumido al iniciar el componente
@@ -297,10 +304,11 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.resultado = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
-      // Se recoge dato en otra Variable
-      console.log(this.resultado)
-      //
+      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+      // this.resultado$.subscribe(iceCream => console.log(iceCream));
+      this.apiSailSubscription_datosApi$ = this.datosApi$
+        .subscribe(arg => console.log(arg));
+      
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
@@ -323,6 +331,7 @@ export class AnalyticsComponentSail implements OnInit {
     // acciones de destrucción
     this.apiSailSubscription_current_user.unsubscribe();
     this.apiSailSubscription_nuevo_led.unsubscribe();
+    this.apiSailSubscription_datosApi$.unsubscribe();
   }
 
 }

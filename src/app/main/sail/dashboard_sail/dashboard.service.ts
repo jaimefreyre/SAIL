@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
+
 @Injectable()
 export class DashboardServiceSail {
   // Public
@@ -31,6 +32,7 @@ export class DashboardServiceSail {
   solicitaDatoBase(url:string): Observable<any>{
     return this._httpClient.get(url);
   }
+
 
   /**
    * Resolver
