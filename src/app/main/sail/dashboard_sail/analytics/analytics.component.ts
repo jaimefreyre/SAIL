@@ -150,6 +150,7 @@ export class AnalyticsComponentSail implements OnInit {
   //Subscripciones
   public newLeadsArray: ListaLeads;
   apiSailSubscription_nuevo_led: Subscription;
+  apiSailSubscription_lead_traicing: Subscription;
   
   
 
@@ -260,13 +261,14 @@ export class AnalyticsComponentSail implements OnInit {
     );
     return this.usersBase;
   }
+  
   // datos_API(url:string){
   datos_API(url:string): any{
     this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
           this.newLeadsArray = result;
-          // this.resultado$ = of( result);
+          console.log(this.newLeadsArray);
           
         } else {
           console.log(result)
@@ -301,8 +303,9 @@ export class AnalyticsComponentSail implements OnInit {
     if (this.currentUser.token){
       this.datos_A1();
       this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
-      this._dashboardService
-        .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=traicing&ordering=created&with_concession=true')
+      
+      this.apiSailSubscription_lead_traicing = this._dashboardService
+        .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=new&ordering=created&page=1&page_size=10&with_concession=true')
         .subscribe(
             (next:any)=>(
               console.log(next)
@@ -320,6 +323,7 @@ export class AnalyticsComponentSail implements OnInit {
     // acciones de destrucción
     this.apiSailSubscription_current_user.unsubscribe();
     this.apiSailSubscription_nuevo_led.unsubscribe();
+    this.apiSailSubscription_lead_traicing.unsubscribe();
     
   }
 
