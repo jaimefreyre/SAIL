@@ -1,7 +1,7 @@
 // import { Component, OnInit, ViewEncapsulation, ViewChild, Renderer2  } from '@angular/core';
-import { Component, OnInit, ViewEncapsulation, ViewChild} from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation, ViewChild} from '@angular/core';
 import { first } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 import { CoreConfigService } from '@core/services/config.service';
 
@@ -144,6 +144,10 @@ export class AnalyticsComponentSail implements OnInit {
   // public leadsObservable: Observable<any>;
   public newLeadsArray: ListaLeads;
 
+  //Subscripciones
+  apiSailSubscription_current_user: Subscription;
+  apiSailSubscription_nuevo_led: Subscription;
+
 
   // Private
   private $primary = '#7367F0';
@@ -234,7 +238,7 @@ export class AnalyticsComponentSail implements OnInit {
 
   // datos Current User
   datos_A1(){
-    this._dashboardService.getApiDataUserDirecto().subscribe(
+    this.apiSailSubscription_current_user =this._dashboardService.getApiDataUserDirecto().subscribe(
       result => {
         this.iniciaCerrado();
         if (result.code != 200) {
@@ -254,7 +258,7 @@ export class AnalyticsComponentSail implements OnInit {
 
   // datos_API(url:string){
   datos_API(url:string, recolector:any): any{
-    this._dashboardService.solicitaDatoBase(url).subscribe(
+    this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
           recolector = result;
@@ -313,5 +317,12 @@ export class AnalyticsComponentSail implements OnInit {
     //   });
  
 
-   }
+  }
+  
+  ngOnDestroy() {
+    // acciones de destrucción
+    this.apiSailSubscription_current_user.unsubscribe();
+    this.apiSailSubscription_nuevo_led.unsubscribe();
+  }
+
 }
