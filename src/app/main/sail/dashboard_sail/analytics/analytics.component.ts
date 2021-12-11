@@ -391,6 +391,22 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(testDivs);
   }
 
+  pedirSoloUsuario(){
+    this.datos_API_leadNew('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+    this.datos_API_comercial('/API_BASE/lead_col/?status=commercial_management&ordering=created&page=1&page_size=10&with_concession=true');
+    this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true');
+    this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true');
+    this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true');
+  }
+
+  pedirTodos(){
+    this.datos_API_leadNew('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+    this.datos_API_comercial('/API_BASE/lead_col/?status=commercial_management&ordering=created&page=1&page_size=10&with_concession=true');
+    this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true');
+    this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true');
+    this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true');
+  }
+
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
   /**
