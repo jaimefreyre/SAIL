@@ -135,6 +135,8 @@ export class AnalyticsComponentSail implements OnInit {
   public loading = false;
   
   public currentUser: any;
+  apiSailSubscription_current_user: Subscription;
+  
   public users: User[] = [];
   public usersBase:any;
   public usersBase$:Observable<any>;
@@ -150,7 +152,6 @@ export class AnalyticsComponentSail implements OnInit {
   
   //Subscripciones
   public newLeadsArray: ListaLeads;
-  apiSailSubscription_current_user: Subscription;
   apiSailSubscription_nuevo_led: Subscription;
   
   //Observable Ajax
@@ -310,20 +311,7 @@ export class AnalyticsComponentSail implements OnInit {
         .subscribe(arg => console.log(arg));
       
     }
-    /**
-     * Get the secure api service (based on user role) (Admin Only secure API)
-     * For example purpose
-     */
-    // this.loading = true;
-    // this._userService
-    //   .getAll()
-    //   .pipe(first())
-    //   .subscribe(users => {
-    //     this.loading = false;
-    //     this.users = users;
-    //     console.log(this.users)
-    //   });
- 
+
 
   }
   
