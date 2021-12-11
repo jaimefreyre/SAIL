@@ -142,10 +142,11 @@
         
               <div class="col-lg-6">
                 <i 
-                  *ngFor="let number of [0,1,2,3,4]" 
+                  *ngFor="let numero of [0,1,2,3,4]" 
                   data-feather="star" 
-                  [ngClass]="number > lead.score ? 'estrellita' : 'no_estrellita' "
+                  [ngClass]="numero > lead.score ? 'estrellita' : 'no_estrellita' "
                   class="font-medium-2 cursor-pointer">
+                  lead.score
                 </i>
               </div>
         

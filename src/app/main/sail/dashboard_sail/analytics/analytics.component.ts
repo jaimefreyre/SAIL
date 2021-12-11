@@ -148,9 +148,7 @@ export class AnalyticsComponentSail implements OnInit {
 
   
   //Subscripciones
-  public newLeadsArray: ListaLeads;
-  apiSailSubscription_nuevo_led: Subscription;
-  apiSailSubscription_lead_traicing: Subscription;
+    apiSailSubscription_lead_Observable$: Subscription;
   
   
 
@@ -243,7 +241,7 @@ export class AnalyticsComponentSail implements OnInit {
   }
 
   // datos Current User
-  datos_A1(){
+  current_user_base(){
     this.apiSailSubscription_current_user =this._dashboardService.getApiDataUserDirecto().subscribe(
       result => {
         this.iniciaCerrado();
@@ -262,13 +260,95 @@ export class AnalyticsComponentSail implements OnInit {
     return this.usersBase;
   }
   
-  // datos_API(url:string){
-  datos_API(url:string): any{
+  // Nuevos Leads
+  public newLeadsArray: ListaLeads;
+  apiSailSubscription_nuevo_led: Subscription;
+  datos_API_leadNew(url:string): any{
     this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
           this.newLeadsArray = result;
           console.log(this.newLeadsArray);
+          
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  
+  // Manejados comercial
+  public comercialArray: ListaLeads;
+  apiSailSubscription_comercial: Subscription;
+  datos_API_comercial(url:string): any{
+    this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
+      result => {
+        if (result.code != 200) {
+          this.comercialArray = result;
+          console.log(this.comercialArray);
+          
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  
+  // Atendidos
+  public atendidosArray: ListaLeads;
+  apiSailSubscription_atendidos: Subscription;
+  datos_API_atendidos(url:string): any{
+    this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
+      result => {
+        if (result.code != 200) {
+          this.atendidosArray = result;
+          console.log(this.atendidosArray);
+          
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  
+  // Seguimiento Traicing
+  public seguimientoArray: ListaLeads;
+  apiSailSubscription_seguimiento: Subscription;
+  datos_API_seguimiento(url:string): any{
+    this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
+      result => {
+        if (result.code != 200) {
+          this.seguimientoArray = result;
+          console.log(this.seguimientoArray);
+          
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  
+  // Pendientes
+  public pendientesArray: ListaLeads;
+  apiSailSubscription_pendientes: Subscription;
+  datos_API_pendientes(url:string): any{
+    this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
+      result => {
+        if (result.code != 200) {
+          this.pendientesArray = result;
+          console.log(this.pendientesArray);
           
         } else {
           console.log(result)
@@ -301,10 +381,14 @@ export class AnalyticsComponentSail implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token){
-      this.datos_A1();
-      this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+      this.current_user_base();
+      this.datos_API_leadNew('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
+      this.datos_API_comercial('/API_BASE/lead_col/?status=commercial_management&ordering=created&page=1&page_size=10&with_concession=true');
+      this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true');
+      this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true');
+      this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true');
       
-      this.apiSailSubscription_lead_traicing = this._dashboardService
+      this.apiSailSubscription_lead_Observable$ = this._dashboardService
         .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true')
         .subscribe(
             (next:any)=>(
@@ -323,7 +407,7 @@ export class AnalyticsComponentSail implements OnInit {
     // acciones de destrucción
     this.apiSailSubscription_current_user.unsubscribe();
     this.apiSailSubscription_nuevo_led.unsubscribe();
-    this.apiSailSubscription_lead_traicing.unsubscribe();
+    this.apiSailSubscription_lead_Observable$.unsubscribe();
     
   }
 
