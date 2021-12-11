@@ -363,10 +363,10 @@
 
               <div class="col-lg-6">
                 <span *ngFor="let numero of [0,1,2,3,4]">
-                  <i class="font-medium-2 cursor-pointer" data-feather="star"
+                  <i class="font-medium-3 cursor-pointer" data-feather="star"
                     [ngClass]="numero > lead.score ? 'estrellita' : 'no_estrellita' ">
-                    lead.score
                   </i>
+                  {{lead.score}}
                 </span>
               </div>
 
@@ -377,12 +377,17 @@
                 </h6>
                 <h6 class="title">Canal:
                   <span class="font-weight-bold">
-                    <i [(data-feather)]="lead.channel"></i>
+                    <i [(data-feather)]="lead.channel">
+                    </i>
                   </span>
-
+                  
                 </h6>
                 <!-- <h6 class="title">{{lead.origin}}</h6> -->
                 <img [(src)]="lead.origin" class="mr-75" height="20" width="20" alt="Figma" />
+                <span class="font-weight-bold">
+                  {{lead.user_data.first_name[0]}}{{lead.user_data.last_name[0]}}
+                </span>
+              
               </div>
 
             </div>
