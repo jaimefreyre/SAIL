@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 
 @Injectable()
@@ -12,6 +12,7 @@ export class DashboardServiceSail {
   public apiDataUser: any;
   public onApiDataChanged: BehaviorSubject<any>;
   public onApiDataUserChanged: BehaviorSubject<any>;
+  public resultado$: BehaviorSubject<any>;
 
   /**
    * Constructor
@@ -22,6 +23,7 @@ export class DashboardServiceSail {
     // Set the defaults
     this.onApiDataChanged = new BehaviorSubject({});
     this.onApiDataUserChanged = new BehaviorSubject({});
+    this.resultado$= new BehaviorSubject({});
   }
 
 
@@ -32,7 +34,26 @@ export class DashboardServiceSail {
   solicitaDatoBase(url:string): Observable<any>{
     return this._httpClient.get(url);
   }
-
+  
+  solicitaDatoBaseFuncion(url:string): Observable<any>{
+    // let resultado$: of([53, 24]);
+    this._httpClient.get(url).subscribe(
+      (result:{code:number}) => {
+        if (result.code != 200) {
+          this.resultado$.next(result);
+        } else {
+          console.log(result)
+          this.resultado$.error(result);
+        }
+      },
+      error => {
+        console.log(<any>error);
+        this.resultado$.error(error);
+      }
+    );
+    return this.resultado$
+  }
+  
 
   /**
    * Resolver

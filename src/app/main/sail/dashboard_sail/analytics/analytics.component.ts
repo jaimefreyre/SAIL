@@ -2,9 +2,6 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation, ViewChild} from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Observable, Subscription, of } from 'rxjs';
-import { ajax } from "rxjs/ajax";
-
-  
 
 
 import { CoreConfigService } from '@core/services/config.service';
@@ -154,9 +151,7 @@ export class AnalyticsComponentSail implements OnInit {
   public newLeadsArray: ListaLeads;
   apiSailSubscription_nuevo_led: Subscription;
   
-  //Observable Ajax
-  public datosApi$ = ajax.getJSON("/API_BASE/lead_col/?status=new&ordering=created&page=1&page_size=10&with_concession=true");
-  apiSailSubscription_datosApi$: Subscription;
+  
 
 
   // Private
@@ -306,10 +301,16 @@ export class AnalyticsComponentSail implements OnInit {
     if (this.currentUser.token){
       this.datos_A1();
       this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
-      // this.resultado$.subscribe(iceCream => console.log(iceCream));
-      this.apiSailSubscription_datosApi$ = this.datosApi$
-        .subscribe(arg => console.log(arg));
-      
+      this._dashboardService
+        .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=traicing&ordering=created&with_concession=true')
+        .subscribe(
+            (next:any)=>(
+              console.log(next)
+            ),
+            (error:any)=>(
+              console.log(error)
+            )
+        );
     }
 
 
@@ -319,7 +320,7 @@ export class AnalyticsComponentSail implements OnInit {
     // acciones de destrucción
     this.apiSailSubscription_current_user.unsubscribe();
     this.apiSailSubscription_nuevo_led.unsubscribe();
-    this.apiSailSubscription_datosApi$.unsubscribe();
+    
   }
 
 }
