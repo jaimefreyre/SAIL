@@ -381,6 +381,26 @@ export class AnalyticsComponentSail implements OnInit {
     );
   }
 
+  // cerrados
+  public cerradosArray: ListaLeads;
+  apiSailSubscription_cerrados: Subscription;
+  datos_API_cerrados(url:string): any{
+    this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
+      result => {
+        if (result.code != 200) {
+          this.cerradosArray = result;
+          console.log(this.cerradosArray);
+          
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
   //Muestra el contenido del LEad resumido al iniciar el componente
   iniciaCerrado(){
     let cajasLeads = document.getElementsByClassName('show');
@@ -397,6 +417,7 @@ export class AnalyticsComponentSail implements OnInit {
     this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true');
     this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true');
     this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true');
+    this.datos_API_cerrados('/API_BASE/lead_col/?page=2&page_size=10&status=end&with_concession=true');
   }
 
   pedirTodos(){
@@ -405,6 +426,7 @@ export class AnalyticsComponentSail implements OnInit {
     this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true');
     this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true');
     this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true');
+    this.datos_API_cerrados('/API_BASE/lead_col/?page=2&page_size=10&status=end&with_concession=true');
   }
 
   // Lifecycle Hooks
@@ -424,6 +446,7 @@ export class AnalyticsComponentSail implements OnInit {
       this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true');
       this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&with_concession=true');
       this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&with_concession=true');
+      this.datos_API_cerrados('/API_BASE/lead_col/?page=2&page_size=10&status=end&with_concession=true');
       
       this.apiSailSubscription_lead_Observable$ = this._dashboardService
         .solicitaDatoBaseFuncion('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&with_concession=true')
