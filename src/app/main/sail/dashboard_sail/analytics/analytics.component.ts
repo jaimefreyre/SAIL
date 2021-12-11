@@ -257,12 +257,12 @@ export class AnalyticsComponentSail implements OnInit {
   }
 
   // datos_API(url:string){
-  datos_API(url:string, recolector:any): any{
+  datos_API(url:string): any{
     this.apiSailSubscription_nuevo_led = this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
-          recolector = result;
-          console.log(recolector);
+          this.newLeadsArray = result;
+          console.log(this.newLeadsArray);
         } else {
           console.log(result)
         }
@@ -271,7 +271,7 @@ export class AnalyticsComponentSail implements OnInit {
         console.log(<any>error);
       }
     );
-    return recolector
+    return this.newLeadsArray
   }
 
   //Muestra el contenido del LEad resumido al iniciar el componente
@@ -296,10 +296,10 @@ export class AnalyticsComponentSail implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token){
       this.datos_A1();
-      this.resultado = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true', this.newLeadsArray);
+      this.resultado = this.datos_API('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true');
       // Se recoge dato en otra Variable
       console.log(this.resultado)
-      // this.iniciaCerrado();
+      //
     }
     /**
      * Get the secure api service (based on user role) (Admin Only secure API)
