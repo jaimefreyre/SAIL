@@ -428,6 +428,7 @@ export class AnalyticsComponentSail implements OnInit {
       this.datos_API_comercial('/API_BASE/lead_col/?status=commercial_management&ordering=created&page=1&page_size=10&search=' + this.search);
       this.datos_API_atendidos('/API_BASE/lead_col/?status=attended&ordering=created&page=1&page_size=10&search=' + this.search);
       this.datos_API_seguimiento('/API_BASE/lead_col/?status=tracing&ordering=lead_task_date&page=1&page_size=10&search=' + this.search);
+      
       this.datos_API_pendientes('/API_BASE/lead_col/?ordering=lead_task_date&page=2&page_size=10&status=tracing&search=' + this.search);
       this.datos_API_cerrados('/API_BASE/lead_col/?page=2&page_size=10&status=end&search=' + this.search);
     }
