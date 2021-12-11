@@ -16,7 +16,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 interface ListaLeads {
   count: Number;
   next: String;
-  result: [Leads];
+  results: [Leads];
 };
 
 interface Leads {
@@ -262,6 +262,7 @@ export class AnalyticsComponentSail implements OnInit {
       result => {
         if (result.code != 200) {
           this.newLeadsArray = result;
+          console.log('Estoy en el suscriptor actuando');
           console.log(this.newLeadsArray);
         } else {
           console.log(result)
