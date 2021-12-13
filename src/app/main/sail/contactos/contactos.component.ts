@@ -24,7 +24,7 @@ export class ContactosComponent implements OnInit {
     this.$contactosSubs = this._dashboardService.solicitaDatoBase(url).subscribe(
       result => {
         if (result.code != 200) {
-          this.contactosLista = result.results;
+          this.contactosLista = result;
           console.log(this.contactosLista);
         } else {
           console.log(result)

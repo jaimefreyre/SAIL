@@ -1,6 +1,6 @@
 <!-- Contextual classes -->
 <div class="row" id="table-contextual">
-    <div class="col-12">
+    <div class="col-12" *ngIf="contactoLista.results">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Contactos </h4>
@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-default" *ngFor="let contacto of contactosLista">
+                        <tr class="table-default" *ngFor="let contacto of contactosLista.results">
                             <td>
                                 <span class="font-weight-bold">{{contacto.created | date:'medium'}}</span>
                             </td>
@@ -462,7 +462,17 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+            <div class="card-footer">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" (click)="datos_API_contactos( contactoLista.previous.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )" class="btn btn-secondary">
+                        Anterior
+                    </button>
+                    <button type="button" (click)="datos_API_contactos( contactoLista.next.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )" class="btn btn-secondary">
+                        Siguiente
+                    </button>
+                </div>
+            </div>
+         </div>   
     </div>
 </div>
 <!--/ Contextual classes -->
