@@ -89,6 +89,7 @@ export class AuthenticationService {
               if (result.code != 200) {
                 user.id = result.id;
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log(user)
                 this.currentUserSubject.next(user);
               } else {
                 console.log(result)
