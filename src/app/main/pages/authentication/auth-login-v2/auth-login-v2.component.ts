@@ -91,6 +91,8 @@ export class AuthLoginV2Component implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
+          //Seteo los datos en la base
+          this._authenticationService.usuario_actual();
           this._router.navigate([this.returnUrl]);
         },
         (error)=> {

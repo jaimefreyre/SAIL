@@ -47,9 +47,31 @@ export class AuthenticationService {
   }
 
 
-  // datos Current User
+  // datos Current User desde dashboard service
   public usersBase: any[] = [];
-  
+   usuario_actual(){
+    let user = this.currentUserSubject.value;
+    this._dashboardService.getApiDataUserDirecto().subscribe(
+      result => {
+        if (result.code != 200) {
+          user.id = result.id;
+          user.first_name = result.first_name;
+          user.last_name = result.last_name;
+          user.username = result.username;
+          user.phone = result.phone;
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          console.log(result)
+          console.log(user)
+          this.currentUserSubject.next(user);
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
 
   /**
    * User login
