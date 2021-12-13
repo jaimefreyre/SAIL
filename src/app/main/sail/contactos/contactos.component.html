@@ -30,9 +30,9 @@
                     <tbody>
                         <tr class="table-default" *ngFor="let contacto of contactosLista.results">
                             <td>
-                                <span class="font-weight-bold">{{contacto.created | date:'medium'}}</span>
+                                <span class="font-weight-bold">{{contacto.created | date:'fullDate'}}</span>
                             </td>
-                            <td>{{contacto.modified | date:'medium'}}</td>
+                            <td>{{contacto.modified | date:'fullDate'}}</td>
                             <td>{{contacto.nombre}}</td>
                             <td> 
                                 <span class="badge badge-pill badge-light-primary mr-1">
