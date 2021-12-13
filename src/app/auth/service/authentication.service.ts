@@ -85,26 +85,7 @@ export class AuthenticationService {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
 
-          this._dashboardService.getApiDataUserDirecto().subscribe(
-            result => {
-              if (result.code != 200) {
-                user.id = result.id;
-                user.first_name = result.first_name;
-                user.last_name = result.last_name;
-                user.username = result.username;
-                user.phone = result.phone;
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                console.log(result)
-                console.log(user)
-                this.currentUserSubject.next(user);
-              } else {
-                console.log(result)
-              }
-            },
-            error => {
-              console.log(<any>error);
-            }
-          );
+
            
           // Display welcome toast!
           // setTimeout(() => {
@@ -118,7 +99,7 @@ export class AuthenticationService {
           // }, 2500);
 
           // notify
-          // this.currentUserSubject.next(user);
+          this.currentUserSubject.next(user);
         }
           return user;
       })
