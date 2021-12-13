@@ -5,8 +5,9 @@ export class User {
   username: string;
   email: string;
   password: string;
-  firstName: string;
-  lastName: string;
+  first_name?: string;
+  last_name?: string;
+  phone?: number;
   avatar: string;
   role?: Role;
   token?: string;
