@@ -83,12 +83,14 @@ export class AuthenticationService {
         console.log(user)
         if (user && user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          
+          localStorage.setItem('currentUser', JSON.stringify(user));
+
           this._dashboardService.getApiDataUserDirecto().subscribe(
             result => {
               if (result.code != 200) {
                 user.id = result.id;
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log(result)
                 console.log(user)
                 this.currentUserSubject.next(user);
               } else {
@@ -112,7 +114,7 @@ export class AuthenticationService {
           // }, 2500);
 
           // notify
-          
+          // this.currentUserSubject.next(user);
         }
           return user;
       })
