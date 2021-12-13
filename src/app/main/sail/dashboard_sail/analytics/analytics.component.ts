@@ -54,89 +54,6 @@ interface userData{
   lost_calls: Boolean,
   emails_received: Boolean
 }
-//   id": 24,
-// "score": "4",
-//   "vehicles_names": [
-//     "AUDI A4 2.0 TDI 150cv S line edition 4p"
-//   ],
-//     "client_name": "Dragomir",
-//       "client_surname": null,
-//         "client_business_name": null,
-//           "client_phone": "+34603332809",
-//             "channel": "phone",
-//               "origin": "https://sail.artificialintelligencelead.com/media/temp_fMtH9Qu.png",
-//                 "result": "negative",
-//                   "result_reason": null,
-//                     "user": 20,
-//                       "user_data": {
-//                           "id": 20,
-//                             "first_name": "JOAQUÍN",
-//                               "last_name": "SOSA",
-//                                 "phone": "",
-//                                   "username": "info.madrid@hrmotor.com",
-//                                     "email": "info.madrid@hrmotor.com",
-//                                       "is_online": false,
-//                                         "lost_calls": false,
-//                                           "emails_received": false
-//                         },
-//                   "last_lead_action": null,
-//                     "actions_number": 0,
-//                       "last_task": {
-//                     "type": null,
-//                       "subtype": "",
-//                         "description": "",
-//                           "media": null,
-//                             "planified_realization_date": null,
-//                               "planified_tracking_date": null,
-//                                 "realization_date": null,
-//                                   "realization_date_check": false,
-//                                     "tracking_date_check": false,
-//                                       "appraisal": {
-//                       "lead": null,
-//                         "brand": "",
-//                           "model": "",
-//                             "version": "",
-//                               "km": "",
-//                                 "status": "",
-//                                   "features": "",
-//                                     "circulation_date": null,
-//                                       "evaluation_vo_price": null,
-//                                         "total_vehicles": null,
-//                                           "total_comercial_vehicles": null,
-//                                             "total_tourism_vehicles": null,
-//                                               "fleet_notes": "",
-//                                                 "license_plate": "",
-//                                                   "buy_date": null,
-//                                                     "registration_date": null,
-//                                                       "last_mechanic_date": null,
-//                                                         "cv": null,
-//                                                           "is_finance": false
-//                     },
-//                     "author": null,
-//                       "is_traking_task": false
-//                   },
-//                   "lead_managements_data": [
-//                     {
-//                       "id": 10708,
-//                       "message": "Lead cerrado",
-//                       "status": "end",
-//                       "event": "lead_end",
-//                       "user_data": {
-//                         "id": 20,
-//                         "first_name": "JOAQUÍN",
-//                         "last_name": "SOSA",
-//                         "phone": "",
-//                         "username": "info.madrid@hrmotor.com",
-//                         "email": "info.madrid@hrmotor.com",
-//                         "is_online": false,
-//                         "lost_calls": false,
-//                         "emails_received": false
-//                       },
-//                       "created": "2020-06-26T11:51:15.723104+02:00"
-//                     },
-//             };  
-
-
 
 @Component({
   selector: 'app-analytics',
@@ -164,7 +81,7 @@ export class AnalyticsComponentSail implements OnInit {
   
   public todosVar:boolean = true;
   public miosVar:boolean = false;
-  //Public Informacion Sail
+  // public Informacion Sail
   // public leadsObservable: Observable<any>;
 
   
@@ -200,9 +117,7 @@ export class AnalyticsComponentSail implements OnInit {
     private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
     private _coreConfigService: CoreConfigService,
-    private modalService: NgbModal,
-    // private renderer: Renderer2
-    // private _cardModule: CoreCardModule
+    private modalService: NgbModal
   ) {
     // Subscribers Gained chart
     this.gainedChartoptions = {
@@ -237,8 +152,6 @@ export class AnalyticsComponentSail implements OnInit {
         x: { show: false }
       }
     };
-
-    
   }
 
 
