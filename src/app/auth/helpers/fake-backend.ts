@@ -27,8 +27,8 @@ const users: User[] = [
     email: 'admin@demo.com',
     username: 'admin@demo.com',
     password: 'admin',
-    firstName: 'John',
-    lastName: 'Doe',
+    first_name: 'John',
+    last_name: 'Doe',
     avatar: 'avatar-s-11.jpg',
     role: Role.Admin
   },
@@ -37,8 +37,8 @@ const users: User[] = [
     email: 'client@demo.com',
     username: 'client@demo.com',
     password: 'client',
-    firstName: 'Nataly',
-    lastName: 'Doe',
+    first_name: 'Nataly',
+    last_name: 'Doe',
     avatar: 'avatar-s-2.jpg',
     role: Role.Client
   },
@@ -47,8 +47,8 @@ const users: User[] = [
     email: 'user@demo.com',
     username: 'user@demo.com',
     password: 'user',
-    firstName: 'Rose',
-    lastName: 'Doe',
+    first_name: 'Rose',
+    last_name: 'Doe',
     avatar: 'avatar-s-3.jpg',
     role: Role.User
   }
@@ -90,8 +90,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         id: user.id,
         email: user.email,
         username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        first_name: user.first_name,
+        last_name: user.last_name,
         avatar: user.avatar,
         role: user.role,
         token: `fake-jwt-token.${user.id}`

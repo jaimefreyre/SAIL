@@ -29,6 +29,9 @@ import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
+import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
+
+
 import { ContextMenuComponent } from 'app/main/extensions/context-menu/context-menu.component';
 import { AnimatedCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/animated-custom-context-menu/animated-custom-context-menu.component';
 import { BasicCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/basic-custom-context-menu/basic-custom-context-menu.component';
@@ -129,7 +132,9 @@ const appRoutes: Routes = [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend, comment while using real api
-    fakeBackendProvider
+    fakeBackendProvider,
+    //Conocer CurrentUser
+    DashboardServiceSail
   ],
   entryComponents: [BasicCustomContextMenuComponent, AnimatedCustomContextMenuComponent],
   bootstrap: [AppComponent]
