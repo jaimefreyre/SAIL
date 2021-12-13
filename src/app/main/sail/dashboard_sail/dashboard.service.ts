@@ -54,7 +54,6 @@ export class DashboardServiceSail {
     return this.resultado$
   }
   
-
   /**
    * Resolver
    *

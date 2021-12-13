@@ -7,6 +7,8 @@ import { environment } from 'environments/environment';
 import { User, Role } from 'app/auth/models';
 import { ToastrService } from 'ngx-toastr';
 
+import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
+
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   //public
@@ -20,7 +22,7 @@ export class AuthenticationService {
    * @param {HttpClient} _http
    * @param {ToastrService} _toastrService
    */
-  constructor(private _http: HttpClient, private _toastrService: ToastrService) {
+  constructor(private _http: HttpClient, private _dashboardService: DashboardServiceSail, private _toastrService: ToastrService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -44,6 +46,11 @@ export class AuthenticationService {
     return this.currentUser && this.currentUserSubject.value.role === Role.Client;
   }
 
+
+  // datos Current User
+  public usersBase: any[] = [];
+  
+
   /**
    * User login
    *
@@ -53,6 +60,7 @@ export class AuthenticationService {
    * @returns user
    */
   
+
   // Peticion post para Loguear
   // https://sail.artificialintelligencelead.com/api/auth/login/
 
@@ -75,8 +83,22 @@ export class AuthenticationService {
         console.log(user)
         if (user && user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-
+          
+          this._dashboardService.getApiDataUserDirecto().subscribe(
+            result => {
+              if (result.code != 200) {
+                user.id = result.id;
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject.next(user);
+              } else {
+                console.log(result)
+              }
+            },
+            error => {
+              console.log(<any>error);
+            }
+          );
+           
           // Display welcome toast!
           // setTimeout(() => {
           //   this._toastrService.success(
@@ -89,7 +111,7 @@ export class AuthenticationService {
           // }, 2500);
 
           // notify
-          this.currentUserSubject.next(user);
+          
         }
           return user;
       })
