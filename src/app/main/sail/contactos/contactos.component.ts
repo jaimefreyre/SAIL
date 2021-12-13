@@ -30,7 +30,7 @@ export class ContactosComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-
+    this.datos_API_contactos("https://sail.artificialintelligencelead.com/api/lead/?user_id__in=87")
    
   }
 
