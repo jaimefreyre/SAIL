@@ -15,6 +15,8 @@ export class ContactosComponent implements OnInit {
   constructor(private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
     private _authenticationService: AuthenticationService) { }
+  
+  public cuntUser = this._authenticationService.currentUserValue;
 
   $contactosSubs: Subscription;
   contactosLista: any;
@@ -34,8 +36,7 @@ export class ContactosComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-    let cuntUser = this._authenticationService.currentUserValue;
-    this.datos_API_contactos("/API_BASE/lead/?user_id__in=" + cuntUser.id)
+    this.datos_API_contactos("/API_BASE/lead/?user_id__in=" + this.cuntUser.id)
    
   }
 
