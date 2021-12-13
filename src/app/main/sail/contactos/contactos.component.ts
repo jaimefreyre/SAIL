@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription, of } from 'rxjs';
 import { UserService } from 'app/auth/service';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
+import { AuthenticationService } from 'app/auth/service';
+
+
 @Component({
   selector: 'app-contactos',
   templateUrl: './contactos.component.html',
@@ -10,7 +13,8 @@ import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.ser
 export class ContactosComponent implements OnInit {
 
   constructor(private _userService: UserService,
-    private _dashboardService: DashboardServiceSail) { }
+    private _dashboardService: DashboardServiceSail,
+    private _authenticationService: AuthenticationService) { }
 
   $contactosSubs: Subscription;
   contactosLista: any;
@@ -30,7 +34,8 @@ export class ContactosComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-    this.datos_API_contactos("https://sail.artificialintelligencelead.com/api/lead/?user_id__in=87")
+    let cuntUser = this._authenticationService.currentUserValue;
+    this.datos_API_contactos("/API_BASE/lead/?user_id__in=" + cuntUser.id)
    
   }
 
