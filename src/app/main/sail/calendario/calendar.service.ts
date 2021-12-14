@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import * as moment from 'moment';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -54,8 +55,16 @@ export class CalendarService implements Resolve<any> {
       /lead_calendar/kpis/? end = 2022 - 01 - 10 & start=2021 - 11 - 29 & user=87
       /lead_calendar/kpis/? end = 2022 - 01 - 10 & result=positive & start=2021 - 11 - 29 & user=87
     */
+    let hoy = new Date();
+  
+    let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+    let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
     
-    const url = "/API_BASE/lead_calendar/?start=2021-11-29&end=2022-01-10&_=1639492734328&user=87";
+    let startCalendar = moment("MM-" + primerDia.getDate()+"-YYYY");
+    let endCalendar = moment("MM-" + ultimoDia.getDate() + "-YYYY");
+    
+    const url = "/API_BASE/lead_calendar/?start="+startCalendar+"&end="+endCalendar+"&_=1639492734328&user=87";
+    console.log(url);
 
     return new Promise((resolve, reject) => {
       this._httpClient.get(url).subscribe((response: any) => {
