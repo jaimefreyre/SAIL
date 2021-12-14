@@ -126,7 +126,7 @@ export class CalendarFakeData {
   public static calendar = [
     {
       id: 1, 
-      filter: 'Tareas Atrasadas', 
+      filter: 'not_attended',
       color: 'danger', 
       checked: true, 
       name: "No atendidos",
@@ -138,7 +138,7 @@ export class CalendarFakeData {
     },
     
     { id: 2,
-      filter: 'Tareas Pendientes', 
+      filter: 'pending_task',
       color: 'warning', 
       checked: true, 
       name: "Tareas pendientes",
@@ -149,14 +149,23 @@ export class CalendarFakeData {
       danger: false
     },
     {
-      id: 3, filter: 'No atendidos', color: 'primary', checked: true,
+      id: 3, 
+      filter: 'delayed_task', 
+      color: 'primary', 
+      checked: true,
       name: "Tareas atrasadas",
       second_name: "Realizadas",
       value: 0,
       done: 0,
       filter_key: "delayed_task",
-      danger: false},
-    { id: 4, filter: 'Seguimientos Pendientes', color: 'info', checked: true,
+      danger: false
+    },
+   
+    { 
+      id: 4, 
+      filter: 'pending_tracking', 
+      color: 'info', 
+      checked: true,
       name: "Seguimientos pendientes",
       second_name: "Realizadas",
       value: 0,
@@ -164,7 +173,11 @@ export class CalendarFakeData {
       filter_key: "pending_tracking",
       danger: false
     },
-    { id: 5, filter: 'Seguimientos Atrasados', color: 'warning', checked: true, 
+    { 
+      id: 5, 
+      filter: 'delayed_tracking',
+      color: 'warning', 
+      checked: true,
       name: "Seguimientos atrasados",
       second_name: "Realizadas",
       value: 0,
