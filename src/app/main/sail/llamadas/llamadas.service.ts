@@ -47,3 +47,12 @@ export class DatatablesServiceLlamadas implements Resolve<any> {
         });
     }
 }
+
+
+
+//Peticiones
+
+// Curret_USER de auth service: https://sail.artificialintelligencelead.com/api/user/current_user/
+// GET: https://sail.artificialintelligencelead.com/api/netelip/call_manager/
+// Peticion WS : wss://sail.artificialintelligencelead.com/websocket/netelip/admin/
+// Repite GET: https://sail.artificialintelligencelead.com/api/netelip/call_manager/

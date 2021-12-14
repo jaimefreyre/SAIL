@@ -124,10 +124,53 @@ export class CalendarFakeData {
     }
   ];
   public static calendar = [
-    { id: 1, filter: 'Business', color: 'primary', checked: true },
-    { id: 2, filter: 'Holiday', color: 'success', checked: true },
-    { id: 3, filter: 'Personal', color: 'danger', checked: true },
-    { id: 4, filter: 'Family', color: 'warning', checked: true },
-    { id: 5, filter: 'ETC', color: 'info', checked: true }
-  ];
+    {
+      id: 1, 
+      filter: 'Tareas Atrasadas', 
+      color: 'danger', 
+      checked: true, 
+      name: "No atendidos",
+      second_name: "Leads atendidos",
+      value: 0,
+      done: 0,
+      filter_key: "not_attended",
+      danger: false 
+    },
+    
+    { id: 2,
+      filter: 'Tareas Pendientes', 
+      color: 'warning', 
+      checked: true, 
+      name: "Tareas pendientes",
+      second_name: "Realizadas",
+      value: 0,
+      done: 0,
+      filter_key: "pending_task",
+      danger: false
+    },
+    {
+      id: 3, filter: 'No atendidos', color: 'primary', checked: true,
+      name: "Tareas atrasadas",
+      second_name: "Realizadas",
+      value: 0,
+      done: 0,
+      filter_key: "delayed_task",
+      danger: false},
+    { id: 4, filter: 'Seguimientos Pendientes', color: 'info', checked: true,
+      name: "Seguimientos pendientes",
+      second_name: "Realizadas",
+      value: 0,
+      done: 1,
+      filter_key: "pending_tracking",
+      danger: false
+    },
+    { id: 5, filter: 'Seguimientos Atrasados', color: 'warning', checked: true, 
+      name: "Seguimientos atrasados",
+      second_name: "Realizadas",
+      value: 0,
+      done: 11,
+      filter_key: "delayed_tracking",
+      danger: false
+    }
+  ]
 }

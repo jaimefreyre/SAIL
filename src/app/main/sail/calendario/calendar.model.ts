@@ -5,6 +5,7 @@ export class EventRef {
   start: string;
   end: string;
   allDay = false;
+  color: string;
   calendar: '';
   extendedProps = {
     location: '',

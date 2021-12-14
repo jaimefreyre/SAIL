@@ -47,10 +47,19 @@ export class CalendarService implements Resolve<any> {
    * Get Events
    */
   getEvents(): Promise<any[]> {
-    const url = `api/calendar-events`;
+    // const url = `api/calendar-events`;
+    /*
+      /lead_calendar/?start=2021-11-29&end=2022-01-10&_=1639492734328&user=87
+      ¿Que son Kpis?
+      /lead_calendar/kpis/? end = 2022 - 01 - 10 & start=2021 - 11 - 29 & user=87
+      /lead_calendar/kpis/? end = 2022 - 01 - 10 & result=positive & start=2021 - 11 - 29 & user=87
+    */
+    
+    const url = "/API_BASE/lead_calendar/?start=2021-11-29&end=2022-01-10&_=1639492734328&user=87";
 
     return new Promise((resolve, reject) => {
       this._httpClient.get(url).subscribe((response: any) => {
+        console.log(response);
         this.events = response;
         this.tempEvents = response;
         this.onEventChange.next(this.events);
@@ -184,3 +193,12 @@ export class CalendarService implements Resolve<any> {
     });
   }
 }
+
+
+
+
+
+// Peticiones
+// Get Filter https://sail.artificialintelligencelead.com/api/lead_calendar/?start=2021-11-29&end=2022-01-10&_=1639492734328&user=87
+// Get Filter https://sail.artificialintelligencelead.com/api/lead_calendar/kpis/?end=2022-01-10&start=2021-11-29&user=87
+// GET Filter https://sail.artificialintelligencelead.com/api/lead_calendar/kpis/?end=2022-01-10&result=positive&start=2021-11-29&user=87

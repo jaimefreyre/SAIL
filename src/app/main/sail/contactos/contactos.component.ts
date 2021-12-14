@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription, of } from 'rxjs';
-import { UserService } from 'app/auth/service';
+// import { UserService } from 'app/auth/service';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
 import { AuthenticationService } from 'app/auth/service';
 
@@ -12,32 +12,35 @@ import { AuthenticationService } from 'app/auth/service';
 })
 export class ContactosComponent implements OnInit {
 
-  constructor(private _userService: UserService,
+  constructor(
+    // private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
-    private _authenticationService: AuthenticationService) { }
+    private _authenticationService: AuthenticationService) {}
   
-  public cuntUser = this._authenticationService.currentUserValue;
+    
+    
+    public cuntUser = this._authenticationService.currentUserValue;
 
-  $contactosSubs: Subscription;
-  contactosLista: any;
-  datos_API_contactos(url: string): any {
-    this.$contactosSubs = this._dashboardService.solicitaDatoBase(url).subscribe(
-      result => {
-        if (result.code != 200) {
-          this.contactosLista = result;
-          console.log(this.contactosLista);
-        } else {
-          console.log(result)
+    $contactosSubs: Subscription;
+    contactosLista: any;
+    datos_API_contactos(url: string): any {
+      this.$contactosSubs = this._dashboardService.solicitaDatoBase(url).subscribe(
+        result => {
+          if (result.code != 200) {
+            this.contactosLista = result;
+            console.log(this.contactosLista);
+          } else {
+            console.log(result)
+          }
+        },
+        error => {
+          console.log(<any>error);
         }
-      },
-      error => {
-        console.log(<any>error);
-      }
-    );
-  }
-  ngOnInit(): void {
-    this.datos_API_contactos("/API_BASE/lead/?user_id__in=" + this.cuntUser.id)
-   
-  }
+      );
+    }
+    ngOnInit(): void {
+      this.datos_API_contactos("/API_BASE/lead/?user_id__in=" + this.cuntUser.id)
+    
+    }
 
 }
