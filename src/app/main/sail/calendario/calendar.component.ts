@@ -107,6 +107,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // Subscribe to Event Change
     this._calendarService.onEventChange.subscribe(res => {
+      console.log('estamos en el calendario');
       this.events = res;
       this.calendarOptions.events = res;
       console.log(res)
