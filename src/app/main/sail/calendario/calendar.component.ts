@@ -4,7 +4,7 @@ import { CalendarOptions, EventClickArg } from '@fullcalendar/angular';
 
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
-import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+import { CalendarService } from 'app/main/sail/calendario/calendar.service';
 import { EventRef } from 'app/main/apps/calendar/calendar.model';
 
 @Component({
@@ -106,12 +106,15 @@ export class CalendarComponent implements OnInit, AfterViewInit {
    */
   ngOnInit(): void {
     // Subscribe to Event Change
+
     this._calendarService.onEventChange.subscribe(res => {
       console.log('estamos en el calendario');
       this.events = res;
       this.calendarOptions.events = res;
       console.log(res)
     });
+
+    this._calendarService.getEventsObservable();
 
     this._calendarService.onCurrentEventChange.subscribe(res => {
       this.event = res;
