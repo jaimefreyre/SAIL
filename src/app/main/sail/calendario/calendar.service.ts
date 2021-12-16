@@ -55,13 +55,16 @@ export class CalendarService implements Resolve<any> {
       /lead_calendar/kpis/? end = 2022 - 01 - 10 & start=2021 - 11 - 29 & user=87
       /lead_calendar/kpis/? end = 2022 - 01 - 10 & result=positive & start=2021 - 11 - 29 & user=87
     */
+
     let hoy = new Date();
-  
     let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
     let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
     
-    let startCalendar = moment("MM-" + primerDia.getDate()+"-YYYY");
-    let endCalendar = moment("MM-" + ultimoDia.getDate() + "-YYYY");
+    let f = new Date();
+    f.getDate() + "-" + f.getMonth() + "-" + f.getFullYear();
+  
+    let startCalendar = f.getMonth() + "-" + primerDia.getDay + "-" + f.getFullYear();
+    let endCalendar = f.getMonth() + "-" + ultimoDia.getDay + "-" + f.getFullYear();
     
     const url = "/API_BASE/lead_calendar/?start="+startCalendar+"&end="+endCalendar+"&_=1639492734328&user=87";
     console.log(url);
@@ -78,12 +81,21 @@ export class CalendarService implements Resolve<any> {
   }
 
   getEventsObservable(): Observable<any>{
-    let hoy = new Date();
-    let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
-    let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
+ 
 
     // let startCalendar = moment("MM-" + primerDia.getDate() + "-YYYY");
     // let endCalendar = moment("MM-" + ultimoDia.getDate() + "-YYYY");
+
+    // using slice
+    // let date = new Date();
+    // let day = `0${date.getDate()}`.slice(-2); //("0"+date.getDate()).slice(-2);
+    // let month = `0${date.getMonth() + 1}`.slice(-2);
+    // let year = date.getFullYear();
+        
+    // console.log(`${day}-${month}-${year}`);
+    let hoy = new Date();
+    let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+    let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
 
     let f = new Date();
     f.getDate() + "-" + f.getMonth() + "-" + f.getFullYear();
