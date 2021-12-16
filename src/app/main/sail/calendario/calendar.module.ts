@@ -15,11 +15,17 @@ import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 import { CoreCommonModule } from '@core/common.module';
 import { CoreSidebarModule } from '@core/components';
 
-import { CalendarEventSidebarComponent } from 'app/main/apps/calendar/calendar-sidebar/calendar-event-sidebar/calendar-event-sidebar.component';
-import { CalendarMainSidebarComponent } from 'app/main/apps/calendar/calendar-sidebar/calendar-main-sidebar/calendar-main-sidebar.component';
+// import { CalendarEventSidebarComponent } from 'app/main/apps/calendar/calendar-sidebar/calendar-event-sidebar/calendar-event-sidebar.component';
+// import { CalendarMainSidebarComponent } from 'app/main/apps/calendar/calendar-sidebar/calendar-main-sidebar/calendar-main-sidebar.component';
 
-import { CalendarComponent } from 'app/main/apps/calendar/calendar.component';
-import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+// import { CalendarComponent } from 'app/main/apps/calendar/calendar.component';
+// import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+
+import { CalendarEventSidebarComponent } from 'app/main/sail/calendario/calendar-sidebar/calendar-event-sidebar/calendar-event-sidebar.component';
+import { CalendarMainSidebarComponent } from 'app/main/sail/calendario/calendar-sidebar/calendar-main-sidebar/calendar-main-sidebar.component';
+
+import { CalendarComponent } from 'app/main/sail/calendario/calendar.component';
+import { CalendarService } from 'app/main/sail/calendario/calendar.service';
 
 FullCalendarModule.registerPlugins([dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin]);
 
