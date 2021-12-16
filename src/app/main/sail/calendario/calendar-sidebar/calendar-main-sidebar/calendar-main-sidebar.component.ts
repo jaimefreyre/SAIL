@@ -2,7 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
-import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+// import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+import { CalendarService } from 'app/main/sail/calendario/calendar.service';
 
 @Component({
   selector: 'app-calendar-main-sidebar',
@@ -83,6 +84,21 @@ export class CalendarMainSidebarComponent implements OnInit {
       });
     }
     this._calendarService.calendarUpdate(this.calendarRef);
+  }
+
+/**
+ * Solicita datos de Forma Manual
+} */
+
+  solicitarDatosBase() {
+    this._calendarService.getEventsObservable()
+      .subscribe((response: any) => {
+        console.log('estamos en el calendario');
+        console.log(response);
+        // this.events = response;
+      },
+        (err) => { console.log(err) }
+      )
   }
 
   // Lifecycle Hooks

@@ -98,6 +98,17 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this._calendarService.onCurrentEventChange.next(newEvent);
   }
 
+  solicitarDatosBase(){
+    this._calendarService.getEventsObservable()
+      .subscribe((response: any) => {
+        console.log('estamos en el calendario');
+        console.log(response);
+        this.events = response;
+      },
+        (err) => { console.log(err) }
+      )
+  }
+
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
 
@@ -114,14 +125,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       console.log(res)
     });
 
-    this._calendarService.getEventsObservable()
-    .subscribe((response: any) => {
-      console.log('estamos en el calendario');
-      console.log(response);
-      this.events = response;
-    }, 
-    (err)=>{console.log(err)}
-    )
+    this.solicitarDatosBase();
 
     this._calendarService.onCurrentEventChange.subscribe(res => {
       this.event = res;

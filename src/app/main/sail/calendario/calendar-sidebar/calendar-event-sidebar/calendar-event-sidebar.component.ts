@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
-import { EventRef } from 'app/main/apps/calendar/calendar.model';
-import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+// import { EventRef } from 'app/main/apps/calendar/calendar.model';
+import { EventRef } from 'app/main/sail/calendario/calendar.model';
+// import { CalendarService } from 'app/main/apps/calendar/calendar.service';
+import { CalendarService } from 'app/main/sail/calendario/calendar.service';
 
 @Component({
   selector: 'app-calendar-event-sidebar',
