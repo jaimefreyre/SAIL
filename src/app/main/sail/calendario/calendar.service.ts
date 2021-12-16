@@ -5,11 +5,11 @@ import * as moment from 'moment';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { EventRef } from 'app/main/apps/calendar/calendar.model';
+import { EventRef, calendarioServer, listcalendarioServer } from 'app/main/sail/calendario/calendar.model';
 @Injectable()
 export class CalendarService implements Resolve<any> {
   // Public
-  public events;
+  public events = [];
   public calendar;
   public currentEvent;
   public tempEvents;
@@ -71,10 +71,52 @@ export class CalendarService implements Resolve<any> {
     const url = "/API_BASE/lead_calendar/?start="+startCalendar+"&end="+endCalendar+"&_=1639492734328&user=87";
     console.log(url);
 
+    // {
+    //   id: 7,
+    //     url: '',
+    //       title: 'Dinner',
+    //         start: new Date(new Date().getFullYear(), new Date().getMonth() + 1, -13),
+    //           end: new Date(new Date().getFullYear(), new Date().getMonth() + 1, -12),
+    //             allDay: true,
+    //               calendar: 'Family',
+    //                 extendedProps: {
+    //     location: 'Moscow',
+    //       description: 'The party club'
+    //   }
+    // },
+
+    // allDay: false
+    // color: "#009688"
+    // description: "Lead no atendido"
+    // end: "2021-03-13T11:20:59.411907+01:00"
+    // id: 55963
+    // resourceIds: 55963
+    // selectable: true
+    // start: "2021-03-13T11:05:59.411907+01:00"
+    // textColor: "#000000"
+    // title: "SUNIL
+
+
     return new Promise((resolve, reject) => {
-      this._httpClient.get(url).subscribe((response: any) => {
+      this._httpClient.get(url).subscribe((response: listcalendarioServer) => {
         console.log(response);
-        this.events = response;
+        for (let cita in response) {
+          let citaSet = {
+            id: cita.id, 
+            url: "",
+            title: cita.title,
+            start: cita.start,
+            end: cita.end,
+            allDay: cita.allDay,
+            calendar: cita.description,
+            extendedProps: {
+                location: ' ',
+                description: cita.description
+            }
+          }
+          this.events.push(citaSet)
+        }
+        // this.events = response;
         this.tempEvents = response;
         this.onEventChange.next(this.events);
         resolve(this.events);

@@ -120,12 +120,12 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
     this._calendarService.onEventChange.subscribe(res => {
       console.log('estamos en el calendario');
+      console.log(res)
       this.events = res;
       this.calendarOptions.events = res;
-      console.log(res)
     });
 
-    this.solicitarDatosBase();
+    // this.solicitarDatosBase();
 
     this._calendarService.onCurrentEventChange.subscribe(res => {
       this.event = res;

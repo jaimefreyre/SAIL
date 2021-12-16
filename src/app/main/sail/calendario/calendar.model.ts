@@ -13,3 +13,19 @@ export class EventRef {
     addGuest: []
   };
 }
+
+export class listcalendarioServer {
+  calendarioServer
+}
+export class calendarioServer {
+  allDay: false
+  color: string;
+  description: string;
+  end: string;
+  id: number;
+  resourceIds: number;
+  selectable: boolean;
+  start: string;
+  textColor: string;
+  title: string;
+}
