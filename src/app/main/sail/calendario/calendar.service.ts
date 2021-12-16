@@ -56,6 +56,8 @@ export class CalendarService implements Resolve<any> {
       /lead_calendar/kpis/? end = 2022 - 01 - 10 & result=positive & start=2021 - 11 - 29 & user=87
     */
 
+    //  2022 - 01-10
+
     let hoy = new Date();
     let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
     let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
@@ -63,8 +65,8 @@ export class CalendarService implements Resolve<any> {
     let f = new Date();
     f.getDate() + "-" + f.getMonth() + "-" + f.getFullYear();
   
-    let startCalendar = f.getMonth() + "-" + primerDia.getDay() + "-" + f.getFullYear();
-    let endCalendar = f.getMonth() + "-" + ultimoDia.getDay() + "-" + f.getFullYear();
+    let startCalendar = f.getFullYear() + "-" + primerDia.getDay() + "-" +f.getMonth() ;
+    let endCalendar = f.getFullYear() + "-" + ultimoDia.getDay() + "-" +f.getMonth() ;
     
     const url = "/API_BASE/lead_calendar/?start="+startCalendar+"&end="+endCalendar+"&_=1639492734328&user=87";
     console.log(url);
@@ -93,15 +95,16 @@ export class CalendarService implements Resolve<any> {
     // let year = date.getFullYear();
         
     // console.log(`${day}-${month}-${year}`);
+
     let hoy = new Date();
     let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
     let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
 
     let f = new Date();
     f.getDate() + "-" + f.getMonth() + "-" + f.getFullYear();
-    
-    let startCalendar = f.getMonth() + "-" + primerDia.getDay() + "-" + f.getFullYear();
-    let endCalendar = f.getMonth() + "-" + ultimoDia.getDay() + "-" + f.getFullYear();
+
+    let startCalendar = f.getFullYear() + "-" + primerDia.getDay() + "-" + f.getMonth();
+    let endCalendar = f.getFullYear() + "-" + ultimoDia.getDay() + "-" + f.getMonth();
 
     const url = "/API_BASE/lead_calendar/?start=" + startCalendar + "&end=" + endCalendar + "&_=1639492734328&user=87";
     console.log(url);
