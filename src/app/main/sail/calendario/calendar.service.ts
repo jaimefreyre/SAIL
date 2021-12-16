@@ -82,8 +82,14 @@ export class CalendarService implements Resolve<any> {
     let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
     let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
 
-    let startCalendar = moment("MM-" + primerDia.getDate() + "-YYYY");
-    let endCalendar = moment("MM-" + ultimoDia.getDate() + "-YYYY");
+    // let startCalendar = moment("MM-" + primerDia.getDate() + "-YYYY");
+    // let endCalendar = moment("MM-" + ultimoDia.getDate() + "-YYYY");
+
+    let f = new Date();
+    f.getDate() + "-" + f.getMonth() + "-" + f.getFullYear();
+    
+    let startCalendar = f.getMonth() + "-" + primerDia.getDay + "-" + f.getFullYear();
+    let endCalendar = f.getMonth() + "-" + ultimoDia.getDay + "-" + f.getFullYear();
 
     const url = "/API_BASE/lead_calendar/?start=" + startCalendar + "&end=" + endCalendar + "&_=1639492734328&user=87";
     console.log(url);
