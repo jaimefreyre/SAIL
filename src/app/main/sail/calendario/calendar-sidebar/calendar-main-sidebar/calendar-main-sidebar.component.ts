@@ -39,6 +39,7 @@ export class CalendarMainSidebarComponent implements OnInit {
    *
    */
   AddEvent() {
+    this.solicitarDatosBase();
     this.toggleEventSidebar();
     this._calendarService.createNewEvent();
   }
@@ -112,5 +113,7 @@ export class CalendarMainSidebarComponent implements OnInit {
     this._calendarService.onCalendarChange.subscribe(res => {
       this.calendarRef = res;
     });
+    this.solicitarDatosBase();
+  
   }
 }
