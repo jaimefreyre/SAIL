@@ -101,6 +101,7 @@ export class CalendarService implements Resolve<any> {
       this._httpClient.get(url).subscribe((response: [calendarioServer]) => {
         console.log(response);
         // for (let cita in response) {
+          let ki = this;
           response.forEach(function (cita) {
             let citaSet = {
               id: cita.id, 
@@ -115,7 +116,7 @@ export class CalendarService implements Resolve<any> {
                 description: cita.description
               }
             }
-            this.events.push(citaSet)
+            ki.events.push(citaSet)
           });
         
           // }
