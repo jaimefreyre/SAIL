@@ -98,24 +98,27 @@ export class CalendarService implements Resolve<any> {
 
 
     return new Promise((resolve, reject) => {
-      this._httpClient.get(url).subscribe((response: listcalendarioServer) => {
+      this._httpClient.get(url).subscribe((response: [calendarioServer]) => {
         console.log(response);
-        for (let cita in response) {
-          let citaSet = {
-            id: cita.id, 
-            url: "",
-            title: cita.title,
-            start: cita.start,
-            end: cita.end,
-            allDay: cita.allDay,
-            calendar: cita.description,
-            extendedProps: {
-                location: ' ',
+        // for (let cita in response) {
+          response.forEach(function (cita) {
+            let citaSet = {
+              id: cita.id, 
+              url: " ",
+              title: cita.title,
+              start: cita.start,
+              end: cita.end,
+              allDay: cita.allDay,
+              calendar: cita.description,
+              extendedProps: {
+                location: " ",
                 description: cita.description
+              }
             }
-          }
-          this.events.push(citaSet)
-        }
+            this.events.push(citaSet)
+          });
+        
+          // }
         // this.events = response;
         this.tempEvents = response;
         this.onEventChange.next(this.events);
