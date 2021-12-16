@@ -114,7 +114,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       console.log(res)
     });
 
-    this._calendarService.getEventsObservable();
+    this._calendarService.getEventsObservable()
+    .subscribe((response: any) => {
+      console.log(response);
+      this.events = response;
+    }, 
+    (err)=>{console.log(err)}
+    )
 
     this._calendarService.onCurrentEventChange.subscribe(res => {
       this.event = res;

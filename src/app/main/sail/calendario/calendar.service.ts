@@ -77,7 +77,7 @@ export class CalendarService implements Resolve<any> {
     });
   }
 
-  getEventsObservable(): void {
+  getEventsObservable(): Observable<any>{
     let hoy = new Date();
     let primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
     let ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
@@ -87,14 +87,15 @@ export class CalendarService implements Resolve<any> {
 
     const url = "/API_BASE/lead_calendar/?start=" + startCalendar + "&end=" + endCalendar + "&_=1639492734328&user=87";
     console.log(url);
-    this._httpClient.get(url).subscribe((response: any) => {
-      console.log(response);
-      this.events = response;
-      this.tempEvents = response;
-      this.onEventChange.next(this.events);
-    }, 
-    (err)=>{console.log(err)}
-    )
+    return this._httpClient.get(url);
+    // .subscribe((response: any) => {
+    //   console.log(response);
+    //   this.events = response;
+    //   this.tempEvents = response;
+    //   this.onEventChange.next(this.events);
+    // }, 
+    // (err)=>{console.log(err)}
+    // )
   }
   
   
