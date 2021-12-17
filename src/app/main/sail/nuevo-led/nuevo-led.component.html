@@ -1,15 +1,17 @@
 <div class="content-wrapper">
     <div class="content-body">
         <!-- Horizontal Wizard -->
-        <section class="horizontal-wizard">
+        <!-- <section class="horizontal-wizard">
             <div id="stepper1" class="bs-stepper horizontal-wizard-example">
                 <div class="bs-stepper-header">
                     <div class="step" data-target="#account-details">
                         <button class="step-trigger">
-                            <span class="bs-stepper-box">1</span>
+                            <span class="bs-stepper-box">
+                                <i data-feather="user"></i>
+                            </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Account Details</span>
-                                <span class="bs-stepper-subtitle">Setup Account Details</span>
+                                <span class="bs-stepper-title">Cliente</span>
+                                <span class="bs-stepper-subtitle">Ingrese datos del nuevo cliente.</span>
                             </span>
                         </button>
                     </div>
@@ -327,10 +329,11 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!--/ Horizontal Wizard -->
     </div>
 </div>
+
 <form class="form">
     <div class="row">
         <!-- Menu de solicitudes -->
@@ -799,7 +802,7 @@
         <!-- <div class="botoneras_selec_Config"> -->
         <div class="col-md-4 col-12 col-xs-12">
             <div class="btn-group" role="group">
-                <button type="button" class="btn btn-primary" rippleEffect>
+                <button type="button" class="btn btn-danger" rippleEffect>
                     Coincidentes
                 </button>
             </div>
@@ -825,15 +828,18 @@
         <!-- Cabecera Modelo -->
         <!-- <div class="cabecera"> -->
         <!-- Consecionario -->
-        <div class="col-md-8 col-12 col-xs-12">
+        <div class="col-md-6 col-12 col-xs-12">
             <div class="form-group">
                 <label for="consecionarias">Consecionario</label>
-                <input type="text" id="consecionarias" class="form-control" placeholder="Consecionaria"
-                    name="consecionarias" />
+                <input type="text" 
+                id="consecionarias" 
+                class="form-control form-control-lg mb-1" 
+                placeholder="Consecionaria/Departamento"
+                name="consecionarias" />
             </div>
         </div>
         <!-- Origen -->
-        <div class="col-md-4 col-12 col-xs-12">
+        <div class="col-md-3 col-12 col-xs-12">
             <div class="form-group">
                 <label for="origen-column">Origen</label>
                 <select class="form-control form-control-lg mb-1" id="origen-column">
@@ -844,8 +850,8 @@
                 </select>
             </div>
         </div>
-        <!-- canal -->
-        <div class="col-md-4 col-12 col-xs-12">
+        <!-- Canal -->
+        <div class="col-md-3 col-12 col-xs-12">
             <div class="form-group">
                 <label for="canal-column">Canal</label>
                 <select class="form-control form-control-lg mb-1" id="canal-column">
