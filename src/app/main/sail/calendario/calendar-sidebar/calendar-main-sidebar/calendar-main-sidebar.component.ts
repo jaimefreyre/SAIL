@@ -39,8 +39,6 @@ export class CalendarMainSidebarComponent implements OnInit {
    *
    */
   AddEvent() {
-    console.log('se hace click aquie en add event')
-    this.solicitarDatosBase();
     this.toggleEventSidebar();
     this._calendarService.createNewEvent();
   }
