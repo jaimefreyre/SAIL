@@ -441,15 +441,15 @@
                             <div class="form-group">
                                 <div class="btn-group btn-group-toggle">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" (change)="particularTipo = !particularTipo" id="tipo1" name="tipo1" class="custom-control-input"/>
+                                        <input type="radio" (click)="mostrarTipos(particularTipo);" id="tipo1" name="tipo1" [(value)]="particularTipo" class="custom-control-input"/>
                                         <label class="custom-control-label" for="tipo1">Particular</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" (change)="autonomoTipo = !autonomoTipo" id="tipo2" name="tipo2" class="custom-control-input" />
+                                        <input type="radio" (click)="mostrarTipos(autonomoTipo);" id="tipo2" name="tipo2" [(value)]="autonomoTipo" class="custom-control-input" />
                                         <label class="custom-control-label" for="tipo2">Autonomo</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" (change)="empresaTipo = !empresaTipo" id="tipo3" name="tipo3" class="custom-control-input" />
+                                        <input type="radio" (click)="mostrarTipos(empresaTipo);" id="tipo3" name="tipo3" [(value)]="empresaTipo" class="custom-control-input" />
                                         <label class="custom-control-label" for="tipo2">Empresa</label>
                                     </div>
                                 </div>
@@ -507,7 +507,7 @@
         </div>
 
         <!-- Formulario Empresa -->
-        <div class="card col-lg-6 col-xs-12" >
+        <div class="card col-lg-6 col-xs-12" *ngIf="empresaTipo">
             <div class="card-body">
                 <div class="row">
                     <!-- <div class="empresa"> -->

@@ -45,6 +45,18 @@ export class NuevoLedComponent implements OnInit {
   private modernVerticalWizardStepper: Stepper;
   private bsStepper;
 
+
+  /**
+   * 
+   * @param elementoamostrar
+   */
+  mostrarTipos(elementoamostrar){
+    this.empresaTipo = false;
+    this.autonomoTipo = false;
+    this.particularTipo = false;
+    elementoamostrar = true;
+  }
+
   /**
    * Horizontal Wizard Stepper Next
    *
