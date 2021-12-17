@@ -35,7 +35,7 @@ export const menu: CoreMenu[] = [
       },
       {
         id: 'NUEVO_LED',
-        title: 'NUEVO LED',
+        title: 'NUEVO LEAD',
         // translate: 'MENU.CRM.SUPPORT',
         icon: 'plus-circle',
         type: 'item',
