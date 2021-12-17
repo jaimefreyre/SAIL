@@ -65,8 +65,8 @@ export class CalendarService implements Resolve<any> {
     let f = new Date();
     f.getDate() + "-" + f.getMonth() + "-" + f.getFullYear();
   
-    let startCalendar = f.getFullYear() + "-" + primerDia.getDay() + "-" +f.getMonth() ;
-    let endCalendar = f.getFullYear() + "-" + ultimoDia.getDay() + "-" +f.getMonth() ;
+    let startCalendar = f.getFullYear() + "-" + f.getMonth() + "-" + primerDia.getDay();
+    let endCalendar = f.getFullYear() + "-" + f.getMonth() + "-" +  ultimoDia.getDay();
     
     const url = "/API_BASE/lead_calendar/?start="+startCalendar+"&end="+endCalendar+"&_=1639492734328&user=87";
     console.log(url);
@@ -110,18 +110,20 @@ export class CalendarService implements Resolve<any> {
               start: cita.start,
               end: cita.end,
               allDay: cita.allDay,
+              color: cita.color,
               calendar: cita.description,
               extendedProps: {
                 location: " ",
                 description: cita.description
               }
             }
-            ki.events.push(citaSet)
-          });
+            console.log(citaSet);
+            this.push(citaSet)
+          }, this.events);
         
           // }
         // this.events = response;
-        this.tempEvents = response;
+        this.tempEvents = this.events;
         this.onEventChange.next(this.events);
         resolve(this.events);
       }, reject);

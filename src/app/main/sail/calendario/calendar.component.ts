@@ -101,8 +101,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   solicitarDatosBase(){
     this._calendarService.getEventsObservable()
       .subscribe((response: any) => {
-        console.log('estamos en el calendario');
-        console.log(response);
+        // console.log('estamos en el calendario');
+        // console.log(response);
         this.events = response;
       },
         (err) => { console.log(err) }
@@ -119,7 +119,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     // Subscribe to Event Change
 
     this._calendarService.onEventChange.subscribe(res => {
-      console.log('estamos en el calendario');
+      // console.log('estamos en el calendario');
       console.log(res)
       this.events = res;
       this.calendarOptions.events = res;
@@ -128,8 +128,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     // this.solicitarDatosBase();
 
     this._calendarService.onCurrentEventChange.subscribe(res => {
-      this.event = res;
       console.log(res)
+      this.event = res;
     });
   }
 
