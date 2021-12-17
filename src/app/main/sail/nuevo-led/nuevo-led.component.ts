@@ -22,9 +22,7 @@ export class NuevoLedComponent implements OnInit {
   public landmarkVar;
   public addressVar;
 
-  public particularTipo: boolean =  false;
-  public empresaTipo: boolean =  false;
-  public autonomoTipo: boolean =  false;
+ 
 
   public selectBasic = [
     { name: 'UK' },
@@ -50,12 +48,7 @@ export class NuevoLedComponent implements OnInit {
    * 
    * @param elementoamostrar
    */
-  mostrarTipos(elementoamostrar){
-    this.empresaTipo = false;
-    this.autonomoTipo = false;
-    this.particularTipo = false;
-    elementoamostrar = true;
-  }
+  public tp1Form = 0;
 
   /**
    * Horizontal Wizard Stepper Next
