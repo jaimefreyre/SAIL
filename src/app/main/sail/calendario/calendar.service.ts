@@ -105,7 +105,7 @@ export class CalendarService implements Resolve<any> {
           response.forEach(function (cita) {
             let citaSet = {
               id: cita.id, 
-              url: "#!",
+              // url: null,
               title: cita.title,
               start: cita.start,
               end: cita.end,
