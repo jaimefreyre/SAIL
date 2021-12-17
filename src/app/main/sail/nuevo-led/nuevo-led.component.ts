@@ -22,6 +22,10 @@ export class NuevoLedComponent implements OnInit {
   public landmarkVar;
   public addressVar;
 
+  public particularTipo: boolean =  false;
+  public empresaTipo: boolean =  false;
+  public autonomoTipo: boolean =  false;
+
   public selectBasic = [
     { name: 'UK' },
     { name: 'USA' },
