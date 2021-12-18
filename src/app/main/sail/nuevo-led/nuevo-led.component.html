@@ -361,6 +361,7 @@
                 </button>
             </div>
         </div>
+        <hr>
         <!-- </div> -->
 
         <!-- Cabecera Modelo -->
@@ -425,10 +426,17 @@
             
                     <!-- Visita Expo -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <button type="button" class="btn btn-outline-success" rippleEffect>
+                        <!-- <button type="button" class="btn btn-outline-success" rippleEffect>
                             <span [data-feather]="'shopping-bag'" [class]="'mr-25'"></span>
                             Visita Expo
-                        </button>
+                        </button> -->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault" rippleEffect>
+                                <span [data-feather]="'shopping-bag'" [class]="'mr-25'"></span>
+                                Visita Expo
+                            </label>
+                        </div>
                     </div>
                     <!-- </div> -->
 
@@ -440,11 +448,11 @@
                         <div class="col-md-8 col-6 col-xs-6">
                             <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="tp1Form">
                                 <label ngbButtonLabel class="btn-outline-primary" rippleEffect><input ngbButton type="radio"
-                                        [value]="1" /> Empresas </label>
+                                        [value]="1" /> Empresa </label>
                                 <label ngbButtonLabel class="btn-outline-primary" rippleEffect><input ngbButton type="radio"
-                                        [value]="2" />Personas </label>
+                                        [value]="2" />Particular </label>
                                 <label ngbButtonLabel class="btn-outline-primary" rippleEffect><input ngbButton type="radio"
-                                        [value]="3" />Autonomos
+                                        [value]="3" />Autonomo
                                 </label>
                             </div>
                     </div>
