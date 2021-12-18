@@ -119,7 +119,8 @@ export class NuevoLedComponent implements OnInit {
   modalOpenSLCIM(modalSLCIM) {
     this.modalService.open(modalSLCIM, { scrollable: true });
   }
-
+  //Timeline ReportBasic
+  public showReportBasic = true;
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
