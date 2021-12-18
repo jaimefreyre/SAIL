@@ -127,3 +127,93 @@
     </ngx-datatable-column>
 </ngx-datatable>
 
+<div class="row" id="table-contextual">
+  <div class="col-12" *ngIf="contactosLista.results">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Contactos </h4>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+
+        </p>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Fecha y Hora</th>
+              <th>Duracion</th>
+              <th>Consecionario</th>
+              <th>Fuente</th>
+              <th>User</th>
+              <th>Ver / Alta</th>
+              <th>Altavoz</th>
+              <th>Mal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-default" *ngFor="let contacto of llamadasArray.results">
+              <td>
+                <span class="font-weight-bold">{{contacto.created | date:'fullDate'}}</span>
+              </td>
+              <td>{{contacto.modified | date:'fullDate'}}</td>
+              <td>{{contacto.nombre}}</td>
+              <td>
+                <span class="badge badge-pill badge-light-primary mr-1">
+                  {{contacto.status}}
+                </span>
+              </td>
+              <td>{{contacto.sent_phone_call_count}}</td>
+              <td>{{contacto.sent_emails_count}}</td>
+              <td>{{contacto.sent_whatsapp_count}}</td>
+              <td>{{contacto.task_count}}</td>
+              <td>{{contacto.tracking_count}}</td>
+              <td>{{contacto.user_data.username}}</td>
+              <!-- <td>
+                                <div class="avatar-group">
+                                    <div data-toggle="tooltip" data-popup="tooltip-custom" placement="top"
+                                        container="body" title="" class="avatar pull-up my-0" ngbTooltip="">
+                                        <td>{{contacto.user_data.username}}</td>
+                                    </div>
+                                </div>
+                            </td> -->
+              <td class="overflow-hidden">
+                <div ngbDropdown container="body">
+                  <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                    <i data-feather="more-vertical"></i>
+                  </button>
+                  <div ngbDropdownMenu>
+                    <a ngbDropdownItem href="javascript:void(0);">
+                      <i data-feather="edit-2" class="mr-50"></i>
+                      <span>Edit</span>
+                    </a>
+                    <a ngbDropdownItem href="javascript:void(0);">
+                      <i data-feather="trash" class="mr-50"></i>
+                      <span>Delete</span>
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+       
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" *ngIf="contactosLista.previous !== null"
+            (click)="datos_API_contactos( contactosLista.previous.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )"
+            class="btn btn-secondary">
+            Anterior
+          </button>
+          <button type="button"
+            (click)="datos_API_contactos( contactosLista.next.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )"
+            class="btn btn-secondary">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
