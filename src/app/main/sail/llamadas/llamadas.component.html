@@ -209,13 +209,13 @@
       </div>
       <div class="card-footer">
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" *ngIf="contactosLista.previous !== null"
-            (click)="datos_API_contactos( contactosLista.previous.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )"
+          <button type="button" *ngIf="llamadasArray.previous !== null"
+            (click)="datos_API_contactos( llamadasArray.previous.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )"
             class="btn btn-secondary">
             Anterior
           </button>
           <button type="button"
-            (click)="datos_API_contactos( contactosLista.next.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )"
+            (click)="datos_API_contactos( llamadasArray.next.replace('https://sail.artificialintelligencelead.com/api/', '/API_BASE/') )"
             class="btn btn-secondary">
             Siguiente
           </button>
