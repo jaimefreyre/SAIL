@@ -373,7 +373,7 @@
         <!-- </div> -->
 
         <!-- Cabecera Modelo -->
-        <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form !== 4">
+        <div class="card col-lg-6 col-xs-12">
             <div class="card-body">
                 <div class="row">
                     <!-- <div class="cabecera"> -->
@@ -998,7 +998,586 @@
             </div>
         </div>
         
+        <!-- Vehiculo Solicitado -->
+        <div class="card col-lg-12 col-xs-12">
+            <div class="card-body">
+                <div class="row">
+                    <!-- Titulo -->
+                    <div class="col-xs-12 col-lg-12">
+                        <h4 class="title">
+                            Vehiculo Solicitado
+                        </h4>
+                    </div>
+                    <!-- Titulo -->
+
+                    <!-- marca -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="marca-column">Elige o introduzca una Marca</label>
+                            <select class="form-control form-control-lg mb-1" id="marca-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- marca -->
+                    <!-- Modelo -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="modelo-column">Elige o introduzca un modelo</label>
+                            <select class="form-control form-control-lg mb-1" id="modelo-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Modelo -->
+                    <!-- Version -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="version-column">Elige o introduzca una version</label>
+                            <select class="form-control form-control-lg mb-1" id="version-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Version -->
+                    <!-- Kilometros -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Kilometros-icon">Kilometros</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
+                                    placeholder="Kilometros" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kilometros -->
+                    <!-- Precio -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Precio-icon">Precio</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Precio-icon" class="form-control" name="Precio-icon" placeholder="Precio" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Precio -->
+                    <!-- Año -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="anio-info-icon">Año</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                </div>
+                                <input type="number" id="anio-info-icon" class="form-control" name="anio-icon" placeholder="anio" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Año -->
+                    <!-- Combustible -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="combustible-column">Combustible</label>
+                            <select class="form-control form-control-lg mb-1" id="combustible-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Combustible -->
+                    <!-- Cambio -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Cambio-column">Cambio</label>
+                            <select class="form-control form-control-lg mb-1" id="Cambio-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Cambio -->
+                
+                    <!-- Potencia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Potencia-column">Potencia</label>
+                            <select class="form-control form-control-lg mb-1" id="Potencia-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Potencia -->
+                
+                    <!-- URL -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="URL-id-icon">URL</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="URL" id="URL-id-icon" class="form-control" name="URL-id-icon" placeholder="URL Anuncios" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- URL -->
+                    <!-- Notas -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Notas-id-icon">Notas</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                </div>
+                                <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notas -->
+                
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vehiculo Actual -->
+        <div class="card col-lg-12 col-xs-12">
+            <div class="card-body">
+                <div class="row">
+                    <!-- Titulo -->
+                    <div class="col-xs-12 col-lg-12">
+                        <h4 class="title">
+                            Vehiculo Solicitado
+                        </h4>
+                    </div>
+                    <!-- Titulo -->
+
+                    <!-- marca -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="marca-column">Elige o introduzca una Marca</label>
+                            <select class="form-control form-control-lg mb-1" id="marca-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- marca -->
+                    <!-- Modelo -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="modelo-column">Elige o introduzca un modelo</label>
+                            <select class="form-control form-control-lg mb-1" id="modelo-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Modelo -->
+                    <!-- Version -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="version-column">Elige o introduzca una version</label>
+                            <select class="form-control form-control-lg mb-1" id="version-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Version -->
+                    <!-- Kilometros -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Kilometros-icon">Kilometros</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
+                                    placeholder="Kilometros" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kilometros -->
+                    <!-- Precio -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Precio-icon">Precio</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Precio-icon" class="form-control" name="Precio-icon" placeholder="Precio" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Precio -->
+                    <!-- Año -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="anio-info-icon">Año</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                </div>
+                                <input type="number" id="anio-info-icon" class="form-control" name="anio-icon" placeholder="anio" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Año -->
+                    <!-- Combustible -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="combustible-column">Combustible</label>
+                            <select class="form-control form-control-lg mb-1" id="combustible-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Combustible -->
+                    <!-- Cambio -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Cambio-column">Cambio</label>
+                            <select class="form-control form-control-lg mb-1" id="Cambio-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Cambio -->
+                
+                    <!-- Potencia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Potencia-column">Potencia</label>
+                            <select class="form-control form-control-lg mb-1" id="Potencia-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Potencia -->
+                
+                    <!-- FechaMatricula -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="FechaMatricula-id-icon">FechaMatricula</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="FechaMatricula" id="FechaMatricula-id-icon" class="form-control" name="FechaMatricula-id-icon" placeholder="Fecha de Matricula" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FechaMatricula -->
+                
+                    <!-- Matricula -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Matricula-id-icon">Matricula</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Matricula" id="Matricula-id-icon" class="form-control" name="Matricula-id-icon" placeholder="Matricula" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Matricula -->
+
+                    <!-- Notas -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Notas-id-icon">Notas</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                </div>
+                                <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notas -->
+                
+                </div>
+            </div>
+        </div>
+        
+        <!-- Acciones Programadas -->
+        <div class="card col-lg-12 col-xs-12">
+            <div class="card-body">
+                <div class="row" id="table-without-card">
+                    <div class="col-12 my-2">
+                        <h5 class="mb-1">Acciones Programadas</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha y Hora</th>
+                                        <th>Tarea / Seguimiento</th>
+                                        <th>Tipo Tarea</th>
+                                        <th>Canal</th>
+                                        <th>Notas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="text" placeholder="01/02/2023" mask="00/00/0000" />
+                                        </td>
+                                        
+                                        <td>
+                                        </td>
+                                        
+                                        <td>
+                                        </td>
+                                        
+                                        <td>
+                                        </td>    
+                                        
+                                        <td class="overflow-hidden">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Notas -->
+        <div class="card col-lg-12 col-xs-12">
+            <div class="card-body">
+                <div class="row" id="table-without-card">
+                    <div class="col-12 my-2">
+                        <h5 class="mb-1">Notas</h5>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Microfono</span>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
        
+        <div class="col-lg-12 col-xs-12">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="timeline">
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <h6>12 Invoices have been paid</h6>
+                                    <span class="timeline-event-time">12 min ago</span>
+                                </div>
+                                <p>Invoices have been paid to the company.</p>
+                                <div class="media align-items-center">
+                                    <img class="mr-1" src="assets/images/icons/file-icons/pdf.png" alt="invoice" height="23" />
+                                    <div class="media-body">invoice.pdf</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <h6>Client Meeting</h6>
+                                    <span class="timeline-event-time">45 min ago</span>
+                                </div>
+                                <p>Project meeting with john @10:15am.</p>
+                                <div class="media align-items-center">
+                                    <div class="avatar">
+                                        <img src="assets/images/avatars/12-small.png" alt="avatar" height="38" width="38" />
+                                    </div>
+                                    <div class="media-body ml-50">
+                                        <h6 class="mb-0">John Doe (Client)</h6>
+                                        <span>CEO of Infibeam</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <h6>Financial Report</h6>
+                                    <span class="timeline-event-time">2 hours ago</span>
+                                </div>
+                                <p class="mb-50">Click the button below to read financial reports</p>
+                                <button class="btn btn-outline-primary btn-sm" type="button" data-toggle="collapse"
+                                    data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" rippleEffect
+                                    (click)="showReportBasic = !showReportBasic">
+                                    Show Report
+                                </button>
+                                <div [ngbCollapse]="showReportBasic" class="collapse" id="collapseExample">
+                                    <ul class="list-group list-group-flush mt-1">
+                                        <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                            <span>Last Years's Profit : <span class="font-weight-bold">$20000</span></span>
+                                            <i data-feather="share-2" class="cursor-pointer"></i>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                            <span> This Years's Profit : <span class="font-weight-bold">$25000</span></span>
+                                            <i data-feather="share-2" class="cursor-pointer"></i>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                            <span> Last Years's Commission : <span class="font-weight-bold">$5000</span></span>
+                                            <i data-feather="share-2" class="cursor-pointer"></i>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                            <span> This Years's Commission : <span class="font-weight-bold">$7000</span></span>
+                                            <i data-feather="share-2" class="cursor-pointer"></i>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                            <span> This Years's Total Balance : <span class="font-weight-bold">$70000</span></span>
+                                            <i data-feather="share-2" class="cursor-pointer"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-warning timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <h6 class="mb-50">Interview Schedule</h6>
+                                    <span class="timeline-event-time">03:00 PM</span>
+                                </div>
+                                <p>Have to interview Katy Turner for the developer job.</p>
+                                <hr />
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <div class="media align-items-center">
+                                        <div class="avatar mr-1">
+                                            <img src="assets/images/avatars/1-small.png" alt="Avatar" height="32" width="32" />
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="mb-0">Katy Turner</p>
+                                            <span class="text-muted">Javascript Developer</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center cursor-pointer mt-sm-0 mt-50">
+                                        <i data-feather="message-square" class="mr-1"></i>
+                                        <i data-feather="phone-call"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-danger timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <h6>Online Store</h6>
+                                    <span class="timeline-event-time">03:00PM</span>
+                                </div>
+                                <p>
+                                    Develop an online store of electronic devices for the provided layout, as well as develop a mobile
+                                    version of it. The must be compatible with any CMS.
+                                </p>
+                                <div class="d-flex justify-content-between flex-wrap flex-sm-row flex-column">
+                                    <div>
+                                        <p class="text-muted mb-50">Developers</p>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar bg-light-primary avatar-sm mr-50">
+                                                <span class="avatar-content">A</span>
+                                            </div>
+                                            <div class="avatar bg-light-success avatar-sm mr-50">
+                                                <span class="avatar-content">B</span>
+                                            </div>
+                                            <div class="avatar bg-light-danger avatar-sm">
+                                                <span class="avatar-content">C</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-sm-0 mt-1">
+                                        <p class="text-muted mb-50">Deadline</p>
+                                        <p class="mb-0">20 Dec 2077</p>
+                                    </div>
+                                    <div class="mt-sm-0 mt-1">
+                                        <p class="text-muted mb-50">Budget</p>
+                                        <p class="mb-0">$50000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-info timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between align-items-center mb-50">
+                                    <h6>Designing UI</h6>
+                                    <div>
+                                        <span class="badge badge-pill badge-light-primary">Design</span>
+                                    </div>
+                                </div>
+                                <p>
+                                    Our main goal is to design a new mobile application for our client. The customer wants a clean &
+                                    flat design.
+                                </p>
+                                <div>
+                                    <span class="text-muted">Participants</span>
+                                    <div class="avatar-group mt-50">
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                                            data-original-title="Vinnie Mostowy" class="avatar pull-up">
+                                            <img class="media-object" src="assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar"
+                                                height="30" width="30" />
+                                        </div>
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                                            data-original-title="Elicia Rieske" class="avatar pull-up">
+                                            <img class="media-object" src="assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar"
+                                                height="30" width="30" />
+                                        </div>
+                                        <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                                            data-original-title="Julee Rossignol" class="avatar pull-up">
+                                            <img class="media-object" src="assets/images/portrait/small/avatar-s-10.jpg" alt="Avatar"
+                                                height="30" width="30" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Botones -->
         <div class="col-12">
             <button type="submit" rippleEffect class="btn btn-primary mr-1">Guardar</button>
