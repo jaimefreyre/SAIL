@@ -347,10 +347,206 @@
         </div>
         <div class="col-md-8 col-12 col-xs-12" style="text-align: right !important;">
             <div class="btn-group" role="group">
-                <button type="button" class="btn btn-primary" rippleEffect>
+                <!-- <button type="button" class="btn btn-primary" rippleEffect>
                     <i data-feather="car" class="font-medium-1 cursor-pointer"></i>
                     + Solicitud
-                </button>
+                </button> -->
+                <!-- modal Open Srolling Long Content Inside -->
+                <div class="scrolling-content-inside-modal">
+                    <!-- Button trigger modal -->
+                    <button type="button" (click)="modalOpenSLCIM(modalSLCIM)" class="btn btn-outline-primary" rippleEffect>
+                        <i data-feather="car" class="font-medium-1 cursor-pointer"></i>
+                        + Solicitud
+                    </button>
+                
+                    <!-- Modal -->
+                    <ng-template #modalSLCIM let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel1">Nueva Solicitud</h4>
+                            <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" tabindex="0" ngbAutofocus>
+                            <div class="row">
+                                <!-- marca -->
+                                <div class="col-md-4 col-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="marca-column">Elige o introduzca una Marca</label>
+                                        <select class="form-control form-control-lg mb-1" id="marca-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- marca -->
+                                <!-- Modelo -->
+                                <div class="col-md-4 col-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="modelo-column">Elige o introduzca un modelo</label>
+                                        <select class="form-control form-control-lg mb-1" id="modelo-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Modelo -->
+                                <!-- Version -->
+                                <div class="col-md-4 col-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="version-column">Elige o introduzca una version</label>
+                                        <select class="form-control form-control-lg mb-1" id="version-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Version -->
+                
+                                <!-- Kilometros -->
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Kilometros-icon">Kilometros</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                            </div>
+                                            <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
+                                                placeholder="Kilometros" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Kilometros -->
+                                <!-- Precio -->
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Precio-icon">Precio</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                            </div>
+                                            <input type="text" id="Precio-icon" class="form-control" name="Precio-icon"
+                                                placeholder="Precio" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Precio -->
+                                <!-- Año -->
+                                <div class="col-lg-4 col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="anio-info-icon">Año</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                            </div>
+                                            <input type="number" id="anio-info-icon" class="form-control" name="anio-icon"
+                                                placeholder="anio" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Año -->
+                                <!-- Combustible -->
+                                <div class="col-lg-8 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="combustible-column">Combustible</label>
+                                        <select class="form-control form-control-lg mb-1" id="combustible-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Combustible -->
+                                <!-- Cambio -->
+                                <div class="col-lg-4 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Cambio-column">Cambio</label>
+                                        <select class="form-control form-control-lg mb-1" id="Cambio-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Cambio -->
+                
+                                <!-- Potencia -->
+                                <div class="col-lg-4 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Potencia-column">Potencia</label>
+                                        <select class="form-control form-control-lg mb-1" id="Potencia-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Potencia -->
+                
+                                <!-- URL -->
+                                <div class="col-lg-4 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="URL-id-icon">URL</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                            </div>
+                                            <input type="URL" id="URL-id-icon" class="form-control" name="URL-id-icon"
+                                                placeholder="URL Anuncios" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- URL -->
+                                <!-- Notas -->
+                                <div class="col-lg-12 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Notas-id-icon">Notas</label>
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                            </div>
+                                            <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon"
+                                                placeholder="Notas" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Notas -->
+                
+                                <!-- + Vehiculo Actual  -->
+                                <div class="col-lg-12 col-md-6 col-xs-12">
+                                    <button type="button" class="btn btn-warning" rippleEffect>
+                                        <span [data-feather]="'plus'" [class]="'mr-25'"></span>
+                                        Vehiculo Actual
+                                    </button>
+                                </div>
+                
+                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
+                                    Accept
+                                </button> -->
+                            <button type="reset" (click)="modal.dismiss('Cross click')" class="btn btn-outline-secondary"
+                                rippleEffect>Cancelar</button>
+                            <button type="submit" (click)="modal.close('Accept click')" class="btn btn-primary mr-1"
+                                rippleEffect>Guardar</button>
+                        </div>
+                    </ng-template>
+                    <!-- / Modal -->
+                
+                </div>
+
+
                 <button type="button" class="btn btn-primary" rippleEffect>
                     <i data-feather="clipboard" class="font-medium-1 cursor-pointer"></i>
                     + Tarea
@@ -989,170 +1185,22 @@
                 </div>
             </div>
         </div>
+        
         <!-- Formulario Nueva Solicitud -->
         <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form == 4">
             <div class="card-body">
-                <div class="row">
-                    <!-- marca -->
-                    <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
-                            <label for="marca-column">Elige  o introduzca una Marca</label>
-                            <select class="form-control form-control-lg mb-1" id="marca-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- marca -->
-                    <!-- Modelo -->
-                    <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
-                            <label for="modelo-column">Elige o introduzca un modelo</label>
-                            <select class="form-control form-control-lg mb-1" id="modelo-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Modelo -->
-                    <!-- Version -->
-                    <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
-                            <label for="version-column">Elige o introduzca una version</label>
-                            <select class="form-control form-control-lg mb-1" id="version-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Version -->
-
-                    <!-- Kilometros -->
-                    <div class="col-lg-6 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="Kilometros-icon">Kilometros</label>
-                            <div class="input-group input-group-merge">
-                                <div class="input-group-prepend">
-                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
-                                </div>
-                                <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
-                                    placeholder="Kilometros" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Kilometros -->
-                    <!-- Precio -->
-                    <div class="col-lg-6 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="Precio-icon">Precio</label>
-                            <div class="input-group input-group-merge">
-                                <div class="input-group-prepend">
-                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
-                                </div>
-                                <input type="text" id="Precio-icon" class="form-control" name="Precio-icon"
-                                    placeholder="Precio" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Precio -->
-                    <!-- Año -->
-                    <div class="col-lg-4 col-md-4 col-xs-12">
-                        <div class="form-group">
-                            <label for="anio-info-icon">Año</label>
-                            <div class="input-group input-group-merge">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
-                                </div>
-                                <input type="number" id="anio-info-icon" class="form-control" name="anio-icon"
-                                    placeholder="anio" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Año -->
-                    <!-- Combustible -->
-                    <div class="col-lg-8 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="combustible-column">Combustible</label>
-                            <select class="form-control form-control-lg mb-1" id="combustible-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Combustible -->
-                    <!-- Cambio -->
-                    <div class="col-lg-4 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="Cambio-column">Cambio</label>
-                            <select class="form-control form-control-lg mb-1" id="Cambio-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Cambio -->
-                    
-                    <!-- Potencia -->
-                    <div class="col-lg-4 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="Potencia-column">Potencia</label>
-                            <select class="form-control form-control-lg mb-1" id="Potencia-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Potencia -->
-                    
-                    <!-- URL -->
-                    <div class="col-lg-4 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="URL-id-icon">URL</label>
-                            <div class="input-group input-group-merge">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
-                                </div>
-                                <input type="URL" id="URL-id-icon" class="form-control" name="URL-id-icon"
-                                    placeholder="URL Anuncios" />
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Notas -->
-                    <div class="col-lg-12 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="Notas-id-icon">Notas</label>
-                            <div class="input-group input-group-merge">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
-                                </div>
-                                <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon"
-                                    placeholder="Notas" />
-                            </div>
-                        </div>
-                    </div>
-       
-                    <!-- </div> -->
-                </div>
+                
             </div>
+        </div>
 
         <!-- Botones -->
         <div class="col-12">
             <button type="submit" rippleEffect class="btn btn-primary mr-1">Guardar</button>
             <button type="reset" rippleEffect class="btn btn-outline-secondary">Cancelar</button>
         </div>
-
+   
+    
+    
     </div>
 </form>
 <hr>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Stepper from 'bs-stepper';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-nuevo-led',
@@ -42,6 +43,7 @@ export class NuevoLedComponent implements OnInit {
   private modernWizardStepper: Stepper;
   private modernVerticalWizardStepper: Stepper;
   private bsStepper;
+
 
 
   /**
@@ -111,7 +113,13 @@ export class NuevoLedComponent implements OnInit {
     return false;
   }
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
+
+  // modal Open Srolling Long Content Inside
+  modalOpenSLCIM(modalSLCIM) {
+    this.modalService.open(modalSLCIM, { scrollable: true });
+  }
+
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
