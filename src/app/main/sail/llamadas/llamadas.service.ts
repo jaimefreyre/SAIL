@@ -9,6 +9,9 @@ export class DatatablesServiceLlamadas implements Resolve<any> {
     rows: any;
     onDatatablessChanged: BehaviorSubject<any>;
 
+    llamadas: any;
+    cambiosLlamadas: BehaviorSubject<any>;
+
     /**
      * Constructor
      *
@@ -17,6 +20,7 @@ export class DatatablesServiceLlamadas implements Resolve<any> {
     constructor(private _httpClient: HttpClient) {
         // Set the defaults
         this.onDatatablessChanged = new BehaviorSubject({});
+        this.cambiosLlamadas = new BehaviorSubject({});
     }
 
     /**
@@ -27,9 +31,9 @@ export class DatatablesServiceLlamadas implements Resolve<any> {
      * @returns {Observable<any> | Promise<any> | any}
      */
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
-        return new Promise<void>((resolve, reject) => {
-            Promise.all([this.getDataTableRows()]).then(() => {
-                resolve();
+       return new Promise((resolve, reject) => {
+            Promise.all([this.getDataTableRows(), this.getDataTableRows2()]).then(res => {
+                resolve(res);
             }, reject);
         });
     }
@@ -40,12 +44,32 @@ export class DatatablesServiceLlamadas implements Resolve<any> {
     getDataTableRows(): Promise<any[]> {
         return new Promise((resolve, reject) => {
             this._httpClient.get('api/datatable-rows').subscribe((response: any) => {
+                console.log(response);
                 this.rows = response;
                 this.onDatatablessChanged.next(this.rows);
                 resolve(this.rows);
             }, reject);
         });
     }
+    /**
+     * Get rows
+     */
+    getDataTableRows2(): Promise<any[]> {
+        return new Promise((resolve, reject) => {
+            this._httpClient.get('/API_BASE/netelip/call_manager/').subscribe((response: any) => {
+                console.log(response);
+                this.llamadas = response;
+                this.cambiosLlamadas.next(this.llamadas);
+                resolve(this.llamadas);
+            }, reject);
+        });
+    }
+
+
+
+
+
+    
 }
 
 

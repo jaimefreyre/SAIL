@@ -22,6 +22,8 @@ export class LlamadasComponent implements OnInit {
   // public
   public contentHeader: object;
   public rows: any;
+  public llamadas: any;
+
   public selected = [];
   public kitchenSinkRows: any;
   public basicSelectedOption: number = 10;
@@ -182,6 +184,10 @@ export class LlamadasComponent implements OnInit {
       this.tempData = this.rows;
       this.kitchenSinkRows = this.rows;
       this.exportCSVData = this.rows;
+    });
+    this._datatablesServiceLlamadas.cambiosLlamadas.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+      console.log(response)
+      this.llamadas = response;
     });
 
     // content header
