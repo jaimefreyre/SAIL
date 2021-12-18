@@ -128,7 +128,7 @@
 </ngx-datatable>
 
 <div class="row" id="table-contextual">
-  <div class="col-12" *ngIf="contactosLista.results">
+  <div class="col-12" *ngIf="llamadasArray.results">
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">Contactos </h4>
@@ -149,35 +149,32 @@
               <th>User</th>
               <th>Ver / Alta</th>
               <th>Altavoz</th>
-              <th>Mal</th>
+              <th>Mail</th>
             </tr>
           </thead>
           <tbody>
             <tr class="table-default" *ngFor="let contacto of llamadasArray.results">
               <td>
-                <span class="font-weight-bold">{{contacto.created | date:'fullDate'}}</span>
+                <span class="font-weight-bold">{{contacto.startcall | date:'fullDate'}}</span>
               </td>
-              <td>{{contacto.modified | date:'fullDate'}}</td>
-              <td>{{contacto.nombre}}</td>
               <td>
                 <span class="badge badge-pill badge-light-primary mr-1">
-                  {{contacto.status}}
+                  {{contacto.concessionaire.name}}
                 </span>
               </td>
-              <td>{{contacto.sent_phone_call_count}}</td>
-              <td>{{contacto.sent_emails_count}}</td>
-              <td>{{contacto.sent_whatsapp_count}}</td>
-              <td>{{contacto.task_count}}</td>
-              <td>{{contacto.tracking_count}}</td>
-              <td>{{contacto.user_data.username}}</td>
-              <!-- <td>
-                                <div class="avatar-group">
-                                    <div data-toggle="tooltip" data-popup="tooltip-custom" placement="top"
-                                        container="body" title="" class="avatar pull-up my-0" ngbTooltip="">
-                                        <td>{{contacto.user_data.username}}</td>
-                                    </div>
-                                </div>
-                            </td> -->
+              <td>{{contacto.source.origin_data.name}}</td>
+              <td>{{contacto.source.user}}</td>
+              <td>Ver Coincidentes (Construccion)</td>
+              <td>
+                <div class="avatar-group">
+                  <div data-toggle="tooltip" data-popup="tooltip-custom" placement="top" container="body" title=""
+                    class="avatar pull-up my-0" ngbTooltip="">
+                    <td>
+                      <i data-feather="play"></i>
+                    </td>
+                  </div>
+                </div>
+              </td>
               <td class="overflow-hidden">
                 <div ngbDropdown container="body">
                   <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
@@ -185,12 +182,8 @@
                   </button>
                   <div ngbDropdownMenu>
                     <a ngbDropdownItem href="javascript:void(0);">
-                      <i data-feather="edit-2" class="mr-50"></i>
-                      <span>Edit</span>
-                    </a>
-                    <a ngbDropdownItem href="javascript:void(0);">
-                      <i data-feather="trash" class="mr-50"></i>
-                      <span>Delete</span>
+                      <i data-feather="mail" class="mr-50"></i>
+                      <span>Ver</span>
                     </a>
                   </div>
                 </div>
