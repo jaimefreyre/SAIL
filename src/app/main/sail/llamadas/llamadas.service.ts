@@ -65,11 +65,10 @@ export class DatatablesServiceLlamadas implements Resolve<any> {
         });
     }
 
+    solicitaDatoBase(url: string): Observable<any> {
+        return this._httpClient.get(url);
+    }
 
-
-
-
-    
 }
 
 

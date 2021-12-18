@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ColumnMode, DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
 
@@ -162,6 +162,31 @@ export class LlamadasComponent implements OnInit {
     this.chkBoxSelected.push(...selected);
   }
 
+
+  // Nuevos Leads
+  public llamadasArray: [];
+  subs_llamadass: Subscription;
+  datos_API_llamadas(url: string): any {
+    this.subs_llamadass = this._datatablesServiceLlamadas.solicitaDatoBase(url).subscribe(
+      result => {
+        if (result.code != 200) {
+          this.llamadasArray = result;
+          this.rows = result.results;
+          console.log(this.llamadasArray);
+          this.tempData = this.rows;
+          this.kitchenSinkRows = this.rows;
+          this.exportCSVData = this.rows;
+
+        } else {
+          console.log(result)
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
   /**
    * Constructor
    *
@@ -190,6 +215,7 @@ export class LlamadasComponent implements OnInit {
       this.exportCSVData = this.rows;
     });
 
+    this.datos_API_llamadas('/API_BASE/netelip/call_manager/');
     // content header
     this.contentHeader = {
       headerTitle: 'Datatables',
