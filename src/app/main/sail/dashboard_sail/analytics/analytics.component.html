@@ -156,16 +156,15 @@
                   </i>
                 </span> -->
                 <div class="rating">
-                  <ngb-rating [(rate)]="lead.score" [starTemplate]="t" [max]="5" class="outline-none">
-                    <ng-template #t let-fill="fill">
-                      <span class="custom-star" [class.custom-full]="fill===100">
-                        <span class="custom-half"
-                          [style.width.%]="fill">
-                          &#9733;
-                        </span>
-                      &#9733;
+                  <ng-template #t let-fill="fill">
+                    <span class="custom-star" [class.custom-full]="fill===100">
+                      <span class="custom-half" [style.width.%]="fill">
+                        &#9733;
                       </span>
-                    </ng-template>
+                      &#9733;
+                    </span>
+                  </ng-template>
+                  <ngb-rating [(rate)]="lead.score" [starTemplate]="t" [max]="5" class="outline-none">
                   </ngb-rating>
                 </div>
               </div>
