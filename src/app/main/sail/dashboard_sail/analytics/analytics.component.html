@@ -155,8 +155,17 @@
                     lead.score
                   </i>
                 </span> -->
+                <ng-template #t let-fill="fill">
+                  <span class="custom-star" [class.custom-full]="fill===100">
+                    <span class="custom-half"
+                      [style.width.%]="fill">
+                      &#9733;
+                    </span>
+                  &#9733;
+                  </span>
+                </ng-template>
                 <div class="rating">
-                  <ngb-rating [(rate)]="lead.score" class="outline-none"></ngb-rating>
+                  <ngb-rating [(rate)]="lead.score" [starTemplate]="t" [max]="5" class="outline-none"></ngb-rating>
                 </div>
               </div>
             
