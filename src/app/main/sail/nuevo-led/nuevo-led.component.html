@@ -466,44 +466,8 @@
                     <!-- Calificacion -->
                     <div class="col-md-4 col-6 col-xs-6">
                         <div class="form-group">
-                            <label for="Califica-Cliente-column">
-
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="star1" name="star1" class="custom-control-input" />
-                                    <label class="custom-control-label" for="star1">
-                                        <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
-                                    </label>
-                                </div>
-
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="star2" name="star2" class="custom-control-input" />
-                                    <label class="custom-control-label" for="star2">
-                                        <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
-                                    </label>
-                                </div>
-
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="star3" name="star3" class="custom-control-input" />
-                                    <label class="custom-control-label" for="star3">
-                                        <i data-feather="star" class="font-medium-3 estrellita cursor-pointer"></i>
-                                    </label>
-                                </div>
-
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="star4" name="star4" class="custom-control-input" />
-                                    <label class="custom-control-label" for="star4">
-                                        <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
-                                    </label>
-                                </div>
-
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="star5" name="star5" class="custom-control-input" />
-                                    <label class="custom-control-label" for="star5">
-                                        <i data-feather="star" class="font-medium-3 cursor-pointer"></i>
-                                    </label>
-                                </div>
-
-                            </label>
+                            <ngb-rating [(rate)]="score" [readonly]="false" [max]="5" class="outline-none estrellita">
+                            </ngb-rating>
                         </div>
                     </div>
                     <!-- </div> -->
