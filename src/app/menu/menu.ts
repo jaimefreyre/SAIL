@@ -93,14 +93,14 @@ export const menu: CoreMenu[] = [
             title: 'Consecionarias',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD',
             type: 'item',
-            url: '/sail/framedash'
+            url: '/sail/consecionarios'
           },
           {
             id: 'origenes',
             title: 'Origenes',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
-            url: '/sail/framedash'
+            url: '/sail/origenes'
           },
           {
             id: 'canales',
@@ -114,7 +114,7 @@ export const menu: CoreMenu[] = [
             title: 'Usuarios',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
-            url: '/sail/framedash'
+            url: '/sail/usuarios'
           }
           
         ]
