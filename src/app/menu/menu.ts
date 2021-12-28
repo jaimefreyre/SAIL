@@ -114,9 +114,8 @@ export const menu: CoreMenu[] = [
             title: 'Usuarios',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
-            url: '/sail/usuarios'
+            url: '/sail/usuarios'          
           }
-          
         ]
       },
       {
