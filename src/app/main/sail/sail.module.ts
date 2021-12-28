@@ -28,6 +28,7 @@ import { FramesdashComponent } from './framesdash/framesdash.component';
 import { CsvModule } from '@ctrl/ngx-csv';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DatatablesServiceLlamadas } from './llamadas/llamadas.service';
+import { ServiceNuevoService } from './nuevo-led/service-nuevo.service';
 
 // import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 
@@ -62,6 +63,22 @@ const routes: Routes = [
     path: 'framedash',
     component: FramesdashComponent
   },
+  {
+    path: 'consecionarios',
+    component: ConsecionariosComponent
+  },
+  {
+    path: 'origenes',
+    component: OrigenesComponent
+  },
+  {
+    path: 'canales',
+    component: CanalesComponent
+  },
+  {
+    path: 'usuarios',
+    component: UsuariosComponent
+  },
 ];
 
 
@@ -90,6 +107,6 @@ const routes: Routes = [
     // KbModule,
     // AccountSettingsModule
   ],
-  providers: [DatatablesServiceLlamadas]
+  providers: [DatatablesServiceLlamadas, ServiceNuevoService]
 })
 export class SailModule {}
