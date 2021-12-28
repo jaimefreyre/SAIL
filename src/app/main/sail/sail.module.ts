@@ -33,6 +33,10 @@ import { DatatablesServiceLlamadas } from './llamadas/llamadas.service';
 
 
 import { RouterModule, Routes } from '@angular/router';
+import { ConsecionariosComponent } from './consecionarios/consecionarios.component';
+import { CanalesComponent } from './canales/canales.component';
+import { OrigenesComponent } from './origenes/origenes.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 const routes: Routes = [
   {
     path: 'llamadas',
@@ -62,7 +66,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [LlamadasComponent, ContactosComponent, AutomatismosComponent, AbmComponent, NuevoLedComponent, FramesdashComponent],
+  declarations: [LlamadasComponent, ContactosComponent, AutomatismosComponent, AbmComponent, NuevoLedComponent, FramesdashComponent, ConsecionariosComponent, CanalesComponent, OrigenesComponent, UsuariosComponent],
   imports: [
     CommonModule,
     CoreCommonModule,

@@ -89,43 +89,34 @@ export const menu: CoreMenu[] = [
         type: 'collapsible',
         children: [
           {
-            id: 'configuraciones',
-            title: 'CONFIGURACIONES',
-            // translate: 'MENU.CRM.LEVELS.SECOND',
-            icon: 'sliders',
+            id: 'consecionarios',
+            title: 'Consecionarias',
+            // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD',
             type: 'item',
-            url: '#'
+            url: '/sail/framedash'
           },
           {
-            id: 'centroderecursos',
-            title: 'RECURSOS',
-            // translate: 'MENU.CRM.LEVELS.SECOND1.COLLAPSIBLE',
-            icon: 'circle',
-            type: 'collapsible',
-            children: [
-              {
-                id: 'consecionarios',
-                title: 'Consecionarias',
-                // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD',
-                type: 'item',
-                url: '#'
-              },
-              {
-                id: 'usuarios',
-                title: 'Usuarios',
-                // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
-                type: 'item',
-                url: '#'
-              },
-              {
-                id: 'origenes',
-                title: 'Origenes',
-                // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
-                type: 'item',
-                url: '#'
-              }
-            ]
+            id: 'origenes',
+            title: 'Origenes',
+            // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
+            type: 'item',
+            url: '/sail/framedash'
+          },
+          {
+            id: 'canales',
+            title: 'Canales',
+            // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
+            type: 'item',
+            url: '/sail/canales'
+          },
+          {
+            id: 'usuarios',
+            title: 'Usuarios',
+            // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
+            type: 'item',
+            url: '/sail/framedash'
           }
+          
         ]
       },
       {
