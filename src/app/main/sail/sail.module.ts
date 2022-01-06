@@ -29,6 +29,7 @@ import { CsvModule } from '@ctrl/ngx-csv';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DatatablesServiceLlamadas } from './llamadas/llamadas.service';
 import { ServiceNuevoService } from './nuevo-led/service-nuevo.service';
+import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
 
 // import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 
@@ -107,6 +108,6 @@ const routes: Routes = [
     // KbModule,
     // AccountSettingsModule
   ],
-  providers: [DatatablesServiceLlamadas, ServiceNuevoService]
+  providers: [DatatablesServiceLlamadas, ServiceNuevoService, DashboardServiceSail]
 })
 export class SailModule {}
