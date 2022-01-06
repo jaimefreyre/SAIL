@@ -19,8 +19,8 @@ export const coreConfig: CoreConfig = {
     appName     : 'Infoauto',                                        // App Name
     appTitle    : 'Infoauto', // App Title
     //SE MODIFICARON LOS DATOS DEL FRAMEWORK
-    // appLogoImage: 'assets/images/logo/logo.svg',                  // App Logo
-    appLogoImage: 'https://sail.artificialintelligencelead.com/favicon.ico',                  // App Logo
+    appLogoImage: 'assets/images/logo/favicon.ico',                  // App Logo
+    // appLogoImage: 'https://sail.artificialintelligencelead.com/favicon.ico',                  // App Logo
   },
   layout: {
     skin  : 'default',                        // default, dark, bordered, semi-dark
