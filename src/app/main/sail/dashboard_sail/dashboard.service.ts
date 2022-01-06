@@ -2,9 +2,10 @@ import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/forkJoin';
+import { BehaviorSubject, Observable, of, forkJoin } from 'rxjs';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/observable/forkJoin';
+import { map } from 'rxjs/operators';
 
 
 
