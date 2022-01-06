@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, ViewChild} from '@angu
 import { first } from 'rxjs/operators';
 import { Observable, Subscription, of } from 'rxjs';
 
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { CoreConfigService } from '@core/services/config.service';
 
@@ -117,7 +118,9 @@ export class AnalyticsComponentSail implements OnInit {
     private _userService: UserService,
     private _dashboardService: DashboardServiceSail,
     private _coreConfigService: CoreConfigService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private route: ActivatedRoute,
+    private router: Router 
   ) {
     // Subscribers Gained chart
     this.gainedChartoptions = {
@@ -375,12 +378,23 @@ export class AnalyticsComponentSail implements OnInit {
     }
   }
 
+
+
+  gotoLead(lead: Leads) {
+    // const leadId = lead ? lead.id : null;
+    this.router.navigate(['/sail/nuevo', lead]);
+  }
+
+
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
   /**
    * On init
    */
   ngOnInit(): void {
+
+
+    const idLead = this.route.snapshot.paramMap.get('id');
 
     // get the currentUser details from localStorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import Stepper from 'bs-stepper';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
+
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nuevo-led',
@@ -39,14 +41,13 @@ export class NuevoLedComponent implements OnInit {
   public tp1Form = 0;
 
 
-  /**
-   * On Submit
-   */
-  onSubmit() {
-    return false;
+  gotoLead(hero: any) {
+    const heroId = hero ? hero.id : null;
+    this.router.navigate(['/sail/nuevo', { id: heroId }]);
   }
 
-  constructor(private modalService: NgbModal, dService: DashboardServiceSail) { }
+  constructor(private modalService: NgbModal, dService: DashboardServiceSail, private route: ActivatedRoute,
+    private router: Router ) { }
 
   // modal Open Srolling Long Content Inside
   modalOpenSLCIM(modalSLCIM) {
@@ -66,6 +67,13 @@ export class NuevoLedComponent implements OnInit {
 
   }
 
+
+  /**
+   * On Submit
+   */
+  onSubmit() {
+    return false;
+  }
 
 
 }
