@@ -12,7 +12,8 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="search" aria-describedby="button-addon2" />
               <div class="input-group-append" id="button-addon2">
-                <button class="btn btn-outline-primary" type="button" (click)="pedirSoloFiltrado()" rippleEffect>
+                <!-- (click)="pedirSoloFiltrado()" -->
+                <button class="btn btn-outline-primary" type="button"  rippleEffect>
                   <i data-feather="search"></i>
                 </button>
               </div>
@@ -27,8 +28,8 @@
                   class="btn" 
                   style="padding: 5px;" 
                   [ngClass]="todosVar ===true ? 'btn  btn-danger' : 'btn btn-outline-danger' "
-                  (click)="pedirTodos()"
                   rippleEffect>
+                  <!-- (click)="pedirTodos()" -->
                   Todos
                 </button>
                 <!-- (click)="iniciaCerrado()" -->
@@ -39,8 +40,8 @@
                   class="btn" 
                   style="padding: 5px;" 
                   [ngClass]="todosVar ===false ? 'btn  btn-success' : 'btn btn-outline-success' "
-                  (click)="pedirSoloUsuario()"
                   rippleEffect>
+                  <!-- (click)="pedirSoloUsuario()" -->
                   Mios
                 </button>
                 <!-- (click)="datos_A1()" -->

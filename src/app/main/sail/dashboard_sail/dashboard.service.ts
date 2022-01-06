@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 @Injectable()
 export class DashboardServiceSail {
   // Public
+  public search;
   //Objestos
   public apiData: any;
   public apiDataUser: any;
@@ -98,6 +99,31 @@ export class DashboardServiceSail {
       }, reject);
     });
   }
+
+  /**
+   * Multiples Observables en serie y despues concatenados en paralelo
+   */
+  // getBookWithDetails(id: number): Observable<any> {
+  //   return this.http.get('/api/books/' + id).pipe(
+  //     switchMap((book: any) => {
+  //       return forkJoin(
+  //         of(book),
+  //         this.http.get('/api/authors/' + book.author_id),
+  //         this.http.get('/api/editors/' + book.editor_id)
+  //       ).pipe(
+  //         map((data: any[]) => {
+  //           let book = data[0];
+  //           let author = data[1];
+  //           let editor = data[2];
+  //           book.author = author;
+  //           book.editor = editor;
+  //           return book;
+  //         })
+  //       );
+  //     })
+  //   );
+  // }
+
 
 }
 
