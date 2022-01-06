@@ -99,7 +99,7 @@ export const menu: CoreMenu[] = [
           {
             id: 'origenes',
             title: 'Origenes',
-            icon: 'home',
+            icon: 'plus-circle',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
             url: '/sail/origenes'
@@ -107,7 +107,7 @@ export const menu: CoreMenu[] = [
           {
             id: 'canales',
             title: 'Canales',
-            icon:'fa fa-arrows-alt',
+            icon:'phone-call',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
             url: '/sail/canales'
