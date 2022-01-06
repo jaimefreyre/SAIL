@@ -94,7 +94,7 @@ export class AnalyticsComponentSail implements OnInit {
   
   //Subscripciones
   apiSailSubscription_lead_Observable$: Subscription;
-  apiSailSubscription_current_user: Subscription;
+  apiSailSubscription_current_user$: Subscription;
   
 
 
@@ -153,7 +153,7 @@ export class AnalyticsComponentSail implements OnInit {
 
   // datos Current User
   current_user_base(){
-    this.apiSailSubscription_current_user =this._dashboardService.getApiDataUserDirecto().subscribe(
+    this.apiSailSubscription_current_user$ =this._dashboardService.getApiDataUserDirecto().subscribe(
       result => {
         if (result.code != 200) {
           this.usersBase = result;
@@ -190,9 +190,14 @@ export class AnalyticsComponentSail implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token){
-      this.current_user_base();
+      // this.current_user_base();
       // Get the dashboard service data
-      this._dashboardService.onApiDataChanged.subscribe(response => {
+      this.apiSailSubscription_current_user$ = this._dashboardService.onApiDataUserChanged.subscribe(response => {
+        this.usersBase = response;
+        console.log(this.usersBase);
+      })
+      
+      this.apiSailSubscription_lead_Observable$ = this._dashboardService.onApiDataChanged.subscribe(response => {
         this.data = response;
         this.newLeadsArray = response;
         console.log(this.newLeadsArray);
@@ -211,7 +216,7 @@ export class AnalyticsComponentSail implements OnInit {
   
   ngOnDestroy() {
     // acciones de destrucción
-    this.apiSailSubscription_current_user.unsubscribe();
+    this.apiSailSubscription_current_user$.unsubscribe();
     this.apiSailSubscription_lead_Observable$.unsubscribe();
     
   }

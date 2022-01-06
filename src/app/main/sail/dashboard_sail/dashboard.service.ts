@@ -125,5 +125,43 @@ export class DashboardServiceSail {
   // }
 
 
+  // getAuthorWithBooks(id: number): Observable<any> {
+  //   return forkJoin([
+  //     this.http.get('/api/authors/' + id),
+  //     this.http.get('/api/authors/' + id + '/books')
+  //   ]).pipe(
+  //     map((data: any[]) => {
+  //       let author: any = data[0];
+  //       let books: any[] = data[1];
+  //       return author.books = books;
+  //     })
+  //   );
+  // }
+
+
+    // getPokemonInfo(pokemonId) {
+    //   return this.http.get(this.url + 'pokemon/' + pokemonId, { headers: this.headers })
+    //     .map(res => res.json());
+    // }
+
+    // getPokemonForm(pokemonId) {
+    //   return this.http.get(this.url + 'pokemon-form/' + pokemonId, { headers: this.headers })
+    //     .map(res => res.json());
+    // }
+
+    // const pokemonInfo = this.pokemonService.getPokemonInfo(this.pokemonId);
+    // const pokemonForm = this.pokemonService.getPokemonForm(this.pokemonId);
+
+    // Observable.forkJoin([pokemonInfo, pokemonForm])
+    //   .subscribe(results => {
+    //     console.log(results[0]);
+    //     console.log(results[1]);
+    //     this.pokemon.nombre = results[0].name;
+    //     this.pokemon.altura = results[0].height;
+    //     this.pokemon.peso = results[0].weight;
+    //     this.pokemon.imagen = results[1].sprites.front_default;
+    //   });
+
+
 }
 
