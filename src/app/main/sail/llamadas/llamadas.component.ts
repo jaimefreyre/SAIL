@@ -204,19 +204,19 @@ export class LlamadasComponent implements OnInit {
    * On init
    */
   ngOnInit() {
-    // this._datatablesServiceLlamadas.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
-    //   console.log(response)
+    this._datatablesServiceLlamadas.onDatatablessChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+      console.log(response)
       
-    // });
-    // this._datatablesServiceLlamadas.cambiosLlamadas.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
-    //   console.log(response)
-    //   this.rows = response.results;
-    //   this.tempData = this.rows;
-    //   this.kitchenSinkRows = this.rows;
-    //   this.exportCSVData = this.rows;
-    // });
+    });
+    this._datatablesServiceLlamadas.cambiosLlamadas.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
+      console.log(response)
+      this.rows = response.results;
+      this.tempData = this.rows;
+      this.kitchenSinkRows = this.rows;
+      this.exportCSVData = this.rows;
+    });
 
-    this.datos_API_llamadas('/API_BASE/netelip/call_manager/');
+    // this.datos_API_llamadas('/API_BASE/netelip/call_manager/');
     // content header
     this.contentHeader = {
       headerTitle: 'Datatables',
