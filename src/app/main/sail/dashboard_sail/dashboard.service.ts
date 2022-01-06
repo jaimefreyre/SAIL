@@ -1,8 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/forkJoin';
+
 
 
 @Injectable()
@@ -59,6 +62,22 @@ export class DashboardServiceSail {
     return this.resultado$
   }
   
+  // '/API_BASE/lead_col/?status=commercial_management&ordering=created&page=1&page_size=10&with_concession=true'
+  public getParamsDinamica(data: { status: string, ordering: string, wc: string, page: string, page_size: string}) {
+    let params = new HttpParams();
+    params = params.append('status', data.status);
+    params = params.append('ordering', data.ordering);
+    params = params.append('with_concession', data.wc);
+    if(data.page !== null){
+      params = params.append('page', data.page);
+    }
+    if (data.page_size !== null) {
+      params = params.append('with_concession', data.page_size);
+    }
+    
+    return this._httpClient.get("/API_BASE/lead_col", {params: params});
+  }
+
   /**
    * Resolver
    *
@@ -79,13 +98,23 @@ export class DashboardServiceSail {
    */
   getApiData(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
+
+      // this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
+      this.getParamsDinamica(
+        {status:'new', ordering:'created', wc:'true', page: null, page_size:null}
+        ).subscribe( (response: any) => {
         this.apiData = response;
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData);
       }, reject);
+      
+      
+   
     });
   }
+
+
+  
 
   /**
    * Get Api Usuario Logueado
