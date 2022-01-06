@@ -91,6 +91,7 @@ export const menu: CoreMenu[] = [
           {
             id: 'consecionarios',
             title: 'Consecionarias',
+            icon: 'car',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD',
             type: 'item',
             url: '/sail/consecionarios'
@@ -98,6 +99,7 @@ export const menu: CoreMenu[] = [
           {
             id: 'origenes',
             title: 'Origenes',
+            icon: 'home',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
             url: '/sail/origenes'
@@ -105,6 +107,7 @@ export const menu: CoreMenu[] = [
           {
             id: 'canales',
             title: 'Canales',
+            icon:'fa fa-arrows-alt',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
             url: '/sail/canales'
@@ -112,6 +115,7 @@ export const menu: CoreMenu[] = [
           {
             id: 'usuarios',
             title: 'Usuarios',
+            icon: 'user',
             // translate: 'MENU.CRM.LEVELS.SECOND1.THIRD1',
             type: 'item',
             url: '/sail/usuarios'          
