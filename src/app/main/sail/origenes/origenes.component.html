@@ -1,29 +1,37 @@
-<div class="col-md-12">
-    <div class="col-md-12">
-        <i class="fa fa-car" aria-hidden="true"></i>
-    </div>
-    <div class="col-md-12 filtros">
-
-    </div>
-    <div class="col-md-12 lista">
-        <div class="col-md-12">
-            <h4>Titulo</h4>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-12 filtros">
         </div>
-        <div class="col-md-12">
-            <div class="dropdown open">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </button>
-                <div class="dropdown-menu" aria-labelledby="triggerId">
-                    <button class="dropdown-item" href="#">
-                        Editar
-                    </button>
-                    <button class="dropdown-item disabled" href="#">
-                        Dar de Baja
-                    </button>
+        
+        <div class="col-md-12 card">
+            <div class="row">
+                
+                <div class="col-md-8">
+                    <h4>Titulo</h4>
                 </div>
+                <div class="col-md-4">
+
+                    <div ngbDropdown container="body">
+                        <button type="button" class="btn btn-sm hide-arrow" ngbDropdownToggle data-toggle="dropdown">
+                            <i data-feather="more-vertical"></i>
+                        </button>
+                        <div ngbDropdownMenu>
+                            <a ngbDropdownItem href="javascript:void(0);">
+                                <i data-feather="edit-2" class="mr-50"></i>
+                                <span>Editar</span>
+                            </a>
+                            <a ngbDropdownItem href="javascript:void(0);">
+                                <i data-feather="trash" class="mr-50"></i>
+                                <span>Dar de Baja</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            
             </div>
         </div>
+
     </div>
 </div>
