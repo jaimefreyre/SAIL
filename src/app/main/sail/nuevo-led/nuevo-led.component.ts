@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Stepper from 'bs-stepper';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
 
 @Component({
   selector: 'app-nuevo-led',
@@ -45,7 +46,7 @@ export class NuevoLedComponent implements OnInit {
     return false;
   }
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, dService: DashboardServiceSail) { }
 
   // modal Open Srolling Long Content Inside
   modalOpenSLCIM(modalSLCIM) {

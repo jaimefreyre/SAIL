@@ -113,15 +113,17 @@
 
     <core-card [actions]="['collapse']" >
       <div class="card-title d-flex justify-content-between align-items-center">
-        <div class="row">
+        <div class="row" >
       
           <div class="col-lg-12">
             <h4 class="title" 
             data-target="#collapseExample" 
+            [routerLink]="/sail/nuevo"
             data-toggle="collapse">
             <!-- *ngIf="newLeadsArray"> -->
-            Leads no atendidos
-          </h4>
+              Leads no atendidos
+            </h4>
+            <a class="nav-link" routerLink="/sail/nuevo">nuevo</a>
         </div>
         <div class="col-lg-12">
           {{newLeadsArray.count}}
