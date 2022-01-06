@@ -170,8 +170,6 @@ export class AnalyticsComponentSail implements OnInit {
     return this.usersBase;
   }
   
-
-
   gotoLead(lead: Leads) {
     // const leadId = lead ? lead.id : null;
     this.router.navigate(['/sail/nuevo', lead]);

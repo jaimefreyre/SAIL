@@ -80,7 +80,7 @@ export class DashboardServiceSail {
   getApiData(): Promise<any[]> {
     return new Promise((resolve, reject) => {
       this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
-        this.apiData.uno = response;
+        this.apiData = response;
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData);
       }, reject);
