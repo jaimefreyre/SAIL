@@ -8,8 +8,10 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 @Injectable()
 export class DashboardServiceSail {
   // Public
+  //Objestos
   public apiData: any;
   public apiDataUser: any;
+  //BehaviorSubject
   public onApiDataChanged: BehaviorSubject<any>;
   public onApiDataUserChanged: BehaviorSubject<any>;
   public resultado$: BehaviorSubject<any>;
@@ -27,6 +29,7 @@ export class DashboardServiceSail {
   }
 
 
+  //Peticiones Get
 
   getApiDataUserDirecto(): Observable<any>{
     return this._httpClient.get('/current_user_A1');
@@ -63,9 +66,9 @@ export class DashboardServiceSail {
    * @returns {Observable<any> | Promise<any> | any}
    */
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
-    return new Promise<void>((resolve, reject) => {
-      Promise.all([this.getApiData()]).then(() => {
-        resolve();
+    return new Promise((resolve, reject) => {
+      Promise.all([this.getApiData(), this.getApiCurrentUser()]).then(res => {
+        resolve(res);
       }, reject);
     });
   }
@@ -75,10 +78,23 @@ export class DashboardServiceSail {
    */
   getApiData(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe((response: any) => {
-        this.apiData = response;
+      this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
+        this.apiData.uno = response;
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData);
+      }, reject);
+    });
+  }
+
+  /**
+   * Get Api Usuario Logueado
+   */
+  getApiCurrentUser(): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      this._httpClient.get('/current_user_A1').subscribe((response: any) => {
+        this.apiDataUser = response;
+        this.onApiDataUserChanged.next(this.apiDataUser);
+        resolve(this.apiDataUser);
       }, reject);
     });
   }
