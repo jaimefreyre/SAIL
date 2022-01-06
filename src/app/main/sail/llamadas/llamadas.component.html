@@ -161,6 +161,9 @@
           <tbody>
             <tr class="table-default" *ngFor="let contacto of llamadasArray.results">
               <td>
+
+              </td>
+              <td>
                 <div class="form-check form-check-inline">
                   <input id="cancela_activa" class="form-check-input" type="checkbox" name="controller" 
                   [(ngModel)]="contacto.callcontrolleadmodel">
@@ -181,12 +184,9 @@
               <td>Ver Coincidentes (Construccion)</td>
               <td>
                 <div class="avatar-group">
-                  <div data-toggle="tooltip" data-popup="tooltip-custom" placement="top" container="body" title=""
-                    class="avatar pull-up my-0" ngbTooltip="">
-                    <td>
-                      <i data-feather="play"></i>
-                    </td>
-                  </div>
+                  <button type="button" class="btn btn-gradient-primary">
+                    <i class="fa fa-play"></i>
+                  </button>
                 </div>
               </td>
               <td class="overflow-hidden">
