@@ -133,7 +133,11 @@ export class DashboardServiceSail {
     if (data.vehicles__brand_model__in) {
       params = params.append('vehicles__brand_model__in', data.vehicles__brand_model__in);
     }
-    
+
+    let baseURL = '/API_BASE/lead_col/';
+    let fullURL = `${baseURL}?${params.toString()}`;
+    console.log(fullURL)
+
     return this._httpClient.get("/API_BASE/lead_col/", {params: params});
   }
 
