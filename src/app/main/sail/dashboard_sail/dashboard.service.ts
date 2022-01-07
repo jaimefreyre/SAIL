@@ -14,7 +14,15 @@ export class DashboardServiceSail {
   // Public
   public search;
   //Objestos
-  public apiData: [[any], [any], [any], [any], [any]];
+  // public apiData: [[any], [any], [any], [any], [any]];
+  public apiData: {
+    0:[],
+    1:[],
+    2:[],
+    3:[],
+    4:[],
+  };
+  
   public onApiDataChanged: BehaviorSubject<any>;
   
   //BehaviorSubject
@@ -172,7 +180,7 @@ export class DashboardServiceSail {
       this.getParamsDinamica(data).subscribe( (response: any) => {
         this.apiData[indexArray] = response ;
         this.onApiDataChanged.next(this.apiData);
-        resolve(this.apiData);
+        resolve(this.apiData[indexArray]);
       }, reject);
     });
   }
