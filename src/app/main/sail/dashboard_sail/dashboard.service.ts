@@ -134,7 +134,7 @@ export class DashboardServiceSail {
       params = params.append('vehicles__brand_model__in', data.vehicles__brand_model__in);
     }
     
-    return this._httpClient.get("/API_BASE/lead_col", {params: params});
+    return this._httpClient.get("/API_BASE/lead_col/", {params: params});
   }
 
   /**
