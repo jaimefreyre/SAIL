@@ -16,11 +16,11 @@ export class DashboardServiceSail {
   //Objestos
   // public apiData: [[any], [any], [any], [any], [any]];
   public apiData: {
-    0:[],
-    1:[],
-    2:[],
-    3:[],
-    4:[],
+    0:[any],
+    1:[any],
+    2:[any],
+    3:[any],
+    4:[any],
   };
   
   public onApiDataChanged: BehaviorSubject<any>;
@@ -146,7 +146,7 @@ export class DashboardServiceSail {
     let fullURL = `${baseURL}?${params.toString()}`;
     console.log(fullURL)
 
-    return this._httpClient.get("/API_BASE/lead_col/", {params: params});
+    return this._httpClient.get("./API_BASE/lead_col/", {params: params});
   }
 
   /**
@@ -161,10 +161,10 @@ export class DashboardServiceSail {
       Promise.all([
         this.getApiCurrentUser(),
         this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },0), 
-        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },1), 
-        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },2), 
-        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },3), 
-        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },4), 
+        this.getApiDataNuevo({ status: 'commercial_management', ordering: 'created', wc: 'true' },1), 
+        this.getApiDataNuevo({ status: 'attended', ordering: 'created', wc: 'true' },2), 
+        this.getApiDataNuevo({ status: 'tracing', ordering: 'created', wc: 'true' },3), 
+        this.getApiDataNuevo({ status: 'end', ordering: 'created', wc: 'true' },4), 
       ]).then(res => {
         resolve(res);
       }, reject);
