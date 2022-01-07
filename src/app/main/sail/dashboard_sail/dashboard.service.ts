@@ -146,7 +146,7 @@ export class DashboardServiceSail {
     let fullURL = `${baseURL}?${params.toString()}`;
     console.log(fullURL)
 
-    return this._httpClient.get("./API_BASE/lead_col/", {params: params});
+    return this._httpClient.get('/API_BASE/lead_col/', {params: params});
   }
 
   /**
