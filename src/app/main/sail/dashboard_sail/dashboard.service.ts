@@ -55,7 +55,7 @@ export class DashboardServiceSail {
   public search;
   //Objestos
   // public apiData: [[any], [any], [any], [any], [any]];
-  public apiData: [ListaLeads];
+  public apiData: ListaLeads[]= [];
   
   public onApiDataChanged: BehaviorSubject<any>;
   
