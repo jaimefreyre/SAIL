@@ -194,11 +194,11 @@ export class DashboardServiceSail {
     return new Promise((resolve, reject) => {
       Promise.all([
         this.getApiCurrentUser(),
-        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' }), 
-        this.getApiDataNuevo({ status: 'commercial_management', ordering: 'created', wc: 'true' }), 
-        this.getApiDataNuevo({ status: 'attended', ordering: 'created', wc: 'true' }), 
-        this.getApiDataNuevo({ status: 'tracing', ordering: 'created', wc: 'true' }), 
-        this.getApiDataNuevo({ status: 'end', ordering: 'created', wc: 'true' }), 
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },"new"), 
+        this.getApiDataNuevo({ status: 'commercial_management', ordering: 'created', wc: 'true' },"commercial_management"), 
+        this.getApiDataNuevo({ status: 'attended', ordering: 'created', wc: 'true' },"attended"), 
+        this.getApiDataNuevo({ status: 'tracing', ordering: 'created', wc: 'true' },"tracing"), 
+        this.getApiDataNuevo({ status: 'end', ordering: 'created', wc: 'true' },"end"), 
       ]).then(res => {
         resolve(res);
       }, reject);
@@ -208,11 +208,12 @@ export class DashboardServiceSail {
   /**
    * Get Api Data
    */
-  getApiDataNuevo(data:any): Promise<any[]> {
+  getApiDataNuevo(data:any, indexArray:string): Promise<any[]> {
     return new Promise((resolve, reject) => {
       // this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
       this.getParamsDinamica(data).subscribe((response: ListaLeads) => {
-        this.apiData.push( response );
+        // this.apiData.push( response );
+        this.apiData[indexArray] = response ;
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData);
       }, reject);
