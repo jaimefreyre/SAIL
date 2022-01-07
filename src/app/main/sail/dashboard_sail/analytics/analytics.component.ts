@@ -201,8 +201,8 @@ export class AnalyticsComponentSail implements OnInit {
         this.data = response;
         this.newLeadsArray = response["new"];
         this.comercialArray = response["commercial_management"];
-        this.atendidosArray = response["tracing"];
-        this.pendientesArray = response["attended"];
+        this.atendidosArray = response["attended"];
+        this.pendientesArray = response["tracing"];
         this.cerradosArray = response["end"];
         console.log(this.data);
       });
