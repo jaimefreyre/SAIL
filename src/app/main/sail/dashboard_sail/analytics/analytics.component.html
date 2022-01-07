@@ -119,14 +119,14 @@
   <!-- Card Leads Informe nuevos Leads-->
   <div class="col-lg-4 col-md-6  col-xs-12 contenedor">
 
-    <div class="col-lg-4 col-md-6 col-12" *ngFor="let lead of newLeadsArray.results ;index as i">
+    <div *ngFor="let lead of newLeadsArray.results ;index as i">
       <div class="card card-profile">
         <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
         <div class="card-body">
           <div class="profile-image-wrapper">
             <div class="profile-image">
               <div class="avatar">
-                <img src="lead.origin" alt="Profile Picture" />
+                <img [src]="lead.origin" alt="Origen" />
               </div>
             </div>
           </div>
@@ -153,9 +153,9 @@
            
             <div>
               <h6 class="text-muted font-weight-bolder">
-                Estado:
+                {{contac_.message}}
               </h6>
-              <h3 class="mb-0">{{contac_.message}}</h3>
+              <h3 class="mb-0"></h3>
             </div>
           
             <div>
