@@ -115,7 +115,7 @@
 
   <!-- Card Leads Informe nuevos Leads-->
   
-  <div class="card align-items-center titular">
+  <div class="card col-lg-4 col-md-6 col-xs-12  titular">
     <div class="row">
   
       <div class="col-lg-12">
@@ -128,66 +128,69 @@
         {{newLeadsArray.count}}
       </div>
   
-    </div>
-  </div>
-  
-  <div class="col-lg-4 col-md-6  col-xs-12 contenedor">
-    <div *ngFor="let lead of newLeadsArray.results ;index as i">
-      <div class="card card-profile">
-        <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
-        <div class="card-body">
-          <div class="profile-image-wrapper">
-            <div class="profile-image">
-              <div class="avatar">
-                <img [(src)]="lead.origin" alt="Origen" />
+    
+
+      <div class=" col-lg-12 align-items-center contenedor">
+        <div *ngFor="let lead of newLeadsArray.results ;index as i">
+          <div class="card card-profile">
+            <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
+            <div class="card-body">
+              <div class="profile-image-wrapper">
+                <div class="profile-image">
+                  <div class="avatar">
+                    <img [(src)]="lead.origin" alt="Origen" />
+                  </div>
+                </div>
+              </div>
+              <h3>{{lead.client_name}}</h3>
+              <div class="rating">
+                <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
+                </ngb-rating>
+              </div>
+              <h6 class="text-muted">
+                <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
+                {{lead.client_phone}}
+              </h6>
+              <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
+                <i class="fa fa-car"></i>
+                {{vehiculos}}
+              </h4>
+              <div class="badge badge-light-primary profile-badge">
+                <i [(data-feather)]="lead.channel"></i>
+              </div>
+              <hr class="mb-2" />
+              
+              <div class="d-flex justify-content-between align-items-center" 
+              *ngFor="let contac_ of lead.lead_managements_data">
+              
+              <div>
+                <h6 class="text-muted font-weight-bolder">
+                  {{contac_.message}}
+                </h6>
+                <h3 class="mb-0"></h3>
+              </div>
+            
+              <div>
+                  <h6 class="text-muted font-weight-bolder">
+                    Fecha
+                  </h6>
+                  <h3 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h3>
+                </div>
+              
+                <div>
+                  <h6 class="text-muted font-weight-bolder">
+                    Hora
+                  </h6>
+                  <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+                </div>
+            
               </div>
             </div>
           </div>
-          <h3>{{lead.client_name}}</h3>
-          <div class="rating">
-            <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
-            </ngb-rating>
-          </div>
-          <h6 class="text-muted">
-            <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
-            {{lead.client_phone}}
-          </h6>
-          <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
-            <i class="fa fa-car"></i>
-            {{vehiculos}}
-          </h4>
-          <div class="badge badge-light-primary profile-badge">
-            <i [(data-feather)]="lead.channel"></i>
-          </div>
-          <hr class="mb-2" />
-          
-          <div class="d-flex justify-content-between align-items-center" 
-          *ngFor="let contac_ of lead.lead_managements_data">
-          
-          <div>
-            <h6 class="text-muted font-weight-bolder">
-              {{contac_.message}}
-            </h6>
-            <h3 class="mb-0"></h3>
-          </div>
-        
-          <div>
-              <h6 class="text-muted font-weight-bolder">
-                Fecha
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h3>
-            </div>
-           
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Hora
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
-            </div>
-         
-          </div>
         </div>
       </div>
+    
+  
     </div>
   </div>
   <!--/ Card Leads Informe-->
