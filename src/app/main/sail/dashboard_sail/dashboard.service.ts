@@ -16,11 +16,11 @@ export class DashboardServiceSail {
   //Objestos
   // public apiData: [[any], [any], [any], [any], [any]];
   public apiData: {
-    new:[any],
-    commercial_management:[any],
-    attended:[any],
-    tracing:[any],
-    end:[any],
+    new:{},
+    commercial_management:any,
+    attended:any,
+    tracing:[],
+    end:[any]
   };
   
   public onApiDataChanged: BehaviorSubject<any>;
