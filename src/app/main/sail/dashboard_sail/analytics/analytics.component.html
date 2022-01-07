@@ -139,10 +139,10 @@
             <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
             {{lead.client_phone}}
           </h6>
-          <h6 class="text-muted" *ngFor="let vehiculos of lead.vehicles_names">
+          <h4 class="text-muted" *ngFor="let vehiculos of lead.vehicles_names">
             <i class="fa fa-car"></i>
             {{vehiculos}}
-          </h6>
+          </h4>
           <div class="badge badge-light-primary profile-badge">
             <i [(data-feather)]="lead.channel"></i>
           </div>
