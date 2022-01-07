@@ -7,6 +7,46 @@ import { BehaviorSubject, Observable, of, forkJoin } from 'rxjs';
 // import 'rxjs/add/observable/forkJoin';
 import { map } from 'rxjs/operators';
 
+interface ListaLeads {
+  count: Number;
+  next: String;
+  results: [Leads];
+};
+
+interface Leads {
+  id: Number;
+  score: Number;
+  vehicles_names: [];
+  client_name: any;
+  client_surname?: any;
+  client_phone: any;
+  channel: any;
+  origin: any;
+  result: String;
+  user_data: any;
+  lead_managements_data: [manejo]
+}
+
+interface manejo {
+  id: Number,
+  message: String,
+  status: String,
+  event: String,
+  user_data: userData,
+  created: Date
+}
+
+interface userData {
+  id: 20,
+  first_name: String,
+  last_name: String,
+  phone: Number,
+  username: String,
+  email: String,
+  is_online: Boolean,
+  lost_calls: Boolean,
+  emails_received: Boolean
+}
 
 
 @Injectable()
@@ -15,13 +55,7 @@ export class DashboardServiceSail {
   public search;
   //Objestos
   // public apiData: [[any], [any], [any], [any], [any]];
-  public apiData: {
-    new:{},
-    commercial_management:any,
-    attended:any,
-    tracing:[],
-    end:[any]
-  };
+  public apiData: [ListaLeads];
   
   public onApiDataChanged: BehaviorSubject<any>;
   
@@ -177,9 +211,8 @@ export class DashboardServiceSail {
   getApiDataNuevo(data:any, indexArray:string): Promise<any[]> {
     return new Promise((resolve, reject) => {
       // this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
-      this.getParamsDinamica(data).subscribe( (response: any) => {
-        this.apiData[indexArray] = [] ;
-        this.apiData[indexArray] = response ;
+      this.getParamsDinamica(data).subscribe((response: ListaLeads) => {
+        this.apiData.push( response );
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData[indexArray]);
       }, reject);
