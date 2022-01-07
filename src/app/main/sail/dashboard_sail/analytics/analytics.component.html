@@ -158,7 +158,7 @@
               </div>
               <hr class="mb-2" />
                             
-              <div class="row align-items-center" 
+              <div class="row align-items-center contacto_l" 
               *ngFor="let contac_ of lead.lead_managements_data">
               
                 <div class="col-lg-12">
@@ -184,6 +184,7 @@
                 <hr class="mb-2" />
               
               </div>
+
             </div>
           </div>
           <hr class="mb-0" />
@@ -198,78 +199,78 @@
   
   <!-- Card Leads Informe Leads Atendidos Comercial-->
   <div class="col-lg-4 col-md-6  col-xs-12 contenedor">
-      
-    <div class="card-title d-flex justify-content-between align-items-center">
-      <div class="row">
-
-        <div class="col-lg-12">
-          <h4 class="title" data-target="#collapseExample" data-toggle="collapse">
-            <!-- *ngIf="comercialArray"> -->
-            Leads atendidos por Comercial/Cualificado
-          </h4>
-        </div>
-        <div class="col-lg-12">
+        
+    <div class="col-lg-12 titular">
+      <h1 class="title text-center" data-target="#collapseExample" data-toggle="collapse">
+        Leads Atendidos Comercial
+        <br>
+        <small>
           {{comercialArray.count}}
-        </div>
-
-      </div>
+        </small>
+      </h1>
     </div>
     
-    <div *ngFor="let lead of comercialArray.results ;index as i">
-      <div class="card card-profile">
-        <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
-        <div class="card-body">
-          <div class="profile-image-wrapper">
-            <div class="profile-image">
-              <div class="avatar">
-                <img [(src)]="lead.origin" alt="Origen" />
+    <div class=" col-lg-12 align-items-center contenedor">
+      <div *ngFor="let lead of comercialArray.results ;index as i">
+        <div class="card card-profile">
+          <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
+          <div class="card-body">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <div class="avatar">
+                  <img [(src)]="lead.origin" alt="Origen" />
+                </div>
               </div>
             </div>
-          </div>
-          <h3>{{lead.client_name}}</h3>
-          <div class="rating">
-            <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
-            </ngb-rating>
-          </div>
-          <h6 class="text-muted">
-            <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
-            {{lead.client_phone}}
-          </h6>
-          <h4 class="text-muted" *ngFor="let vehiculos of lead.vehicles_names">
-            <i class="fa fa-car"></i>
-            {{vehiculos}}
-          </h4>
-          <div class="badge badge-light-primary profile-badge">
-            <i [(data-feather)]="lead.channel"></i>
-          </div>
-          <hr class="mb-2" />
-    
-          <div class="d-flex justify-content-between align-items-center" *ngFor="let contac_ of lead.lead_managements_data">
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                {{contac_.message}}
-              </h6>
-              <h3 class="mb-0"></h3>
+            <h3>{{lead.client_name}}</h3>
+            <div class="rating">
+              <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
+              </ngb-rating>
             </div>
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Fecha
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h3>
+            <h6 class="text-muted">
+              <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
+              {{lead.client_phone}}
+            </h6>
+            <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
+              <i class="fa fa-car"></i>
+              {{vehiculos}}
+            </h4>
+            <div class="badge badge-light-primary profile-badge">
+              <i [(data-feather)]="lead.channel"></i>
             </div>
+            <hr class="mb-2" />
     
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Hora
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+            <div class="row align-items-center contacto_l" *ngFor="let contac_ of lead.lead_managements_data">
+    
+              <div class="col-lg-12">
+                <h6 class="text-muted font-weight-bolder">
+                  {{contac_.message}}
+                </h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Fecha
+                </h6>
+                <h6 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Hora
+                </h6>
+                <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+              </div>
+    
+              <hr class="mb-2" />
+    
             </div>
     
           </div>
         </div>
+        <hr class="mb-0" />
       </div>
+    
     </div>
 
   </div>
@@ -278,61 +279,77 @@
   <!-- Card Leads Informe Leads Seguimiento-->
   <div class="col-lg-4 col-md-6  col-xs-12 contenedor">
     
-    <div *ngFor="let lead of atendidosArray.results ;index as i">
-      <div class="card card-profile">
-        <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
-        <div class="card-body">
-          <div class="profile-image-wrapper">
-            <div class="profile-image">
-              <div class="avatar">
-                <img [(src)]="lead.origin" alt="Origen" />
+    <div class="col-lg-12 titular">
+      <h1 class="title text-center" data-target="#collapseExample" data-toggle="collapse">
+        Leads Seguimiento
+        <br>
+        <small>
+          {{atendidosArray.count}}
+        </small>
+      </h1>
+    </div>
+    
+    <div class=" col-lg-12 align-items-center contenedor">
+      <div *ngFor="let lead of atendidosArray.results ;index as i">
+        <div class="card card-profile">
+          <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
+          <div class="card-body">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <div class="avatar">
+                  <img [(src)]="lead.origin" alt="Origen" />
+                </div>
               </div>
             </div>
-          </div>
-          <h3>{{lead.client_name}}</h3>
-          <div class="rating">
-            <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
-            </ngb-rating>
-          </div>
-          <h6 class="text-muted">
-            <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
-            {{lead.client_phone}}
-          </h6>
-          <h4 class="text-muted" *ngFor="let vehiculos of lead.vehicles_names">
-            <i class="fa fa-car"></i>
-            {{vehiculos}}
-          </h4>
-          <div class="badge badge-light-primary profile-badge">
-            <i [(data-feather)]="lead.channel"></i>
-          </div>
-          <hr class="mb-2" />
-    
-          <div class="d-flex justify-content-between align-items-center" *ngFor="let contac_ of lead.lead_managements_data">
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                {{contac_.message}}
-              </h6>
-              <h3 class="mb-0"></h3>
+            <h3>{{lead.client_name}}</h3>
+            <div class="rating">
+              <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
+              </ngb-rating>
             </div>
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Fecha
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h3>
+            <h6 class="text-muted">
+              <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
+              {{lead.client_phone}}
+            </h6>
+            <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
+              <i class="fa fa-car"></i>
+              {{vehiculos}}
+            </h4>
+            <div class="badge badge-light-primary profile-badge">
+              <i [(data-feather)]="lead.channel"></i>
             </div>
+            <hr class="mb-2" />
     
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Hora
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+            <div class="row align-items-center contacto_l" *ngFor="let contac_ of lead.lead_managements_data">
+    
+              <div class="col-lg-12">
+                <h6 class="text-muted font-weight-bolder">
+                  {{contac_.message}}
+                </h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Fecha
+                </h6>
+                <h6 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Hora
+                </h6>
+                <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+              </div>
+    
+              <hr class="mb-2" />
+    
             </div>
     
           </div>
         </div>
+        <hr class="mb-0" />
       </div>
+    
     </div>
   
   </div>
@@ -340,64 +357,78 @@
   
   <!-- Card Leads Informe Tareas pendientes-->
   <div class="col-lg-4 col-md-6  col-xs-12 contenedor">
-  
-    <div *ngFor="let lead of pendientesArray.results ;index as i">
-      <div class="card card-profile">
-        <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
-        <div class="card-body">
-          <div class="profile-image-wrapper">
-            <div class="profile-image">
-              <div class="avatar">
-                <img [(src)]="lead.origin" alt="Origen" />
+    <div class="col-lg-12 titular">
+      <h1 class="title text-center" data-target="#collapseExample" data-toggle="collapse">
+        Leads Pendientes
+        <br>
+        <small>
+          {{pendientesArray.count}}
+        </small>
+      </h1>
+    </div>
+    
+    <div class=" col-lg-12 align-items-center contenedor">
+      <div *ngFor="let lead of pendientesArray.results ;index as i">
+        <div class="card card-profile">
+          <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
+          <div class="card-body">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <div class="avatar">
+                  <img [(src)]="lead.origin" alt="Origen" />
+                </div>
               </div>
             </div>
-          </div>
-          <h3>{{lead.client_name}}</h3>
-          <div class="rating">
-            <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
-            </ngb-rating>
-          </div>
-          <h6 class="text-muted">
-            <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
-            {{lead.client_phone}}
-          </h6>
-          <h4 class="text-muted" *ngFor="let vehiculos of lead.vehicles_names">
-            <i class="fa fa-car"></i>
-            {{vehiculos}}
-          </h4>
-          <div class="badge badge-light-primary profile-badge">
-            <i [(data-feather)]="lead.channel"></i>
-          </div>
-          <hr class="mb-2" />
-    
-          <div class="d-flex justify-content-between align-items-center" *ngFor="let contac_ of lead.lead_managements_data">
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                {{contac_.message}}
-              </h6>
-              <h3 class="mb-0"></h3>
+            <h3>{{lead.client_name}}</h3>
+            <div class="rating">
+              <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
+              </ngb-rating>
             </div>
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Fecha
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h3>
+            <h6 class="text-muted">
+              <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
+              {{lead.client_phone}}
+            </h6>
+            <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
+              <i class="fa fa-car"></i>
+              {{vehiculos}}
+            </h4>
+            <div class="badge badge-light-primary profile-badge">
+              <i [(data-feather)]="lead.channel"></i>
             </div>
+            <hr class="mb-2" />
     
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Hora
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+            <div class="row align-items-center contacto_l" *ngFor="let contac_ of lead.lead_managements_data">
+    
+              <div class="col-lg-12">
+                <h6 class="text-muted font-weight-bolder">
+                  {{contac_.message}}
+                </h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Fecha
+                </h6>
+                <h6 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Hora
+                </h6>
+                <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+              </div>
+    
+              <hr class="mb-2" />
+    
             </div>
     
           </div>
         </div>
+        <hr class="mb-0" />
       </div>
+    
     </div>
-
   </div>
   <!--/ Card Leads Informe-->
 
@@ -405,61 +436,77 @@
   <!-- Card Leads Informe Tareas Cerrados-->
   <div class="col-lg-4 col-md-6  col-xs-12 contenedor">
     
-    <div *ngFor="let lead of cerradosArray.results ;index as i">
-      <div class="card card-profile">
-        <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
-        <div class="card-body">
-          <div class="profile-image-wrapper">
-            <div class="profile-image">
-              <div class="avatar">
-                <img [(src)]="lead.origin" alt="Origen" />
+    <div class="col-lg-12 titular">
+      <h1 class="title text-center" data-target="#collapseExample" data-toggle="collapse">
+        Leads Cerrados
+        <br>
+        <small>
+          {{cerradosArray.count}}
+        </small>
+      </h1>
+    </div>
+    
+    <div class=" col-lg-12 align-items-center contenedor">
+      <div *ngFor="let lead of cerradosArray.results ;index as i">
+        <div class="card card-profile">
+          <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
+          <div class="card-body">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <div class="avatar">
+                  <img [(src)]="lead.origin" alt="Origen" />
+                </div>
               </div>
             </div>
-          </div>
-          <h3>{{lead.client_name}}</h3>
-          <div class="rating">
-            <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
-            </ngb-rating>
-          </div>
-          <h6 class="text-muted">
-            <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
-            {{lead.client_phone}}
-          </h6>
-          <h4 class="text-muted" *ngFor="let vehiculos of lead.vehicles_names">
-            <i class="fa fa-car"></i>
-            {{vehiculos}}
-          </h4>
-          <div class="badge badge-light-primary profile-badge">
-            <i [(data-feather)]="lead.channel"></i>
-          </div>
-          <hr class="mb-2" />
-    
-          <div class="d-flex justify-content-between align-items-center" *ngFor="let contac_ of lead.lead_managements_data">
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                {{contac_.message}}
-              </h6>
-              <h3 class="mb-0"></h3>
+            <h3>{{lead.client_name}}</h3>
+            <div class="rating">
+              <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
+              </ngb-rating>
             </div>
-    
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Fecha
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h3>
+            <h6 class="text-muted">
+              <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
+              {{lead.client_phone}}
+            </h6>
+            <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
+              <i class="fa fa-car"></i>
+              {{vehiculos}}
+            </h4>
+            <div class="badge badge-light-primary profile-badge">
+              <i [(data-feather)]="lead.channel"></i>
             </div>
+            <hr class="mb-2" />
     
-            <div>
-              <h6 class="text-muted font-weight-bolder">
-                Hora
-              </h6>
-              <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+            <div class="row align-items-center contacto_l" *ngFor="let contac_ of lead.lead_managements_data">
+    
+              <div class="col-lg-12">
+                <h6 class="text-muted font-weight-bolder">
+                  {{contac_.message}}
+                </h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Fecha
+                </h6>
+                <h6 class="mb-0">{{contac_.created | date: 'dd-MM-yyyy'}}</h6>
+              </div>
+    
+              <div class="col-lg-6">
+                <h6 class="text-muted font-weight-bolder">
+                  Hora
+                </h6>
+                <h3 class="mb-0">{{contac_.created | date:'shortTime'}}</h3>
+              </div>
+    
+              <hr class="mb-2" />
+    
             </div>
     
           </div>
         </div>
+        <hr class="mb-0" />
       </div>
+    
     </div>
   
   </div>
