@@ -16,11 +16,11 @@ export class DashboardServiceSail {
   //Objestos
   // public apiData: [[any], [any], [any], [any], [any]];
   public apiData: {
-    0:[any],
-    1:[any],
-    2:[any],
-    3:[any],
-    4:[any],
+    new:[any],
+    commercial_management:[any],
+    attended:[any],
+    tracing:[any],
+    end:[any],
   };
   
   public onApiDataChanged: BehaviorSubject<any>;
@@ -160,11 +160,11 @@ export class DashboardServiceSail {
     return new Promise((resolve, reject) => {
       Promise.all([
         this.getApiCurrentUser(),
-        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },0), 
-        this.getApiDataNuevo({ status: 'commercial_management', ordering: 'created', wc: 'true' },1), 
-        this.getApiDataNuevo({ status: 'attended', ordering: 'created', wc: 'true' },2), 
-        this.getApiDataNuevo({ status: 'tracing', ordering: 'created', wc: 'true' },3), 
-        this.getApiDataNuevo({ status: 'end', ordering: 'created', wc: 'true' },4), 
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },"new"), 
+        this.getApiDataNuevo({ status: 'commercial_management', ordering: 'created', wc: 'true' },"commercial_management"), 
+        this.getApiDataNuevo({ status: 'attended', ordering: 'created', wc: 'true' },"attended"), 
+        this.getApiDataNuevo({ status: 'tracing', ordering: 'created', wc: 'true' },"tracing"), 
+        this.getApiDataNuevo({ status: 'end', ordering: 'created', wc: 'true' },"end"), 
       ]).then(res => {
         resolve(res);
       }, reject);
@@ -174,7 +174,7 @@ export class DashboardServiceSail {
   /**
    * Get Api Data
    */
-  getApiDataNuevo(data:any, indexArray:number): Promise<any[]> {
+  getApiDataNuevo(data:any, indexArray:string): Promise<any[]> {
     return new Promise((resolve, reject) => {
       // this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
       this.getParamsDinamica(data).subscribe( (response: any) => {
