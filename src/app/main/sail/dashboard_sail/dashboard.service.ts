@@ -178,6 +178,7 @@ export class DashboardServiceSail {
     return new Promise((resolve, reject) => {
       // this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
       this.getParamsDinamica(data).subscribe( (response: any) => {
+        this.apiData[indexArray] = [] ;
         this.apiData[indexArray] = response ;
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData[indexArray]);
