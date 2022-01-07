@@ -161,10 +161,8 @@
               <div class="row align-items-center" 
               *ngFor="let contac_ of lead.lead_managements_data">
               
-                <div [class]="col-lg-12">
+                <div class="col-lg-12">
                   <h6 class="text-muted font-weight-bolder">
-                  </h6>
-                  <h6 class="mb-0">
                     {{contac_.message}}
                   </h6>
                 </div>
@@ -186,7 +184,10 @@
               </div>
             </div>
           </div>
+          
+          <hr>
         </div>
+      
       </div>
   
     </div>
