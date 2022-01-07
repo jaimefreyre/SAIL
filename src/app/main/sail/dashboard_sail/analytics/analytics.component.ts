@@ -199,14 +199,12 @@ export class AnalyticsComponentSail implements OnInit {
       
       this.apiSailSubscription_lead_Observable$ = this._dashboardService.onApiDataChanged.subscribe(response => {
         this.data = response;
-        this.newLeadsArray = response;
-        console.log(this.newLeadsArray);
-        
-        // this.comercialArray
-        // this.atendidosArray
-        // this.seguimientoArray
-        // this.pendientesArray
-        // this.cerradosArray
+        this.newLeadsArray = response[0];
+        this.comercialArray = response[1];
+        this.atendidosArray = response[2];
+        this.pendientesArray = response[3];
+        this.cerradosArray = response[4];
+        console.log(this.data);
       });
     
     }

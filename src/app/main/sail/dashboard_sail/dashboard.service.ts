@@ -14,11 +14,14 @@ export class DashboardServiceSail {
   // Public
   public search;
   //Objestos
-  public apiData: any;
-  public apiDataUser: any;
-  //BehaviorSubject
+  public apiData: [[any], [any], [any], [any], [any]];
   public onApiDataChanged: BehaviorSubject<any>;
+  
+  //BehaviorSubject
+  public apiDataUser: any;
   public onApiDataUserChanged: BehaviorSubject<any>;
+  
+  
   public resultado$: BehaviorSubject<any>;
 
   /**
@@ -64,16 +67,71 @@ export class DashboardServiceSail {
   }
   
   // '/API_BASE/lead_col/?status=commercial_management&ordering=created&page=1&page_size=10&with_concession=true'
-  public getParamsDinamica(data: { status: string, ordering: string, wc: string, page: string, page_size: string}) {
+  // '/API_BASE/lead_col/?concessionaire__in=&created_end_date=2022-01-06T03%3A00%3A00.000Z&created_start_date=2021-12-15T03%3A00%3A00.000Z&ordering=created&page=2&page_size=10&search=&source__channel_id__in=&source__origin_id__in=&status=attended&status__in=&tasks__media__in=&tasks__type__in=&user_id__in=&vehicles__brand_model__in=&with_concession=true
+  public getParamsDinamica(
+    data: { 
+      status: string, 
+      ordering: string, 
+      wc?: string, 
+      page?: string, 
+      page_size?: string,
+      search?: string,
+      concessionaire__in?: string,
+      created_end_date?: string,
+      created_start_date?: string,
+      source__channel_id__in?: string,
+      source__origin_id__in?: string,
+      status__in?: string,
+      tasks__media__in?: string,
+      tasks__type__in?: string,
+      user_id__in?:string,
+      vehicles__brand_model__in?: string
+    }
+    ) {
     let params = new HttpParams();
     params = params.append('status', data.status);
     params = params.append('ordering', data.ordering);
-    params = params.append('with_concession', data.wc);
-    if(data.page !== null){
+    if(data.wc){
+      params = params.append('with_concession', data.wc);
+    }
+    if(data.page){
       params = params.append('page', data.page);
     }
-    if (data.page_size !== null) {
-      params = params.append('with_concession', data.page_size);
+    if (data.page_size) {
+      params = params.append('page_size', data.page_size);
+    }
+    if (data.search) {
+      params = params.append('search', data.search);
+    }
+    if (data.concessionaire__in) {
+      params = params.append('concessionaire__in', data.concessionaire__in);
+    }
+    if (data.created_end_date) {
+      params = params.append('created_end_date', data.created_end_date);
+    }
+    if (data.created_start_date) {
+      params = params.append('created_start_date', data.created_start_date);
+    }
+    if (data.source__channel_id__in) {
+      params = params.append('source__channel_id__in', data.source__channel_id__in);
+    }
+    if (data.source__origin_id__in) {
+      params = params.append('source__origin_id__in', data.source__origin_id__in);
+    }
+    if (data.status__in) {
+      params = params.append('status__in', data.status__in);
+    }
+    if (data.tasks__media__in) {
+      params = params.append('tasks__media__in', data.tasks__media__in);
+    }
+    if (data.tasks__type__in) {
+      params = params.append('tasks__type__in', data.tasks__type__in);
+    }
+    if (data.user_id__in) {
+      params = params.append('user_id__in', data.user_id__in);
+    }
+    if (data.vehicles__brand_model__in) {
+      params = params.append('vehicles__brand_model__in', data.vehicles__brand_model__in);
     }
     
     return this._httpClient.get("/API_BASE/lead_col", {params: params});
@@ -88,7 +146,14 @@ export class DashboardServiceSail {
    */
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
     return new Promise((resolve, reject) => {
-      Promise.all([this.getApiData(), this.getApiCurrentUser()]).then(res => {
+      Promise.all([
+        this.getApiCurrentUser(),
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },0), 
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },1), 
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },2), 
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },3), 
+        this.getApiDataNuevo({ status: 'new', ordering: 'created', wc: 'true' },4), 
+      ]).then(res => {
         resolve(res);
       }, reject);
     });
@@ -97,20 +162,14 @@ export class DashboardServiceSail {
   /**
    * Get Api Data
    */
-  getApiData(): Promise<any[]> {
+  getApiDataNuevo(data:any, indexArray:number): Promise<any[]> {
     return new Promise((resolve, reject) => {
-
       // this._httpClient.get('/API_BASE/lead_col/?status=new&ordering=created&with_concession=true').subscribe( (response: any) => {
-      this.getParamsDinamica(
-        {status:'new', ordering:'created', wc:'true', page: null, page_size:null}
-        ).subscribe( (response: any) => {
-        this.apiData = response;
+      this.getParamsDinamica(data).subscribe( (response: any) => {
+        this.apiData[indexArray] = response ;
         this.onApiDataChanged.next(this.apiData);
         resolve(this.apiData);
       }, reject);
-      
-      
-   
     });
   }
 
