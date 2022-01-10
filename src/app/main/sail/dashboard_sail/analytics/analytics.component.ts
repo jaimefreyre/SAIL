@@ -159,6 +159,10 @@ export class AnalyticsComponentSail implements OnInit {
     });
   }
 
+  SubmitEmite(){
+
+  }
+
   // datos Current User
   current_user_base(){
     this.apiSailSubscription_current_user$ =this._dashboardService.getApiDataUserDirecto().subscribe(
