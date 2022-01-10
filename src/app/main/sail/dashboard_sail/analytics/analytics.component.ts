@@ -13,6 +13,9 @@ import { UserService } from 'app/auth/service';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
 // import { CoreCardModule } from '@core/components/core-card/core-card.module';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 interface ListaLeads {
@@ -65,6 +68,10 @@ interface userData{
 export class AnalyticsComponentSail implements OnInit {
   // Decorator
   @ViewChild('gainedChartRef') gainedChartRef: any;  
+
+  //Public fitro
+  public filtro: any;
+  public basicDPdata: NgbDateStruct;
 
   // Public
   public data: any;
@@ -126,7 +133,8 @@ export class AnalyticsComponentSail implements OnInit {
     private _coreConfigService: CoreConfigService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    private router: Router 
+    private router: Router,
+    private fb: FormBuilder 
   ) {
     
   }
@@ -206,7 +214,27 @@ export class AnalyticsComponentSail implements OnInit {
         this.cerradosArray = response["end"];
         console.log(this.data);
       });
-    
+      
+
+      this.filtro = this.fb.group({
+        search: ['', [Validators.required, Validators.minLength(5)]],
+        todos: [''],
+        fecha_alta: [''],
+        fecha_modificacion: [''],
+        raiting: [''],
+        estado: [''],
+        usuario: [''],
+        consecionario: [''],
+        origen: [''],
+        canal: [''],
+        medio: [''],
+        marca: [''],
+        modelo: [''],
+        version: [''],
+        solicitud: [''],
+        resultado: ['']
+      });
+
     }
 
 

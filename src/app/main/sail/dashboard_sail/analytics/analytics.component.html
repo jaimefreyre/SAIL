@@ -96,6 +96,129 @@
       </div>
   </div>
   
+  <!-- Filtrado de Datos -->
+  <div class="col-lg-12" style="display: none;">
+    <div class="row">
+      
+      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="filtro">
+        
+        <div class="col-lg-12 col-xs-12 ">
+          <div class="input-group">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Buscar" 
+            aria-describedby="button-addon2" 
+            formControlName="search"/>
+            <!-- [(ngModel)]="search" -->
+            <div class="input-group-append" id="button-addon2">
+              <button class="btn btn-outline-primary" type="submit" rippleEffect>
+                <i data-feather="search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-12 col-xs-12 ">
+          <div class="input-group">
+            
+            <input 
+            class="form-control" 
+            placeholder="yyyy-mm-dd" 
+            name="Fecha de Alta"  
+            ngbDatepicker
+            #basicDP="ngbDatepicker"
+            formControlName="fecha_alta">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary feather icon-calendar" (click)="basicDP.toggle()" type="button"
+                rippleEffect></button>
+            </div>
+          
+          </div>
+          <div class="input-group">
+            
+            <input 
+            class="form-control" 
+            placeholder="yyyy-mm-dd" 
+            name="Fecha de modificacion"  
+            ngbDatepicker
+            #basicDP="ngbDatepicker"
+            formControlName="fecha_modificacion">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary feather icon-calendar" 
+              (click)="basicDP.toggle()" 
+              type="button"
+              rippleEffect></button>
+            </div>
+          
+          </div>
+          <label>
+            <span>raiting</span>
+            <input type="password" placeholder="Confirm your password" formControlName="raiting">
+          </label>
+          <label>
+            <span>estado</span>
+            <input type="text" placeholder="Confirm your password" formControlName="estado">
+          </label>
+          
+          <label>
+            <span>usuario</span>
+            <input type="text" placeholder="Confirm your password" formControlName="usuario">
+          </label>
+          
+          <label>
+            <span>consecionario</span>
+            <input type="text" placeholder="Confirm your password" formControlName="consecionario">
+          </label>
+          
+          <label>
+            <span>origen</span>
+            <input type="text" placeholder="Confirm your password" formControlName="origen">
+          </label>
+          <label>
+            <span>canal</span>
+            <input type="text" placeholder="Confirm your password" formControlName="canal">
+          </label>
+          
+          <label>
+            <span>medio</span>
+            <input type="text" placeholder="Confirm your password" formControlName="medio">
+          </label>
+          
+          <label>
+            <span>marca</span>
+            <input type="text" placeholder="Confirm your password" formControlName="marca">
+          </label>
+          <label>
+            <span>modelo</span>
+            <input type="text" placeholder="Confirm your password" formControlName="modelo">
+          </label>
+          
+          <label>
+            <span>version</span>
+            <input type="text" placeholder="Confirm your password" formControlName="version">
+          </label>
+          <label>
+            <span>solicitud</span>
+            <input type="text" placeholder="Confirm your password" formControlName="solicitud">
+          </label>
+          
+          <label>
+            <span>resultado</span>
+            <input type="text" placeholder="Confirm your password" formControlName="resultado">
+          </label>
+          
+          <button  [disabled]="filtro.invalid" type="submit">
+            <i data-feather="search"></i>
+            Search
+          </button>
+        </div>
+
+      </form>
+      
+    </div>
+  </div>
+
+
   <!-- Previsualizacion de Datos -->
   <div class="col-lg-12" style="display: none;">
       <h2 class="title">Informacion:</h2>
