@@ -72,6 +72,7 @@ export class AnalyticsComponentSail implements OnInit {
   //Public fitro
   public filtro: any;
   public basicDPdata: NgbDateStruct;
+  public basicDPdata2: NgbDateStruct;
 
   // Public
   public data: any;

@@ -128,9 +128,12 @@
             ngbDatepicker
             #basicDP="ngbDatepicker"
             formControlName="fecha_alta">
+            
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary feather icon-calendar" (click)="basicDP.toggle()" type="button"
-                rippleEffect></button>
+              <button class="btn btn-outline-secondary feather icon-calendar" 
+              (click)="basicDP.toggle()" 
+              type="button"
+              rippleEffect></button>
             </div>
           
           </div>
@@ -139,10 +142,11 @@
             <input 
             class="form-control" 
             placeholder="yyyy-mm-dd" 
-            name="Fecha de modificacion"  
+            name="fecha_modificacion"  
             ngbDatepicker
-            #basicDP="ngbDatepicker"
+            #basicDP2="ngbDatepicker"
             formControlName="fecha_modificacion">
+            
             <div class="input-group-append">
               <button class="btn btn-outline-secondary feather icon-calendar" 
               (click)="basicDP.toggle()" 
