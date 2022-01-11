@@ -223,24 +223,40 @@ export class AnalyticsComponentSail implements OnInit {
 
       this.filtro = this.fb.group({
         search: ['', [Validators.required, Validators.minLength(5)]],
-        todos: [''],
-        fecha_alta: [''],
-        fecha_modificacion: [''],
+        wc: [''],
+        created_start_date: [''],
+        created_end_date: [''],
         raiting: [''],
-        estado: [''],
-        usuario: [''],
-        consecionario: [''],
-        origen: [''],
-        canal: [''],
+        status: [''],
+        user_id__in: [''],
+        concessionaire__in: [''],
+        source__origin_id__in: [''],
+        source__channel_id__in: [''],
+        status__in: [''],
         medio: [''],
         marca: [''],
-        modelo: [''],
+        vehicles__brand_model__in: [''],
         version: [''],
-        solicitud: [''],
-        resultado: ['']
+        tasks__type__in: [''],
+        tasks__media__in: ['']
       });
 
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 
 
   }
