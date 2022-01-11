@@ -161,7 +161,7 @@ export class AnalyticsComponentSail implements OnInit {
   }
 
   SubmitEmite(){
-
+    console.log(this.filtro)
   }
 
   // datos Current User
