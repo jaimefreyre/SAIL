@@ -220,9 +220,10 @@ export class AnalyticsComponentSail implements OnInit {
         console.log(this.data);
       });
       
+      // search: ['', [Validators.required, Validators.minLength(5)]],
 
       this.filtro = this.fb.group({
-        search: ['', [Validators.required, Validators.minLength(5)]],
+        search: [''],
         wc: [''],
         created_start_date: [''],
         created_end_date: [''],
