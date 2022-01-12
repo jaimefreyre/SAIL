@@ -181,7 +181,7 @@
                           <!-- Resultado -->
                           <div class="form-group col-md-6">
                             <label for="inputResultado">Resultado</label>
-                            <input type="text" class="form-control" id="inputResultado" formControlName="tasks__media__in"
+                            <input type="text" class="form-control" id="inputResultado" formControlName="status__in"
                               placeholder="Resultado">
                           </div>
                         </div>
@@ -289,32 +289,88 @@
       <div class=" col-lg-12 align-items-center contenedor">
         <div *ngFor="let lead of newLeadsArray.results ;index as i">
           <div class="card card-profile">
-            <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" />
+            <!-- <img src="assets/images/banner/banner-12.jpg" class="img-fluid card-img-top" alt="Profile Cover Photo" /> -->
+            <img [(src)]="lead.origin" class="img-fluid card-img-top" alt="Profile Cover Photo" />
             <div class="card-body">
             
               <div class="profile-image-wrapper">
                 <div class="profile-image">
                   <div class="avatar">
-                    <img [(src)]="lead.origin" alt="Origen" />
+                    <!-- <img  alt="Origen" /> -->
+                    <h2>{{lead.user_data.first_name[0]}}{{lead.user_data.last_name[0]}}</h2>
                   </div>
                 </div>
               </div>
+              
               <h3>{{lead.client_name}}</h3>
+              <h3>{{lead.client_business_name}}</h3>
+              
               <div class="rating">
                 <ngb-rating [(rate)]="lead.score" [readonly]="true" [max]="4" class="outline-none estrellita">
                 </ngb-rating>
               </div>
+              
               <h6 class="text-muted">
                 <i data-feather="phone" class="font-medium-2 cursor-pointer"></i>
-                {{lead.client_phone}}
+                {{lead.client_phone | limitTo:5}}xxxx
               </h6>
+              
               <h4 class="title" *ngFor="let vehiculos of lead.vehicles_names">
                 <i class="fa fa-car"></i>
                 {{vehiculos}}
               </h4>
+              
+              <div class="row" *ngFor="let types of lead.taskTypes">
+                <div class="col-md-6">
+                  <h4 class="title">
+                    {{ types.name }}
+                  </h4>
+                </div>
+                <div class="col-md-6">
+                  <span>
+                    {{lead.last_lead_action.last_task.type}}
+                  </span>
+                </div>
+                <div class="col-md-12">
+                  <span>
+                   {{ lead.last_lead_action.date | date:'dd/MM/yyyy HH:mm' }}
+                 </span> 
+                </div>
+
+              </h4>
+              
+              <hr>
+
               <div class="badge badge-light-primary profile-badge">
-                <i [(data-feather)]="lead.channel"></i>
+                <!-- <i [(data-feather)]="lead.channel"></i> -->
+                  <span class="list-card-footer-item" layout="row" layout-align="start center" data-translate>Canal:</span>
+                  
+                  <span class="list-card-footer-item" ngIf="lead.channel==='email' || lead.channel==='both'" layout="row"
+                    layout-align="start center">
+                    <i class="fa fa-email"></i>
+                  </span>
+                  
+                  <span class="list-card-footer-item" ngIf="lead.channel==='phone' || lead.channel==='both'" layout="row"
+                    layout-align="start center">
+                    <i class="fa fa-phone"></i>
+                  </span>
+                  
+                  <span class="list-card-footer-item" ngIf="lead.channel==='chat' || lead.channel==='both'" layout="row"
+                    layout-align="start center">
+                    <i class="fa fa-wechat"></i>
+                  </span>
+                  
+                  <span class="list-card-footer-item" ngIf="lead.channel==='exposition' || lead.channel==='both'" layout="row"
+                    layout-align="start center">
+                    <i class="fa fa-map-marker"></i>
+                  </span>
+                  
+                  <span class="list-card-footer-item" ngIf="lead.channel==='web_home' || lead.channel==='both'" layout="row"
+                    layout-align="start center">
+                    <i class="fa fa-sitemap"></i>
+                  </span>
               </div>
+              
               <hr class="mb-2" />
                             
               <div class="row align-items-center contacto_l" 
