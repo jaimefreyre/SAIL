@@ -55,27 +55,186 @@
                 <!-- Modal Filtro-->
                 <ng-template #modalAD let-modal>
                   <div class="modal-header">
-                    <h6 class="modal-title" id="myModalLabel6">Disabled Animation</h6>
+                    <h6 class="modal-title" id="myModalLabel6">Filtrado de Leads</h6>
                     <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body" tabindex="0" ngbAutofocus>
-                    <p>
-                      Chocolate bar jelly dragée cupcake chocolate bar I love donut liquorice. Powder I love marzipan
-                      donut candy canes jelly-o. Dragée liquorice apple pie candy biscuit danish lemon drops sugar plum.
-                    </p>
-                    <ngb-alert [type]="'success'" [dismissible]="false">
-                      <div class="alert-body">
-                        <span class="font-weight-bolder">Well done!</span> You successfully read this important alert
-                        message.
-                      </div>
-                    </ngb-alert>
+                  <!-- Filtrado de Datos -->
+                  <div class="card col-lg-12" style="display: none;">
+                  
+                    <!-- <h4 class="card-title">Filtros</h4> -->
+                    <div class="card-body">
+                      <form novalidate (ngSubmit)="SubmitEmite()" [formGroup]="filtro">
+                  
+                        <div class="form-row">
+                          <div class="form-group col-md-12 col-xs-12 ">
+                            <label for="inputSearch">Buscar</label>
+                            <div class="input-group">
+                              <input type="text" id="inputSearch" class="form-control" placeholder="Buscar"
+                                aria-describedby="button-addon2" formControlName="search" />
+                              <div class="input-group-append" id="button-addon2">
+                                <button class="btn btn-outline-primary" type="submit" rippleEffect>
+                                  <i data-feather="search"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="#basicDP">Fecha Alta</label>
+                            <div class="input-group">
+                              <input class="form-control" placeholder="yyyy-mm-dd" name="fecha_alta" ngbDatepicker
+                                #basicDP="ngbDatepicker" formControlName="created_start_date">
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-secondary feather icon-calendar" (click)="basicDP.toggle()" type="button"
+                                  rippleEffect></button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="#basicDP2">Fecha Ultima Modificacion</label>
+                            <div class="input-group">
+                              <input class="form-control" placeholder="yyyy-mm-dd" name="fecha_modificacion" ngbDatepicker
+                                #basicDP2="ngbDatepicker" formControlName="created_end_date">
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-secondary feather icon-calendar" (click)="basicDP2.toggle()" type="button"
+                                  rippleEffect></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <div class="form-row">
+                          <!-- Raiting -->
+                          <div class="form-group col-md-6">
+                            <ngb-rating [(rate)]="filtro.value.raiting" [readonly]="false" [max]="4" class="outline-none estrellita">
+                            </ngb-rating>
+                  
+                            <label for="raiting">Raiting</label>
+                            <input type="number" class="form-control" id="raiting" formControlName="raiting" placeholder="Raiting">
+                          </div>
+                          <!-- Estado in-->
+                          <div class="form-group col-md-6">
+                            <label for="inputEstado">Estado</label>
+                            <input type="text" class="form-control" id="inputEstado" formControlName="status_in" placeholder="Estado">
+                          </div>
+                          <!-- Usuarios -->
+                          <div class="form-group col-md-6">
+                            <label for="inputUsuario">Usuario</label>
+                            <input type="text" class="form-control" id="inputUsuario" formControlName="user_id__in" placeholder="Usuario">
+                          </div>
+                  
+                          <!-- Consecionarias -->
+                          <div class="form-group col-md-6">
+                            <label for="inputConsecionario">Consecionario</label>
+                            <input type="text" class="form-control" id="inputConsecionario" formControlName="concessionaire__in"
+                              placeholder="Consecionario">
+                          </div>
+                  
+                          <!-- Origen -->
+                          <div class="form-group col-md-6">
+                            <label for="inputOrigen">Origen</label>
+                            <input type="text" class="form-control" id="inputOrigen" formControlName="source__origin_id__in"
+                              placeholder="Origen">
+                          </div>
+                  
+                          <!-- Canal -->
+                          <div class="form-group col-md-6">
+                            <label for="inputCanal">Canal</label>
+                            <input type="text" class="form-control" id="inputCanal" formControlName="source__channel_id__in"
+                              placeholder="Canal">
+                          </div>
+                  
+                          <!-- Medio -->
+                          <div class="form-group col-md-6">
+                            <label for="inputMedio">Medio</label>
+                            <input type="text" class="form-control" id="inputMedio" formControlName="medio" placeholder="Medio">
+                          </div>
+                  
+                          <!-- Marca -->
+                          <div class="form-group col-md-6">
+                            <label for="inputMarca">Marca</label>
+                            <input type="text" class="form-control" id="inputMarca" formControlName="marca" placeholder="Marca">
+                          </div>
+                  
+                          <!-- Modelo -->
+                          <div class="form-group col-md-6">
+                            <label for="inputModelo">Modelo</label>
+                            <input type="text" class="form-control" id="inputModelo" formControlName="vehicles__brand_model__in"
+                              placeholder="Modelo">
+                          </div>
+                  
+                          <!-- Version -->
+                          <div class="form-group col-md-6">
+                            <label for="inputVersion">Version</label>
+                            <input type="text" class="form-control" id="inputVersion" formControlName="version" placeholder="Version">
+                          </div>
+                  
+                          <!-- Solicitud -->
+                          <div class="form-group col-md-6">
+                            <label for="inputSolicitud">Solicitud</label>
+                            <input type="text" class="form-control" id="inputSolicitud" formControlName="tasks__type__in"
+                              placeholder="Solicitud">
+                          </div>
+                  
+                          <!-- Resultado -->
+                          <div class="form-group col-md-6">
+                            <label for="inputResultado">Resultado</label>
+                            <input type="text" class="form-control" id="inputResultado" formControlName="tasks__media__in"
+                              placeholder="Resultado">
+                          </div>
+                        </div>
+                  
+                        <!-- <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                          </div>
+                          <div class="form-group">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">City</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputState">State</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="inputZip">Zip</label>
+                              <input type="text" class="form-control" id="inputZip">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                                Check me out
+                              </label>
+                            </div>
+                          </div>
+                           -->
+                  
+                        <button [disabled]="filtro.invalid" class="btn btn-primary" type="submit">
+                          <i data-feather="search"></i>
+                          Filtrar
+                        </button>
+                  
+                      </form>
+                    </div>
+                  
+                  </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
+                    <!-- <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
                       Accept
-                    </button>
+                    </button> -->
                   </div>
                 </ng-template>
                 <!-- / Modal Filtro-->
@@ -96,195 +255,7 @@
       </div>
   </div>
   
-  <!-- Filtrado de Datos -->
-  <div class="card col-lg-12" style="display: none;">
-    
-    <h4 class="card-title">Filtros</h4>
-    <div class="card-body">
-      <form novalidate (ngSubmit)="SubmitEmite()" [formGroup]="filtro">
-      
-        <div class="form-row">
-          <div class="form-group col-md-12 col-xs-12 ">
-            <label for="inputSearch">Buscar</label>
-            <div class="input-group">
-              <input type="text" 
-              id="inputSearch"
-              class="form-control" 
-              placeholder="Buscar" 
-              aria-describedby="button-addon2" 
-              formControlName="search"/>
-              <div class="input-group-append" id="button-addon2">
-                <button class="btn btn-outline-primary" type="submit" rippleEffect>
-                  <i data-feather="search"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="#basicDP">Fecha Alta</label>
-            <div class="input-group">
-              <input 
-                class="form-control" 
-                placeholder="yyyy-mm-dd" 
-                name="fecha_alta"  
-                ngbDatepicker
-                #basicDP="ngbDatepicker"
-                formControlName="created_start_date">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary feather icon-calendar" 
-                (click)="basicDP.toggle()" 
-                type="button"
-                rippleEffect></button>
-              </div>
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="#basicDP2">Fecha Ultima Modificacion</label>
-            <div class="input-group">
-              <input 
-              class="form-control" 
-              placeholder="yyyy-mm-dd" 
-              name="fecha_modificacion"  
-              ngbDatepicker
-              #basicDP2="ngbDatepicker"
-              formControlName="created_end_date">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary feather icon-calendar" 
-                (click)="basicDP2.toggle()" 
-                type="button"
-                rippleEffect></button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <!-- Raiting -->
-          <div class="form-group col-md-6">
-            <ngb-rating [(rate)]="filtro.value.raiting" [readonly]="false" [max]="4" class="outline-none estrellita">
-            </ngb-rating>
-            
-            <label for="raiting">Raiting</label>
-            <input type="number" 
-              class="form-control" 
-              id="raiting" 
-              formControlName="raiting" 
-              placeholder="Raiting">
-          </div>
-          <!-- Estado in-->
-          <div class="form-group col-md-6">
-            <label for="inputEstado">Estado</label>
-            <input type="text" 
-            class="form-control" 
-            id="inputEstado" 
-            formControlName="status_in" 
-            placeholder="Estado">
-          </div>
-          <!-- Usuarios -->
-          <div class="form-group col-md-6">
-            <label for="inputUsuario">Usuario</label>
-            <input type="text" class="form-control" id="inputUsuario" formControlName="user_id__in" placeholder="Usuario">
-          </div>
-          
-          <!-- Consecionarias -->
-          <div class="form-group col-md-6">
-            <label for="inputConsecionario">Consecionario</label>
-            <input type="text" class="form-control" id="inputConsecionario" formControlName="concessionaire__in" placeholder="Consecionario">
-          </div>
-          
-          <!-- Origen -->
-          <div class="form-group col-md-6">
-            <label for="inputOrigen">Origen</label>
-            <input type="text" class="form-control" id="inputOrigen" formControlName="source__origin_id__in" placeholder="Origen">
-          </div>
-          
-          <!-- Canal -->
-          <div class="form-group col-md-6">
-            <label for="inputCanal">Canal</label>
-            <input type="text" class="form-control" id="inputCanal" formControlName="source__channel_id__in" placeholder="Canal">
-          </div>
-          
-          <!-- Medio -->
-          <div class="form-group col-md-6">
-            <label for="inputMedio">Medio</label>
-            <input type="text" class="form-control" id="inputMedio" formControlName="medio" placeholder="Medio">
-          </div>
-          
-          <!-- Marca -->
-          <div class="form-group col-md-6">
-            <label for="inputMarca">Marca</label>
-            <input type="text" class="form-control" id="inputMarca" formControlName="marca" placeholder="Marca">
-          </div>
-          
-          <!-- Modelo -->
-          <div class="form-group col-md-6">
-            <label for="inputModelo">Modelo</label>
-            <input type="text" class="form-control" id="inputModelo" formControlName="vehicles__brand_model__in" placeholder="Modelo">
-          </div>
-          
-          <!-- Version -->
-          <div class="form-group col-md-6">
-            <label for="inputVersion">Version</label>
-            <input type="text" class="form-control" id="inputVersion" formControlName="version" placeholder="Version">
-          </div>
-          
-          <!-- Solicitud -->
-          <div class="form-group col-md-6">
-            <label for="inputSolicitud">Solicitud</label>
-            <input type="text" class="form-control" id="inputSolicitud" formControlName="tasks__type__in" placeholder="Solicitud">
-          </div>
-          
-          <!-- Resultado -->
-          <div class="form-group col-md-6">
-            <label for="inputResultado">Resultado</label>
-            <input type="text" class="form-control" id="inputResultado" formControlName="tasks__media__in" placeholder="Resultado">
-          </div>
-        </div>
-        
-        <!-- <div class="form-group">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-          <label for="inputAddress2">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-         -->
-          
-        <button [disabled]="filtro.invalid" class="btn btn-primary" type="submit">
-          <i data-feather="search"></i>
-          Filtrar
-        </button>
-
-      </form>
-    </div>
-      
-  </div>
+ 
 
 
 
