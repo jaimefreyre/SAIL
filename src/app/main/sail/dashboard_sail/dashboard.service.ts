@@ -117,6 +117,7 @@ export class DashboardServiceSail {
       wc?: string, 
       page?: string, 
       page_size?: string,
+      raiting?: string,
       search?: string,
       concessionaire__in?: string,
       created_end_date?: string,
@@ -141,6 +142,9 @@ export class DashboardServiceSail {
     }
     if (data.page_size) {
       params = params.append('page_size', data.page_size);
+    }
+    if (data.raiting) {
+      params = params.append('raiting', data.raiting);
     }
     if (data.search) {
       params = params.append('search', data.search);
