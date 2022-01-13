@@ -220,7 +220,7 @@ export class DashboardServiceSail {
     });
   }
 
-
+  
   
 
   /**
@@ -235,6 +235,29 @@ export class DashboardServiceSail {
       }, reject);
     });
   }
+
+
+/**
+ * 
+ * @param data 
+ */
+
+  buscarTodasCategorias(data: any){
+      data.ordering = "created";
+
+      data.status = "new";
+      this.getApiDataNuevo(data, "new");
+      data.status = "commercial_management";
+      this.getApiDataNuevo(data, "commercial_management"),
+      data.status = "attended";
+      this.getApiDataNuevo(data, "attended"),
+      data.status = "tracing";
+      this.getApiDataNuevo(data, "tracing"),
+      data.status = "end";
+      this.getApiDataNuevo(data, "end");
+  };
+
+
 
   /**
    * Multiples Observables en serie y despues concatenados en paralelo
