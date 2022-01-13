@@ -69,11 +69,12 @@
 }
 
 .iniciales{
-    padding: 0.3rem 0px 0px 0.5rem;
+    margin: auto 0px;
 }
 
 .avatar2{
-    background: rgb(255 255 255) !important;
+    // background: rgb(255 255 255) !important;
+    background: rgb(13 229 69) !important;
     padding: 0.5em !important;
     width: 4em !important;
 }
@@ -82,4 +83,5 @@
     position: absolute !important;
     right: 1em !important;
     top: 1em !important;
+    color: rgb(255 255 255) !important;
 }
