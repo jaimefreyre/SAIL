@@ -161,12 +161,12 @@ export class AnalyticsComponentSail implements OnInit {
   }
 
   SubmitEmite(){
-    console.log(this.filtro);
-    this.filtro.status = "new";
-    this.filtro.wc = "false";
-    this.filtro.ordering = "created";
-    console.log(this.filtro);
-    this._dashboardService.getApiDataNuevo(this.filtro, "new");
+    console.log(this.filtro.value);
+    this.filtro.value.status = "new";
+    this.filtro.value.wc = "false";
+    this.filtro.value.ordering = "created";
+    console.log(this.filtro.value);
+    this._dashboardService.getApiDataNuevo(this.filtro.value, "new");
   }
 
   // datos Current User
