@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
+import { ServiceNuevoService } from './service-nuevo.service';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { Observable, Subscription, of } from 'rxjs';
 
 @Component({
   selector: 'app-nuevo-led',
@@ -32,21 +34,28 @@ export class NuevoLedComponent implements OnInit {
   //Select
   public selectMulti = [{ name: 'English' }, { name: 'French' }, { name: 'Spanish' }];
   public selectMultiSelected;
-
-
+  
+  //Suscriptores de llamadas
+  Set_Observable$: Subscription;
+  public Data;
+  
   /**
    * 
    * @param elementoamostrar
    */
   public tp1Form = 0;
-
-
+  
+  
   gotoLead(hero: any) {
     const heroId = hero ? hero.id : null;
     this.router.navigate(['/sail/nuevo', { id: heroId }]);
   }
-
-  constructor(private modalService: NgbModal, dService: DashboardServiceSail, private route: ActivatedRoute,
+  
+  constructor(
+    private modalService: NgbModal, 
+    public dService: DashboardServiceSail, 
+    public nService: ServiceNuevoService, 
+    private route: ActivatedRoute,
     private router: Router ) { }
 
   // modal Open Srolling Long Content Inside
@@ -55,6 +64,7 @@ export class NuevoLedComponent implements OnInit {
   }
   //Timeline ReportBasic
   public showReportBasic = true;
+  public currentUser: any;
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
@@ -63,10 +73,23 @@ export class NuevoLedComponent implements OnInit {
    * On Init
    */
   ngOnInit() {
-   
+    const idLead = this.route.snapshot.paramMap.get('id');
 
+    // get the currentUser details from localStorage
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser);
+    if (this.currentUser.token) {
+      this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
+        this.Data = response;
+        // this.newLeadsArray = response["new"];
+        // this.comercialArray = response["commercial_management"];
+        // this.atendidosArray = response["attended"];
+        // this.pendientesArray = response["tracing"];
+        // this.cerradosArray = response["end"];
+        console.log(this.Data);
+      });
+    }
   }
-
 
   /**
    * On Submit
