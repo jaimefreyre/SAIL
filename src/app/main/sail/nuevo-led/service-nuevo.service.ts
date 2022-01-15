@@ -88,8 +88,12 @@ export class ServiceNuevoService {
     url_accion: string
   ){
     let params = new HttpParams();
-    params = params.append('status', data.status);
-    params = params.append('ordering', data.ordering);
+    if (data.status) {
+      params = params.append('status', data.status);
+    }
+    if (data.ordering) {
+      params = params.append('ordering', data.ordering);
+    }
     if (data.wc) {
       params = params.append('with_concession', data.wc);
     }
@@ -195,8 +199,8 @@ export class ServiceNuevoService {
       return new Promise((resolve, reject) => {
         Promise.all(
           [
-            this.getDataTableRows()
-            // this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"})
+            this.getDataTableRows(),
+            this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"})
             // this.setterNuevo("vehicles_brand/", "modelo", {page_size:"all", search: ""}),
             // this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
             // this.setterNuevo("gas_type/", "combustible"),
