@@ -174,10 +174,11 @@ export class ServiceNuevoService {
   setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
       return new Promise((resolve, reject) => {
         this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
-          this.DATA__NEW[posicionArray] =response.results;
+          console.log(response);
+          console.log(this.DATA__NEW);
+          this.DATA__NEW[posicionArray] = response.results;
           this.setting_res$.next(this.DATA__NEW);
           // resolve(this.llamadas);
-          console.log(this.DATA__NEW);
           resolve(response.results);
         }, reject);
       });
