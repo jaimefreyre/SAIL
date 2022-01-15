@@ -88,6 +88,7 @@ export class NuevoLedComponent implements OnInit {
       //   // this.pendientesArray = response["tracing"];
       //   // this.cerradosArray = response["end"];
       //   console.log(this.Data);
+        console.log(response);
       });
     }
   }
