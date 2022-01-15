@@ -5,7 +5,7 @@ import { ServiceNuevoService } from './service-nuevo.service';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { Observable, Subscription, of } from 'rxjs';
+import { Observable, Subscription, of, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-nuevo-led',
@@ -80,6 +80,7 @@ export class NuevoLedComponent implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token) {
       // this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
+      this.nService.setting_res$.subscribe(response => {
       //   this.Data = response;
       //   // this.newLeadsArray = response["new"];
       //   // this.comercialArray = response["commercial_management"];
@@ -87,7 +88,7 @@ export class NuevoLedComponent implements OnInit {
       //   // this.pendientesArray = response["tracing"];
       //   // this.cerradosArray = response["end"];
       //   console.log(this.Data);
-      // });
+      });
     }
   }
 
