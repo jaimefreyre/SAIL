@@ -53,7 +53,7 @@ export class NuevoLedComponent implements OnInit {
   
   constructor(
     private modalService: NgbModal, 
-    public dService: DashboardServiceSail, 
+    // public dService: DashboardServiceSail, 
     public nService: ServiceNuevoService, 
     private route: ActivatedRoute,
     private router: Router ) { }
@@ -79,15 +79,15 @@ export class NuevoLedComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token) {
-      this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
-        this.Data = response;
-        // this.newLeadsArray = response["new"];
-        // this.comercialArray = response["commercial_management"];
-        // this.atendidosArray = response["attended"];
-        // this.pendientesArray = response["tracing"];
-        // this.cerradosArray = response["end"];
-        console.log(this.Data);
-      });
+      // this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
+      //   this.Data = response;
+      //   // this.newLeadsArray = response["new"];
+      //   // this.comercialArray = response["commercial_management"];
+      //   // this.atendidosArray = response["attended"];
+      //   // this.pendientesArray = response["tracing"];
+      //   // this.cerradosArray = response["end"];
+      //   console.log(this.Data);
+      // });
     }
   }
 
