@@ -46,7 +46,9 @@ export class ServiceNuevoService {
   public DATA__NEW: dataNew;
   public setting_res$: BehaviorSubject<any>;
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) { 
+    this.setting_res$ = new BehaviorSubject({});
+  }
 
   // https://sail.artificialintelligencelead.com/api/lead_col/?status=new&id_excluded=0&ordering=created&page_size=10&with_concession=true
   // https://sail.artificialintelligencelead.com/api/lead_col/?status=attended&id_excluded=0&ordering=created&page_size=10&with_concession=true
