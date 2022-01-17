@@ -172,13 +172,14 @@ export class ServiceNuevoService {
         }, reject);
       });
     }
-    /**
-     * Get rows
-     */
-  setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
+  
+  /**
+   * Get Setters
+   */
+    setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
       return new Promise((resolve, reject) => {
-        // this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
-        this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
+        this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
+        // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
           console.log(response);
           console.log(this.DATA__NEW);
           this.DATA__NEW[posicionArray] = response.results;
@@ -187,6 +188,15 @@ export class ServiceNuevoService {
           resolve(response.results);
         }, reject);
       });
+    }
+  
+  /**
+   * Llamar a seter de forma manual
+   */
+
+    llamarSetterManual(){
+      this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" });
+      this.setterNuevo("gas_type/", "combustible");
     }
 
     /**
@@ -201,7 +211,7 @@ export class ServiceNuevoService {
         Promise.all(
           [
             this.getDataTableRows(),
-            this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"})
+            // this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"})
             // this.setterNuevo("vehicles_brand/", "modelo", {page_size:"all", search: ""}),
             // this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
             // this.setterNuevo("gas_type/", "combustible"),

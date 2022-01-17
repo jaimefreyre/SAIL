@@ -46,25 +46,32 @@ export class NuevoLedComponent implements OnInit {
   public tp1Form = 0;
   
   
-  gotoLead(hero: any) {
-    const heroId = hero ? hero.id : null;
-    this.router.navigate(['/sail/nuevo', { id: heroId }]);
-  }
-  
   constructor(
     private modalService: NgbModal, 
     // public dService: DashboardServiceSail, 
     public nService: ServiceNuevoService, 
     private route: ActivatedRoute,
     private router: Router ) { }
+    
+    // modal Open Srolling Long Content Inside
+    modalOpenSLCIM(modalSLCIM) {
+      this.modalService.open(modalSLCIM, { scrollable: true });
+    }
+    //Timeline ReportBasic
+    public showReportBasic = true;
+    public currentUser: any;
+    
+    gotoLead(hero: any) {
+      const heroId = hero ? hero.id : null;
+      this.router.navigate(['/sail/nuevo', { id: heroId }]);
+    }
+    
+    llamarSeter(){
+      this.nService.llamarSetterManual();
+    }
 
-  // modal Open Srolling Long Content Inside
-  modalOpenSLCIM(modalSLCIM) {
-    this.modalService.open(modalSLCIM, { scrollable: true });
-  }
-  //Timeline ReportBasic
-  public showReportBasic = true;
-  public currentUser: any;
+
+
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
