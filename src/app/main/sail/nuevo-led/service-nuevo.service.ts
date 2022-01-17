@@ -21,6 +21,28 @@ interface dataNew {
   results: [];
 };
 
+interface DD{
+    status?: string,
+    ordering?: string,
+    wc?: string,
+    page?: string,
+    page_size?: string,
+    raiting?: string,
+    id_excluded?: string,
+    search?: string,
+    concessionaire__in?: string,
+    created_end_date?: string,
+    created_start_date?: string,
+    source__channel_id__in?: string,
+    source__origin_id__in?: string,
+    status__in?: string,
+    tasks__media__in?: string,
+    tasks__type__in?: string,
+    user_id__in?: string,
+    vehicles__brand_model__in?: string,
+    vehicle_model__id?: string,
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -64,27 +86,28 @@ export class ServiceNuevoService {
 
 
   public getParamsDinamica(
-    data: {
-      status?: string,
-      ordering?: string,
-      wc?: string,
-      page?: string,
-      page_size?: string,
-      raiting?: string,
-      id_excluded?: string,
-      search?: string,
-      concessionaire__in?: string,
-      created_end_date?: string,
-      created_start_date?: string,
-      source__channel_id__in?: string,
-      source__origin_id__in?: string,
-      status__in?: string,
-      tasks__media__in?: string,
-      tasks__type__in?: string,
-      user_id__in?: string,
-      vehicles__brand_model__in?: string,
-      vehicle_model__id?: string,
-    },
+    // data: {
+    //   status?: string,
+    //   ordering?: string,
+    //   wc?: string,
+    //   page?: string,
+    //   page_size?: string,
+    //   raiting?: string,
+    //   id_excluded?: string,
+    //   search?: string,
+    //   concessionaire__in?: string,
+    //   created_end_date?: string,
+    //   created_start_date?: string,
+    //   source__channel_id__in?: string,
+    //   source__origin_id__in?: string,
+    //   status__in?: string,
+    //   tasks__media__in?: string,
+    //   tasks__type__in?: string,
+    //   user_id__in?: string,
+    //   vehicles__brand_model__in?: string,
+    //   vehicle_model__id?: string,
+    // },
+    data: DD,
     url_accion: string
   ){
     let params = new HttpParams();
@@ -197,8 +220,8 @@ export class ServiceNuevoService {
 
     llamarSetterManual(){
       console.log("Se activa llamar setter");
-      this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" });
-      this.setterNuevo("gas_type/", "combustible");
+      this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" }),
+      this.setterNuevo("gas_type/", "combustible", {});
     }
 
     /**
@@ -212,13 +235,13 @@ export class ServiceNuevoService {
       return new Promise((resolve, reject) => {
         Promise.all(
           [
-            this.getDataTableRows()
-            // this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"})
-            // this.setterNuevo("vehicles_brand/", "modelo", {page_size:"all", search: ""}),
-            // this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
+            // this.getDataTableRows(),
+            this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"}),
+            this.setterNuevo("vehicles_brand/", "modelo", {page_size:"all", search: ""}),
+            this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
             // this.setterNuevo("gas_type/", "combustible"),
             // this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector"),
-            // this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad"),
+            this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad"),
             // this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1"),
             // this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2"),
           ]).then(res => {
