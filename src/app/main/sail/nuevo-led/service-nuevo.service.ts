@@ -206,6 +206,7 @@ export class ServiceNuevoService {
       return new Promise((resolve, reject) => {
         this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
         // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
+          console.log("se llamo a Setter Individual");
           console.log(response);
           //Borra todo el Objeto
           // this.DATA__NEW = { [posicionArray] : {response} };
@@ -226,9 +227,17 @@ export class ServiceNuevoService {
    */
 
     llamarSetterManual(){
-      console.log("Se activa llamar setter");
-      this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" }),
-      this.setterNuevo("gas_type/", "combustible", {});
+      console.log("Se activa llamar setter Manual");
+      // this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" }),
+      // this.setterNuevo("gas_type/", "combustible", {});
+      // this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" }),
+      this.setterNuevo("vehicles_brand/", "modelo", { page_size: "all", search: "" }),
+      this.setterNuevo("vehicles_version/", "version", { page_size: "50", search: "", vehicle_model__id: "1" }),
+      this.setterNuevo("gas_type/", "combustible", {}),
+      this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector", {}),
+      this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad", {}),
+      this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1", {}),
+      this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2", {});
     }
 
     /**
@@ -243,14 +252,7 @@ export class ServiceNuevoService {
         Promise.all(
           [
             // this.getDataTableRows(),
-            this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"}),
-            this.setterNuevo("vehicles_brand/", "modelo", {page_size:"all", search: ""}),
-            this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
-            this.setterNuevo("gas_type/", "combustible", {}),
-            this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector", {}),
-            this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad", {}),
-            this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1", {}),
-            this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2", {})
+            
           ]).then(res => {
           resolve(res);
         }, reject);
