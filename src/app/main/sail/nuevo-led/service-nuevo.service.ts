@@ -251,8 +251,8 @@ export class ServiceNuevoService {
       return new Promise((resolve, reject) => {
         Promise.all(
           [
-            // this.getDataTableRows(),
-            
+            this.getDataTableRows(),
+            this.llamarSetterManual()
           ]).then(res => {
           resolve(res);
         }, reject);
