@@ -206,7 +206,8 @@ export class ServiceNuevoService {
         // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
           console.log(response);
           console.log(this.DATA__NEW);
-          this.DATA__NEW = { [posicionArray] : {response} };
+          // this.DATA__NEW = { [posicionArray] : {response} };
+          this.DATA__NEW[posicionArray].push(response.results);
           this.setting_res$.next(this.DATA__NEW);
           // resolve(this.llamadas);
           resolve(response.results);
