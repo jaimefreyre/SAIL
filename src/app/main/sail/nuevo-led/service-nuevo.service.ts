@@ -177,7 +177,8 @@ export class ServiceNuevoService {
      */
   setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
       return new Promise((resolve, reject) => {
-        this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
+        // this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
+        this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
           console.log(response);
           console.log(this.DATA__NEW);
           this.DATA__NEW[posicionArray] = response.results;
