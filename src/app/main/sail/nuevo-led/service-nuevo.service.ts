@@ -65,7 +65,7 @@ export class ServiceNuevoService {
   // https://sail.artificialintelligencelead.com/api/task/options/?is_traking_task=true&page=all
   // public TaskSet2;
 
-  public DATA__NEW: any;
+  public DATA__NEW = {} as dataNewObservable 
   public setting_res$: BehaviorSubject<any>;
 
   constructor(private _httpClient: HttpClient) { 
@@ -205,12 +205,8 @@ export class ServiceNuevoService {
         this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: any) => {
         // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
           console.log(response);
-          if(this.DATA__NEW == "undefinned"){
-            this.DATA__NEW = {};
-          }
-
           // this.DATA__NEW = { [posicionArray] : {response} };
-          this.DATA__NEW[posicionArray] = [];
+          // this.DATA__NEW[posicionArray] = [];
           this.DATA__NEW[posicionArray].push(response.results);
           this.setting_res$.next(this.DATA__NEW);
           
