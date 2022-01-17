@@ -195,6 +195,7 @@ export class ServiceNuevoService {
    */
 
     llamarSetterManual(){
+      console.log("Se activa llamar setter");
       this.setterNuevo("vehicles_brand/", "marca", { search: "", page_size: "all" });
       this.setterNuevo("gas_type/", "combustible");
     }
