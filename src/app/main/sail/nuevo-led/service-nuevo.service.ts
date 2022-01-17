@@ -65,7 +65,9 @@ export class ServiceNuevoService {
   // https://sail.artificialintelligencelead.com/api/task/options/?is_traking_task=true&page=all
   // public TaskSet2;
 
-  public DATA__NEW = {} as dataNewObservable 
+  // public DATA__NEW = {} as dataNewObservable;
+  public DATA__NEW: dataNew[]= [];
+   
   public setting_res$: BehaviorSubject<any>;
 
   constructor(private _httpClient: HttpClient) { 
