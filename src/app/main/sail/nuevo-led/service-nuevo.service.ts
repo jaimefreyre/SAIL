@@ -65,7 +65,7 @@ export class ServiceNuevoService {
   // https://sail.artificialintelligencelead.com/api/task/options/?is_traking_task=true&page=all
   // public TaskSet2;
 
-  public DATA__NEW: any;
+  public DATA__NEW: dataNewObservable;
   public setting_res$: BehaviorSubject<any>;
 
   constructor(private _httpClient: HttpClient) { 
@@ -241,7 +241,7 @@ export class ServiceNuevoService {
             this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
             // this.setterNuevo("gas_type/", "combustible"),
             // this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector"),
-            this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad"),
+            this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad", {}),
             // this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1"),
             // this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2"),
           ]).then(res => {
