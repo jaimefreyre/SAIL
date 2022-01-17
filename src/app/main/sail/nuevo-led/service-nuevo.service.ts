@@ -207,13 +207,15 @@ export class ServiceNuevoService {
         this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
         // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
           console.log(response);
+          //Borra todo el Objeto
           // this.DATA__NEW = { [posicionArray] : {response} };
+          // Escribe el objeto como vacio en su posicion y despues agrega resultados
           // this.DATA__NEW[posicionArray] = {};
           // this.DATA__NEW[posicionArray] = response.results;
           this.DATA__NEW[posicionArray] = response;
-          this.setting_res$.next(this.DATA__NEW);
-          
           console.log(this.DATA__NEW);
+          
+          this.setting_res$.next(this.DATA__NEW);
           resolve(response.results);
         }, reject);
       });
@@ -244,11 +246,11 @@ export class ServiceNuevoService {
             this.setterNuevo("vehicles_brand/", "marca", {search: "", page_size: "all"}),
             this.setterNuevo("vehicles_brand/", "modelo", {page_size:"all", search: ""}),
             this.setterNuevo("vehicles_version/", "version", {page_size:"50", search:"", vehicle_model__id:"1"}),
-            // this.setterNuevo("gas_type/", "combustible"),
-            // this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector"),
+            this.setterNuevo("gas_type/", "combustible", {}),
+            this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector", {}),
             this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad", {}),
-            // this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1"),
-            // this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2"),
+            this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1", {}),
+            this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2", {})
           ]).then(res => {
           resolve(res);
         }, reject);
