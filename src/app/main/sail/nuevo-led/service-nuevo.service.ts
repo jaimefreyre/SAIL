@@ -43,7 +43,7 @@ export class ServiceNuevoService {
   // https://sail.artificialintelligencelead.com/api/task/options/?is_traking_task=true&page=all
   // public TaskSet2;
 
-  public DATA__NEW: dataNew;
+  public DATA__NEW: any;
   public setting_res$: BehaviorSubject<any>;
 
   constructor(private _httpClient: HttpClient) { 
@@ -88,61 +88,62 @@ export class ServiceNuevoService {
     url_accion: string
   ){
     let params = new HttpParams();
-    if (data.status) {
-      params = params.append('status', data.status);
+
+    if (data.status !== undefined) {
+    params = params.append('status', data.status);
     }
-    if (data.ordering) {
+    if (data.ordering !== undefined) {
       params = params.append('ordering', data.ordering);
     }
-    if (data.wc) {
+    if (data.wc !== undefined) {
       params = params.append('with_concession', data.wc);
     }
-    if (data.page) {
+    if (data.page !== undefined) {
       params = params.append('page', data.page);
     }
-    if (data.page_size) {
+    if (data.page_size !== undefined) {
       params = params.append('page_size', data.page_size);
     }
-    if (data.raiting) {
+    if (data.raiting !== undefined) {
       params = params.append('raiting', data.raiting);
     }
-    if (data.search) {
+    if (data.search !== undefined) {
       params = params.append('search', data.search);
     }
-    if (data.concessionaire__in) {
+    if (data.concessionaire__in !== undefined) {
       params = params.append('concessionaire__in', data.concessionaire__in);
     }
-    if (data.created_end_date) {
+    if (data.created_end_date !== undefined) {
       params = params.append('created_end_date', data.created_end_date);
     }
-    if (data.created_start_date) {
+    if (data.created_start_date !== undefined) {
       params = params.append('created_start_date', data.created_start_date);
     }
-    if (data.source__channel_id__in) {
+    if (data.source__channel_id__in !== undefined) {
       params = params.append('source__channel_id__in', data.source__channel_id__in);
     }
-    if (data.source__origin_id__in) {
+    if (data.source__origin_id__in !== undefined) {
       params = params.append('source__origin_id__in', data.source__origin_id__in);
     }
-    if (data.status__in) {
+    if (data.status__in !== undefined) {
       params = params.append('status__in', data.status__in);
     }
-    if (data.tasks__media__in) {
+    if (data.tasks__media__in !== undefined) {
       params = params.append('tasks__media__in', data.tasks__media__in);
     }
-    if (data.tasks__type__in) {
+    if (data.tasks__type__in !== undefined) {
       params = params.append('tasks__type__in', data.tasks__type__in);
     }
-    if (data.user_id__in) {
+    if (data.user_id__in !== undefined) {
       params = params.append('user_id__in', data.user_id__in);
     }
-    if (data.id_excluded) {
+    if (data.id_excluded !== undefined) {
       params = params.append('id_excluded', data.id_excluded);
     }
-    if (data.vehicles__brand_model__in) {
+    if (data.vehicles__brand_model__in !== undefined) {
       params = params.append('vehicles__brand_model__in', data.vehicles__brand_model__in);
     }
-    if (data.vehicle_model__id) {
+    if (data.vehicle_model__id !== undefined) {
       params = params.append('vehicle_model__id', data.vehicle_model__id);
     }
 
@@ -178,11 +179,11 @@ export class ServiceNuevoService {
    */
     setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
       return new Promise((resolve, reject) => {
-        this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
+        this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: any) => {
         // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
           console.log(response);
           console.log(this.DATA__NEW);
-          this.DATA__NEW[posicionArray] = response.results;
+          this.DATA__NEW = { [posicionArray] : {response} };
           this.setting_res$.next(this.DATA__NEW);
           // resolve(this.llamadas);
           resolve(response.results);
