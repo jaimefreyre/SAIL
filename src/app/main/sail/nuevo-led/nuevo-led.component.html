@@ -1040,7 +1040,7 @@
 
                     <!-- Marca -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="marca-column">Elige o introduzca una Marca</label>
                             <select class="form-control" id="marca-column">
                                 <option selected>Open this select menu</option>
@@ -1048,7 +1048,15 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="marca-column">Elige o introduzca una Marca</label>
+                        <ng-select id="marca-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Marca -->
                    
@@ -1282,7 +1290,6 @@
                     <!-- Modelo -->
                     <!-- Version -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <label for="version-column">Elige o introduzca una version</label>
                         <!-- <div class="form-group">
                             <label for="version-column">Elige o introduzca una version</label>
                             <select class="form-control" id="version-column">
@@ -1292,7 +1299,10 @@
                                 <option value="3">Three</option>
                             </select>
                         </div> -->
-                        <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                        <label for="version-column">Elige o introduzca una version</label>
+                        <ng-select id="modelo-column" 
+                        [items]="itemsSelect" bindLabel="name" 
+                        [searchFn]="customSearchFn">
                             <!-- [loading]="cargandoSet"  en Ng_select -->
                             <ng-template ng-option-tmp let-item="item">
                                 {{item.name}} <br />
@@ -1360,12 +1370,14 @@
                     <div class="col-lg-8 col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="combustible-column">Combustible</label>
-                            <select class="form-control" id="combustible-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <ng-select id="combustible-column" 
+                            [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
                         </div>
                     </div>
                     <!-- Combustible -->
@@ -1373,12 +1385,14 @@
                     <div class="col-lg-4 col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="Cambio-column">Cambio</label>
-                            <select class="form-control" id="Cambio-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <ng-select id="Cambio-column" 
+                            [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
                         </div>
                     </div>
                     <!-- Cambio -->
@@ -1418,7 +1432,9 @@
                             <label for="Notas-id-icon">Notas</label>
                             <div class="input-group input-group-merge">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                    <span class="input-group-text">
+                                        <i class="fa fa-microphone"></i>
+                                    </span>
                                 </div>
                                 <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
                             </div>
