@@ -8,27 +8,24 @@
     <div class="row card">
         
         <!-- Menu de solicitudes -->
-        <div class="col-md-4 col-12 col-xs-12">
-            <div class="card-body">
-                <div class="row">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary" rippleEffect>
-                            Coincidentes
-                        </button>
-                    </div>
+        <div class="card-body">
+            <div class="col-md-4 col-12 col-xs-12">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary" rippleEffect>
+                        Coincidentes
+                    </button>
                 </div>
             </div>
-        </div>
-      
-        <div class="col-md-8 col-12 col-xs-12 " style="text-align: right !important;">
-            <div class="btn-group card-body" role="group">
-                <!-- <button type="button" class="btn btn-primary" rippleEffect>
-                    <i data-feather="car" class="font-medium-1 cursor-pointer"></i>
-                    + Solicitud
-                </button> -->
-                
-                <!-- modal Nueva Solicitud -->
-                <div class="scrolling-content-inside-modal">
+            
+            <div class="col-md-8 col-12 col-xs-12 " style="text-align: right !important;">
+                <div class="btn-group" role="group">
+                    <!-- <button type="button" class="btn btn-primary" rippleEffect>
+                        <i data-feather="car" class="font-medium-1 cursor-pointer"></i>
+                        + Solicitud
+                    </button> -->
+                    
+                    <!-- modal Nueva Solicitud -->
+                    <div class="scrolling-content-inside-modal">
                     <!-- Button trigger modal -->
                     <button type="button" (click)="modalOpenSLCIM(modalSLCIM)" class="btn btn-outline-primary" rippleEffect>
                         <i data-feather="car" class="font-medium-1 cursor-pointer"></i>
@@ -94,7 +91,7 @@
                                                 <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
                                             </div>
                                             <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
-                                                placeholder="Kilometros" />
+                                            placeholder="Kilometros" />
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +105,7 @@
                                                 <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
                                             </div>
                                             <input type="text" id="Precio-icon" class="form-control" name="Precio-icon"
-                                                placeholder="Precio" />
+                                            placeholder="Precio" />
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +119,7 @@
                                                 <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
                                             </div>
                                             <input type="number" id="anio-info-icon" class="form-control" name="anio-icon"
-                                                placeholder="anio" />
+                                            placeholder="anio" />
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +150,7 @@
                                     </div>
                                 </div>
                                 <!-- Cambio -->
-                
+                                
                                 <!-- Potencia -->
                                 <div class="col-lg-4 col-md-6 col-xs-12">
                                     <div class="form-group">
@@ -177,7 +174,7 @@
                                                 <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
                                             </div>
                                             <input type="URL" id="URL-id-icon" class="form-control" name="URL-id-icon"
-                                                placeholder="URL Anuncios" />
+                                            placeholder="URL Anuncios" />
                                         </div>
                                     </div>
                                 </div>
@@ -191,12 +188,12 @@
                                                 <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
                                             </div>
                                             <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon"
-                                                placeholder="Notas" />
+                                            placeholder="Notas" />
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Notas -->
-                
+                                
                                 <!-- + Vehiculo Actual  -->
                                 <div class="col-lg-12 col-md-6 col-xs-12">
                                     <button type="button" class="btn btn-warning" rippleEffect>
@@ -208,18 +205,19 @@
                         </div>
                         <div class="modal-footer">
                             <!-- <button type="button" class="btn btn-primary" (click)="modal.close('Accept click')" rippleEffect>
-                                                    Accept
-                                                </button> -->
+                                Accept
+                            </button> -->
                             <button type="reset" (click)="modal.dismiss('Cross click')" class="btn btn-outline-secondary"
-                                rippleEffect>Cancelar</button>
+                            rippleEffect>Cancelar</button>
                             <button type="submit" (click)="modal.close('Accept click')" class="btn btn-primary mr-1"
-                                rippleEffect>Guardar</button>
+                            rippleEffect>Guardar</button>
                         </div>
                     </ng-template>
                     <!-- / Modal -->
                 </div>
-
-<!-- 
+                
+            </div>
+                <!-- 
                 <button type="button" class="btn btn-primary" rippleEffect>
                     <i data-feather="clipboard" class="font-medium-1 cursor-pointer"></i>
                     + Tarea
