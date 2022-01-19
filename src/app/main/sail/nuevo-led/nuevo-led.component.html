@@ -441,7 +441,9 @@
                                 <option value="3">Three</option>
                             </select>
                         </div> -->
+                        <label for="origen-column">Origen</label>
                         <ng-select 
+                        id="origen-column"
                         [items]="itemsSelect" 
                         bindLabel="name" 
                         [searchFn]="customSearchFn">
@@ -454,7 +456,7 @@
                     </div>
                     <!-- canal -->
                     <div class="col-md-3 col-12 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="canal-column">Canal</label>
                             <select class="form-control" id="canal-column">
                                 <option selected>Open this select menu</option>
@@ -462,7 +464,18 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="canal-column">Canal</label>
+                        <ng-select id="canal-column" 
+                        [items]="itemsSelect" 
+                        bindLabel="name" 
+                        [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Nombre Usuario Logueado -->
                     <div class="col-md-4 col-12 col-xs-12">
@@ -485,7 +498,7 @@
                     </div>
                     <!-- Lead no atendido -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="lead-no">Lead no atendido</label>
                             <select class="form-control" id="lead-no">
                                 <option selected>Open this select menu</option>
@@ -493,7 +506,16 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="lead-no">Lead no atendido</label>
+                        <ng-select id="lead-no" [items]="itemsSelect" 
+                        bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
             
                     <!-- Visita Expo -->
@@ -503,8 +525,8 @@
                             Visita Expo
                         </button> -->
                         <div class="custom-control custom-control-success custom-switch">
-                            <input type="checkbox" checked class="custom-control-input" id="customSwitch4" />
                             <label class="custom-control-label" for="customSwitch4">Visita Expo</label>
+                            <input type="checkbox" checked class="custom-control-input" id="customSwitch4" />
                         </div>
                     </div>
                     <!-- </div> -->
