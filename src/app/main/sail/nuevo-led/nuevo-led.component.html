@@ -441,18 +441,20 @@
                                 <option value="3">Three</option>
                             </select>
                         </div> -->
-                        <label for="origen-column">Origen</label>
-                        <ng-select 
-                        id="origen-column"
-                        [items]="itemsSelect" 
-                        bindLabel="name" 
-                        [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
+                        <div class="form-group">
+                            <label for="origen-column">Origen</label>
+                            <ng-select 
+                            id="origen-column"
+                            [items]="itemsSelect" 
+                            bindLabel="name" 
+                            [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
                     </div>
                     <!-- canal -->
                     <div class="col-md-3 col-12 col-xs-12">
@@ -465,17 +467,19 @@
                                 <option value="3">Three</option>
                             </select>
                         </div> -->
-                        <label for="canal-column">Canal</label>
-                        <ng-select id="canal-column" 
-                        [items]="itemsSelect" 
-                        bindLabel="name" 
-                        [searchFn]="customSearchFn">
-                            <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
+                        <div class="form-group">
+                            <label for="canal-column">Canal</label>
+                            <ng-select id="canal-column" 
+                            [items]="itemsSelect" 
+                            bindLabel="name" 
+                            [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
                     </div>
                     <!-- Nombre Usuario Logueado -->
                     <div class="col-md-4 col-12 col-xs-12">
@@ -484,12 +488,15 @@
                                 <i data-feather="user"></i>
                                 Usuario
                             </label>
-                            <ng-select bindLabel="name" placeholder="Select item" appendTo="body"
-                             multiple="false" [searchable]="true"
-                                [clearable]="true" [(ngModel)]="selectedKeys">
+                            <ng-select bindLabel="name" 
+                                placeholder="Select item" 
+                                appendTo="body"
+                                [searchable]="true"
+                                [clearable]="true" 
+                                [(ngModel)]="selectedKeys">
                                 <ng-option [value]="item.id" 
-                                [disabled]="item.disabled"
-                                *ngFor="let item of itemsSelect">
+                                    [disabled]="item.disabled"
+                                    *ngFor="let item of itemsSelect">
                                     <img src="./assets/{{item.image}}" width="20px" height="20px" />
                                     {{item.name}}
                                 </ng-option>
@@ -507,15 +514,17 @@
                                 <option value="3">Three</option>
                             </select>
                         </div> -->
-                        <label for="lead-no">Lead no atendido</label>
-                        <ng-select id="lead-no" [items]="itemsSelect" 
-                        bindLabel="name" [searchFn]="customSearchFn">
-                            <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
+                        <div class="form-group">
+                            <label for="lead-no">Lead no atendido</label>
+                            <ng-select id="lead-no" [items]="itemsSelect" 
+                            bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
                     </div>
             
                     <!-- Visita Expo -->
@@ -524,9 +533,13 @@
                             <span [data-feather]="'shopping-bag'" [class]="'mr-25'"></span>
                             Visita Expo
                         </button> -->
-                        <div class="custom-control custom-control-success custom-switch">
-                            <label class="custom-control-label" for="customSwitch4">Visita Expo</label>
-                            <input type="checkbox" checked class="custom-control-input" id="customSwitch4" />
+                        <div class="form-group">
+                            <div class="custom-control custom-control-success custom-switch">
+                                <label class="custom-control-label" for="customSwitch4">Visita Expo</label>
+                                <input type="checkbox" checked 
+                                class="custom-control-input" 
+                                id="customSwitch4" />
+                            </div>
                         </div>
                     </div>
                     <!-- </div> -->
@@ -1049,6 +1062,7 @@
                                 <option value="3">Three</option>
                             </select>
                         </div> -->
+
                         <label for="marca-column">Elige o introduzca una Marca</label>
                         <ng-select id="marca-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
                             <!-- [loading]="cargandoSet"  en Ng_select -->
@@ -1062,7 +1076,7 @@
                    
                     <!-- Modelo -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="modelo-column">Elige o introduzca un modelo</label>
                             <select class="form-control" id="modelo-column">
                                 <option selected>Open this select menu</option>
@@ -1070,13 +1084,21 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="modelo-column">Elige o introduzca un modelo</label>
+                        <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Modelo -->
                     
                     <!-- Version -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="version-column">Elige o introduzca una version</label>
                             <select class="form-control" id="version-column">
                                 <option selected>Open this select menu</option>
@@ -1084,7 +1106,16 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="version-column">Elige o introduzca una version</label>
+                        <ng-select id="version-column" 
+                        [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Version -->
                     
@@ -1148,7 +1179,7 @@
 
                     <!-- Combustible -->
                     <div class="col-lg-8 col-md-6 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="combustible-column">Combustible</label>
                             <select class="form-control" id="combustible-column">
                                 <option selected>Open this select menu</option>
@@ -1156,13 +1187,22 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="combustible-column">Combustible</label>
+                        <ng-select id="combustible-column" 
+                        [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Combustible -->
 
                     <!-- Tipo -->
                     <div class="col-lg-4 col-md-6 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="Tipo-column">Tipo</label>
                             <select class="form-control" id="Tipo-column">
                                 <option selected>Tipo de Vehiculo</option>
@@ -1170,7 +1210,16 @@
                                 <option value="Seminuevo">Seminuevo</option>
                                 <option value="Ocasion">Ocasion</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="Tipo-column">Tipo</label>
+                        <ng-select id="Tipo-column" 
+                        [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Tipo -->
 
