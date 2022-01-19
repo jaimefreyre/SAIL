@@ -423,7 +423,6 @@
                             bindLabel="name" 
                             placeholder="Select item" 
                             appendTo="body" 
-                            multiple="true"
                             clearable="true"
                             searchable="true"
                             [(ngModel)]="selected">
@@ -473,7 +472,9 @@
                             <ng-select bindLabel="name" placeholder="Select item" appendTo="body"
                              multiple="false" [searchable]="true"
                                 [clearable]="true" [(ngModel)]="selectedKeys">
-                                <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of itemsSelect">
+                                <ng-option [value]="item.id" 
+                                [disabled]="item.disabled"
+                                *ngFor="let item of itemsSelect">
                                     <img src="./assets/{{item.image}}" width="20px" height="20px" />
                                     {{item.name}}
                                 </ng-option>
