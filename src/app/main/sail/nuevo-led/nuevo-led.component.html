@@ -1240,19 +1240,28 @@
                     <!-- Marca -->
                     <div class="col-md-4 col-12 col-xs-12">
                         <div class="form-group">
-                            <label for="marca-column">Elige o introduzca una Marca</label>
+                            <!-- <label for="marca-column">Elige o introduzca una Marca</label>
                             <select class="form-control" id="marca-column">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
-                            </select>
+                            </select> -->
+                            <label for="marca-column">Elige o introduzca una Marca</label>
+                            <ng-select id="marca-column" [items]="itemsSelect" 
+                            bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
                         </div>
                     </div>
                     <!-- Marca -->
                     <!-- Modelo -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="modelo-column">Elige o introduzca un modelo</label>
                             <select class="form-control" id="modelo-column">
                                 <option selected>Open this select menu</option>
@@ -1260,12 +1269,21 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <label for="modelo-column">Elige o introduzca un modelo</label>
+                        <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Modelo -->
                     <!-- Version -->
                     <div class="col-md-4 col-12 col-xs-12">
-                        <div class="form-group">
+                        <label for="version-column">Elige o introduzca una version</label>
+                        <!-- <div class="form-group">
                             <label for="version-column">Elige o introduzca una version</label>
                             <select class="form-control" id="version-column">
                                 <option selected>Open this select menu</option>
@@ -1273,7 +1291,14 @@
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
-                        </div>
+                        </div> -->
+                        <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
                     </div>
                     <!-- Version -->
                     <!-- Potencia -->
