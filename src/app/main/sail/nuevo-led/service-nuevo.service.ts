@@ -4,8 +4,10 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-interface dataNewObservable{
+export interface dataNewObservable{
     marca: [];
+    consecionario: [];
+    origen: [];
     modelo: [];
     version: [];
     combustible: [];
@@ -15,13 +17,13 @@ interface dataNewObservable{
     TaskSet2: [];  
   }
 
-interface dataNew {
+export interface dataNew {
   count: Number;
   next: String;
   results: [];
 };
 
-interface DD{
+export interface DD{
     status?: string,
     ordering?: string,
     wc?: string,
@@ -182,45 +184,45 @@ export class ServiceNuevoService {
 
 
   solicitaDatoBase(url: string): Observable<any> {
-      return this._httpClient.get(url);
-    }
+    return this._httpClient.get(url);
+  }
 
   /**
   * Get rows
   */
-    getDataTableRows(): Promise<any[]> {
-      return new Promise((resolve, reject) => {
-        this._httpClient.get('api/datatable-rows').subscribe((response: any) => {
-          // console.log(response);
-          // this.rows = response;
-          // this.onDatatablessChanged.next(this.rows);
-          resolve(response);
-        }, reject);
-      });
-    }
+  getDataTableRows(): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      this._httpClient.get('api/datatable-rows').subscribe((response: any) => {
+        // console.log(response);
+        // this.rows = response;
+        // this.onDatatablessChanged.next(this.rows);
+        resolve(response);
+      }, reject);
+    });
+  }
   
   /**
-   * Get Setters
-   */
-    setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
-      return new Promise((resolve, reject) => {
-        this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
-        // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
-          console.log("se llamo a Setter Individual");
-          console.log(response);
-          //Borra todo el Objeto
-          // this.DATA__NEW = { [posicionArray] : {response} };
-          // Escribe el objeto como vacio en su posicion y despues agrega resultados
-          // this.DATA__NEW[posicionArray] = {};
-          // this.DATA__NEW[posicionArray] = response.results;
-          this.DATA__NEW[posicionArray] = response;
-          console.log(this.DATA__NEW);
-          
-          this.setting_res$.next(this.DATA__NEW);
-          resolve(response.results);
-        }, reject);
-      });
-    }
+ * Get Setters
+  */
+  setterNuevo(URL_Dinamica: string, posicionArray: string, dataPedido?: {}): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      this.getParamsDinamica(dataPedido, URL_Dinamica).subscribe((response: dataNew) => {
+      // this.getParamsDinamica( { search: "", page_size: "all" }, "vehicles_brand/").subscribe((response: dataNew) => {
+        console.log("se llamo a Setter Individual");
+        console.log(response);
+        //Borra todo el Objeto
+        // this.DATA__NEW = { [posicionArray] : {response} };
+        // Escribe el objeto como vacio en su posicion y despues agrega resultados
+        // this.DATA__NEW[posicionArray] = {};
+        // this.DATA__NEW[posicionArray] = response.results;
+        this.DATA__NEW[posicionArray] = response;
+        console.log(this.DATA__NEW);
+        
+        this.setting_res$.next(this.DATA__NEW);
+        resolve(response.results);
+      }, reject);
+    });
+  }
   
   /**
    * Llamar a seter de forma manual
@@ -234,10 +236,15 @@ export class ServiceNuevoService {
       this.setterNuevo("vehicles_brand/", "modelo", { page_size: "all", search: "" }),
       this.setterNuevo("vehicles_version/", "version", { page_size: "50", search: "", vehicle_model__id: "1" }),
       this.setterNuevo("gas_type/", "combustible", {}),
-      this.setterNuevo("vehicles_brand/?page_size=all&search=", "sector", {}),
-      this.setterNuevo("business_activity/?page_size=50&search=&sector__id=4", "actividad", {}),
+      this.setterNuevo("business_sector/?page_size=50&search=", "sector", {}),
+      this.setterNuevo("business_activity/", "actividad", {page_size: "50", search:"", sector__id:"4"} ),
       this.setterNuevo("task/options/?is_traking_task=false&page=all", "TaskSet1", {}),
       this.setterNuevo("task/options/?is_traking_task=true&page=all", "TaskSet2", {});
+    }
+
+    llamarSet_(URL_1: string, OBJ_INDEX: string, params: {}){
+      console.log("Se activa llamar setter Manual");
+      this.setterNuevo(URL_1, OBJ_INDEX, params);
     }
 
     /**
