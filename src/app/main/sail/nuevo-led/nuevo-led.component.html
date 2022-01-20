@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<form class="form">
+<form class="form" (ngSubmit)="llamarSeter()" [formGroup]="filtro">
     <div class="row">
         
         <!-- Menu de solicitudes -->
@@ -426,7 +426,7 @@
                             appendTo="body" 
                             clearable="true"
                             searchable="true"
-                            [(ngModel)]="selected">
+                            formControlName="created_start_date">
                             </ng-select>
                         </div>
                     </div>
@@ -1704,7 +1704,8 @@
 
         <!-- Botones -->
         <div class="col-12">
-            <button type="submit" (click)="llamarSeter()" rippleEffect class="btn btn-primary mr-1">Guardar</button>
+            <!-- <button type="submit" (click)="llamarSeter()" rippleEffect class="btn btn-primary mr-1">Guardar</button> -->
+            <button type="submit" rippleEffect class="btn btn-primary mr-1">Guardar</button>
             <button type="reset" rippleEffect class="btn btn-outline-secondary">Cancelar</button>
         </div>
    

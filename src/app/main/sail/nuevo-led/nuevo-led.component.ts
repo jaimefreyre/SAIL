@@ -7,6 +7,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Observable, Subscription, of, BehaviorSubject } from 'rxjs';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 @Component({
   selector: 'app-nuevo-led',
   templateUrl: './nuevo-led.component.html',
@@ -76,6 +79,27 @@ export class NuevoLedComponent implements OnInit {
   public selectedKeys = [2, 8];
 
 
+  public filtro = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+
   customSearchFn(term: string, item: any) {
     term = term.toLowerCase();
     // return item.name.toLowerCase().indexOf(term) > -1 || item.gender.toLowerCase() === term;
@@ -87,7 +111,8 @@ export class NuevoLedComponent implements OnInit {
     // public dService: DashboardServiceSail, 
     public nService: ServiceNuevoService, 
     private route: ActivatedRoute,
-    private router: Router ) { }
+    private router: Router,
+    private fb: FormBuilder  ) { }
     
   // modal Open Srolling Long Content Inside
   modalOpenSLCIM(modalSLCIM) {
@@ -103,6 +128,7 @@ export class NuevoLedComponent implements OnInit {
   }
   
   llamarSeter(){
+    console.log(this.filtro);
     this.nService.llamarSetterManual();
   }
 
