@@ -561,7 +561,7 @@
 
     <!-- Formulario Empresa -->
     <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form == 1">
-        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOEMPRESA"></form>
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOEMPRESA">
             <div class="card-body">
                 <div class="row">
                     <!-- <div class="empresa"> -->
@@ -883,7 +883,7 @@
 
     <!-- Formulario Personal -->
     <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form == 2">
-        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOPERSONAL"></form>
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOPERSONAL">
             <div class="card-body">
                 <div class="row">
                     <!-- nombre -->
@@ -1642,91 +1642,93 @@
     </div>
     <!-- TImeline -->
     <div class="card col-lg-12 col-xs-12" *ngIf="false">
-        <div class="card card-user-timeline">
-            <div class="card-header">
-                <div class="d-flex align-items-center">
-                    <i data-feather="list" class="user-timeline-title-icon"></i>
-                    <h4 class="card-title">Historial</h4>
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="HISTORIAL_IF">
+            <div class="card card-user-timeline">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <i data-feather="list" class="user-timeline-title-icon"></i>
+                        <h4 class="card-title">Historial</h4>
+                    </div>
+                    <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
                 </div>
-                <i data-feather="more-vertical" class="font-medium-3 cursor-pointer"></i>
-            </div>
-            <div class="card-body">
-                <ul class="timeline">
+                <div class="card-body">
+                    <ul class="timeline">
+                        <li class="timeline-item">
+                            <span class="timeline-point timeline-point-indicator"></span>
+                            <div class="timeline-event">
+                                <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                    <h6>12 Invoices have been paid</h6>
+                                    <span class="timeline-event-time">12 min ago</span>
+                                </div>
+                            <p>Invoices have been paid to the company.</p>
+                            <div class="media align-items-center">
+                                <img class="mr-1" src="assets/images/icons/file-icons/pdf.png" alt="invoice" height="23" />
+                                <div class="media-body">invoice.pdf</div>
+                            </div>
+                        </div>
+                    </li>
                     <li class="timeline-item">
-                        <span class="timeline-point timeline-point-indicator"></span>
+                        <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
                         <div class="timeline-event">
                             <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                                <h6>12 Invoices have been paid</h6>
-                                <span class="timeline-event-time">12 min ago</span>
+                                <h6>Client Meeting</h6>
+                                <span class="timeline-event-time">45 min ago</span>
                             </div>
-                        <p>Invoices have been paid to the company.</p>
-                        <div class="media align-items-center">
-                            <img class="mr-1" src="assets/images/icons/file-icons/pdf.png" alt="invoice" height="23" />
-                            <div class="media-body">invoice.pdf</div>
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
-                    <div class="timeline-event">
-                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                            <h6>Client Meeting</h6>
-                            <span class="timeline-event-time">45 min ago</span>
-                        </div>
-                        <p>Project meeting with john @10:15am.</p>
-                        <div class="media align-items-center">
-                            <div class="avatar">
-                                <img src="assets/images/avatars/12-small.png" alt="avatar" height="38" width="38" />
-                            </div>
-                            <div class="media-body ml-50">
-                                <h6 class="mb-0">John Doe (Client)</h6>
-                                <span>CEO of Infibeam</span>
+                            <p>Project meeting with john @10:15am.</p>
+                            <div class="media align-items-center">
+                                <div class="avatar">
+                                    <img src="assets/images/avatars/12-small.png" alt="avatar" height="38" width="38" />
+                                </div>
+                                <div class="media-body ml-50">
+                                    <h6 class="mb-0">John Doe (Client)</h6>
+                                    <span>CEO of Infibeam</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li class="timeline-item">
-                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
-                    <div class="timeline-event">
-                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
-                            <h6>Financial Report</h6>
-                            <span class="timeline-event-time">2 hours ago</span>
+                    </li>
+                    <li class="timeline-item">
+                        <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                        <div class="timeline-event">
+                            <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0 mb-1">
+                                <h6>Financial Report</h6>
+                                <span class="timeline-event-time">2 hours ago</span>
+                            </div>
+                            <p class="mb-50">Click the button below to read financial reports</p>
+                            <button class="btn btn-outline-primary btn-sm" type="button" data-toggle="collapse"
+                                data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" rippleEffect
+                                (click)="showReportBasic = !showReportBasic">
+                                Show Report
+                            </button>
+                            <div [ngbCollapse]="showReportBasic" class="collapse" id="collapseExample">
+                                <ul class="list-group list-group-flush mt-1">
+                                    <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                        <span>Last Years's Profit : <span class="font-weight-bold">$20000</span></span>
+                                        <i data-feather="share-2" class="cursor-pointer"></i>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                        <span> This Years's Profit : <span class="font-weight-bold">$25000</span></span>
+                                        <i data-feather="share-2" class="cursor-pointer"></i>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                        <span> Last Years's Commission : <span class="font-weight-bold">$5000</span></span>
+                                        <i data-feather="share-2" class="cursor-pointer"></i>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                        <span> This Years's Commission : <span class="font-weight-bold">$7000</span></span>
+                                        <i data-feather="share-2" class="cursor-pointer"></i>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between flex-wrap">
+                                        <span> This Years's Total Balance : <span class="font-weight-bold">$70000</span></span>
+                                        <i data-feather="share-2" class="cursor-pointer"></i>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="mb-50">Click the button below to read financial reports</p>
-                        <button class="btn btn-outline-primary btn-sm" type="button" data-toggle="collapse"
-                            data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" rippleEffect
-                            (click)="showReportBasic = !showReportBasic">
-                            Show Report
-                        </button>
-                        <div [ngbCollapse]="showReportBasic" class="collapse" id="collapseExample">
-                            <ul class="list-group list-group-flush mt-1">
-                                <li class="list-group-item d-flex justify-content-between flex-wrap">
-                                    <span>Last Years's Profit : <span class="font-weight-bold">$20000</span></span>
-                                    <i data-feather="share-2" class="cursor-pointer"></i>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between flex-wrap">
-                                    <span> This Years's Profit : <span class="font-weight-bold">$25000</span></span>
-                                    <i data-feather="share-2" class="cursor-pointer"></i>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between flex-wrap">
-                                    <span> Last Years's Commission : <span class="font-weight-bold">$5000</span></span>
-                                    <i data-feather="share-2" class="cursor-pointer"></i>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between flex-wrap">
-                                    <span> This Years's Commission : <span class="font-weight-bold">$7000</span></span>
-                                    <i data-feather="share-2" class="cursor-pointer"></i>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between flex-wrap">
-                                    <span> This Years's Total Balance : <span class="font-weight-bold">$70000</span></span>
-                                    <i data-feather="share-2" class="cursor-pointer"></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                </ul>
+                    </li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Botones -->
