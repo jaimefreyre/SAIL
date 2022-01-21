@@ -51,7 +51,7 @@ export class NuevoLedComponent implements OnInit {
   
   public cargandoSet = false;
 
-  public consecionarios = [
+  public consecionario = [
     { id: 1, name: 'Python' },
     { id: 2, name: 'Node Js' },
     { id: 3, name: 'Java' },
@@ -65,6 +65,32 @@ export class NuevoLedComponent implements OnInit {
     { id: 2, name: 'Node Js' },
     { id: 8, name: 'ReactJs' }
   ];
+
+
+//Dato consecionarios
+// {  address: "CARMEN DE BURGOS 9"
+//   appraisal_notes: null
+//   concession_phone: "+34655550550"
+//   date_notes: null
+//   financing_notes: null
+//   hubspot_api_key: null
+//   hubspot_id: null
+//   id: 1
+//   latitude: null
+//   longitude: null
+//   mask_c2c: "+34910052918"
+//   name: "demo"
+//   notes: []
+//   notes_data: []
+//   related_users: null
+//   schedule: "<iframe width=\"600\" height=\"373.5\" src=\"https://app.powerbi.com/view?r=eyJrIjoiNzkyZmNhMWUtOGNlNC00NGQ2LWE5YmItY2JiMDE3YTExYWJjIiwidCI6ImNiODM1OTFjLTBiZjAtNDg3Zi1iM2UzLWM4NzhhMDI3YTEyNiIsImMiOjh9\" frameborder=\"0\" allowFullScreen=\"true\"></iframe>"
+//   service_notes: null
+//   sources: [{ id: 1, channel: 1, channel_data: { id: 1, slug: "phone", name: "Teléfono" }, data: "+34910000000",… },…]
+//   warranty_notes: null
+//   web: null
+//   web_coches_net: "no activa"
+//   work_calendar: null
+// }
 
   public itemsSelect = [
     { id: 1, name: 'Python', image: 'python.jpg' },
@@ -239,10 +265,26 @@ export class NuevoLedComponent implements OnInit {
     tasks__media__in: ['']
   });
 
+  llamarSeter() {
+    console.log(this.DATOSLEADORIGEN);
+    this.nService.llamarSetterManual();
+  }
+
+  buscarApi(searchInput: string, URL_1: string, INDEX: string) {
+    // this.nService.llamarSet_("concessionaire/", "consecionario", { search: searchInput, page_size: "all"})
+    this.nService.llamarSet_(URL_1, INDEX, { search: searchInput, page_size: "all" });
+    console.log(this.Configuraciones$ );
+  }
+
+  buscarConsecionaria(term: string, item: any){
+    this.buscarApi(term, 'concessionaire /', 'consecionario');
+    // this.nService.llamarSet_("concessionaire/", "consecionario", { search: term, page_size: "all"});
+    term = term.toLowerCase();
+    return item.name.toLowerCase().indexOf(term) > -1;
+  }
 
   customSearchFn(term: string, item: any) {
     term = term.toLowerCase();
-    // return item.name.toLowerCase().indexOf(term) > -1 || item.gender.toLowerCase() === term;
     return item.name.toLowerCase().indexOf(term) > -1;
   }
 
@@ -266,17 +308,7 @@ export class NuevoLedComponent implements OnInit {
     const heroId = hero ? hero.id : null;
     this.router.navigate(['/sail/nuevo', { id: heroId }]);
   }
-  
-  llamarSeter(){
-    console.log(this.DATOSLEADORIGEN);
-    this.nService.llamarSetterManual();
-  }
-
-  buscarApi(searchInput :string, URL_1:string, INDEX:string){
-    // this.nService.llamarSet_("concessionaire/", "consecionario", { search: searchInput, page_size: "all"})
-    this.nService.llamarSet_(URL_1, INDEX, { search: searchInput, page_size: "all"});
-  }
-
+ 
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
