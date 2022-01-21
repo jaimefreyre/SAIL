@@ -213,161 +213,163 @@
                     </div>
                 </ng-template>
                 <!-- / Modal -->
-            </div>
+                </div>
             
-        </div>
-            <!-- 
-            <button type="button" class="btn btn-primary" rippleEffect>
-                <i data-feather="clipboard" class="font-medium-1 cursor-pointer"></i>
-                + Tarea
-            </button> -->
-
-            <!-- modal Nueva Tarea -->
-            <div class="scrolling-content-inside-modal">
-                <!-- Button trigger modal -->
-                <button type="button" (click)="modalOpenSLCIM(nuevaTarea)" class="btn btn-outline-primary" rippleEffect>
+        
+                <!-- 
+                <button type="button" class="btn btn-primary" rippleEffect>
                     <i data-feather="clipboard" class="font-medium-1 cursor-pointer"></i>
                     + Tarea
-                </button>
-            
-                <!-- Modal -->
-                <ng-template #nuevaTarea let-modal>
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel1">Nueva Tarea</h4>
-                        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" tabindex="0" ngbAutofocus>
-                        <div class="row">
-                            <div class="col-md-6 col-12 col-xs-12">
-                                <div class="input-group">
-                                    <input class="form-control" 
-                                        placeholder="yyyy-mm-dd" 
-                                        name="Basic Date Picker" 
-                                        [(ngModel)]="basicDPdata"
-                                        ngbDatepicker 
-                                        #basicDP="ngbDatepicker">
-                                    <div class="input-group-append">
-                                        <button 
-                                        class="btn btn-outline-secondary feather icon-calendar" 
-                                        (click)="basicDP.toggle()" 
-                                        type="button"
-                                        rippleEffect>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>    
-                            <!-- Basic Time Picker -->
-                            <div class="col-md-6 col-12 col-xs-12">
-                                <ngb-timepicker [(ngModel)]="basicTP"></ngb-timepicker>
-                                <hr>
-                            </div>
-                            <!-- Medio -->
-                            <div class="col-md-6 col-12 col-xs-12">
-                                <div class="form-group">
-                                    <label for="Medio-column">Elige o introduzca un Medio</label>
-                                    <select class="form-control" id="Medio-column">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Medio -->
-                            <!-- Tipo -->
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="Tipo-column">Tipo</label>
-                                    <select class="form-control" id="Tipo-column">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Tipo -->
-                            <!-- Nota -->
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <div class="input-group input-group-merge">
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i data-feather="microphone"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                </button> -->
+
+                <!-- modal Nueva Tarea -->
+                <div class="scrolling-content-inside-modal">
+                    <!-- Button trigger modal -->
+                    <button type="button" (click)="modalOpenSLCIM(nuevaTarea)" class="btn btn-outline-primary" rippleEffect>
+                        <i data-feather="clipboard" class="font-medium-1 cursor-pointer"></i>
+                        + Tarea
+                    </button>
+                
+                    <!-- Modal -->
+                    <ng-template #nuevaTarea let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel1">Nueva Tarea</h4>
+                            <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                            <button type="reset" 
-                            (click)="modal.dismiss('Cross click')" 
-                            class="btn btn-outline-secondary"
-                            rippleEffect>
-                            Cancelar
-                        </button>
-                        <button type="submit" 
-                        (click)="modal.close('Accept click')" 
-                        class="btn btn-primary mr-1"
-                            rippleEffect>
-                            Guardar
-                        </button>
-                    </div>
-                </ng-template>
-                <!-- / Modal -->
-            </div>
+                        <div class="modal-body" tabindex="0" ngbAutofocus>
+                            <div class="row">
+                                <div class="col-md-6 col-12 col-xs-12">
+                                    <div class="input-group">
+                                        <input class="form-control" 
+                                            placeholder="yyyy-mm-dd" 
+                                            name="Basic Date Picker" 
+                                            [(ngModel)]="basicDPdata"
+                                            ngbDatepicker 
+                                            #basicDP="ngbDatepicker">
+                                        <div class="input-group-append">
+                                            <button 
+                                            class="btn btn-outline-secondary feather icon-calendar" 
+                                            (click)="basicDP.toggle()" 
+                                            type="button"
+                                            rippleEffect>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <!-- Basic Time Picker -->
+                                <div class="col-md-6 col-12 col-xs-12">
+                                    <ngb-timepicker [(ngModel)]="basicTP"></ngb-timepicker>
+                                    <hr>
+                                </div>
+                                <!-- Medio -->
+                                <div class="col-md-6 col-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Medio-column">Elige o introduzca un Medio</label>
+                                        <select class="form-control" id="Medio-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Medio -->
+                                <!-- Tipo -->
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Tipo-column">Tipo</label>
+                                        <select class="form-control" id="Tipo-column">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Tipo -->
+                                <!-- Nota -->
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <div class="input-group input-group-merge">
+                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i data-feather="microphone"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                                <button type="reset" 
+                                (click)="modal.dismiss('Cross click')" 
+                                class="btn btn-outline-secondary"
+                                rippleEffect>
+                                Cancelar
+                            </button>
+                            <button type="submit" 
+                            (click)="modal.close('Accept click')" 
+                            class="btn btn-primary mr-1"
+                                rippleEffect>
+                                Guardar
+                            </button>
+                        </div>
+                    </ng-template>
+                    <!-- / Modal -->
+                </div>
 
             
-            <!-- <button type="button" class="btn btn-primary" rippleEffect>
-                <i data-feather="mail" class="font-medium-3 cursor-pointer"></i>
-                + Anotacion
-            </button> -->
-            <!-- modal Nueva Anotacion -->
-            <div class="scrolling-content-inside-modal">
-                <!-- Button trigger modal -->
-                <button type="button" (click)="modalOpenSLCIM(nuevaAnotacion)" class="btn btn-outline-primary" rippleEffect>
+                <!-- <button type="button" class="btn btn-primary" rippleEffect>
                     <i data-feather="mail" class="font-medium-3 cursor-pointer"></i>
                     + Anotacion
-                </button>
-            
-                <!-- Modal -->
-                <ng-template #nuevaAnotacion let-modal>
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel1">Nueva Anotacion</h4>
-                        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" tabindex="0" ngbAutofocus>
-                        <div class="row">
-                            <!-- Nota -->
-                            <div class="col-lg-6 col-md-6 col-xs-12">
-                                <div class="input-group input-group-merge">
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i data-feather="microphone"></i>
-                                        </span>
+                </button> -->
+                <!-- modal Nueva Anotacion -->
+                <div class="scrolling-content-inside-modal">
+                    <!-- Button trigger modal -->
+                    <button type="button" (click)="modalOpenSLCIM(nuevaAnotacion)" class="btn btn-outline-primary" rippleEffect>
+                        <i data-feather="mail" class="font-medium-3 cursor-pointer"></i>
+                        + Anotacion
+                    </button>
+                
+                    <!-- Modal -->
+                    <ng-template #nuevaAnotacion let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel1">Nueva Anotacion</h4>
+                            <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" tabindex="0" ngbAutofocus>
+                            <div class="row">
+                                <!-- Nota -->
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <div class="input-group input-group-merge">
+                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i data-feather="microphone"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
+                
                             </div>
-            
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" (click)="modal.dismiss('Cross click')" class="btn btn-outline-secondary" rippleEffect>
-                            Cancelar
-                        </button>
-                        <button type="submit" (click)="modal.close('Accept click')" class="btn btn-primary mr-1" rippleEffect>
-                            Guardar
-                        </button>
-                    </div>
-                </ng-template>
-                <!-- / Modal -->
+                        <div class="modal-footer">
+                            <button type="reset" (click)="modal.dismiss('Cross click')" class="btn btn-outline-secondary" rippleEffect>
+                                Cancelar
+                            </button>
+                            <button type="submit" (click)="modal.close('Accept click')" class="btn btn-primary mr-1" rippleEffect>
+                                Guardar
+                            </button>
+                        </div>
+                    </ng-template>
+                    <!-- / Modal -->
+                </div>
+
             </div>
         </div>
         <hr>
@@ -426,7 +428,7 @@
                             appendTo="body" 
                             clearable="true"
                             searchable="true"
-                            formControlName="created_start_date">
+                            formControlName="concessionaire__in">
                             </ng-select>
                         </div>
                     </div>
