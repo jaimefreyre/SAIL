@@ -79,7 +79,147 @@ export class NuevoLedComponent implements OnInit {
   public selectedKeys = [2, 8];
 
 
-  public filtro_1 = this.fb.group({
+  public DATOSLEADORIGEN = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public FORMULARIOEMPRESA = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public FORMULARIOPERSONAL = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public FORMULARIOPARTICULAR = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public VEHICULOSOLICITADO = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public VEHICULOACTUAL = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public ACCIONESPROGRAMADAS = this.fb.group({
+    search: ['', [Validators.required, Validators.minLength(5)]],
+    wc: [''],
+    created_start_date: [''],
+    created_end_date: [''],
+    raiting: [''],
+    status: [''],
+    user_id__in: [''],
+    concessionaire__in: [''],
+    source__origin_id__in: [''],
+    source__channel_id__in: [''],
+    status__in: [''],
+    medio: [''],
+    marca: [''],
+    vehicles__brand_model__in: [''],
+    version: [''],
+    tasks__type__in: [''],
+    tasks__media__in: ['']
+  });
+
+  public NOTASGRAL = this.fb.group({
     search: ['', [Validators.required, Validators.minLength(5)]],
     wc: [''],
     created_start_date: [''],
@@ -128,7 +268,7 @@ export class NuevoLedComponent implements OnInit {
   }
   
   llamarSeter(){
-    console.log(this.filtro_1);
+    console.log(this.DATOSLEADORIGEN);
     this.nService.llamarSetterManual();
   }
 

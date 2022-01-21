@@ -377,7 +377,7 @@
 
     <!-- Cabecera Modelo -->
     <div class="card col-lg-6 col-xs-12">
-        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="filtro_1"> 
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="DATOSLEADORIGEN"> 
             <div class="card-body">
                 <div class="row">
                     <!-- Calificacion -->
@@ -561,293 +561,221 @@
 
     <!-- Formulario Empresa -->
     <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form == 1">
-        <div class="card-body">
-            <div class="row">
-                <!-- <div class="empresa"> -->
-                <!-- Nombre Empresa -->
-                <div class="col-md-6 col-12">
-                    <div class="form-group">
-                        <label for="Empresa-colum">Nombre Empresa</label>
-                        <input type="text" id="Empresa-colum" class="form-control" placeholder="Nombre Empresa"
-                            name="empresa-column" />
-                    </div>
-                </div>
-                <!-- Identidad -->
-                <div class="col-md-6 col-12">
-                    <div class="form-group">
-                        <label for="CIF-colum">CIF/NIF/IDENTIFICADOR</label>
-                        <input type="number" id="CIF-colum" class="form-control" placeholder="CIF/NIF/IDENTIFICADOR"
-                            name="cif-column" />
-                    </div>
-                </div>
-                <!-- Sector -->
-                <div class="col-md-4 col-12">
-                    <!-- <div class="form-group">
-                        <label for="sector-colum">Sector</label>
-                        <input type="number" id="sector-colum" class="form-control" placeholder="Sector" name="sector-column" />
-                    </div> -->
-                    <div class="form-group">
-                        <label for="sector-colum">Sector</label>
-                        <ng-select id="sector-colum" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                            <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
-                    </div>
-                </div>
-                <!-- Actividad -->
-                <div class="col-md-8 col-12">
-                    <!-- <div class="form-group">
-                        <label for="actividad-colum">Actividad</label>
-                        <input type="number" id="actividad-colum" class="form-control" placeholder="Actividad"
-                        name="actividad-column" />
-                    </div> -->
-                    <div class="form-group">
-                        <label for="actividad-colum">Actividad</label>
-                        <ng-select id="actividad-colum" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                            <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
-                    </div>
-                </div>
-                <!-- Codigo Postal -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="CP-icon-empresa">Codigo Postal</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <span [data-feather]="'task'"></span>
-                                </span>
-                            </div>
-                            <input type="number" id="CP-icon-empresa" class="form-control" name="CP-icon-empresa"
-                                placeholder="Codigo postal" />
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOEMPRESA"></form>
+            <div class="card-body">
+                <div class="row">
+                    <!-- <div class="empresa"> -->
+                    <!-- Nombre Empresa -->
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="Empresa-colum">Nombre Empresa</label>
+                            <input type="text" id="Empresa-colum" class="form-control" placeholder="Nombre Empresa"
+                                name="empresa-column" />
                         </div>
                     </div>
-                </div>
-                <!-- Provincia -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Provincia-id-icon-empresa">Provincia</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
-                            </div>
-                            <input type="Provincia" id="Provincia-id-icon-empresa" class="form-control"
-                                name="Provincia-id-icon-empresa" placeholder="Provincia" />
+                    <!-- Identidad -->
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="CIF-colum">CIF/NIF/IDENTIFICADOR</label>
+                            <input type="number" id="CIF-colum" class="form-control" placeholder="CIF/NIF/IDENTIFICADOR"
+                                name="cif-column" />
                         </div>
                     </div>
-                </div>
-                <!-- Localidad -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Localidad-id-icon-empresa">Localidad</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
-                            </div>
-                            <input type="Localidad" id="Localidad-id-icon-empresa" class="form-control"
-                                name="Localidad-id-icon-empresa" placeholder="Localidad" />
+                    <!-- Sector -->
+                    <div class="col-md-4 col-12">
+                        <!-- <div class="form-group">
+                            <label for="sector-colum">Sector</label>
+                            <input type="number" id="sector-colum" class="form-control" placeholder="Sector" name="sector-column" />
+                        </div> -->
+                        <div class="form-group">
+                            <label for="sector-colum">Sector</label>
+                            <ng-select id="sector-colum" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
                         </div>
                     </div>
-                </div>
-                <!-- direccion -->
-                <div class="col-lg-12 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="direccion-id-icon-empresa">Direccion</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
-                            </div>
-                            <input type="direccion" id="direccion-id-icon-empresa" class="form-control"
-                                name="direccion-id-icon-empresa" placeholder="direccion" />
+                    <!-- Actividad -->
+                    <div class="col-md-8 col-12">
+                        <!-- <div class="form-group">
+                            <label for="actividad-colum">Actividad</label>
+                            <input type="number" id="actividad-colum" class="form-control" placeholder="Actividad"
+                            name="actividad-column" />
+                        </div> -->
+                        <div class="form-group">
+                            <label for="actividad-colum">Actividad</label>
+                            <ng-select id="actividad-colum" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
                         </div>
                     </div>
-                </div>
+                    <!-- Codigo Postal -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="CP-icon-empresa">Codigo Postal</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <span [data-feather]="'task'"></span>
+                                    </span>
+                                </div>
+                                <input type="number" id="CP-icon-empresa" class="form-control" name="CP-icon-empresa"
+                                    placeholder="Codigo postal" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Provincia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Provincia-id-icon-empresa">Provincia</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Provincia" id="Provincia-id-icon-empresa" class="form-control"
+                                    name="Provincia-id-icon-empresa" placeholder="Provincia" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Localidad -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Localidad-id-icon-empresa">Localidad</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                </div>
+                                <input type="Localidad" id="Localidad-id-icon-empresa" class="form-control"
+                                    name="Localidad-id-icon-empresa" placeholder="Localidad" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- direccion -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="direccion-id-icon-empresa">Direccion</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                </div>
+                                <input type="direccion" id="direccion-id-icon-empresa" class="form-control"
+                                    name="direccion-id-icon-empresa" placeholder="direccion" />
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- total -->
-                <div class="col-lg-4 col-md-4 col-xs-6">
-                    <div class="form-group">
-                        <label for="total-id-icon-empresa">N° Total Vehiculos</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'truck'"></span></span>
+                    <!-- total -->
+                    <div class="col-lg-4 col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <label for="total-id-icon-empresa">N° Total Vehiculos</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'truck'"></span></span>
+                                </div>
+                                <input type="number" id="total-id-icon-empresa" class="form-control" name="total-id-icon-empresa"
+                                    placeholder="N° Total" />
                             </div>
-                            <input type="number" id="total-id-icon-empresa" class="form-control" name="total-id-icon-empresa"
-                                placeholder="N° Total" />
                         </div>
                     </div>
-                </div>
-                <!-- flota -->
-                <div class="col-lg-4 col-md-4 col-xs-6">
-                    <div class="form-group">
-                        <label for="flota-id-icon-empresa">N° Vehiculos Flota </label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'truck'"></span></span>
+                    <!-- flota -->
+                    <div class="col-lg-4 col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <label for="flota-id-icon-empresa">N° Vehiculos Flota </label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'truck'"></span></span>
+                                </div>
+                                <input type="number" id="flota-id-icon-empresa" class="form-control" name="flota-id-icon-empresa"
+                                    placeholder="N° flota" />
                             </div>
-                            <input type="number" id="flota-id-icon-empresa" class="form-control" name="flota-id-icon-empresa"
-                                placeholder="N° flota" />
                         </div>
                     </div>
-                </div>
-                <!-- comerciales -->
-                <div class="col-lg-4 col-md-4 col-xs-6">
-                    <div class="form-group">
-                        <label for="comerciales-id-icon-empresa">N° Vehiculos comerciales </label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'truck'"></span></span>
+                    <!-- comerciales -->
+                    <div class="col-lg-4 col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <label for="comerciales-id-icon-empresa">N° Vehiculos comerciales </label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'truck'"></span></span>
+                                </div>
+                                <input type="number" id="comerciales-id-icon-empresa" class="form-control"
+                                    name="comerciales-id-icon-empresa" placeholder="N° comerciales" />
                             </div>
-                            <input type="number" id="comerciales-id-icon-empresa" class="form-control"
-                                name="comerciales-id-icon-empresa" placeholder="N° comerciales" />
                         </div>
                     </div>
-                </div>
 
-                <!-- metodo -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
-                        <label for="metodo-column">Metodo Adquisicion</label>
-                        <select class="form-control" id="metodo-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <div class="form-group">
-                        <label for="metodo-column">Metodo Adquisicion</label>
-                        <ng-select id="metodo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                            <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
+                    <!-- metodo -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="metodo-column">Metodo Adquisicion</label>
+                            <select class="form-control" id="metodo-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="metodo-column">Metodo Adquisicion</label>
+                            <ng-select id="metodo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Notas Financieras -->
-                <div class="col-md-8 col-12 col-xs-12">
-                    <div class="form-group">
-                        <label for="notas-column">Notas Financieras</label>
-                        <input type="text" id="notas-column" class="form-control" name="notas-column" placeholder="notas" />
+                    <!-- Notas Financieras -->
+                    <div class="col-md-8 col-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="notas-column">Notas Financieras</label>
+                            <input type="text" id="notas-column" class="form-control" name="notas-column" placeholder="notas" />
+                        </div>
                     </div>
-                </div>
 
-                <!-- facturacion -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
+                    <!-- facturacion -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="facturacion-column">Facturacion</label>
+                            <select class="form-control" id="facturacion-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
                         <label for="facturacion-column">Facturacion</label>
-                        <select class="form-control" id="facturacion-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="facturacion-column">Facturacion</label>
-                    <ng-select id="facturacion-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
+                        <ng-select id="facturacion-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
+                    </div>
 
-                <!-- empleados -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
+                    <!-- empleados -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="empleados-column">empleados</label>
+                            <select class="form-control" id="empleados-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
                         <label for="empleados-column">empleados</label>
-                        <select class="form-control" id="empleados-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="empleados-column">empleados</label>
-                    <ng-select id="empleados-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-
-                <!-- Fin del Formulario Particular empresa-->
-                <hr>
-
-                <!-- Datos del Contacto de la empresa -->
-                
-                <!-- nombre -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="nombre-icon">Nombre</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'user'"></span></span>
-                            </div>
-                            <input type="text" id="nombre-icon" class="form-control" name="nombre-icon" placeholder="Nombre" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Apellido -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="apellido-icon">Apellido</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'user'"></span></span>
-                            </div>
-                            <input type="text" id="apellido-icon" class="form-control" name="apellido-icon" placeholder="Apellido" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Telefono -->
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="contact-info-icon">Telefono</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
-                            </div>
-                            <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
-                                placeholder="Telefono" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Email -->
-                <div class="col-lg-8 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="email-id-icon">Email</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
-                            </div>
-                            <input type="email" id="email-id-icon" class="form-control" name="email-id-icon" placeholder="Email" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Departamento -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <!-- <select class="form-control" id="lead-no">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select> -->
-                        <label for="depto-column">Departamento</label>
-                        <ng-select id="depto-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                        <ng-select id="empleados-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
                             <!-- [loading]="cargandoSet"  en Ng_select -->
                             <ng-template ng-option-tmp let-item="item">
                                 {{item.name}} <br />
@@ -855,528 +783,364 @@
                             </ng-template>
                         </ng-select>
                     </div>
-                </div>
-                <!-- Cargo -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="cargo-no">Cargo</label>
-                        <ng-select id="cargo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                            <!-- [loading]="cargandoSet"  en Ng_select -->
-                            <ng-template ng-option-tmp let-item="item">
-                                {{item.name}} <br />
-                                <small>{{item.id}}</small>
-                            </ng-template>
-                        </ng-select>
-                        <!-- <select class="form-control" id="lead-no">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select> -->
-                    </div>
-                </div>
 
+                    <!-- Fin del Formulario Particular empresa-->
+                    <hr>
+
+                    <!-- Datos del Contacto de la empresa -->
+                    <!-- nombre -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="nombre-icon">Nombre</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                                </div>
+                                <input type="text" id="nombre-icon" class="form-control" name="nombre-icon" placeholder="Nombre" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Apellido -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="apellido-icon">Apellido</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                                </div>
+                                <input type="text" id="apellido-icon" class="form-control" name="apellido-icon" placeholder="Apellido" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Telefono -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="contact-info-icon">Telefono</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                </div>
+                                <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
+                                    placeholder="Telefono" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="email-id-icon">Email</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="email" id="email-id-icon" class="form-control" name="email-id-icon" placeholder="Email" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Departamento -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <!-- <select class="form-control" id="lead-no">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select> -->
+                            <label for="depto-column">Departamento</label>
+                            <ng-select id="depto-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <!-- Cargo -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="cargo-no">Cargo</label>
+                            <ng-select id="cargo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                            <!-- <select class="form-control" id="lead-no">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select> -->
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Formulario Personal -->
     <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form == 2">
-        <div class="card-body">
-            <div class="row">
-                <!-- nombre -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="nombre-icon">Nombre</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOPERSONAL"></form>
+            <div class="card-body">
+                <div class="row">
+                    <!-- nombre -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="nombre-icon">Nombre</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                                </div>
+                                <input type="text" id="nombre-icon" class="form-control" name="nombre-icon" placeholder="Nombre" />
                             </div>
-                            <input type="text" id="nombre-icon" class="form-control" name="nombre-icon" placeholder="Nombre" />
                         </div>
                     </div>
-                </div>
-                <!-- Apellido -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="apellido-icon">Apellido</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                    <!-- Apellido -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="apellido-icon">Apellido</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                                </div>
+                                <input type="text" id="apellido-icon" class="form-control" name="apellido-icon"
+                                    placeholder="Apellido" />
                             </div>
-                            <input type="text" id="apellido-icon" class="form-control" name="apellido-icon"
-                                placeholder="Apellido" />
                         </div>
                     </div>
-                </div>
-                <!-- Telefono -->
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="contact-info-icon">Telefono</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                    <!-- Telefono -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="contact-info-icon">Telefono</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                </div>
+                                <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
+                                    placeholder="Telefono" />
                             </div>
-                            <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
-                                placeholder="Telefono" />
                         </div>
                     </div>
-                </div>
-                <!-- Email -->
-                <div class="col-lg-8 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="email-id-icon">Email</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    <!-- Email -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="email-id-icon">Email</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="email" id="email-id-icon" class="form-control" name="email-id-icon"
+                                    placeholder="Email" />
                             </div>
-                            <input type="email" id="email-id-icon" class="form-control" name="email-id-icon"
-                                placeholder="Email" />
                         </div>
                     </div>
-                </div>
-                <!-- Codigo Postal -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="CP-icon">Codigo Postal</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <span [data-feather]="'mail'"></span>
-                                </span>
+                    <!-- Codigo Postal -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="CP-icon">Codigo Postal</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <span [data-feather]="'mail'"></span>
+                                    </span>
+                                </div>
+                                <input type="number" id="CP-icon" class="form-control" name="CP-icon" placeholder="Codigo postal" />
                             </div>
-                            <input type="number" id="CP-icon" class="form-control" name="CP-icon" placeholder="Codigo postal" />
                         </div>
                     </div>
-                </div>
-                <!-- Provincia -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Provincia-id-icon">Provincia</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    <!-- Provincia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Provincia-id-icon">Provincia</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Provincia" id="Provincia-id-icon" class="form-control" name="Provincia-id-icon"
+                                    placeholder="Provincia" />
                             </div>
-                            <input type="Provincia" id="Provincia-id-icon" class="form-control" name="Provincia-id-icon"
-                                placeholder="Provincia" />
                         </div>
                     </div>
-                </div>
-                <!-- Localidad -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Localidad-id-icon">Localidad</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    <!-- Localidad -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Localidad-id-icon">Localidad</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Localidad" id="Localidad-id-icon" class="form-control" name="Localidad-id-icon"
+                                    placeholder="Localidad" />
                             </div>
-                            <input type="Localidad" id="Localidad-id-icon" class="form-control" name="Localidad-id-icon"
-                                placeholder="Localidad" />
                         </div>
                     </div>
-                </div>
 
-                <!-- direccion -->
-                <div class="col-lg-12 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="direccion-id-icon">Direccion</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                    <!-- direccion -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="direccion-id-icon">Direccion</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                </div>
+                                <input type="direccion" id="direccion-id-icon" class="form-control" name="direccion-id-icon"
+                                    placeholder="direccion" />
                             </div>
-                            <input type="direccion" id="direccion-id-icon" class="form-control" name="direccion-id-icon"
-                                placeholder="direccion" />
                         </div>
                     </div>
+                    <!-- </div> -->
                 </div>
-                <!-- </div> -->
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Formulario Particular -->
     <div class="card col-lg-6 col-xs-12" *ngIf="tp1Form == 3">
-        <div class="card-body">
-            <div class="row">
-                <!-- nombre -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="nombre-icon">Nombre</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="FORMULARIOPARTICULAR">
+            <div class="card-body">
+                <div class="row">
+                    <!-- nombre -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="nombre-icon">Nombre</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                                </div>
+                                <input type="text" id="nombre-icon" class="form-control" name="nombre-icon" placeholder="Nombre" />
                             </div>
-                            <input type="text" id="nombre-icon" class="form-control" name="nombre-icon" placeholder="Nombre" />
                         </div>
                     </div>
-                </div>
-                <!-- Apellido -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="apellido-icon">Apellido</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                    <!-- Apellido -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="apellido-icon">Apellido</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'user'"></span></span>
+                                </div>
+                                <input type="text" id="apellido-icon" class="form-control" name="apellido-icon"
+                                    placeholder="Apellido" />
                             </div>
-                            <input type="text" id="apellido-icon" class="form-control" name="apellido-icon"
-                                placeholder="Apellido" />
                         </div>
                     </div>
-                </div>
-                <!-- Telefono -->
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="contact-info-icon">Telefono</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                    <!-- Telefono -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="contact-info-icon">Telefono</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                </div>
+                                <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
+                                    placeholder="Telefono" />
                             </div>
-                            <input type="number" id="contact-info-icon" class="form-control" name="contact-icon"
-                                placeholder="Telefono" />
                         </div>
                     </div>
-                </div>
-                <!-- Email -->
-                <div class="col-lg-8 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="email-id-icon">Email</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    <!-- Email -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="email-id-icon">Email</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="email" id="email-id-icon" class="form-control" name="email-id-icon"
+                                    placeholder="Email" />
                             </div>
-                            <input type="email" id="email-id-icon" class="form-control" name="email-id-icon"
-                                placeholder="Email" />
                         </div>
                     </div>
-                </div>
-                <!-- Codigo Postal -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="CP-icon">Codigo Postal</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <span [data-feather]="'mail'"></span>
-                                </span>
+                    <!-- Codigo Postal -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="CP-icon">Codigo Postal</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <span [data-feather]="'mail'"></span>
+                                    </span>
+                                </div>
+                                <input type="number" id="CP-icon" class="form-control" name="CP-icon" placeholder="Codigo postal" />
                             </div>
-                            <input type="number" id="CP-icon" class="form-control" name="CP-icon" placeholder="Codigo postal" />
                         </div>
                     </div>
-                </div>
-                <!-- Provincia -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Provincia-id-icon">Provincia</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    <!-- Provincia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Provincia-id-icon">Provincia</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Provincia" id="Provincia-id-icon" class="form-control" name="Provincia-id-icon"
+                                    placeholder="Provincia" />
                             </div>
-                            <input type="Provincia" id="Provincia-id-icon" class="form-control" name="Provincia-id-icon"
-                                placeholder="Provincia" />
                         </div>
                     </div>
-                </div>
-                <!-- Localidad -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Localidad-id-icon">Localidad</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                    <!-- Localidad -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Localidad-id-icon">Localidad</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Localidad" id="Localidad-id-icon" class="form-control" name="Localidad-id-icon"
+                                    placeholder="Localidad" />
                             </div>
-                            <input type="Localidad" id="Localidad-id-icon" class="form-control" name="Localidad-id-icon"
-                                placeholder="Localidad" />
                         </div>
                     </div>
-                </div>
 
-                <!-- direccion -->
-                <div class="col-lg-12 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="direccion-id-icon">Direccion</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                    <!-- direccion -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="direccion-id-icon">Direccion</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'map-pin'"></span></span>
+                                </div>
+                                <input type="direccion" id="direccion-id-icon" class="form-control" name="direccion-id-icon"
+                                    placeholder="direccion" />
                             </div>
-                            <input type="direccion" id="direccion-id-icon" class="form-control" name="direccion-id-icon"
-                                placeholder="direccion" />
                         </div>
                     </div>
+                    <!-- </div> -->
                 </div>
-                <!-- </div> -->
             </div>
-        </div>
+        </form>
     </div>
     
     <!-- Vehiculo Solicitado -->
     <div class="card col-lg-12 col-xs-12">
-        <div class="card-body">
-            <div class="row">
-                <!-- Titulo -->
-                <div class="col-xs-12 col-lg-12">
-                    <h4 class="title">
-                        Vehiculo Solicitado
-                    </h4>
-                </div>
-                <!-- Titulo -->
-                <hr>
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="VEHICULOSOLICITADO">
+            <div class="card-body">
+                <div class="row">
+                    <!-- Titulo -->
+                    <div class="col-xs-12 col-lg-12">
+                        <h4 class="title">
+                            Vehiculo Solicitado
+                        </h4>
+                    </div>
+                    <!-- Titulo -->
+                    <hr>
 
-                <!-- Marca -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
+                    <!-- Marca -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="marca-column">Elige o introduzca una Marca</label>
+                            <select class="form-control" id="marca-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
+
                         <label for="marca-column">Elige o introduzca una Marca</label>
-                        <select class="form-control" id="marca-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-
-                    <label for="marca-column">Elige o introduzca una Marca</label>
-                    <ng-select id="marca-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Marca -->
-                
-                <!-- Modelo -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
-                        <label for="modelo-column">Elige o introduzca un modelo</label>
-                        <select class="form-control" id="modelo-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="modelo-column">Elige o introduzca un modelo</label>
-                    <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Modelo -->
-                
-                <!-- Version -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
-                        <label for="version-column">Elige o introduzca una version</label>
-                        <select class="form-control" id="version-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="version-column">Elige o introduzca una version</label>
-                    <ng-select id="version-column" 
-                    [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Version -->
-                
-                <!-- Precio -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Precio-icon">Precio</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
-                            </div>
-                            <input type="text" id="Precio-icon" class="form-control" name="Precio-icon" placeholder="Precio" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Precio -->
-                
-                <!-- Kilometros -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Kilometros-icon">Kilometros</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
-                            </div>
-                            <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
-                                placeholder="Kilometros" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Kilometros -->
-                
-                <!-- Potencia -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Potencia-column">Potencia</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
-                            </div>
-                            <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
-                                placeholder="Potencia" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Potencia -->
-
-                <!-- Año -->
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="anio-info-icon">Año</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span> -->
-                            </div>
-                            <input type="number" id="anio-info-icon" class="form-control" name="anio-icon" placeholder="Año" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Año -->
-
-                <!-- Combustible -->
-                <div class="col-lg-8 col-md-6 col-xs-12">
-                    <!-- <div class="form-group">
-                        <label for="combustible-column">Combustible</label>
-                        <select class="form-control" id="combustible-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="combustible-column">Combustible</label>
-                    <ng-select id="combustible-column" 
-                    [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Combustible -->
-
-                <!-- Tipo -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <!-- <div class="form-group">
-                        <label for="Tipo-column">Tipo</label>
-                        <select class="form-control" id="Tipo-column">
-                            <option selected>Tipo de Vehiculo</option>
-                            <option value="0KM">0KM</option>
-                            <option value="Seminuevo">Seminuevo</option>
-                            <option value="Ocasion">Ocasion</option>
-                        </select>
-                    </div> -->
-                    <label for="Tipo-column">Tipo</label>
-                    <ng-select id="Tipo-column" 
-                    [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Tipo -->
-
-                <!-- Categoria Comercial -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Categoria-column">Categoria Comercial</label>
-                        <select class="form-control" id="Categoria-column">
-                            <option selected>Elige Categoria</option>
-                            <option value="Ofertado">Producto Ofertado</option>
-                            <option value="Solicitado">Producto Solicitado</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- Categoria Comercial -->
-
-                <!-- Cambio -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Cambio-column">Cambio</label>
-                        <select class="form-control" id="Cambio-column">
-                            <option selected>Seleccione Cambio</option>
-                            <option value="Manual">Manual</option>
-                            <option value="Automatico">Automatico</option>
-                            
-                        </select>
-                    </div>
-                </div>
-                <!-- Cambio -->
-
-                <!-- URL -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="URL-id-icon">URL</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
-                            </div>
-                            <input type="URL" id="URL-id-icon" class="form-control" name="URL-id-icon" placeholder="URL Anuncios" />
-                        </div>
-                    </div>
-                </div>
-                <!-- URL -->
-
-                <!-- Notas -->
-                <div class="col-lg-12 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Notas-id-icon">Notas</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <i class="fa fa-microphone"></i>
-                            </div>
-                            <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Notas -->
-                                
-            </div>
-        </div>
-    </div>
-    
-    <!-- Vehiculo Actual -->
-    <div class="card col-lg-12 col-xs-12">
-        <div class="card-body">
-            <div class="row">
-                <!-- Titulo -->
-                <div class="col-xs-12 col-lg-12">
-                    <h4 class="title">
-                        Vehiculo Actual
-                    </h4>
-                </div>
-                <!-- Titulo -->
-
-                <!-- Marca -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <div class="form-group">
-                        <!-- <label for="marca-column">Elige o introduzca una Marca</label>
-                        <select class="form-control" id="marca-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select> -->
-                        <label for="marca-column">Elige o introduzca una Marca</label>
-                        <ng-select id="marca-column" [items]="itemsSelect" 
-                        bindLabel="name" [searchFn]="customSearchFn">
+                        <ng-select id="marca-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
                             <!-- [loading]="cargandoSet"  en Ng_select -->
                             <ng-template ng-option-tmp let-item="item">
                                 {{item.name}} <br />
@@ -1384,110 +1148,122 @@
                             </ng-template>
                         </ng-select>
                     </div>
-                </div>
-                <!-- Marca -->
-                <!-- Modelo -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
+                    <!-- Marca -->
+                    
+                    <!-- Modelo -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="modelo-column">Elige o introduzca un modelo</label>
+                            <select class="form-control" id="modelo-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
                         <label for="modelo-column">Elige o introduzca un modelo</label>
-                        <select class="form-control" id="modelo-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="modelo-column">Elige o introduzca un modelo</label>
-                    <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Modelo -->
-                <!-- Version -->
-                <div class="col-md-4 col-12 col-xs-12">
-                    <!-- <div class="form-group">
+                        <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!-- Modelo -->
+                    
+                    <!-- Version -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="version-column">Elige o introduzca una version</label>
+                            <select class="form-control" id="version-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
                         <label for="version-column">Elige o introduzca una version</label>
-                        <select class="form-control" id="version-column">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div> -->
-                    <label for="version-column">Elige o introduzca una version</label>
-                    <ng-select id="modelo-column" 
-                    [items]="itemsSelect" bindLabel="name" 
-                    [searchFn]="customSearchFn">
-                        <!-- [loading]="cargandoSet"  en Ng_select -->
-                        <ng-template ng-option-tmp let-item="item">
-                            {{item.name}} <br />
-                            <small>{{item.id}}</small>
-                        </ng-template>
-                    </ng-select>
-                </div>
-                <!-- Version -->
-                <!-- Potencia -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Potencia-column">Potencia</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                        <ng-select id="version-column" 
+                        [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!-- Version -->
+                    
+                    <!-- Precio -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Precio-icon">Precio</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Precio-icon" class="form-control" name="Precio-icon" placeholder="Precio" />
                             </div>
-                            <input type="text" id="Potencia-icon" class="form-control" name="Potencia-icon" placeholder="Potencia" />
                         </div>
                     </div>
-                </div>
-                <!-- Potencia -->
+                    <!-- Precio -->
+                    
+                    <!-- Kilometros -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Kilometros-icon">Kilometros</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
+                                    placeholder="Kilometros" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kilometros -->
+                    
+                    <!-- Potencia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Potencia-column">Potencia</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
+                                    placeholder="Potencia" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Potencia -->
 
-                <!-- Kilometros -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Kilometros-icon">Kilometros</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                    <!-- Año -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="anio-info-icon">Año</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span> -->
+                                </div>
+                                <input type="number" id="anio-info-icon" class="form-control" name="anio-icon" placeholder="Año" />
                             </div>
-                            <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
-                                placeholder="Kilometros" />
                         </div>
                     </div>
-                </div>
-                <!-- Kilometros -->
-                <!-- Precio -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Precio-icon">Precio</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
-                            </div>
-                            <input type="text" id="Precio-icon" class="form-control" name="Precio-icon" placeholder="Precio" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Precio -->
-                <!-- Año -->
-                <div class="col-lg-4 col-md-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="anio-info-icon">Año</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
-                            </div>
-                            <input type="number" id="anio-info-icon" class="form-control" name="anio-icon" placeholder="anio" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Año -->
+                    <!-- Año -->
 
-                <!-- Combustible -->
-                <div class="col-lg-8 col-md-6 col-xs-12">
-                    <div class="form-group">
+                    <!-- Combustible -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="combustible-column">Combustible</label>
+                            <select class="form-control" id="combustible-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
                         <label for="combustible-column">Combustible</label>
                         <ng-select id="combustible-column" 
                         [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
@@ -1498,13 +1274,21 @@
                             </ng-template>
                         </ng-select>
                     </div>
-                </div>
-                <!-- Combustible -->
-                <!-- Cambio -->
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Cambio-column">Cambio</label>
-                        <ng-select id="Cambio-column" 
+                    <!-- Combustible -->
+
+                    <!-- Tipo -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="Tipo-column">Tipo</label>
+                            <select class="form-control" id="Tipo-column">
+                                <option selected>Tipo de Vehiculo</option>
+                                <option value="0KM">0KM</option>
+                                <option value="Seminuevo">Seminuevo</option>
+                                <option value="Ocasion">Ocasion</option>
+                            </select>
+                        </div> -->
+                        <label for="Tipo-column">Tipo</label>
+                        <ng-select id="Tipo-column" 
                         [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
                             <!-- [loading]="cargandoSet"  en Ng_select -->
                             <ng-template ng-option-tmp let-item="item">
@@ -1513,122 +1297,351 @@
                             </ng-template>
                         </ng-select>
                     </div>
-                </div>
-                <!-- Cambio -->
-            
-            
-                <!-- FechaMatricula -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="FechaMatricula-id-icon">Fecha de Matricula</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
-                            </div>
-                            <input type="FechaMatricula" id="FechaMatricula-id-icon" class="form-control" name="FechaMatricula-id-icon" placeholder="Fecha de Matricula" />
-                        </div>
-                    </div>
-                </div>
-                <!-- FechaMatricula -->
-            
-                <!-- Matricula -->
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Matricula-id-icon">Matricula</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
-                            </div>
-                            <input type="Matricula" id="Matricula-id-icon" class="form-control" name="Matricula-id-icon" placeholder="Matricula" />
-                        </div>
-                    </div>
-                </div>
-                <!-- Matricula -->
+                    <!-- Tipo -->
 
-                <!-- Notas -->
-                <div class="col-lg-12 col-md-6 col-xs-12">
-                    <div class="form-group">
-                        <label for="Notas-id-icon">Notas</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-microphone"></i>
-                                </span>
-                            </div>
-                            <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+                    <!-- Categoria Comercial -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Categoria-column">Categoria Comercial</label>
+                            <select class="form-control" id="Categoria-column">
+                                <option selected>Elige Categoria</option>
+                                <option value="Ofertado">Producto Ofertado</option>
+                                <option value="Solicitado">Producto Solicitado</option>
+                            </select>
                         </div>
                     </div>
+                    <!-- Categoria Comercial -->
+
+                    <!-- Cambio -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Cambio-column">Cambio</label>
+                            <select class="form-control" id="Cambio-column">
+                                <option selected>Seleccione Cambio</option>
+                                <option value="Manual">Manual</option>
+                                <option value="Automatico">Automatico</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Cambio -->
+
+                    <!-- URL -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="URL-id-icon">URL</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="URL" id="URL-id-icon" class="form-control" name="URL-id-icon" placeholder="URL Anuncios" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- URL -->
+
+                    <!-- Notas -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Notas-id-icon">Notas</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <i class="fa fa-microphone"></i>
+                                </div>
+                                <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notas -->
+                                    
                 </div>
-                <!-- Notas -->
-            
             </div>
-        </div>
+        </form>
+    </div>
+    
+    <!-- Vehiculo Actual -->
+    <div class="card col-lg-12 col-xs-12">
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="VEHICULOACTUAL">
+            <div class="card-body">
+                <div class="row">
+                    <!-- Titulo -->
+                    <div class="col-xs-12 col-lg-12">
+                        <h4 class="title">
+                            Vehiculo Actual
+                        </h4>
+                    </div>
+                    <!-- Titulo -->
+
+                    <!-- Marca -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <div class="form-group">
+                            <!-- <label for="marca-column">Elige o introduzca una Marca</label>
+                            <select class="form-control" id="marca-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select> -->
+                            <label for="marca-column">Elige o introduzca una Marca</label>
+                            <ng-select id="marca-column" [items]="itemsSelect" 
+                            bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <!-- Marca -->
+                    <!-- Modelo -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="modelo-column">Elige o introduzca un modelo</label>
+                            <select class="form-control" id="modelo-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
+                        <label for="modelo-column">Elige o introduzca un modelo</label>
+                        <ng-select id="modelo-column" [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!-- Modelo -->
+                    <!-- Version -->
+                    <div class="col-md-4 col-12 col-xs-12">
+                        <!-- <div class="form-group">
+                            <label for="version-column">Elige o introduzca una version</label>
+                            <select class="form-control" id="version-column">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> -->
+                        <label for="version-column">Elige o introduzca una version</label>
+                        <ng-select id="modelo-column" 
+                        [items]="itemsSelect" bindLabel="name" 
+                        [searchFn]="customSearchFn">
+                            <!-- [loading]="cargandoSet"  en Ng_select -->
+                            <ng-template ng-option-tmp let-item="item">
+                                {{item.name}} <br />
+                                <small>{{item.id}}</small>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <!-- Version -->
+                    <!-- Potencia -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Potencia-column">Potencia</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Potencia-icon" class="form-control" name="Potencia-icon" placeholder="Potencia" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Potencia -->
+
+                    <!-- Kilometros -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Kilometros-icon">Kilometros</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Kilometros-icon" class="form-control" name="Kilometros-icon"
+                                    placeholder="Kilometros" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kilometros -->
+                    <!-- Precio -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Precio-icon">Precio</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <!-- <span class="input-group-text"><span [data-feather]="'user'"></span></span> -->
+                                </div>
+                                <input type="text" id="Precio-icon" class="form-control" name="Precio-icon" placeholder="Precio" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Precio -->
+                    <!-- Año -->
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="form-group">
+                            <label for="anio-info-icon">Año</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'smartphone'"></span></span>
+                                </div>
+                                <input type="number" id="anio-info-icon" class="form-control" name="anio-icon" placeholder="anio" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Año -->
+
+                    <!-- Combustible -->
+                    <div class="col-lg-8 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="combustible-column">Combustible</label>
+                            <ng-select id="combustible-column" 
+                            [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <!-- Combustible -->
+                    <!-- Cambio -->
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Cambio-column">Cambio</label>
+                            <ng-select id="Cambio-column" 
+                            [items]="itemsSelect" bindLabel="name" [searchFn]="customSearchFn">
+                                <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <ng-template ng-option-tmp let-item="item">
+                                    {{item.name}} <br />
+                                    <small>{{item.id}}</small>
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <!-- Cambio -->
+                
+                
+                    <!-- FechaMatricula -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="FechaMatricula-id-icon">Fecha de Matricula</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="FechaMatricula" id="FechaMatricula-id-icon" class="form-control" name="FechaMatricula-id-icon" placeholder="Fecha de Matricula" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FechaMatricula -->
+                
+                    <!-- Matricula -->
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Matricula-id-icon">Matricula</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span [data-feather]="'mail'"></span></span>
+                                </div>
+                                <input type="Matricula" id="Matricula-id-icon" class="form-control" name="Matricula-id-icon" placeholder="Matricula" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Matricula -->
+
+                    <!-- Notas -->
+                    <div class="col-lg-12 col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="Notas-id-icon">Notas</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-microphone"></i>
+                                    </span>
+                                </div>
+                                <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notas -->
+                
+                </div>
+            </div>
+        </form>
     </div>
     
     <!-- Acciones Programadas -->
     <div class="card col-lg-12 col-xs-12">
-        <div class="card-body">
-            <div class="row" id="table-without-card">
-                <div class="col-12 my-2">
-                    <h5 class="mb-1">Acciones Programadas</h5>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Fecha y Hora</th>
-                                    <th>Tarea / Seguimiento</th>
-                                    <th>Tipo Tarea</th>
-                                    <th>Canal</th>
-                                    <th>Notas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input class="form-control" type="text" placeholder="01/02/2023" mask="00/00/0000" />
-                                    </td>
-                                    
-                                    <td>
-                                    </td>
-                                    
-                                    <td>
-                                    </td>
-                                    
-                                    <td>
-                                    </td>    
-                                    
-                                    <td class="overflow-hidden">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Notas -->
-    <div class="card col-lg-12 col-xs-12">
-        <div class="card-body">
-            <div class="row" id="table-without-card">
-                <div class="col-12 my-2">
-                    <div class="form-group">
-                        <label for="Notas-id-icon">Notas</label>
-                        <div class="input-group input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-microphone"></i>
-                                </span>
-                            </div>
-                            <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="ACCIONESPROGRAMADAS">
+            <div class="card-body">
+                <div class="row" id="table-without-card">
+                    <div class="col-12 my-2">
+                        <h5 class="mb-1">Acciones Programadas</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha y Hora</th>
+                                        <th>Tarea / Seguimiento</th>
+                                        <th>Tipo Tarea</th>
+                                        <th>Canal</th>
+                                        <th>Notas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="text" placeholder="01/02/2023" mask="00/00/0000" />
+                                        </td>
+                                        
+                                        <td>
+                                        </td>
+                                        
+                                        <td>
+                                        </td>
+                                        
+                                        <td>
+                                        </td>    
+                                        
+                                        <td class="overflow-hidden">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
+    </div>
+    <!-- Notas -->
+    <div class="card col-lg-12 col-xs-12">
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="NOTASGRAL">
+            <div class="card-body">
+                <div class="row" id="table-without-card">
+                    <div class="col-12 my-2">
+                        <div class="form-group">
+                            <label for="Notas-id-icon">Notas</label>
+                            <div class="input-group input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-microphone"></i>
+                                    </span>
+                                </div>
+                                <input type="Notas" id="Notas-id-icon" class="form-control" name="Notas-id-icon" placeholder="Notas" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <!-- TImeline -->
-    <div class="card col-lg-12 col-xs-12">
+    <div class="card col-lg-12 col-xs-12" *ngIf="false">
         <div class="card card-user-timeline">
             <div class="card-header">
                 <div class="d-flex align-items-center">
