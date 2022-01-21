@@ -377,7 +377,7 @@
 
     <!-- Cabecera Modelo -->
     <div class="card col-lg-6 col-xs-12">
-        <!-- <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="filtro_1">  -->
+        <form class="form" (ngSubmit)="llamarSeter()" [formGroup]="filtro_1"> 
             <div class="card-body">
                 <div class="row">
                     <!-- Calificacion -->
@@ -392,13 +392,19 @@
                     <div class="tipoFormulario">
                         <!-- Tipo -->
                         <div class="col-md-8 col-6 col-xs-6">
-                            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="tp1Form">
-                                <label ngbButtonLabel class="btn-outline-primary" rippleEffect><input ngbButton type="radio" [value]="1" />
-                                    Empresa </label>
-                                <label ngbButtonLabel class="btn-outline-primary" rippleEffect><input ngbButton type="radio"
-                                        [value]="2" />Particular </label>
-                                <label ngbButtonLabel class="btn-outline-primary" rippleEffect><input ngbButton type="radio"
-                                        [value]="3" />Autonomo
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" 
+                            [ngModelOptions]="{standalone: true}" [(ngModel)]="tp1Form">
+                                <label ngbButtonLabel class="btn-outline-primary" rippleEffect>
+                                    <input ngbButton type="radio" [value]="1" />
+                                    Empresa 
+                                </label>
+                                <label ngbButtonLabel class="btn-outline-primary" rippleEffect>
+                                    <input ngbButton type="radio" [value]="2" />
+                                    Particular 
+                                </label>
+                                <label ngbButtonLabel class="btn-outline-primary" rippleEffect>
+                                    <input ngbButton type="radio" [value]="3" />
+                                    Autonomo
                                 </label>
                             </div>
                         </div>
@@ -550,7 +556,7 @@
                     
                 </div>
             </div>
-        <!-- </form> -->
+        </form>
     </div>
 
     <!-- Formulario Empresa -->
