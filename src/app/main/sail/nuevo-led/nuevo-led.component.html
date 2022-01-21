@@ -245,7 +245,7 @@
                                     <input class="form-control" 
                                         placeholder="yyyy-mm-dd" 
                                         name="Basic Date Picker" 
-                                        [(ngModel)]="basicDPdata"
+                                        [(ngModel)]="basicDPdata" [ngModelOptions]="{standalone: true}"
                                         ngbDatepicker 
                                         #basicDP="ngbDatepicker">
                                     <div class="input-group-append">
@@ -260,7 +260,7 @@
                             </div>    
                             <!-- Basic Time Picker -->
                             <div class="col-md-6 col-12 col-xs-12">
-                                <ngb-timepicker [(ngModel)]="basicTP"></ngb-timepicker>
+                                <ngb-timepicker [(ngModel)]="basicTP" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
                                 <hr>
                             </div>
                             <!-- Medio -->
@@ -502,7 +502,8 @@
                                 appendTo="body"
                                 [searchable]="true"
                                 [clearable]="true" 
-                                [(ngModel)]="selectedKeys">
+                                [(ngModel)]="selectedKeys"
+                                [ngModelOptions]="{standalone: true}">
                                 <ng-option [value]="item.id" 
                                     [disabled]="item.disabled"
                                     *ngFor="let item of itemsSelect">
