@@ -328,7 +328,7 @@ export class NuevoLedComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token) {
-      this.buscarApi("a", 'concessionaire /', 'consecionario');
+      this.buscarApi("a", 'concessionaire/', 'consecionario');
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
       // this.nService.setting_res$.subscribe(response => {
           this.Configuraciones$ = response;
