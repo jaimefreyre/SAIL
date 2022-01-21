@@ -40,7 +40,7 @@ export class NuevoLedComponent implements OnInit {
   
   //Suscriptores de llamadas
   Set_Observable$: Subscription;
-  public Configuraciones$: Observable<any>;
+  public Configuraciones$: Observable<dataNewObservable[]>;
   public Data;
   
   /**
@@ -323,6 +323,7 @@ export class NuevoLedComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token) {
+      this.buscarApi("a", 'concessionaire /', 'consecionario');
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
       // this.nService.setting_res$.subscribe(response => {
           this.Configuraciones$ = response;
