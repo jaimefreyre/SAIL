@@ -51,16 +51,21 @@ export class NuevoLedComponent implements OnInit {
   
   public cargandoSet = false;
 
-  public consecionario = [
-    { id: 1, name: 'Python' },
-    { id: 2, name: 'Node Js' },
-    { id: 3, name: 'Java' },
-    { id: 4, name: 'PHP', disabled: true },
-    { id: 5, name: 'Django' },
-    { id: 6, name: 'Angular' },
-    { id: 7, name: 'Vue' },
-    { id: 8, name: 'ReactJs' },
-  ];
+  public consecionario = {
+    count:2,
+    next:"",
+    results :[
+        { id: 1, name: 'Python' },
+        { id: 2, name: 'Node Js' },
+        { id: 3, name: 'Java' },
+        { id: 4, name: 'PHP', disabled: true },
+        { id: 5, name: 'Django' },
+        { id: 6, name: 'Angular' },
+        { id: 7, name: 'Vue' },
+        { id: 8, name: 'ReactJs' },
+      ]
+  };
+
   public selected = [
     { id: 2, name: 'Node Js' },
     { id: 8, name: 'ReactJs' }
@@ -327,6 +332,7 @@ export class NuevoLedComponent implements OnInit {
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
       // this.nService.setting_res$.subscribe(response => {
           this.Configuraciones$ = response;
+        this.consecionario = this.Configuraciones$["consecionario"];
       //   // this.newLeadsArray = response["new"];
       //   // this.comercialArray = response["commercial_management"];
       //   // this.atendidosArray = response["attended"];

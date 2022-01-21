@@ -422,7 +422,7 @@
                         <div class="form-group">
                             <label for="consecionarias">Consecionario</label>
                             <ng-select 
-                            [items]="Configuraciones$.consecionario | async" 
+                            [items]="consecionario.results | async" 
                             bindLabel="name" 
                             placeholder="Select item" 
                             appendTo="body" 

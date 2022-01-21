@@ -5,22 +5,22 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface dataNewObservable{
-    marca: [];
-    consecionario: [];
-    origen: [];
-    modelo: [];
-    version: [];
-    combustible: [];
-    sector: [];
-    actividad: [];
-    TaskSet1: [];
-    TaskSet2: [];  
+    marca: [dataNew];
+    consecionario: [dataNew];
+    origen: [dataNew];
+    modelo: [dataNew];
+    version: [dataNew];
+    combustible: [dataNew];
+    sector: [dataNew];
+    actividad: [dataNew];
+    TaskSet1: [dataNew];
+    TaskSet2: [dataNew];  
   }
 
 export interface dataNew {
-  count: Number;
-  next: String;
-  results: [];
+  count?: Number;
+  next?: String;
+  results?: [any];
 };
 
 export interface DD{
