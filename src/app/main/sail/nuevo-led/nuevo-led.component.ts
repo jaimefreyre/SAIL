@@ -79,7 +79,7 @@ export class NuevoLedComponent implements OnInit {
   public selectedKeys = [2, 8];
 
 
-  public filtro = this.fb.group({
+  public filtro_1 = this.fb.group({
     search: ['', [Validators.required, Validators.minLength(5)]],
     wc: [''],
     created_start_date: [''],
@@ -128,7 +128,7 @@ export class NuevoLedComponent implements OnInit {
   }
   
   llamarSeter(){
-    console.log(this.filtro);
+    console.log(this.filtro_1);
     this.nService.llamarSetterManual();
   }
 
