@@ -5,7 +5,7 @@ import { ServiceNuevoService, dataNewObservable, dataNew } from './service-nuevo
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { concat, Observable, Subscription, Subject,  of, BehaviorSubject } from 'rxjs';
-import { catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
+import { catchError, debounceTime, distinctUntilChanged, switchMap, tap, map } from 'rxjs/operators';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -341,8 +341,9 @@ export class NuevoLedComponent implements OnInit {
         tap(() => this.peopleLoading = true),
         switchMap(term => this.nService.datoSelect(term, 'concessionaire/').pipe(
           catchError(() => of([])), // empty list on error
-          tap(n => {
+          map(n => {
             console.log(n.results);
+            n = n.results;
             this.peopleLoading = false;
           })
         ))
