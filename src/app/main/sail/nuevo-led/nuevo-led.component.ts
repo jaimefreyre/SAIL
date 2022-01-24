@@ -338,7 +338,7 @@ export class NuevoLedComponent implements OnInit {
       this.peopleInput$.pipe(
         distinctUntilChanged(),
         tap(() => this.peopleLoading = true),
-        switchMap(term => this.nService.datoSelect(term, 'concessionaire /').pipe(
+        switchMap(term => this.nService.datoSelect(term, 'concessionaire/').pipe(
           catchError(() => of([])), // empty list on error
           tap(() => this.peopleLoading = false)
         ))
