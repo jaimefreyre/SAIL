@@ -325,7 +325,7 @@ export class NuevoLedComponent implements OnInit {
   //Autoselect
   public people$: Observable<any>;
   public peopleLoading = false;
-  public peopleInput$ = new Subject<string>();
+  public peopleInput$ = new Subject<any>();
   public selectedPersons: dataNew[] = <any>[{ count: 200, results: [] }];
 
   trackByFn(item: any) {
@@ -363,6 +363,7 @@ export class NuevoLedComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token) {
+      this.loadPeople();
       this.buscarApi("a", 'concessionaire/', 'consecionario');
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
         // this.nService.setting_res$.subscribe(response => {
