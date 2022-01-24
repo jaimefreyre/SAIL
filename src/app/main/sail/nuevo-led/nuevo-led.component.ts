@@ -365,15 +365,15 @@ export class NuevoLedComponent implements OnInit {
     if (this.currentUser.token) {
       this.buscarApi("a", 'concessionaire/', 'consecionario');
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
-      // this.nService.setting_res$.subscribe(response => {
-          this.Configuraciones$ = response;
+        // this.nService.setting_res$.subscribe(response => {
+        this.Configuraciones$ = response;
         this.consecionario = this.Configuraciones$["consecionario"];
-      //   // this.newLeadsArray = response["new"];
-      //   // this.comercialArray = response["commercial_management"];
-      //   // this.atendidosArray = response["attended"];
-      //   // this.pendientesArray = response["tracing"];
-      //   // this.cerradosArray = response["end"];
-      //   console.log(this.Data);
+        // this.newLeadsArray = response["new"];
+        // this.comercialArray = response["commercial_management"];
+        // this.atendidosArray = response["attended"];
+        // this.pendientesArray = response["tracing"];
+        // this.cerradosArray = response["end"];
+        console.log(this.Data);
         console.log(this.Configuraciones$);
       });
     }

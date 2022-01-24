@@ -226,6 +226,7 @@ export class ServiceNuevoService {
   
 
   datoSelect(term: string, URL_Dinamica): Observable<any> {
+    console.log('Se activa dato select')
     let data = { page_size: "all", search: term };
     return this.getParamsDinamica(data, URL_Dinamica);
   }

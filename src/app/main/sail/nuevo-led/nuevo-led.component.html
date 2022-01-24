@@ -423,12 +423,12 @@
                             <label for="consecionarias">Consecionario</label>
                             <ng-select 
                             [items]="people$ | async"
-                            [hideSelected]="true"
                             bindLabel="name" 
                             placeholder="Select item" 
                             appendTo="body" 
                             clearable="true"
                             searchable="true"
+                            [searchFn]="customSearchFn"
                             [editableSearchTerm]="true"
                             [typeahead]="peopleInput$"
                             [loading]="peopleLoading"
