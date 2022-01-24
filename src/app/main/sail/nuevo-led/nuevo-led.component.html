@@ -422,14 +422,14 @@
                         <div class="form-group">
                             <label for="consecionarias">Consecionario</label>
                             <ng-select 
-                                [items]="people$ | async"
+                                [items]="dataSelect_$ | async"
                                 bindLabel="name" 
                                 placeholder="Buscar Consecionario" 
                                 appendTo="body" 
                                 clearable="true"
                                 [editableSearchTerm]="true"
-                                [typeahead]="peopleInput$"
-                                [loading]="peopleLoading"
+                                [typeahead]="dataSelect_Input$"
+                                [loading]="dataSelect_Loading"
                                 formControlName="concessionaire__in">
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />

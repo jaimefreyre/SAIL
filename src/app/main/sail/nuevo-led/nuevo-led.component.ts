@@ -323,25 +323,25 @@ export class NuevoLedComponent implements OnInit {
 
 
   //Autoselect
-  public people$: Observable<any>;
-  public peopleLoading = false;
-  public peopleInput$ = new Subject<any>();
+  public dataSelect_$: Observable<any>;
+  public dataSelect_Loading = false;
+  public dataSelect_Input$ = new Subject<any>();
   public selectedPersons: dataNew[] = <any>[{ count: 200, results: [] }];
 
   trackByFn(item: any) {
       return item.id;
   };
 
-  private loadPeople() {
-    this.people$ = concat(
+  private loaddataSelect_() {
+    this.dataSelect_$ = concat(
       of([]), // default items
-      this.peopleInput$.pipe(
+      this.dataSelect_Input$.pipe(
         distinctUntilChanged(),
         debounceTime(300),
-        tap(() => this.peopleLoading = true),
+        tap(() => this.dataSelect_Loading = true),
         switchMap(term => this.nService.datoSelect(term, 'concessionaire/').pipe(
           catchError(() => of([])), // empty list on error
-          tap(() => this.peopleLoading = false)
+          tap(() => this.dataSelect_Loading = false)
           // map(n => {
           //   n = n.results;
           //   this.peopleLoading = false;
@@ -369,7 +369,7 @@ export class NuevoLedComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUser);
     if (this.currentUser.token) {
-      this.loadPeople();
+      this.loaddataSelect_();
       // this.buscarApi("a", 'concessionaire/', 'consecionario');
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
         // this.nService.setting_res$.subscribe(response => {
