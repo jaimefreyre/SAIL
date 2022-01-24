@@ -4,7 +4,7 @@
         <label for="consecionarias">Consecionario</label>
         <!-- *ngIf="consecionario" 
                             [items]="consecionario.results" -->
-        <ng-select [items]="dataSelect_$ | async" bindLabel="name" placeholder="Buscar Consecionario" appendTo="body"
+        <ng-select *ngIf="dataSelect_$" [items]="dataSelect_$.results | async" bindLabel="name" placeholder="Buscar Consecionario" appendTo="body"
             clearable="true" [editableSearchTerm]="true" [typeahead]="dataSelect_Input$" [loading]="dataSelect_Loading"
             formControlName="concessionaire__in">
             <ng-template ng-option-tmp let-item="item">
