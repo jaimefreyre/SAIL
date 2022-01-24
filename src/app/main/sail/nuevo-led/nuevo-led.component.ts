@@ -337,10 +337,14 @@ export class NuevoLedComponent implements OnInit {
       of([]), // default items
       this.peopleInput$.pipe(
         distinctUntilChanged(),
+        debounceTime(300),
         tap(() => this.peopleLoading = true),
         switchMap(term => this.nService.datoSelect(term, 'concessionaire/').pipe(
           catchError(() => of([])), // empty list on error
-          tap(() => this.peopleLoading = false)
+          tap(n => {
+            console.log(n.results);
+            this.peopleLoading = false;
+          })
         ))
       )
     );
