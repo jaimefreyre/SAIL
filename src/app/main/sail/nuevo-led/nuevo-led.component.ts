@@ -341,11 +341,12 @@ export class NuevoLedComponent implements OnInit {
         tap(() => this.peopleLoading = true),
         switchMap(term => this.nService.datoSelect(term, 'concessionaire/').pipe(
           catchError(() => of([])), // empty list on error
-          map(n => {
-            n = n.results;
-            this.peopleLoading = false;
-            // return of(n)
-          })
+          tap(() => this.peopleLoading = false)
+          // map(n => {
+          //   n = n.results;
+          //   this.peopleLoading = false;
+          //   // return of(n)
+          // })
         ))
       )
     );
