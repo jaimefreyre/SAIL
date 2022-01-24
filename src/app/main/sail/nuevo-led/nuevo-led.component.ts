@@ -344,7 +344,8 @@ export class NuevoLedComponent implements OnInit {
           map(n => {
             n = n.results;
             this.peopleLoading = false;
-          }).subscribe(n => console.log(n))
+            return of(n.results)
+          })
         ))
       )
     );
