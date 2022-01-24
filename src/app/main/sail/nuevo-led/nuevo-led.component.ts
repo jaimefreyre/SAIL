@@ -343,9 +343,8 @@ export class NuevoLedComponent implements OnInit {
           catchError(() => of([])), // empty list on error
           map(n => {
             n = n.results;
-            console.log(n);
             this.peopleLoading = false;
-          })
+          }).subscribe(n => console.log(n))
         ))
       )
     );

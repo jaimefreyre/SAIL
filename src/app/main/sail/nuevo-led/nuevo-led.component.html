@@ -430,14 +430,14 @@
                                 [editableSearchTerm]="true"
                                 [typeahead]="peopleInput$"
                                 [loading]="peopleLoading"
+                                searchable="true"
+                                [searchFn]="customSearchFn"
                                 formControlName="concessionaire__in">
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
                                     <small>{{item.id}}</small>
                                 </ng-template>
                             </ng-select>
-                        <!-- searchable="true"
-                        [searchFn]="customSearchFn" -->
                         </div>
                     </div>
                     <!-- Origen -->
