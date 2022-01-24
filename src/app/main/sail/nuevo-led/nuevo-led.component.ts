@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { DashboardServiceSail } from 'app/main/sail/dashboard_sail/dashboard.service';
-import { ServiceNuevoService, dataNewObservable } from './service-nuevo.service';
+import { ServiceNuevoService, dataNewObservable, dataNew } from './service-nuevo.service';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { first } from 'rxjs/operators';
-import { Observable, Subscription, of, BehaviorSubject } from 'rxjs';
+import { concat, Observable, Subscription, Subject,  of, BehaviorSubject } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -50,27 +50,33 @@ export class NuevoLedComponent implements OnInit {
   public tp1Form = 0;
   
   public cargandoSet = false;
+  
+  public consecionario: Observable<dataNew[]>;
 
-  public consecionario = {
-    count:2,
-    next:"",
-    results :[
-        { id: 1, name: 'Python' },
-        { id: 2, name: 'Node Js' },
-        { id: 3, name: 'Java' },
-        { id: 4, name: 'PHP', disabled: true },
-        { id: 5, name: 'Django' },
-        { id: 6, name: 'Angular' },
-        { id: 7, name: 'Vue' },
-        { id: 8, name: 'ReactJs' },
-      ]
-  };
+  // public consecionario = {
+  //   count:2,
+  //   next:"",
+  //   results :[
+  //       { id: 1, name: 'Python' },
+  //       { id: 2, name: 'Node Js' },
+  //       { id: 3, name: 'Java' },
+  //       { id: 4, name: 'PHP', disabled: true },
+  //       { id: 5, name: 'Django' },
+  //       { id: 6, name: 'Angular' },
+  //       { id: 7, name: 'Vue' },
+  //       { id: 8, name: 'ReactJs' },
+  //     ]
+  // };
 
   public selected = [
     { id: 2, name: 'Node Js' },
     { id: 8, name: 'ReactJs' }
   ];
 
+
+
+
+  
 
 //Dato consecionarios
 // {  address: "CARMEN DE BURGOS 9"
@@ -314,6 +320,35 @@ export class NuevoLedComponent implements OnInit {
     this.router.navigate(['/sail/nuevo', { id: heroId }]);
   }
  
+
+
+  //Autoselect
+  public people$: Observable<any>;
+  public peopleLoading = false;
+  public peopleInput$ = new Subject<string>();
+  public selectedPersons: dataNew[] = <any>[{ count: 200, results: [] }];
+
+  trackByFn(item: any) {
+      return item.id;
+  };
+
+  private loadPeople() {
+    this.people$ = concat(
+      of([]), // default items
+      this.peopleInput$.pipe(
+        distinctUntilChanged(),
+        tap(() => this.peopleLoading = true),
+        switchMap(term => this.nService.datoSelect(term, 'concessionaire /').pipe(
+          catchError(() => of([])), // empty list on error
+          tap(() => this.peopleLoading = false)
+        ))
+      )
+    );
+  }
+
+
+
+
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------

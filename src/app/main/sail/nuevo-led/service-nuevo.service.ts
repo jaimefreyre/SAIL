@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 export interface dataNewObservable{
     marca: [dataNew];
@@ -224,6 +224,12 @@ export class ServiceNuevoService {
     });
   }
   
+
+  datoSelect(term: string, URL_Dinamica): Observable<any> {
+    let data = { page_size: "all", search: term };
+    return this.getParamsDinamica(data, URL_Dinamica);
+  }
+
   /**
    * Llamar a seter de forma manual
    */

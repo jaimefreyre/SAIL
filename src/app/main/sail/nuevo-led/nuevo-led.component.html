@@ -422,13 +422,16 @@
                         <div class="form-group">
                             <label for="consecionarias">Consecionario</label>
                             <ng-select 
-                            [items]="consecionario.results | async" 
+                            [items]="people$ | async"
+                            [hideSelected]="true"
                             bindLabel="name" 
                             placeholder="Select item" 
                             appendTo="body" 
                             clearable="true"
                             searchable="true"
-                            [searchFn]="buscarConsecionaria"
+                            [editableSearchTerm]="true"
+                            [typeahead]="peopleInput$"
+                            [loading]="peopleLoading"
                             formControlName="concessionaire__in">
                             </ng-select>
                         </div>
