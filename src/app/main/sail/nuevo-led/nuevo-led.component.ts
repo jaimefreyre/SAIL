@@ -344,7 +344,7 @@ export class NuevoLedComponent implements OnInit {
           map(n => {
             n = n.results;
             this.peopleLoading = false;
-            return of(n)
+            // return of(n)
           })
         ))
       )
@@ -369,7 +369,7 @@ export class NuevoLedComponent implements OnInit {
     console.log(this.currentUser);
     if (this.currentUser.token) {
       this.loadPeople();
-      this.buscarApi("a", 'concessionaire/', 'consecionario');
+      // this.buscarApi("a", 'concessionaire/', 'consecionario');
       this.Set_Observable$ = this.nService.setting_res$.subscribe(response => {
         // this.nService.setting_res$.subscribe(response => {
         this.Configuraciones$ = response;
@@ -379,8 +379,8 @@ export class NuevoLedComponent implements OnInit {
         // this.atendidosArray = response["attended"];
         // this.pendientesArray = response["tracing"];
         // this.cerradosArray = response["end"];
-        console.log(this.Data);
-        console.log(this.Configuraciones$);
+        // console.log(this.Data);
+        // console.log(this.Configuraciones$);
       });
     }
   }
