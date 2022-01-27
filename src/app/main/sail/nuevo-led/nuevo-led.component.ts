@@ -347,6 +347,7 @@ export class NuevoLedComponent implements OnInit {
             console.log(n);
             this.dataSelect_Loading = false;
             // return of(n)
+            return n
           })
         ))
       )
