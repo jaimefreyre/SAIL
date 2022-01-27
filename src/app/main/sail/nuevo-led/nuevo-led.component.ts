@@ -345,7 +345,7 @@ export class NuevoLedComponent implements OnInit {
           map(n => {
             n = n.results;
             console.log(n);
-            this.peopleLoading = false;
+            this.dataSelect_Loading = false;
             // return of(n)
           })
         ))
