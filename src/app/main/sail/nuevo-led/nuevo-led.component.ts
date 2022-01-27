@@ -343,7 +343,7 @@ export class NuevoLedComponent implements OnInit {
           catchError(() => of([])), // empty list on error
           // tap(() => this.dataSelect_Loading = false)
           map(n => {
-            n = n.results;
+            // n = n.results;
             console.log(n);
             this.dataSelect_Loading = false;
             // return of(n)
