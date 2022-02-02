@@ -428,7 +428,7 @@
                             <!-- *ngIf="consecionario" 
                             [items]="consecionario.results" -->
                             <ng-select [items]="(dataSelect_$ | async)?.results" bindLabel="name"
-                                placeholder="Buscar Consecionario" appendTo="body" clearable="true"
+                                placeholder="Buscar Consecionario" appendTo="body" 
                                 [editableSearchTerm]="true" [typeahead]="dataSelect_Input$"
                                 [loading]="dataSelect_Loading" formControlName="concessionaire__in">
                                 <ng-template ng-option-tmp let-item="item">
