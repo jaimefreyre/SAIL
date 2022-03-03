@@ -349,11 +349,6 @@ export class NuevoLedComponent implements OnInit {
             // n = n.results;
             console.log(n);
             this.dataSelect_Loading = false;
-            this.origins = this.DATOSLEADORIGEN.value.concessionaire__in;
-            console.log(this.DATOSLEADORIGEN);
-            console.log(this.DATOSLEADORIGEN.value);
-            console.log(this.DATOSLEADORIGEN.value.concessionaire__in);
-            console.log(this.origins);
             // return of(n)
             return n
           })
@@ -363,7 +358,13 @@ export class NuevoLedComponent implements OnInit {
   }
 
 
-
+  public seleccionaSelectNg(objetoControl:string){
+    this.origins = this.DATOSLEADORIGEN.value[objetoControl];
+    console.log(this.DATOSLEADORIGEN);
+    console.log(this.DATOSLEADORIGEN.value);
+    console.log(this.DATOSLEADORIGEN.value[objetoControl]);
+    console.log(this.origins);
+  }
 
 
   // Lifecycle Hooks
