@@ -350,6 +350,9 @@ export class NuevoLedComponent implements OnInit {
             console.log(n);
             this.dataSelect_Loading = false;
             this.origins = this.DATOSLEADORIGEN.value.concessionaire__in;
+            console.log(this.DATOSLEADORIGEN);
+            console.log(this.DATOSLEADORIGEN.value);
+            console.log(this.DATOSLEADORIGEN.value.concessionaire__in);
             console.log(this.origins);
             // return of(n)
             return n
