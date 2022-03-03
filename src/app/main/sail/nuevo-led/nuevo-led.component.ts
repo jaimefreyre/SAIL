@@ -128,6 +128,7 @@ export class NuevoLedComponent implements OnInit {
     source__origin_id__in: [''],
     source__channel_id__in: [''],
     status__in: [''],
+    sources:[''],
     medio: [''],
     marca: [''],
     vehicles__brand_model__in: [''],
@@ -346,6 +347,7 @@ export class NuevoLedComponent implements OnInit {
             // n = n.results;
             console.log(n);
             this.dataSelect_Loading = false;
+            console.log(this.DATOSLEADORIGEN);
             // return of(n)
             return n
           })
