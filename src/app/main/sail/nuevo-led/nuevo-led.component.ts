@@ -115,6 +115,8 @@ export class NuevoLedComponent implements OnInit {
   ];
   public selectedKeys = [2, 8];
 
+  public origins = [];
+
 
   public DATOSLEADORIGEN = this.fb.group({
     search: ['', [Validators.required, Validators.minLength(5)]],
@@ -347,7 +349,8 @@ export class NuevoLedComponent implements OnInit {
             // n = n.results;
             console.log(n);
             this.dataSelect_Loading = false;
-            console.log(this.DATOSLEADORIGEN);
+            this.origins = this.DATOSLEADORIGEN.value.concessionaire__in;
+            console.log(this.origins);
             // return of(n)
             return n
           })
