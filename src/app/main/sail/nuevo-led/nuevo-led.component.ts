@@ -115,7 +115,7 @@ export class NuevoLedComponent implements OnInit {
   ];
   public selectedKeys = [2, 8];
 
-  public origins = [];
+  public origins=[];
 
 
   public DATOSLEADORIGEN = this.fb.group({
@@ -348,7 +348,7 @@ export class NuevoLedComponent implements OnInit {
           map(n => {
             // n = n.results;
             console.log(n);
-            this.origins = n;
+            this.origins = n.results;
             this.dataSelect_Loading = false;
             // return of(n)
             return n
