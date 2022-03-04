@@ -427,11 +427,16 @@
                             <label for="consecionarias">Consecionario</label>
                             <!-- *ngIf="consecionario" 
                             [items]="consecionario.results" -->
-                            <ng-select [items]="(dataSelect_$ | async)?.results" bindLabel="name"
-                                placeholder="Buscar Consecionario" appendTo="body" 
-                                [editableSearchTerm]="true" [typeahead]="dataSelect_Input$"
-                                [loading]="dataSelect_Loading" formControlName="concessionaire__in"
-                            >
+                            <ng-select [items]="(dataSelect_$ | async)?.results" 
+                                bindLabel="name"
+                                placeholder="Buscar Consecionario" 
+                                appendTo="body" 
+                                [editableSearchTerm]="true" 
+                                [typeahead]="dataSelect_Input$"
+                                [loading]="dataSelect_Loading" 
+                                formControlName="concessionaire__in"
+                                (change)="checkValores()"
+                                >
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
                                     <small>{{item.id}}</small>
@@ -444,8 +449,9 @@
                         <div class="form-group">
                             <label for="origen-column">Origen</label>
                             <ng-select id="origen-column" [items]="origins" bindLabel="name"
-                                 bindValue="id" [searchFn]="customSearchFn" 
-                                 formControlName="source__origin_id__in">
+                            bindValue="id" [searchFn]="customSearchFn" 
+                            (change)="checkValores()"
+                            formControlName="source__origin_id__in">
                                 <!-- [loading]="cargandoSet"  en Ng_select -->
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
@@ -525,7 +531,7 @@
                         </button> -->
                         <div class="form-group">
                             <div class="custom-control custom-control-success custom-switch">
-                                <label (click)="checkValores()" class="custom-control-label" for="customSwitch4">Visita Expo</label>
+                                <label class="custom-control-label" for="customSwitch4">Visita Expo</label>
                                 <input type="checkbox" class="custom-control-input" id="customSwitch4" />
                             </div>
                         </div>
