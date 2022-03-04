@@ -279,6 +279,11 @@ export class NuevoLedComponent implements OnInit {
     tasks__media__in: ['']
   });
 
+  checkValores(){
+    console.log(this.DATOSLEADORIGEN);
+  }
+  
+  
   llamarSeter() {
     console.log(this.DATOSLEADORIGEN);
     this.nService.llamarSetterManual();
