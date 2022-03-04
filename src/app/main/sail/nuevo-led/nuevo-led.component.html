@@ -431,7 +431,6 @@
                                 placeholder="Buscar Consecionario" appendTo="body" 
                                 [editableSearchTerm]="true" [typeahead]="dataSelect_Input$"
                                 [loading]="dataSelect_Loading" formControlName="concessionaire__in"
-                                (change)="seleccionaSelectNg('concessionaire__in')"
                             >
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
