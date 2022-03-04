@@ -437,30 +437,15 @@
                                     <small>{{item.id}}</small>
                                 </ng-template>
                             </ng-select>
-                            <!-- <ng-select 
-                                [items]="consecionario" 
-                                bindLabel="name" 
-                                bindValue="id" 
-                                [(ngModel)]="selectedPersonId">
-                            </ng-select> -->
-
                         </div>
                     </div>
                     <!-- Origen -->
                     <div class="col-md-3 col-12 col-xs-12">
-                        <!-- <div class="form-group">
-                            <label for="origen-column">Origen</label>
-                            <select class="form-control" id="origen-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div> -->
                         <div class="form-group">
                             <label for="origen-column">Origen</label>
                             <ng-select id="origen-column" [items]="origins" bindLabel="name"
-                                [searchFn]="customSearchFn">
+                                 bindValue="id" [searchFn]="customSearchFn" 
+                                 formControlName="source__origin_id__in">
                                 <!-- [loading]="cargandoSet"  en Ng_select -->
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
