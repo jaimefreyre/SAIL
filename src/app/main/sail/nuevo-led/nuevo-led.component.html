@@ -448,9 +448,9 @@
                             <label for="origen-column">Origen</label>
                             <ng-select id="origen-column" [items]="origins" bindLabel="name"
                             bindValue="id" [searchFn]="customSearchFn" 
-                            [disabled]="!originHabilitado"
                             (change)="checkValores(2)"
                             formControlName="source__origin_id__in">
+                            <!-- [disabled]="!originHabilitado" -->
                                 <!-- [loading]="cargandoSet"  en Ng_select -->
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
@@ -467,9 +467,9 @@
                                 id="canal-column" 
                                 [items]="canalesBuscar" 
                                 bindLabel="name"
-                                [disabled]="!canalHabilitado"
                                 [searchFn]="customSearchFn">
                                 <!-- [loading]="cargandoSet"  en Ng_select -->
+                                <!-- [disabled]="!canalHabilitado" -->
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
                                     <small>{{item.id}}</small>
