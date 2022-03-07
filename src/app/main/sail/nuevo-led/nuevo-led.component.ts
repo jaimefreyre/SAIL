@@ -115,7 +115,10 @@ export class NuevoLedComponent implements OnInit {
   ];
   public selectedKeys = [2, 8];
 
+  public originHabilitado = false;
+  public canalHabilitado = false;
   public origins=[];
+  public canalesBuscar=[];
 
 
   public DATOSLEADORIGEN = this.fb.group({
@@ -279,8 +282,15 @@ export class NuevoLedComponent implements OnInit {
     tasks__media__in: ['']
   });
 
-  checkValores(){
+  checkValores(com: number){
+    if(com == 1){
+      this.originHabilitado = true;
+    }
+    if(com == 2){
+      this.canalHabilitado = true;
+    }
     console.log(this.DATOSLEADORIGEN);
+    console.log(this.origins);
   }
   
   

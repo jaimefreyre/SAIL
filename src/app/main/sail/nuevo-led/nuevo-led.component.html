@@ -425,8 +425,6 @@
                     <div class="col-md-6 col-12 col-xs-12">
                         <div class="form-group">
                             <label for="consecionarias">Consecionario</label>
-                            <!-- *ngIf="consecionario" 
-                            [items]="consecionario.results" -->
                             <ng-select [items]="(dataSelect_$ | async)?.results" 
                                 bindLabel="name"
                                 placeholder="Buscar Consecionario" 
@@ -435,7 +433,7 @@
                                 [typeahead]="dataSelect_Input$"
                                 [loading]="dataSelect_Loading" 
                                 formControlName="concessionaire__in"
-                                (change)="checkValores()"
+                                (change)="checkValores(1)"
                                 >
                                 <ng-template ng-option-tmp let-item="item">
                                     {{item.name}} <br />
@@ -450,7 +448,8 @@
                             <label for="origen-column">Origen</label>
                             <ng-select id="origen-column" [items]="origins" bindLabel="name"
                             bindValue="id" [searchFn]="customSearchFn" 
-                            (change)="checkValores()"
+                            [disabled]="!originHabilitado"
+                            (change)="checkValores(2)"
                             formControlName="source__origin_id__in">
                                 <!-- [loading]="cargandoSet"  en Ng_select -->
                                 <ng-template ng-option-tmp let-item="item">
@@ -462,18 +461,13 @@
                     </div>
                     <!-- canal -->
                     <div class="col-md-3 col-12 col-xs-12">
-                        <!-- <div class="form-group">
-                            <label for="canal-column">Canal</label>
-                            <select class="form-control" id="canal-column">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div> -->
                         <div class="form-group">
                             <label for="canal-column">Canal</label>
-                            <ng-select id="canal-column" [items]="itemsSelect" bindLabel="name"
+                            <ng-select 
+                                id="canal-column" 
+                                [items]="canalesBuscar" 
+                                bindLabel="name"
+                                [disabled]="!canalHabilitado"
                                 [searchFn]="customSearchFn">
                                 <!-- [loading]="cargandoSet"  en Ng_select -->
                                 <ng-template ng-option-tmp let-item="item">
